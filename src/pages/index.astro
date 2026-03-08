@@ -23,6 +23,7 @@ const links = [
       "@type": "Person",
       "name": "Ken Imoto",
       "jobTitle": "AI Systems Engineer",
+      "affiliation": { "@type": "Organization", "name": "Propel-Lab", "url": "https://propel-lab.co.jp" },
       "description": "Building AI-native organizations powered by LLMs, automation, and distributed agents.",
       "url": "https://kenimoto.dev",
       "sameAs": [
@@ -45,8 +46,8 @@ const links = [
 
       body {
         font-family: system-ui, -apple-system, sans-serif;
-        background-color: #0a0a0a;
-        color: #ffffff;
+        background-color: #0f172a;
+        color: #e2e8f0;
         margin: 0;
         min-height: 100vh;
         display: flex;
@@ -64,24 +65,25 @@ const links = [
   </head>
   <body>
     <main style="max-width: 600px; padding: 4rem 2rem; text-align: center;">
+      <img src="/avatar.jpg" alt="Ken Imoto" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid #1e3a5f;" />
       <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">Ken Imoto</h1>
-      <p style="font-size: 1.125rem; color: #a0a0a0; margin-bottom: 2.5rem;">AI Systems Engineer</p>
+      <p style="font-size: 1.125rem; color: #94a3b8; margin-bottom: 2.5rem;">AI Systems Engineer</p>
 
-      <p style="font-size: 1rem; color: #d0d0d0; line-height: 1.7; margin-bottom: 3rem;">
+      <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 3rem;">
         Building AI-native organizations powered by LLMs, automation, and distributed agents.
       </p>
 
       <section style="margin-bottom: 3rem; text-align: left;">
-        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #a0a0a0; margin-bottom: 1rem;">Currently</h2>
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1rem;">Currently</h2>
         <ul style="list-style: none; padding: 0; line-height: 2;">
-          <li>Founder & CEO at <a href="https://propel-lab.co.jp">Propel-Lab</a></li>
+          <li>Building AI systems at <a href="https://propel-lab.co.jp">Propel-Lab</a></li>
           <li>Author: Practical Claude Code, LLMO (Kindle/Zenn)</li>
           <li>Researching: LLMO, AI Agent Design, Context Engineering</li>
         </ul>
       </section>
 
       <section style="text-align: left;">
-        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #a0a0a0; margin-bottom: 1rem;">Connect</h2>
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1rem;">Connect</h2>
         <ul style="list-style: none; padding: 0; line-height: 2;">
           {links.map(link => (
             <li><a href={link.url}>{link.label}</a></li>
