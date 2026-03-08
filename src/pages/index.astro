@@ -1,0 +1,93 @@
+---
+const links = [
+  { label: 'GitHub', url: 'https://github.com/kenimo49' },
+  { label: 'LinkedIn', url: 'https://linkedin.com/in/kenimo49' },
+  { label: 'X', url: 'https://x.com/kenimo49' },
+  { label: 'Qiita', url: 'https://qiita.com/kenimo49' },
+  { label: 'Zenn', url: 'https://zenn.dev/kenimo49' },
+  { label: 'DEV.to', url: 'https://dev.to/kenimo49' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ken Imoto — AI Systems Engineer. Building AI-native organizations powered by LLMs, automation, and distributed agents." />
+    <title>Ken Imoto — AI Systems Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ken Imoto",
+      "jobTitle": "AI Systems Engineer",
+      "description": "Building AI-native organizations powered by LLMs, automation, and distributed agents.",
+      "url": "https://kenimoto.dev",
+      "sameAs": [
+        "https://github.com/kenimo49",
+        "https://linkedin.com/in/kenimo49",
+        "https://x.com/kenimo49",
+        "https://qiita.com/kenimo49",
+        "https://zenn.dev/kenimo49",
+        "https://dev.to/kenimo49"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Propel-Lab",
+        "url": "https://propel-lab.co.jp"
+      }
+    }
+    </script>
+    <style>
+      @import "tailwindcss";
+
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        background-color: #0a0a0a;
+        color: #ffffff;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      a {
+        color: #60a5fa;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main style="max-width: 600px; padding: 4rem 2rem; text-align: center;">
+      <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">Ken Imoto</h1>
+      <p style="font-size: 1.125rem; color: #a0a0a0; margin-bottom: 2.5rem;">AI Systems Engineer</p>
+
+      <p style="font-size: 1rem; color: #d0d0d0; line-height: 1.7; margin-bottom: 3rem;">
+        Building AI-native organizations powered by LLMs, automation, and distributed agents.
+      </p>
+
+      <section style="margin-bottom: 3rem; text-align: left;">
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #a0a0a0; margin-bottom: 1rem;">Currently</h2>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          <li>Founder & CEO at <a href="https://propel-lab.co.jp">Propel-Lab</a></li>
+          <li>Author: Practical Claude Code, LLMO (Kindle/Zenn)</li>
+          <li>Researching: LLMO, AI Agent Design, Context Engineering</li>
+        </ul>
+      </section>
+
+      <section style="text-align: left;">
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #a0a0a0; margin-bottom: 1rem;">Connect</h2>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          {links.map(link => (
+            <li><a href={link.url}>{link.label}</a></li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

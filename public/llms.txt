@@ -1,0 +1,30 @@
+# Ken Imoto
+
+> AI Systems Engineer building AI-native organizations powered by LLMs, automation, and distributed agents.
+
+## About
+
+Ken Imoto is an AI Systems Engineer and the Founder & CEO of Propel-Lab (https://propel-lab.co.jp), a company focused on Android and web application development with AI integration.
+
+## Expertise
+
+- LLMO (Large Language Model Optimization)
+- AI Agent Design
+- Context Engineering
+- LLM-powered automation
+- Distributed AI agent systems
+
+## Publications
+
+- Practical Claude Code (Kindle/Zenn)
+- LLMO (Kindle/Zenn)
+
+## Links
+
+- Website: https://kenimoto.dev
+- GitHub: https://github.com/kenimo49
+- LinkedIn: https://linkedin.com/in/kenimo49
+- X: https://x.com/kenimo49
+- Qiita: https://qiita.com/kenimo49
+- Zenn: https://zenn.dev/kenimo49
+- DEV.to: https://dev.to/kenimo49
