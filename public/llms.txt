@@ -1,27 +1,53 @@
 # Ken Imoto
 
-> AI Systems Engineer building AI-native organizations powered by LLMs, automation, and distributed agents.
+> AI Systems Engineer specializing in LLMO, WebRTC, Real-time AI, and Context Engineering. Building AI-native organizations powered by LLMs, automation, and distributed agents.
 
 ## About
 
-Ken Imoto is an AI Systems Engineer and the Founder & CEO of Propel-Lab (https://propel-lab.co.jp), a company focused on Android and web application development with AI integration.
+Ken Imoto is an AI Systems Engineer based in Fukuoka, Japan. He builds AI-native organizations at Propel-Lab (https://propel-lab.co.jp) and researches LLMO (LLM Optimization), AI Agent Design, and Human-AI Interaction.
+
+LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization).
 
 ## Expertise
 
-- LLMO (Large Language Model Optimization)
-- AI Agent Design
-- Context Engineering
-- LLM-powered automation
-- Distributed AI agent systems
+- LLMO (LLM Optimization) — Author of the LLMO Framework (https://llmoframework.com)
+- WebRTC & Real-time AI
+- Context Engineering (CLAUDE.md, AGENTS.md patterns)
+- AI Agent Design (MCP, multi-agent architectures)
+- Android & Web Development (8+ years)
 
 ## Publications
 
-- Practical Claude Code (Kindle/Zenn)
-- LLMO (Kindle/Zenn)
+### Books (Kindle & Zenn)
+1. Practical Claude Code — Context Engineering for Modern Development
+   - Kindle JP: https://amzn.asia/d/03Qnb8QT
+   - Kindle EN: https://amzn.asia/d/0hU3BP1i
+   - Zenn: https://zenn.dev/kenimo49/books/claude-code-mastery
+2. LLMO — Three Paths for AI to Discover Your Content
+   - Kindle JP: https://amzn.asia/d/02zAl1VB
+   - Kindle EN: https://amzn.asia/d/04rulUoN
+   - Zenn: https://zenn.dev/kenimo49/books/llmo-ai-search-optimization
+3. MCP Security in Practice (Free)
+   - Zenn: https://zenn.dev/kenimo49/books/mcp-security-practice
+4. Claude Code QuickStart (Free)
+   - Zenn: https://zenn.dev/kenimo49/books/claude-code-quickstart
+
+### Technical Writing
+- Qiita: 39,000+ PV, 138+ LGTM — https://qiita.com/kenimo49
+- DEV.to: English articles — https://dev.to/kenimo49
+- Amazon Author: https://www.amazon.co.jp/stores/author/B0GQNPRCGF
+
+## AI-Readable Content
+
+- /ai/about.md — Profile and current focus
+- /ai/publications.md — Complete publication list with links
+- /ai/expertise.md — Technical expertise and career highlights
 
 ## Links
 
 - Website: https://kenimoto.dev
+- Company: https://propel-lab.co.jp
+- LLMO Framework: https://llmoframework.com
 - GitHub: https://github.com/kenimo49
 - LinkedIn: https://linkedin.com/in/kenimo49
 - X: https://x.com/kenimo49
