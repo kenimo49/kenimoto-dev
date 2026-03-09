@@ -25,8 +25,8 @@
 
 ## Technical Writing
 
-- **Qiita**: 39,000+ PV, 138+ LGTM, 25+ articles
-  - Top article: SSH security (20,000+ PV, 91 LGTM)
+- **Qiita**: 45,000+ PV, 138+ LGTM, 25+ articles
+  - Top article: SSH security (26,000+ PV, 102 LGTM)
   - CLAUDE.md defense experiment (8,000+ PV)
   - https://qiita.com/kenimo49
 - **Zenn**: 13 articles + 4 Books — https://zenn.dev/kenimo49

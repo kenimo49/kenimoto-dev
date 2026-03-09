@@ -33,7 +33,7 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
    - Zenn: https://zenn.dev/kenimo49/books/claude-code-quickstart
 
 ### Technical Writing
-- Qiita: 39,000+ PV, 138+ LGTM — https://qiita.com/kenimo49
+- Qiita: 45,000+ PV, 138+ LGTM — https://qiita.com/kenimo49
 - DEV.to: English articles — https://dev.to/kenimo49
 - Amazon Author: https://www.amazon.co.jp/stores/author/B0GQNPRCGF
 
