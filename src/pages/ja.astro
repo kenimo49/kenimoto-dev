@@ -222,12 +222,29 @@ const links = [
         </ul>
       </section>
 
+      <section style="margin-bottom: 3rem; text-align: left;">
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1rem;">研究</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div style="background: #1e293b; border-radius: 8px; padding: 1rem;">
+            <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">🔬 LLMO Framework</p>
+            <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">AI検索エンジン（ChatGPT, Perplexity, Gemini）におけるコンテンツ最適化フレームワーク</p>
+            <p style="font-size: 0.7rem; color: #64748b;">状態: フレームワーク公開済み · arXiv論文準備中</p>
+          </div>
+          <div style="background: #1e293b; border-radius: 8px; padding: 1rem;">
+            <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">🔬 Voice AI 300ms</p>
+            <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">人間とAIの自然な音声会話を実現する300msレイテンシの壁への挑戦</p>
+            <p style="font-size: 0.7rem; color: #64748b;">状態: リサーチ・ベンチマーク中</p>
+          </div>
+        </div>
+      </section>
+
       <section style="text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1rem;">SNS・コンタクト</h2>
         <ul style="list-style: none; padding: 0; line-height: 2;">
           {links.map(link => (
             <li><a href={link.url}>{link.label}</a></li>
           ))}
+          <li>📧 <a href="mailto:imoto@propel-lab.co.jp">imoto@propel-lab.co.jp</a></li>
         </ul>
       </section>
     </main>
