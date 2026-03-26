@@ -79,6 +79,18 @@ const links = [
     }
     </script>
     <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "name": "Excess Vocabulary in Japanese AI-Generated Text: A Cross-Model Quantitative Analysis",
+      "author": { "@type": "Person", "name": "Ken Imoto" },
+      "datePublished": "2026-03-26",
+      "url": "https://doi.org/10.5281/zenodo.19233934",
+      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.19233934" },
+      "about": ["Excess Vocabulary", "Japanese NLP", "LLM Detection", "MeCab", "Cross-Model Comparison", "Vocabulary Coevolution"]
+    }
+    </script>
+    <script type="application/ld+json">
     [
       {
         "@context": "https://schema.org",
@@ -218,6 +230,15 @@ const links = [
 
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1rem;">Papers</h2>
+        <div style="background: #1e293b; border-radius: 8px; padding: 1.25rem; border-left: 3px solid #10b981; margin-bottom: 1rem;">
+          <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">📊 Excess Vocabulary in Japanese AI-Generated Text: A Cross-Model Quantitative Analysis</p>
+          <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.75rem;">350 samples from 7 LLMs vs. 977 human articles. 651 statistically significant excess words identified. Newer Claude generations show increasing vocabulary bias (TTR: 0.52→0.29). Cross-domain classifier achieves AUC=0.946 in-domain but fails completely across genres. First Japanese excess vocabulary study with coevolution evidence.</p>
+          <div style="font-size: 0.75rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://doi.org/10.5281/zenodo.19233934">📄 Paper (DOI)</a>
+            <a href="https://github.com/kenimo49/excess-vocabulary-ja">💻 Code & Data</a>
+            <span style="color: #64748b;">March 2026 · Zenodo</span>
+          </div>
+        </div>
         <div style="background: #1e293b; border-radius: 8px; padding: 1.25rem; border-left: 3px solid #f59e0b; margin-bottom: 1rem;">
           <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">📝 AI Text Slop: Stylistic Convergence Across Six LLMs in Japanese Technical Writing</p>
           <p style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.75rem;">180 samples (6 models × 10 topics × 3 trials) measured with 16 pattern indicators. RLHF-aligned commercial models score significantly higher than OSS (Cohen's d = 1.01). Vocabulary and structural patterns dissociate ("Swallow Paradox"). Human Qiita articles score higher than AI on structural metrics, revealing cultural confounding.</p>
