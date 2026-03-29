@@ -18,22 +18,39 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
 
 ## Publications
 
-### Books (Kindle & Zenn)
+### Books — AI Development Series
 1. Practical Claude Code — Context Engineering for Modern Development
-   - Kindle JP: https://amzn.asia/d/03Qnb8QT
-   - Kindle EN: https://amzn.asia/d/0hU3BP1i
+   - Kindle JP: https://amzn.asia/d/03Qnb8QT | Kindle EN: https://amzn.asia/d/0hU3BP1i
    - Zenn: https://zenn.dev/kenimo49/books/claude-code-mastery
-2. LLMO — Three Paths for AI to Discover Your Content
-   - Kindle JP: https://amzn.asia/d/02zAl1VB
-   - Kindle EN: https://amzn.asia/d/04rulUoN
-   - Zenn: https://zenn.dev/kenimo49/books/llmo-ai-search-optimization
-3. MCP Security in Practice (Free)
-   - Zenn: https://zenn.dev/kenimo49/books/mcp-security-practice
-4. Claude Code QuickStart (Free)
+2. Context Engineering in Practice — Turning LLMs from Liars into Experts
+   - Kindle JP: https://amzn.asia/d/04rulUoN
+   - Zenn: https://zenn.dev/kenimo49/books/context-engineering
+3. Claude Code QuickStart (Free)
    - Zenn: https://zenn.dev/kenimo49/books/claude-code-quickstart
 
+### Books — LLMO / AI Search Optimization Series
+4. LLMO Practical Guide — Why ChatGPT Ignores Your Website
+   - Kindle JP: https://amzn.asia/d/02zAl1VB | Kindle EN: https://amzn.asia/d/04rulUoN
+   - Zenn: https://zenn.dev/kenimo49/books/llmo-ai-search-optimization
+5. LLMO Quickstart — AI Search Optimization for Engineers
+   - Kindle JP: https://amzn.asia/d/04skv9ST | Kindle EN: https://amzn.asia/d/04XYlHKe
+6. LLMO Website Builder
+   - Zenn: https://zenn.dev/kenimo49/books/llmo-website-builder
+
+### Books — Security & Quality Series
+7. MCP Security in Practice — What OWASP Won't Tell You About AI Tool Integrations
+   - Kindle JP: https://amzn.asia/d/0cQpLy6g | Kindle EN: https://amzn.asia/d/03ceMosL
+   - Zenn (Free): https://zenn.dev/kenimo49/books/mcp-security-practice
+8. AI Slop Escape Guide
+   - Zenn: https://zenn.dev/kenimo49/books/ai-slop-escape-guide
+
+### Research Papers (Zenodo)
+- Excess Vocabulary in Japanese AI-Generated Text (DOI: 10.5281/zenodo.19233934)
+- AI Text Slop: Stylistic Convergence Across Six LLMs (DOI: 10.5281/zenodo.19173035)
+- AI Blue: Color Recognition Bias in Vision-Language Models (DOI: 10.5281/zenodo.19159702)
+
 ### Technical Writing
-- Qiita: 45,000+ PV, 138+ LGTM — https://qiita.com/kenimo49
+- Qiita: 67,000+ PV — https://qiita.com/kenimo49
 - DEV.to: English articles — https://dev.to/kenimo49
 - Amazon Author: https://www.amazon.co.jp/stores/author/B0GQNPRCGF
 
