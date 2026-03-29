@@ -201,7 +201,10 @@ const links = [
 
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1rem;">Publications</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+
+        <!-- 🔧 AI Development -->
+        <p style="font-size: 0.75rem; font-weight: 600; color: #60a5fa; margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI DEVELOPMENT</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
           <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
             <img src="/images/books/claude-code-mastery-en.png" alt="Practical Claude Code" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
             <div style="flex: 1;">
@@ -213,6 +216,21 @@ const links = [
             </div>
           </div>
           <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
+            <img src="/images/books/context-engineering-en.png" alt="Context Engineering" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
+            <div style="flex: 1;">
+              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Context Engineering in Practice</p>
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">Turning LLMs from Liars into Experts</p>
+              <div style="font-size: 0.75rem;">
+                <a href="https://amzn.asia/d/04rulUoN">Kindle</a> · <a href="https://zenn.dev/kenimo49/books/context-engineering">Zenn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🔍 LLMO / AI Search Optimization -->
+        <p style="font-size: 0.75rem; font-weight: 600; color: #f59e0b; margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI SEARCH OPTIMIZATION</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
             <img src="/images/books/llmo-en.png" alt="LLMO" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
             <div style="flex: 1;">
               <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">LLMO Practical Guide</p>
@@ -223,32 +241,27 @@ const links = [
             </div>
           </div>
           <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
-            <img src="/images/books/context-engineering-en.png" alt="Context Engineering" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
-            <div style="flex: 1;">
-              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Context Engineering in Practice</p>
-              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">Turning LLMs from Liars into Experts</p>
-              <div style="font-size: 0.75rem;">
-                <a href="https://zenn.dev/kenimo49/books/context-engineering">Zenn</a> · <a href="https://amzn.asia/d/04rulUoN">Kindle JP</a>
-              </div>
-            </div>
-          </div>
-          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
-            <img src="/images/books/llmo-quickstart-en.jpg" alt="LLMO Quickstart EN" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
+            <img src="/images/books/llmo-quickstart-en.jpg" alt="LLMO Quickstart" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
             <div style="flex: 1;">
               <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">LLMO Quickstart</p>
               <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">AI Search Optimization for Engineers</p>
               <div style="font-size: 0.75rem;">
-                <a href="https://amzn.asia/d/04XYlHKe">Kindle EN</a> · <a href="https://amzn.asia/d/04skv9ST">Kindle JP</a>
+                <a href="https://amzn.asia/d/04XYlHKe">Kindle EN</a> · <a href="https://amzn.asia/d/04skv9ST">JP</a>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- 🛡️ Security & Quality -->
+        <p style="font-size: 0.75rem; font-weight: 600; color: #10b981; margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛡️ SECURITY & QUALITY</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
             <img src="/images/books/mcp-security-en.jpg" alt="MCP Security" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
             <div style="flex: 1;">
               <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">MCP Security in Practice</p>
-              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">What OWASP Won't Tell You About AI Tool Integrations</p>
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">What OWASP Won't Tell You</p>
               <div style="font-size: 0.75rem;">
-                <a href="https://amzn.asia/d/0cQpLy6g">Kindle JP</a> · <a href="https://amzn.asia/d/03ceMosL">Kindle EN</a>
+                <a href="https://amzn.asia/d/03ceMosL">Kindle EN</a> · <a href="https://amzn.asia/d/0cQpLy6g">JP</a>
               </div>
             </div>
           </div>

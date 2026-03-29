@@ -175,7 +175,10 @@ const links = [
 
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; margin-bottom: 1rem;">出版物</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+
+        <!-- 🔧 AI開発シリーズ -->
+        <p style="font-size: 0.75rem; font-weight: 600; color: #60a5fa; margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI開発シリーズ</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
           <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
             <img src="/images/books/claude-code-mastery.png" alt="実践Claude Code" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
             <div style="flex: 1;">
@@ -184,37 +187,6 @@ const links = [
               <div style="display: flex; gap: 0.75rem; font-size: 0.75rem;">
                 <a href="https://amzn.asia/d/03Qnb8QT">Kindle</a>
                 <a href="https://zenn.dev/kenimo49/books/claude-code-mastery">Zenn</a>
-              </div>
-            </div>
-          </div>
-          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
-            <img src="/images/books/llmo.png" alt="LLMO" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
-            <div style="flex: 1;">
-              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">LLMO実践ガイド</p>
-              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">なぜあなたのサイトはChatGPTに無視されるのか</p>
-              <div style="display: flex; gap: 0.75rem; font-size: 0.75rem;">
-                <a href="https://amzn.asia/d/02zAl1VB">Kindle</a>
-                <a href="https://zenn.dev/kenimo49/books/llmo-ai-search-optimization">Zenn</a>
-              </div>
-            </div>
-          </div>
-          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
-            <img src="/images/books/ai-slop-escape-guide.png" alt="AIスロップから脱出する技術" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
-            <div style="flex: 1;">
-              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">AIスロップから脱出する技術</p>
-              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">4モデル×40色の実験データで解明するAI生成UIの脱出方法</p>
-              <div style="font-size: 0.75rem;">
-                <a href="https://zenn.dev/kenimo49/books/ai-slop-escape-guide">Zenn (¥500)</a>
-              </div>
-            </div>
-          </div>
-          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
-            <img src="/images/books/llmo-website-builder.png" alt="LLMO Website Builder" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
-            <div style="flex: 1;">
-              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">LLMO Website Builder</p>
-              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">LLMOに最適化されたホームページをゼロから作る</p>
-              <div style="font-size: 0.75rem;">
-                <a href="https://zenn.dev/kenimo49/books/llmo-website-builder">Zenn (¥500)</a>
               </div>
             </div>
           </div>
@@ -230,14 +202,28 @@ const links = [
             </div>
           </div>
           <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
-            <img src="/images/books/mcp-security.png" alt="MCP実践セキュリティ" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
+            <img src="/images/books/quickstart.png" alt="Claude Code QuickStart" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
             <div style="flex: 1;">
-              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">MCP実践セキュリティ</p>
-              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">本番導入で躓かないための完全ガイド</p>
+              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Claude Code QuickStart</p>
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">すぐに始める</p>
+              <div style="font-size: 0.75rem;">
+                <a href="https://zenn.dev/kenimo49/books/claude-code-quickstart">Zenn (無料)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🔍 LLMO / AI検索最適化シリーズ -->
+        <p style="font-size: 0.75rem; font-weight: 600; color: #f59e0b; margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI検索最適化シリーズ</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
+            <img src="/images/books/llmo.png" alt="LLMO" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
+            <div style="flex: 1;">
+              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">LLMO実践ガイド</p>
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">なぜあなたのサイトはChatGPTに無視されるのか</p>
               <div style="display: flex; gap: 0.75rem; font-size: 0.75rem;">
-                <a href="https://zenn.dev/kenimo49/books/mcp-security-practice">Zenn (無料)</a>
-                <a href="https://amzn.asia/d/0cQpLy6g">Kindle JP</a>
-                <a href="https://amzn.asia/d/03ceMosL">Kindle EN</a>
+                <a href="https://amzn.asia/d/02zAl1VB">Kindle</a>
+                <a href="https://zenn.dev/kenimo49/books/llmo-ai-search-optimization">Zenn</a>
               </div>
             </div>
           </div>
@@ -253,12 +239,39 @@ const links = [
             </div>
           </div>
           <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
-            <img src="/images/books/quickstart.png" alt="Claude Code QuickStart" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
+            <img src="/images/books/llmo-website-builder.png" alt="LLMO Website Builder" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
             <div style="flex: 1;">
-              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">Claude Code QuickStart</p>
-              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">すぐに始める</p>
+              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">LLMO Website Builder</p>
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">LLMOに最適化されたホームページをゼロから作る</p>
               <div style="font-size: 0.75rem;">
-                <a href="https://zenn.dev/kenimo49/books/claude-code-quickstart">Zenn (無料)</a>
+                <a href="https://zenn.dev/kenimo49/books/llmo-website-builder">Zenn (¥500)</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🛡️ セキュリティ / 品質シリーズ -->
+        <p style="font-size: 0.75rem; font-weight: 600; color: #10b981; margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛡️ セキュリティ / 品質シリーズ</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
+            <img src="/images/books/mcp-security.png" alt="MCP実践セキュリティ" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
+            <div style="flex: 1;">
+              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">MCP実践セキュリティ</p>
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">本番導入で躓かないための完全ガイド</p>
+              <div style="display: flex; gap: 0.75rem; font-size: 0.75rem;">
+                <a href="https://zenn.dev/kenimo49/books/mcp-security-practice">Zenn (無料)</a>
+                <a href="https://amzn.asia/d/0cQpLy6g">Kindle JP</a>
+                <a href="https://amzn.asia/d/03ceMosL">EN</a>
+              </div>
+            </div>
+          </div>
+          <div class="book-card" style="background: #1e293b; border-radius: 8px; padding: 1rem; display: flex; gap: 0.75rem;">
+            <img src="/images/books/ai-slop-escape-guide.png" alt="AIスロップから脱出する技術" style="width: 60px; height: auto; border-radius: 4px; flex-shrink: 0;" />
+            <div style="flex: 1;">
+              <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">AIスロップから脱出する技術</p>
+              <p style="font-size: 0.75rem; color: #94a3b8; margin-bottom: 0.5rem;">4モデル×40色の実験データで解明</p>
+              <div style="font-size: 0.75rem;">
+                <a href="https://zenn.dev/kenimo49/books/ai-slop-escape-guide">Zenn (¥500)</a>
               </div>
             </div>
           </div>
