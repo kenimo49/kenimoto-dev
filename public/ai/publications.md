@@ -25,6 +25,10 @@
 
 ## Books — AI Development Series
 
+### AIコードレビューを仕組み化する技術 — レビュー時間60%削減の3層モデル
+- Topics: AI Code Review, 3-Layer Model, Review Automation, Code Quality
+- Kindle JP: https://amzn.asia/d/0hgvOnOi
+
 ### Practical Claude Code — Context Engineering for Modern Development
 - Topics: Claude Code, Context Engineering, CLAUDE.md, AI-native development
 - Kindle JP: https://amzn.asia/d/03Qnb8QT
