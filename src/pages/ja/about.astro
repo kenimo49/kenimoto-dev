@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const links = [
+  { label: 'Qiita', url: 'https://qiita.com/kenimo49' },
+  { label: 'Zenn', url: 'https://zenn.dev/kenimo49' },
+  { label: 'GitHub', url: 'https://github.com/kenimo49' },
+  { label: 'X', url: 'https://x.com/kenimo49' },
+  { label: 'LinkedIn', url: 'https://linkedin.com/in/kenimo49' },
+  { label: 'DEV.to', url: 'https://dev.to/kenimo49' },
+];
+---
+
+<BaseLayout
+  title="About — 井本 賢"
+  description="井本 賢について — WebRTC×音声AIエンジニア、LLMOフレームワーク提唱者、Kindle著者。"
+  lang="ja"
+  ogUrl="https://kenimoto.dev/ja/about"
+  ogDescription="井本 賢について — WebRTC×音声AIエンジニア、LLMOフレームワーク提唱者。"
+>
+  <Fragment slot="head">
+    <style>
+      .copy-btn {
+        background: none;
+        border: 1px solid var(--text-separator);
+        color: var(--text-label);
+        cursor: pointer;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .copy-btn:hover {
+        color: var(--text-primary);
+        border-color: var(--text-label);
+      }
+      .bio-block {
+        background: var(--bg-card);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </Fragment>
+
+    <!-- Navigation -->
+    <div style="position: fixed; top: 1rem; right: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.75rem; z-index: 10;">
+      <a href="/ja" style="color: var(--text-label); text-decoration: none;">Home</a>
+      <span style="color: var(--text-separator);">|</span>
+      <span style="color: var(--accent-blue);">JP</span>
+      <span style="color: var(--text-separator);">/</span>
+      <a href="/about" style="color: var(--text-label); text-decoration: none;">EN</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="テーマ切替">
+        <span class="icon-sun">&#9788;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+    </div>
+
+    <main style="max-width: 600px; padding: 4rem 2rem;">
+      <!-- Hero -->
+      <section style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem;">
+        <img src="/avatar.jpg" alt="井本 賢" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-avatar); flex-shrink: 0;" />
+        <div>
+          <h1 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.25rem;">井本 賢</h1>
+          <p style="font-size: 1rem; color: var(--text-label); margin: 0;">WebRTC×音声AIエンジニア</p>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.25rem 0 0;">代表, <a href="https://propel-lab.co.jp">Propel-Lab</a></p>
+        </div>
+      </section>
+
+      <!-- Short Bio -->
+      <section style="margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 0;">Short Bio</h2>
+          <button class="copy-btn" data-copy="short-bio">コピー</button>
+        </div>
+        <div class="bio-block">
+          <p id="short-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">井本 賢はWebRTC×音声AIエンジニアであり、Propel-Lab代表。LLMOフレームワーク提唱者として、AI開発・コンテキストエンジニアリング・AI検索最適化に関する書籍を11冊出版している。</p>
+        </div>
+      </section>
+
+      <!-- Medium Bio -->
+      <section style="margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 0;">Medium Bio</h2>
+          <button class="copy-btn" data-copy="medium-bio">コピー</button>
+        </div>
+        <div class="bio-block">
+          <p id="medium-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">井本 賢はWebRTC×音声AIエンジニアであり、Propel-Labにおいて LLM・自動化・分散エージェントによるAIネイティブ組織の構築に取り組んでいる。LLMO（Large Language Model Optimization）フレームワークの提唱者として、ChatGPTやPerplexityなどのAI検索エンジンにおけるコンテンツ最適化手法を体系化。「実践Claude Code」「ハーネス・エンジニアリング」「LLMO実践ガイド」など11冊を Kindle/Zennで出版。Zenodoでは3本の研究論文を発表し、AI生成テキスト分析やVLMの色認識バイアスについての定量研究を行っている。Qiitaでの累計PVは67,000以上。</p>
+        </div>
+      </section>
+
+      <!-- Full Bio -->
+      <section style="margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 0;">Full Bio</h2>
+          <button class="copy-btn" data-copy="full-bio">コピー</button>
+        </div>
+        <div class="bio-block">
+          <div id="full-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;">
+            <p style="margin: 0 0 1rem;">井本 賢はWebRTC×音声AIエンジニアであり、Propel-Lab代表として、LLM・自動化・分散エージェントによるAIネイティブ組織の構築を推進している。</p>
+            <p style="margin: 0 0 1rem;">LLMO（Large Language Model Optimization）フレームワークの提唱者として、ChatGPTやPerplexityなどのAI検索エンジンにおけるコンテンツの可視性を体系的に最適化する手法を確立した。著書「なぜあなたのサイトはChatGPTに無視されるのか：LLMO実践ガイド」とコンパニオンサイト llmo-guide.com で詳細に解説している。</p>
+            <p style="margin: 0 0 1rem;">AI開発、コンテキストエンジニアリング、MCPセキュリティ、AI検索最適化をテーマに11冊の書籍を出版。代表作に「実践Claude Code — コンテキストエンジニアリングで開発を変える」「ハーネス・エンジニアリング — AIを"使う"から"操る"へ」「MCP実践セキュリティ — 本番デプロイ完全ガイド」がある。</p>
+            <p style="margin: 0 0 1rem;">研究面ではZenodoで3本の論文を発表。「Excess Vocabulary in Japanese AI-Generated Text」（7つのLLMにわたる651の統計的有意な過剰語彙を分析）、「AI Text Slop」（日本語技術記事における文体収束の定量分析）、「AI Blue」（Vision-Language Modelの色認識バイアスの定量評価）。これらはLLMの特定挙動と「AIスロップ」現象を定量的に結びつけた世界初の研究群である。</p>
+            <p style="margin: 0;">現在は音声AIのレイテンシ最適化（300msの壁）、マルチエージェントAIシステムのコンテキストエンジニアリング、Generative Agent Simulationの研究に取り組んでいる。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Media Kit -->
+      <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">メディアキット</h2>
+        <div class="bio-block">
+          <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+            <img src="/avatar.jpg" alt="井本 賢" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-avatar);" />
+            <div>
+              <p style="font-size: 0.85rem; font-weight: 600; margin: 0 0 0.25rem;">プロフィール写真</p>
+              <a href="/avatar.jpg" download style="font-size: 0.75rem;">ダウンロード (JPG)</a>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-label); line-height: 1.7;">
+            <p style="margin: 0 0 0.5rem; font-weight: 600;">使用ガイドライン</p>
+            <ul style="margin: 0; padding-left: 1.25rem;">
+              <li>写真のトリミングや加工はご遠慮ください</li>
+              <li>クレジットは「井本 賢」または「Ken Imoto」で</li>
+              <li>可能な場合は kenimoto.dev へのリンクをお願いします</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Connect -->
+      <section>
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">SNS・コンタクト</h2>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          {links.map(link => (
+            <li><a href={link.url}>{link.label}</a></li>
+          ))}
+          <li>📧 <a href="mailto:imoto@propel-lab.co.jp">imoto@propel-lab.co.jp</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <script is:inline>
+      document.querySelectorAll('.copy-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var targetId = btn.getAttribute('data-copy');
+          var el = document.getElementById(targetId);
+          if (!el) return;
+          var text = el.innerText;
+          navigator.clipboard.writeText(text).then(function() {
+            var orig = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = orig; }, 2000);
+          });
+        });
+      });
+    </script>
+</BaseLayout>

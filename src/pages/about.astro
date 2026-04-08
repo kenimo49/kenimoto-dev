@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const links = [
+  { label: 'GitHub', url: 'https://github.com/kenimo49' },
+  { label: 'LinkedIn', url: 'https://linkedin.com/in/kenimo49' },
+  { label: 'X', url: 'https://x.com/kenimo49' },
+  { label: 'Qiita', url: 'https://qiita.com/kenimo49' },
+  { label: 'Zenn', url: 'https://zenn.dev/kenimo49' },
+  { label: 'DEV.to', url: 'https://dev.to/kenimo49' },
+];
+---
+
+<BaseLayout
+  title="About — Ken Imoto"
+  description="About Ken Imoto — WebRTC & Voice AI Engineer, LLMO Framework Author, Kindle Author."
+  lang="en"
+  ogUrl="https://kenimoto.dev/about"
+  ogDescription="About Ken Imoto — WebRTC & Voice AI Engineer, LLMO Framework Author."
+>
+  <Fragment slot="head">
+    <style>
+      .copy-btn {
+        background: none;
+        border: 1px solid var(--text-separator);
+        color: var(--text-label);
+        cursor: pointer;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        transition: color 0.2s, border-color 0.2s;
+      }
+      .copy-btn:hover {
+        color: var(--text-primary);
+        border-color: var(--text-label);
+      }
+      .bio-block {
+        background: var(--bg-card);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+    </style>
+  </Fragment>
+
+    <!-- Navigation -->
+    <div style="position: fixed; top: 1rem; right: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.75rem; z-index: 10;">
+      <a href="/" style="color: var(--text-label); text-decoration: none;">Home</a>
+      <span style="color: var(--text-separator);">|</span>
+      <a href="/ja/about" style="color: var(--text-label); text-decoration: none;">JP</a>
+      <span style="color: var(--text-separator);">/</span>
+      <span style="color: var(--accent-blue);">EN</span>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <span class="icon-sun">&#9788;</span>
+        <span class="icon-moon">&#9790;</span>
+      </button>
+    </div>
+
+    <main style="max-width: 600px; padding: 4rem 2rem;">
+      <!-- Hero -->
+      <section style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem;">
+        <img src="/avatar.jpg" alt="Ken Imoto" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-avatar); flex-shrink: 0;" />
+        <div>
+          <h1 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.25rem;">Ken Imoto</h1>
+          <p style="font-size: 1rem; color: var(--text-label); margin: 0;">WebRTC & Voice AI Engineer</p>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.25rem 0 0;">Founder, <a href="https://propel-lab.co.jp">Propel-Lab</a></p>
+        </div>
+      </section>
+
+      <!-- Short Bio -->
+      <section style="margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 0;">Short Bio</h2>
+          <button class="copy-btn" data-copy="short-bio">Copy</button>
+        </div>
+        <div class="bio-block">
+          <p id="short-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">Ken Imoto is a WebRTC & Voice AI engineer and founder of Propel-Lab. He is the author of the LLMO Framework and has published 11 books on AI development, context engineering, and AI search optimization.</p>
+        </div>
+      </section>
+
+      <!-- Medium Bio -->
+      <section style="margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 0;">Medium Bio</h2>
+          <button class="copy-btn" data-copy="medium-bio">Copy</button>
+        </div>
+        <div class="bio-block">
+          <p id="medium-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">Ken Imoto is a WebRTC & Voice AI engineer building AI-native organizations at Propel-Lab. He is the creator of the LLMO (Large Language Model Optimization) Framework, which helps businesses optimize their content visibility in AI-powered search engines. Ken has published 11 books including "Practical Claude Code," "Harness Engineering," and "LLMO Practical Guide" across Kindle and Zenn. His research spans AI text analysis, vision-language model bias, and voice AI latency optimization, with 3 papers published on Zenodo. His work on Qiita has attracted over 67,000 pageviews.</p>
+        </div>
+      </section>
+
+      <!-- Full Bio -->
+      <section style="margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+          <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 0;">Full Bio</h2>
+          <button class="copy-btn" data-copy="full-bio">Copy</button>
+        </div>
+        <div class="bio-block">
+          <div id="full-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;">
+            <p style="margin: 0 0 1rem;">Ken Imoto is a WebRTC & Voice AI engineer and founder of Propel-Lab, where he builds AI-native organizations powered by LLMs, automation, and distributed agents.</p>
+            <p style="margin: 0 0 1rem;">He is the creator of the LLMO (Large Language Model Optimization) Framework, a systematic approach to optimizing content visibility in AI-powered search engines like ChatGPT and Perplexity. The framework is documented in his book "Why ChatGPT Ignores Your Website: The LLMO Practical Guide" and the companion site llmo-guide.com.</p>
+            <p style="margin: 0 0 1rem;">Ken has published 11 books spanning AI development, context engineering, MCP security, and AI search optimization. Notable titles include "Practical Claude Code — Context Engineering for Modern Development," "Harness Engineering — From Using AI to Controlling AI," and "MCP Security in Practice."</p>
+            <p style="margin: 0 0 1rem;">His research includes three peer-reviewed papers on Zenodo: "Excess Vocabulary in Japanese AI-Generated Text" (analyzing 651 statistically significant excess words across 7 LLMs), "AI Text Slop" (measuring stylistic convergence in Japanese technical writing), and "AI Blue" (quantifying color recognition bias in vision-language models). These studies are the first quantitative analyses linking specific LLM behaviors to the broader "AI Slop" phenomenon.</p>
+            <p style="margin: 0;">Ken is currently researching voice AI latency optimization (the 300ms barrier), context engineering for multi-agent AI systems, and generative agent simulation.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Media Kit -->
+      <section style="margin-bottom: 2rem;">
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">Media Kit</h2>
+        <div class="bio-block">
+          <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem;">
+            <img src="/avatar.jpg" alt="Ken Imoto" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-avatar);" />
+            <div>
+              <p style="font-size: 0.85rem; font-weight: 600; margin: 0 0 0.25rem;">Profile Photo</p>
+              <a href="/avatar.jpg" download style="font-size: 0.75rem;">Download (JPG)</a>
+            </div>
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-label); line-height: 1.7;">
+            <p style="margin: 0 0 0.5rem; font-weight: 600;">Usage Guidelines</p>
+            <ul style="margin: 0; padding-left: 1.25rem;">
+              <li>Do not crop or alter the photo</li>
+              <li>Use "Ken Imoto" for attribution</li>
+              <li>Link to kenimoto.dev when possible</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Connect -->
+      <section>
+        <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">Connect</h2>
+        <ul style="list-style: none; padding: 0; line-height: 2;">
+          {links.map(link => (
+            <li><a href={link.url}>{link.label}</a></li>
+          ))}
+          <li>📧 <a href="mailto:imoto@propel-lab.co.jp">imoto@propel-lab.co.jp</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <script is:inline>
+      document.querySelectorAll('.copy-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var targetId = btn.getAttribute('data-copy');
+          var el = document.getElementById(targetId);
+          if (!el) return;
+          var text = el.innerText;
+          navigator.clipboard.writeText(text).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 2000);
+          });
+        });
+      });
+    </script>
+</BaseLayout>
