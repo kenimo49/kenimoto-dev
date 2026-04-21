@@ -21,6 +21,7 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
 ### Books — AI Development Series
 1. AIコードレビューを仕組み化する技術 — レビュー時間60%削減の3層モデル
    - Kindle JP: https://amzn.asia/d/0hgvOnOi
+   - Zenn: https://zenn.dev/kenimo49/books/harness-code-review
 2. Practical Claude Code — Context Engineering for Modern Development
    - Kindle JP: https://amzn.asia/d/03Qnb8QT | Kindle EN: https://amzn.asia/d/0hU3BP1i
    - Zenn: https://zenn.dev/kenimo49/books/claude-code-mastery
@@ -45,6 +46,8 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
    - Zenn (Free): https://zenn.dev/kenimo49/books/mcp-security-practice
 9. AI Slop Escape Guide
    - Zenn: https://zenn.dev/kenimo49/books/ai-slop-escape-guide
+10. ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる
+   - Zenn: https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide
 
 ### Research Papers (Zenodo)
 - Excess Vocabulary in Japanese AI-Generated Text (DOI: 10.5281/zenodo.19233934)

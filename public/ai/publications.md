@@ -28,6 +28,7 @@
 ### AIコードレビューを仕組み化する技術 — レビュー時間60%削減の3層モデル
 - Topics: AI Code Review, 3-Layer Model, Review Automation, Code Quality
 - Kindle JP: https://amzn.asia/d/0hgvOnOi
+- Zenn: https://zenn.dev/kenimo49/books/harness-code-review (¥1,000)
 
 ### Practical Claude Code — Context Engineering for Modern Development
 - Topics: Claude Code, Context Engineering, CLAUDE.md, AI-native development
@@ -75,6 +76,12 @@
 ### AI Slop Escape Guide
 - Topics: AI Slop, UI color bias, AI Blue, design differentiation
 - Zenn: https://zenn.dev/kenimo49/books/ai-slop-escape-guide (¥500)
+
+## Books — Knowledge & Data Series
+
+### ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる
+- Topics: Knowledge Graph, GraphRAG, Neo4j, RDF, Property Graph, Tree-sitter, MCP, Emotion AI
+- Zenn: https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide (¥1,500)
 
 ## Technical Writing
 
