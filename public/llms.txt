@@ -40,6 +40,11 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
 7. LLMO Website Builder
    - Zenn: https://zenn.dev/kenimo49/books/llmo-website-builder
 
+### Books — Human-AI Interaction Series
+11. The 300ms Threshold — Why Talking to AI Feels Wrong
+   - Kindle JP: https://www.amazon.co.jp/dp/B0GX2R5HP4 | Kindle EN: https://www.amazon.co.jp/dp/B0GYQ4L2KP
+   - Zenn: https://zenn.dev/kenimo49/books/voice-ai-300ms-ux
+
 ### Books — Security & Quality Series
 8. MCP Security in Practice — What OWASP Won't Tell You About AI Tool Integrations
    - Kindle JP: https://amzn.asia/d/0cQpLy6g | Kindle EN: https://amzn.asia/d/03ceMosL

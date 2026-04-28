@@ -65,6 +65,14 @@
 - Topics: LLMO-optimized website development from scratch
 - Zenn: https://zenn.dev/kenimo49/books/llmo-website-builder (¥500)
 
+## Books — Human-AI Interaction Series
+
+### The 300ms Threshold — Why Talking to AI Feels Wrong
+- Topics: Voice AI, Latency UX, Turn-taking, TTFB, Streaming Architecture, Edge AI, Nielsen's Response Time Thresholds
+- Kindle JP: https://www.amazon.co.jp/dp/B0GX2R5HP4 (¥1,200)
+- Kindle EN: https://www.amazon.co.jp/dp/B0GYQ4L2KP ($9.99)
+- Zenn: https://zenn.dev/kenimo49/books/voice-ai-300ms-ux (¥1,200)
+
 ## Books — Security & Quality Series
 
 ### MCP Security in Practice — What OWASP Won't Tell You About AI Tool Integrations
