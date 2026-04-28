@@ -89,7 +89,16 @@
 
 ### ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる
 - Topics: Knowledge Graph, GraphRAG, Neo4j, RDF, Property Graph, Tree-sitter, MCP, Emotion AI
-- Zenn: https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide (¥1,500)
+- Kindle JP: https://www.amazon.co.jp/dp/B0GX465PG7 (¥1,250)
+- Kindle EN: https://www.amazon.co.jp/dp/B0GX2Z73JV ($9.99)
+- Zenn: https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide (¥1,000)
+
+## Books — Engineering Culture Series
+
+### エンジニアリング100の言葉 — なぜその一文は記憶に残るのか
+- Topics: Engineering Quotes, Software Philosophy, Career, Leadership, Debugging, Architecture
+- Kindle JP: https://www.amazon.co.jp/dp/B0GXR5Q6NW (¥500)
+- Kindle EN: https://www.amazon.co.jp/dp/B0GX3CS95M ($4.99)
 
 ## Technical Writing
 

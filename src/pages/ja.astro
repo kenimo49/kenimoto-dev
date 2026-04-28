@@ -51,6 +51,26 @@ const links = [
       {
         "@context": "https://schema.org",
         "@type": "Book",
+        "name": "エンジニアリング100の言葉 — なぜその一文は記憶に残るのか",
+        "author": { "@type": "Person", "name": "井本 賢" },
+        "bookFormat": "EBook",
+        "inLanguage": ["ja", "en"],
+        "url": "https://www.amazon.co.jp/dp/B0GXR5Q6NW",
+        "about": ["エンジニアリング名言", "ソフトウェア哲学", "キャリア", "リーダーシップ"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる",
+        "author": { "@type": "Person", "name": "井本 賢" },
+        "bookFormat": "EBook",
+        "inLanguage": ["ja", "en"],
+        "url": "https://www.amazon.co.jp/dp/B0GX465PG7",
+        "about": ["ナレッジグラフ", "GraphRAG", "Neo4j", "プロパティグラフ"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
         "name": "音声AIの300ms — 人はなぜAIとの会話に違和感を覚えるのか",
         "author": { "@type": "Person", "name": "井本 賢" },
         "bookFormat": "EBook",
@@ -165,7 +185,7 @@ const links = [
             <p style="font-size: 0.7rem; color: var(--text-label); text-transform: uppercase; letter-spacing: 0.08em; margin: 0.25rem 0 0;">Qiita PV</p>
           </div>
           <div>
-            <p style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin: 0; line-height: 1.2;">12</p>
+            <p style="font-size: 2rem; font-weight: 800; color: var(--text-primary); margin: 0; line-height: 1.2;">14</p>
             <p style="font-size: 0.7rem; color: var(--text-label); letter-spacing: 0.08em; margin: 0.25rem 0 0;">冊</p>
           </div>
           <div>
@@ -300,7 +320,21 @@ const links = [
             <img src="/images/books/knowledge-graph-practical-guide.png" alt="ナレッジグラフ活用大全" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">ナレッジグラフ活用大全</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">構造化すれば、AIは賢くなる</p>
-            <div style="font-size: 0.7rem;"><a href="https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide">Zenn (¥1,500)</a></div>
+            <div style="font-size: 0.7rem; display: flex; gap: 0.5rem; justify-content: center;">
+              <a href="https://www.amazon.co.jp/dp/B0GX465PG7">Kindle</a>
+              <a href="https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide">Zenn</a>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-rose, #e11d48); margin-bottom: 0.5rem; margin-top: 1.5rem; letter-spacing: 0.05em;">💡 エンジニアリング文化シリーズ</p>
+        <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
+          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; position: relative; border: 1px solid var(--accent-rose, #e11d48); transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-rose, #e11d48)'" onmouseout="this.style.outline='none'">
+            <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-rose, #e11d48); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
+            <img src="/images/books/engineer-it-quotes.jpg" alt="エンジニアリング100の言葉" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+            <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">エンジニアリング100の言葉</p>
+            <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">なぜその一文は記憶に残るのか</p>
+            <div style="font-size: 0.7rem;"><a href="https://www.amazon.co.jp/dp/B0GXR5Q6NW">Kindle</a></div>
           </div>
         </div>
 

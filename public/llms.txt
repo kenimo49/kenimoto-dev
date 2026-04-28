@@ -52,7 +52,12 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
 9. AI Slop Escape Guide
    - Zenn: https://zenn.dev/kenimo49/books/ai-slop-escape-guide
 10. ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる
+   - Kindle JP: https://www.amazon.co.jp/dp/B0GX465PG7 | Kindle EN: https://www.amazon.co.jp/dp/B0GX2Z73JV
    - Zenn: https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide
+
+### Books — Engineering Culture Series
+12. エンジニアリング100の言葉 — なぜその一文は記憶に残るのか
+   - Kindle JP: https://www.amazon.co.jp/dp/B0GXR5Q6NW | Kindle EN: https://www.amazon.co.jp/dp/B0GX3CS95M
 
 ### Research Papers (Zenodo)
 - Excess Vocabulary in Japanese AI-Generated Text (DOI: 10.5281/zenodo.19233934)
