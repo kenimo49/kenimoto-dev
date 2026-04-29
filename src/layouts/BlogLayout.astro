@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
 
 interface Props {
   title: string;
@@ -147,34 +148,9 @@ const altLangUrl = lang === 'ja'
     </style>
   </Fragment>
 
-  <!-- Navigation -->
-  <div style="position: fixed; top: 1rem; right: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.75rem; z-index: 10;">
-    <a href={homeUrl} style="color: var(--text-label); text-decoration: none;">Home</a>
-    <span style="color: var(--text-separator);">|</span>
-    <a href={blogIndexUrl} style="color: var(--accent-blue); text-decoration: none;">Blog</a>
-    <span style="color: var(--text-separator);">|</span>
-    <a href={aboutUrl} style="color: var(--text-label); text-decoration: none;">About</a>
-    <span style="color: var(--text-separator);">|</span>
-    {lang === 'ja' ? (
-      <>
-        <span style="color: var(--accent-blue);">JP</span>
-        <span style="color: var(--text-separator);">/</span>
-        <a href={altLangUrl} style="color: var(--text-label); text-decoration: none;">EN</a>
-      </>
-    ) : (
-      <>
-        <a href={altLangUrl} style="color: var(--text-label); text-decoration: none;">JP</a>
-        <span style="color: var(--text-separator);">/</span>
-        <span style="color: var(--accent-blue);">EN</span>
-      </>
-    )}
-    <button id="theme-toggle" class="theme-toggle" aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}>
-      <span class="icon-sun">&#9788;</span>
-      <span class="icon-moon">&#9790;</span>
-    </button>
-  </div>
+  <Nav lang={lang} current="blog" />
 
-  <main style="max-width: 720px; padding: 4rem 2rem;">
+  <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem;">
     <article>
       <!-- Article header -->
       <header style="margin-bottom: 2.5rem;">

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
 
 const links = [
   { label: 'Qiita', url: 'https://qiita.com/kenimo49' },
@@ -151,22 +152,9 @@ const links = [
     </script>
   </Fragment>
 
-    <!-- Navigation -->
-    <div style="position: fixed; top: 1rem; right: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.75rem; z-index: 10;">
-      <a href="/ja/blog" style="color: var(--text-label); text-decoration: none;">Blog</a>
-      <span style="color: var(--text-separator);">|</span>
-      <a href="/ja/about" style="color: var(--text-label); text-decoration: none;">About</a>
-      <span style="color: var(--text-separator);">|</span>
-      <span style="color: var(--accent-blue);">JP</span>
-      <span style="color: var(--text-separator);">/</span>
-      <a href="/" style="color: var(--text-label); text-decoration: none;">EN</a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="テーマ切替">
-        <span class="icon-sun">&#9788;</span>
-        <span class="icon-moon">&#9790;</span>
-      </button>
-    </div>
+    <Nav lang="ja" current="home" />
 
-    <main style="max-width: 720px; padding: 4rem 2rem; text-align: center;">
+    <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem; text-align: center;">
       <!-- Hero (600px inner wrapper) -->
       <div style="max-width: 600px; margin: 0 auto;">
         <img src="/avatar.jpg" alt="井本 賢" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--border-avatar);" />
@@ -218,7 +206,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI開発シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; position: relative; border: 1px solid var(--accent-blue); transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-blue)'" onmouseout="this.style.outline='none'">
+          <div class="book-card" style="position: relative; border: 1px solid var(--accent-blue);">
             <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-blue); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
             <img src="/images/books/voice-ai-300ms-ux.jpg" alt="音声AIの300ms" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">音声AIの300ms</p>
@@ -228,7 +216,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/voice-ai-300ms-ux">Zenn</a>
             </div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-blue)'" onmouseout="this.style.outline='none'">
+          <div class="book-card">
             <img src="/images/books/harness-code-review.png" alt="AIコードレビューを仕組み化する技術" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">AIコードレビューを仕組み化する技術</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">レビュー時間60%削減の3層モデル</p>
@@ -237,7 +225,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/harness-code-review">Zenn</a>
             </div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-blue)'" onmouseout="this.style.outline='none'">
+          <div class="book-card">
             <img src="/images/books/harness-engineering-guide.png" alt="ハーネス・エンジニアリング" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">ハーネス・エンジニアリング</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">AIを"使う"から"操る"へ</p>
@@ -246,7 +234,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/harness-engineering-guide">Zenn</a>
             </div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-blue)'" onmouseout="this.style.outline='none'">
+          <div class="book-card">
             <img src="/images/books/claude-code-mastery.png" alt="実践Claude Code" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">実践Claude Code</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">コンテキストエンジニアリングで開発を変える</p>
@@ -255,7 +243,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/claude-code-mastery">Zenn</a>
             </div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-blue)'" onmouseout="this.style.outline='none'">
+          <div class="book-card">
             <img src="/images/books/context-engineering.png" alt="Context Engineering実践入門" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Context Engineering実践入門</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">LLMを「嘘つき」から「専門家」に変える技術</p>
@@ -264,7 +252,7 @@ const links = [
               <a href="https://amzn.asia/d/0dNeVFvn">Kindle</a>
             </div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-blue)'" onmouseout="this.style.outline='none'">
+          <div class="book-card">
             <img src="/images/books/quickstart.png" alt="Claude Code QuickStart" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Claude Code QuickStart</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">すぐに始める</p>
@@ -274,7 +262,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI検索最適化シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-amber)'" onmouseout="this.style.outline='none'">
+          <div class="book-card accent-amber">
             <img src="/images/books/llmo.png" alt="LLMO" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">LLMO実践ガイド</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">なぜあなたのサイトはChatGPTに無視されるのか</p>
@@ -283,13 +271,13 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/llmo-ai-search-optimization">Zenn</a>
             </div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-amber)'" onmouseout="this.style.outline='none'">
+          <div class="book-card accent-amber">
             <img src="/images/books/llmo-quickstart.jpg" alt="LLMOクイックスタート" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">LLMOクイックスタート</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">エンジニアのためのAI検索最適化入門</p>
             <div style="font-size: 0.7rem;"><a href="https://amzn.asia/d/04skv9ST">Kindle JP (¥300)</a></div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-amber)'" onmouseout="this.style.outline='none'">
+          <div class="book-card accent-amber">
             <img src="/images/books/llmo-website-builder.png" alt="LLMO Website Builder" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">LLMO Website Builder</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">LLMOに最適化されたホームページをゼロから作る</p>
@@ -299,7 +287,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-green); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛡️ セキュリティ / 品質シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-green)'" onmouseout="this.style.outline='none'">
+          <div class="book-card accent-green">
             <img src="/images/books/mcp-security.png" alt="MCP実践セキュリティ" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">MCP実践セキュリティ</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">本番導入で躓かないための完全ガイド</p>
@@ -308,7 +296,7 @@ const links = [
               <a href="https://amzn.asia/d/0cQpLy6g">Kindle JP</a>
             </div>
           </div>
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-green)'" onmouseout="this.style.outline='none'">
+          <div class="book-card accent-green">
             <img src="/images/books/ai-slop-escape-guide.png" alt="AIスロップから脱出する技術" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">AIスロップから脱出する技術</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">4モデル×40色の実験データで解明</p>
@@ -317,7 +305,7 @@ const links = [
         </div>
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-purple, #7c3aed); margin-bottom: 0.5rem; margin-top: 1.5rem; letter-spacing: 0.05em;">📊 ナレッジ & データシリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; position: relative; border: 1px solid var(--accent-purple, #7c3aed); transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-purple, #7c3aed)'" onmouseout="this.style.outline='none'">
+          <div class="book-card accent-purple" style="position: relative; border: 1px solid var(--accent-purple, #7c3aed);">
             <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-purple, #7c3aed); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
             <img src="/images/books/knowledge-graph-practical-guide.png" alt="ナレッジグラフ活用大全" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">ナレッジグラフ活用大全</p>
@@ -331,7 +319,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-rose, #e11d48); margin-bottom: 0.5rem; margin-top: 1.5rem; letter-spacing: 0.05em;">💡 エンジニアリング文化シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div style="background: var(--bg-card); border-radius: 8px; padding: 0.75rem; text-align: center; position: relative; border: 1px solid var(--accent-rose, #e11d48); transition: outline 0.15s;" onmouseover="this.style.outline='2px solid var(--accent-rose, #e11d48)'" onmouseout="this.style.outline='none'">
+          <div class="book-card accent-rose" style="position: relative; border: 1px solid var(--accent-rose, #e11d48);">
             <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-rose, #e11d48); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
             <img src="/images/books/engineer-it-quotes.jpg" alt="エンジニアリング100の言葉" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">エンジニアリング100の言葉</p>

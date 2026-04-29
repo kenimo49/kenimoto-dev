@@ -85,9 +85,6 @@ const { title, description, lang, ogUrl, ogDescription } = Astro.props;
         color: var(--text-primary);
         margin: 0;
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         transition: background-color 0.2s, color 0.2s;
       }
 
@@ -120,12 +117,42 @@ const { title, description, lang, ogUrl, ogDescription } = Astro.props;
       [data-theme="light"] .icon-sun { display: none; }
       [data-theme="light"] .icon-moon { display: inline; }
 
+      .book-card {
+        background: var(--bg-card);
+        border-radius: 8px;
+        padding: 0.75rem;
+        text-align: center;
+        transition: outline 0.15s;
+        outline: none;
+      }
+      .book-card:hover {
+        outline: 2px solid var(--accent-blue);
+      }
+      .book-card.accent-amber:hover {
+        outline-color: var(--accent-amber);
+      }
+      .book-card.accent-green:hover {
+        outline-color: var(--accent-green);
+      }
+      .book-card.accent-purple:hover {
+        outline-color: var(--accent-purple, #7c3aed);
+      }
+      .book-card.accent-rose:hover {
+        outline-color: var(--accent-rose, #e11d48);
+      }
+
       @media (max-width: 640px) {
+        main {
+          padding: 1.5rem 1rem !important;
+        }
         .book-grid {
           grid-template-columns: repeat(2, 1fr) !important;
         }
       }
       @media (min-width: 641px) and (max-width: 900px) {
+        main {
+          padding: 2rem 1.5rem !important;
+        }
         .book-grid {
           grid-template-columns: repeat(3, 1fr) !important;
         }

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
 
 const links = [
   { label: 'Qiita', url: 'https://qiita.com/kenimo49' },
@@ -43,22 +44,9 @@ const links = [
     </style>
   </Fragment>
 
-    <!-- Navigation -->
-    <div style="position: fixed; top: 1rem; right: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.75rem; z-index: 10;">
-      <a href="/ja" style="color: var(--text-label); text-decoration: none;">Home</a>
-      <span style="color: var(--text-separator);">|</span>
-      <a href="/ja/blog" style="color: var(--text-label); text-decoration: none;">Blog</a>
-      <span style="color: var(--text-separator);">|</span>
-      <span style="color: var(--accent-blue);">JP</span>
-      <span style="color: var(--text-separator);">/</span>
-      <a href="/about" style="color: var(--text-label); text-decoration: none;">EN</a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="テーマ切替">
-        <span class="icon-sun">&#9788;</span>
-        <span class="icon-moon">&#9790;</span>
-      </button>
-    </div>
+    <Nav lang="ja" current="about" />
 
-    <main style="max-width: 600px; padding: 4rem 2rem;">
+    <main style="max-width: 600px; margin: 0 auto; padding: 4rem 2rem;">
       <!-- Hero -->
       <section style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem;">
         <img src="/avatar.jpg" alt="井本 賢" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-avatar); flex-shrink: 0;" />
