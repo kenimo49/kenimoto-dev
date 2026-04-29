@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Noto Sans CJK JP installed locally -->
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --border: #D1D9E0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', sans-serif;
+  padding: 64px 96px;
+  background: var(--white);
+  color: var(--dark);
+}
+.message {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.title {
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 48px;
+}
+.comparison {
+  display: flex;
+  gap: 48px;
+  flex: 1;
+}
+.side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.side-label {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.badge {
+  font-size: 32px;
+  font-weight: 700;
+  padding: 4px 20px;
+  border-radius: 16px;
+}
+.badge-broken {
+  background: var(--navy-bg);
+  color: var(--navy);
+}
+.badge-fixed {
+  background: var(--navy);
+  color: var(--white);
+}
+.pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.node {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.node-before {
+  border-left: 10px solid var(--navy-light);
+  opacity: 0.7;
+}
+.node-after {
+  border-left: 10px solid var(--navy);
+}
+.node-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.node-icon.mid { background: var(--navy-mid); }
+.node-icon.light { background: var(--navy-light); }
+.node-text {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--dark);
+}
+.node-sub {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-top: 4px;
+}
+.arrow {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy-light);
+  padding: 4px 0;
+}
+.arrow-after {
+  color: var(--navy);
+}
+.note {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--secondary);
+  text-align: center;
+  margin-top: 12px;
+  font-style: italic;
+}
+.divider {
+  width: 3px;
+  background: var(--border);
+  border-radius: 2px;
+}
+.footer {
+  margin-top: 32px;
+  font-size: 32px;
+  color: var(--secondary);
+  text-align: right;
+}
+</style>
+</head>
+<body>
+  <div class="message">Time-based cron broke the pipeline. Event-driven chaining fixed it.</div>
+  <div class="title">Pipeline Architecture</div>
+
+  <div class="comparison">
+    <div class="side">
+      <div class="side-label">Before <span class="badge badge-broken">BROKEN</span></div>
+      <div class="pipeline">
+        <div class="node node-before">
+          <div class="node-icon">O</div>
+          <div>
+            <div class="node-text">Observer</div>
+            <div class="node-sub">Still scanning...</div>
+          </div>
+        </div>
+        <div class="arrow">simultaneous</div>
+        <div class="node node-before">
+          <div class="node-icon mid">S</div>
+          <div>
+            <div class="node-text">Strategist</div>
+            <div class="node-sub">No input yet</div>
+          </div>
+        </div>
+        <div class="arrow">simultaneous</div>
+        <div class="node node-before">
+          <div class="node-icon light">M</div>
+          <div>
+            <div class="node-text">Marketer</div>
+            <div class="node-sub">No outline</div>
+          </div>
+        </div>
+        <div class="note">Race condition by design</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="side">
+      <div class="side-label">After <span class="badge badge-fixed">FIXED</span></div>
+      <div class="pipeline">
+        <div class="node node-after">
+          <div class="node-icon">O</div>
+          <div>
+            <div class="node-text">Observer</div>
+            <div class="node-sub">schedule: "0 7 * * 1"</div>
+          </div>
+        </div>
+        <div class="arrow arrow-after">&#9660; after: observer</div>
+        <div class="node node-after">
+          <div class="node-icon mid">S</div>
+          <div>
+            <div class="node-text">Strategist</div>
+            <div class="node-sub">Reads Observer output</div>
+          </div>
+        </div>
+        <div class="arrow arrow-after">&#9660; after: strategist</div>
+        <div class="node node-after">
+          <div class="node-icon light">M</div>
+          <div>
+            <div class="node-text">Marketer</div>
+            <div class="node-sub">Reads Strategist output</div>
+          </div>
+        </div>
+        <div class="note" style="color: var(--navy);">Each phase waits for completion</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">kenimoto.dev</div>
+</body>
+</html>

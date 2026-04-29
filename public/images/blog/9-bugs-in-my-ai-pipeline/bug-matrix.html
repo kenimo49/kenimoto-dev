@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Noto Sans CJK JP installed locally -->
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --surface: #F7F9FC;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', sans-serif;
+  padding: 64px 96px;
+  background: var(--white);
+  color: var(--dark);
+}
+.message {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
+.title {
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 48px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+.card {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 36px 40px;
+}
+.card:nth-child(1) { border-top: 10px solid var(--navy); }
+.card:nth-child(2) { border-top: 10px solid var(--navy-mid); }
+.card:nth-child(3) { border-top: 10px solid var(--navy-light); }
+.card:nth-child(4) { border-top: 10px solid var(--navy); }
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.card-title {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--dark);
+}
+.card-count {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--navy);
+  background: var(--navy-bg);
+  width: 80px; height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bug-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bug-item {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bug-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--navy-light);
+  min-width: 40px;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-stats {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+.footer-stats strong {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--dark);
+}
+.footer-stats .highlight {
+  color: var(--navy);
+}
+.footer-right {
+  font-size: 32px;
+  color: var(--secondary);
+}
+</style>
+</head>
+<body>
+  <div class="message">6 test rounds, 9 failures, 0 model issues</div>
+  <div class="title">The 9 Bugs</div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Execution Control</div>
+        <div class="card-count">2</div>
+      </div>
+      <ul class="bug-list">
+        <li class="bug-item"><span class="bug-num">#1</span> Parallel execution conflict</li>
+        <li class="bug-item"><span class="bug-num">#2</span> Cron simultaneous fire</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Data Integrity</div>
+        <div class="card-count">3</div>
+      </div>
+      <ul class="bug-list">
+        <li class="bug-item"><span class="bug-num">#3</span> Topic duplication</li>
+        <li class="bug-item"><span class="bug-num">#4</span> Calendar entry duplication</li>
+        <li class="bug-item"><span class="bug-num">#5</span> Scheduling date conflict</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Quality Assurance</div>
+        <div class="card-count">2</div>
+      </div>
+      <ul class="bug-list">
+        <li class="bug-item"><span class="bug-num">#6</span> Self-reported quality checks</li>
+        <li class="bug-item"><span class="bug-num">#7</span> Missing wit check</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Infrastructure</div>
+        <div class="card-count">2</div>
+      </div>
+      <ul class="bug-list">
+        <li class="bug-item"><span class="bug-num">#8</span> Bash syntax error</li>
+        <li class="bug-item"><span class="bug-num">#9</span> at job duplication</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-stats">
+      Model bugs: <strong>0</strong> &nbsp;&nbsp; Harness bugs: <strong class="highlight">9</strong>
+    </div>
+    <div class="footer-right">kenimoto.dev</div>
+  </div>
+</body>
+</html>
