@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => data.lang === 'ja'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout
+  title="ブログ — 井本 賢"
+  description="LLMO、AI開発、コンテキストエンジニアリング、ハーネスエンジニアリングの技術記事。"
+  lang="ja"
+  ogUrl="https://kenimoto.dev/ja/blog"
+  ogDescription="井本 賢の技術記事。"
+>
+  <Fragment slot="head">
+    <link rel="alternate" type="application/rss+xml" title="井本 賢 — ブログ (JA)" href="/ja/blog.xml" />
+    <link rel="alternate" hreflang="en" href="https://kenimoto.dev/blog" />
+  </Fragment>
+
+  <!-- Navigation -->
+  <div style="position: fixed; top: 1rem; right: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.75rem; z-index: 10;">
+    <a href="/ja" style="color: var(--text-label); text-decoration: none;">Home</a>
+    <span style="color: var(--text-separator);">|</span>
+    <span style="color: var(--accent-blue);">Blog</span>
+    <span style="color: var(--text-separator);">|</span>
+    <a href="/ja/about" style="color: var(--text-label); text-decoration: none;">About</a>
+    <span style="color: var(--text-separator);">|</span>
+    <span style="color: var(--accent-blue);">JP</span>
+    <span style="color: var(--text-separator);">/</span>
+    <a href="/blog" style="color: var(--text-label); text-decoration: none;">EN</a>
+    <button id="theme-toggle" class="theme-toggle" aria-label="テーマ切替">
+      <span class="icon-sun">&#9788;</span>
+      <span class="icon-moon">&#9790;</span>
+    </button>
+  </div>
+
+  <main style="max-width: 720px; padding: 4rem 2rem;">
+    <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">ブログ</h1>
+    <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 0.95rem;">
+      AI開発、LLMO、コンテキストエンジニアリング、ハーネスエンジニアリングの技術記事。
+    </p>
+
+    {posts.length === 0 && (
+      <p style="color: var(--text-muted);">まだ記事がありません。</p>
+    )}
+
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+      {posts.map(post => {
+        const slug = post.id.replace(/^ja\//, '');
+        return (
+          <a href={`/ja/blog/${slug}`} style="text-decoration: none; display: block; background: var(--bg-card); border-radius: 8px; padding: 1.25rem 1.5rem; transition: outline 0.15s;"
+            onmouseover="this.style.outline='1px solid var(--accent-blue)'"
+            onmouseout="this.style.outline='none'">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <time style="font-size: 0.8rem; color: var(--text-muted); white-space: nowrap;">{post.data.date.toISOString().split('T')[0]}</time>
+              {post.data.tags.length > 0 && (
+                <div style="display: flex; gap: 0.35rem; flex-wrap: wrap;">
+                  {post.data.tags.slice(0, 3).map(tag => (
+                    <span style="font-size: 0.7rem; color: var(--text-label); background: var(--bg-primary); padding: 0.1rem 0.4rem; border-radius: 3px;">{tag}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <h2 style="font-size: 1.15rem; font-weight: 600; color: var(--text-primary); margin: 0 0 0.35rem;">{post.data.title}</h2>
+            <p style="font-size: 0.875rem; color: var(--text-label); margin: 0; line-height: 1.5;">{post.data.description}</p>
+          </a>
+        );
+      })}
+    </div>
+
+    <div style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--text-separator); font-size: 0.85rem; color: var(--text-muted);">
+      <a href="/ja/blog.xml" style="color: var(--link-color);">RSS フィード</a>
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,217 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: 'en' | 'ja';
+  date: Date;
+  tags: string[];
+  canonicalUrl: string;
+  ogImage?: string;
+  crossPostedTo?: { platform: string; url: string }[];
+}
+
+const { title, description, lang, date, tags, canonicalUrl, ogImage, crossPostedTo } = Astro.props;
+const formattedDate = date.toISOString().split('T')[0];
+const siteName = lang === 'ja' ? '井本 賢' : 'Ken Imoto';
+const blogIndexUrl = lang === 'ja' ? '/ja/blog' : '/blog';
+const aboutUrl = lang === 'ja' ? '/ja/about' : '/about';
+const homeUrl = lang === 'ja' ? '/ja' : '/';
+const altLangUrl = lang === 'ja'
+  ? canonicalUrl.replace('/ja/blog/', '/blog/')
+  : canonicalUrl.replace('/blog/', '/ja/blog/');
+---
+
+<BaseLayout
+  title={`${title} — ${siteName}`}
+  description={description}
+  lang={lang}
+  ogUrl={canonicalUrl}
+  ogDescription={description}
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={lang === 'ja' ? 'en' : 'ja'} href={altLangUrl} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content={date.toISOString()} />
+    {tags.map(tag => <meta property="article:tag" content={tag} />)}
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "description": description,
+      "datePublished": date.toISOString(),
+      "author": {
+        "@type": "Person",
+        "name": lang === 'ja' ? '井本 賢' : 'Ken Imoto',
+        "url": "https://kenimoto.dev"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": lang === 'ja' ? '井本 賢' : 'Ken Imoto',
+      },
+      "url": canonicalUrl,
+      "mainEntityOfPage": canonicalUrl,
+      "keywords": tags.join(', '),
+    })} />
+    <style>
+      .prose {
+        font-size: 1rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+      }
+      .prose h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 2.5rem 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--text-separator);
+      }
+      .prose h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 2rem 0 0.75rem;
+      }
+      .prose p {
+        margin: 0 0 1.25rem;
+      }
+      .prose a {
+        color: var(--link-color);
+        text-decoration: underline;
+      }
+      .prose code {
+        background: var(--bg-card);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
+      }
+      .prose pre {
+        background: var(--bg-card);
+        border-radius: 8px;
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+      .prose pre code {
+        background: none;
+        padding: 0;
+      }
+      .prose blockquote {
+        border-left: 3px solid var(--accent-blue);
+        padding-left: 1rem;
+        color: var(--text-label);
+        margin: 1.5rem 0;
+        font-style: italic;
+      }
+      .prose ul, .prose ol {
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+      }
+      .prose li {
+        margin: 0.4rem 0;
+      }
+      .prose img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+      }
+      .prose hr {
+        border: none;
+        border-top: 1px solid var(--text-separator);
+        margin: 2rem 0;
+      }
+      .prose table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+      }
+      .prose th, .prose td {
+        border: 1px solid var(--text-separator);
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+      }
+      .prose th {
+        background: var(--bg-card);
+        font-weight: 600;
+      }
+      .prose strong {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+    </style>
+  </Fragment>
+
+  <!-- Navigation -->
+  <div style="position: fixed; top: 1rem; right: 1rem; font-size: 0.875rem; display: flex; align-items: center; gap: 0.75rem; z-index: 10;">
+    <a href={homeUrl} style="color: var(--text-label); text-decoration: none;">Home</a>
+    <span style="color: var(--text-separator);">|</span>
+    <a href={blogIndexUrl} style="color: var(--accent-blue); text-decoration: none;">Blog</a>
+    <span style="color: var(--text-separator);">|</span>
+    <a href={aboutUrl} style="color: var(--text-label); text-decoration: none;">About</a>
+    <span style="color: var(--text-separator);">|</span>
+    {lang === 'ja' ? (
+      <>
+        <span style="color: var(--accent-blue);">JP</span>
+        <span style="color: var(--text-separator);">/</span>
+        <a href={altLangUrl} style="color: var(--text-label); text-decoration: none;">EN</a>
+      </>
+    ) : (
+      <>
+        <a href={altLangUrl} style="color: var(--text-label); text-decoration: none;">JP</a>
+        <span style="color: var(--text-separator);">/</span>
+        <span style="color: var(--accent-blue);">EN</span>
+      </>
+    )}
+    <button id="theme-toggle" class="theme-toggle" aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}>
+      <span class="icon-sun">&#9788;</span>
+      <span class="icon-moon">&#9790;</span>
+    </button>
+  </div>
+
+  <main style="max-width: 720px; padding: 4rem 2rem;">
+    <article>
+      <!-- Article header -->
+      <header style="margin-bottom: 2.5rem;">
+        <a href={blogIndexUrl} style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none;">
+          &larr; {lang === 'ja' ? 'ブログに戻る' : 'Back to Blog'}
+        </a>
+        <h1 style="font-size: 2rem; font-weight: 700; margin: 1rem 0 0.75rem; line-height: 1.3;">{title}</h1>
+        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted);">
+          <time datetime={date.toISOString()}>{formattedDate}</time>
+          {tags.length > 0 && (
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              {tags.map(tag => (
+                <span style="background: var(--bg-card); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+      </header>
+
+      <!-- Article body -->
+      <div class="prose">
+        <slot />
+      </div>
+
+      <!-- Cross-post notice -->
+      {crossPostedTo && crossPostedTo.length > 0 && (
+        <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--text-separator); font-size: 0.85rem; color: var(--text-muted);">
+          <p>
+            {lang === 'ja' ? 'この記事は' : 'Also published on '}
+            {crossPostedTo.map((cp, i) => (
+              <>
+                <a href={cp.url} style="color: var(--link-color);">{cp.platform}</a>
+                {i < crossPostedTo.length - 1 ? ', ' : ''}
+              </>
+            ))}
+            {lang === 'ja' ? ' にもクロスポストしています。' : '.'}
+          </p>
+        </footer>
+      )}
+    </article>
+  </main>
+</BaseLayout>
