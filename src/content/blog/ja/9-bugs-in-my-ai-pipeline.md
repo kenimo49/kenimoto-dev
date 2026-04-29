@@ -39,6 +39,8 @@ marketer:
 
 きれいに見える。現実はもっと泥臭かった。
 
+![パイプライン設計: Before vs After](/images/blog/9-bugs-in-my-ai-pipeline/architecture.png)
+
 ## 9つのバグ
 
 6回のテストで見つけた全バグを整理する。4つのカテゴリに分類できた。
@@ -142,6 +144,8 @@ echo "Update article DEVTO_ID_PLACEHOLDER to published"
 | データ整合性 | 3 | 重複、衝突、除外リスト欠如 |
 | 品質保証 | 2 | 自己採点、チェック漏れ |
 | インフラ | 2 | シェルエスケープ、ジョブ管理 |
+
+![9つのバグ: 全てAIの外側](/images/blog/9-bugs-in-my-ai-pipeline/bug-matrix.png)
 
 これはAIエンジニアリングの3層モデルにきれいに対応する。
 

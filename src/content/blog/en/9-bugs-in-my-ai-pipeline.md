@@ -39,6 +39,8 @@ marketer:
 
 Sounds clean. Reality was messier.
 
+![Pipeline Architecture: Before vs After](/images/blog/9-bugs-in-my-ai-pipeline/architecture.png)
+
 ## The 9 Bugs
 
 After 6 rounds of testing, I cataloged every failure. They fall into four categories.
@@ -142,6 +144,8 @@ None of these bugs involve the model generating bad text. The model was fine. Wh
 | Data integrity | 3 | Duplicates, conflicts, missing exclusions |
 | Quality assurance | 2 | Self-grading, missing checks |
 | Infrastructure | 2 | Shell escaping, job management |
+
+![The 9 Bugs: None Were the AI's Fault](/images/blog/9-bugs-in-my-ai-pipeline/bug-matrix.png)
 
 This maps cleanly to the **Prompt → Context → Harness** progression that's emerging in the AI engineering space:
 
