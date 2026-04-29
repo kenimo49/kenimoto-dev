@@ -89,15 +89,17 @@ const altLangUrl = lang === 'ja'
         border-radius: 4px;
         font-size: 0.9em;
       }
-      .prose pre {
-        background: var(--bg-card);
+      .prose pre,
+      .prose :global(pre) {
+        background: var(--bg-card) !important;
         border-radius: 8px;
-        padding: 1.25rem;
+        padding: 1.25rem !important;
         overflow-x: auto;
         margin: 1.5rem 0;
       }
-      .prose pre code {
-        background: none;
+      .prose pre code,
+      .prose :global(pre) code {
+        background: none !important;
         padding: 0;
       }
       .prose blockquote {
