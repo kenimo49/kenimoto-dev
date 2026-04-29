@@ -18,6 +18,14 @@ const { title, description, lang, ogUrl, ogDescription } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" />
+    <!-- Google Analytics -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-K9SGJT785T"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K9SGJT785T');
+    </script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:image" content="https://kenimoto.dev/og-image.png" />
