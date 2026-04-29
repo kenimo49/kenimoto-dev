@@ -117,8 +117,10 @@ const altLangUrl = lang === 'ja'
       .prose li {
         margin: 0.4rem 0;
       }
-      .prose img {
+      .prose img,
+      .prose :global(img) {
         max-width: 100%;
+        height: auto;
         border-radius: 8px;
         margin: 1.5rem 0;
       }
