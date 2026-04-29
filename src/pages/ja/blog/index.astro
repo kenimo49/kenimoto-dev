@@ -6,6 +6,15 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog', ({ data }) => data.lang === 'ja'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+// Collect all tags with counts
+const tagCounts = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  }
+}
+const sortedTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+
 // Group posts by year
 const postsByYear = new Map<number, typeof posts>();
 for (const post of posts) {
@@ -26,6 +35,31 @@ for (const post of posts) {
     <link rel="alternate" type="application/rss+xml" title="井本 賢 — ブログ (JA)" href="/ja/blog.xml" />
     <link rel="alternate" hreflang="en" href="https://kenimoto.dev/blog" />
     <style>
+      .tag-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
+      .tag-btn {
+        background: none;
+        border: 1px solid var(--text-separator);
+        color: var(--text-label);
+        padding: 0.25rem 0.65rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+      .tag-btn:hover {
+        color: var(--text-primary);
+        border-color: var(--text-label);
+      }
+      .tag-btn.active {
+        background: var(--accent-blue);
+        color: #fff;
+        border-color: var(--accent-blue);
+      }
       .post-list {
         list-style: none;
         padding: 0;
@@ -50,6 +84,12 @@ for (const post of posts) {
       }
       .post-item a:hover {
         color: var(--link-color);
+      }
+      .post-item.hidden {
+        display: none;
+      }
+      .year-group.hidden {
+        display: none;
       }
       .year-heading {
         font-size: 1.25rem;
@@ -81,16 +121,25 @@ for (const post of posts) {
 
   <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem;">
     <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">ブログ</h1>
-    <p style="color: var(--text-muted); margin-bottom: 2.5rem; font-size: 0.95rem;">
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
       AI開発、LLMO、コンテキストエンジニアリング、ハーネスエンジニアリングの技術記事。
     </p>
+
+    {sortedTags.length > 0 && (
+      <div class="tag-filter">
+        <button class="tag-btn active" data-tag="all">All</button>
+        {sortedTags.map(([tag, count]) => (
+          <button class="tag-btn" data-tag={tag}>{tag} <span style="opacity: 0.6;">{count}</span></button>
+        ))}
+      </div>
+    )}
 
     {posts.length === 0 && (
       <p style="color: var(--text-muted);">まだ記事がありません。</p>
     )}
 
     {[...postsByYear.entries()].map(([year, yearPosts]) => (
-      <div>
+      <div class="year-group">
         <h2 class="year-heading">
           {year}
           <span class="year-count">{yearPosts.length}件</span>
@@ -101,7 +150,7 @@ for (const post of posts) {
             const d = post.data.date;
             const monthDay = `${d.getMonth() + 1}月${d.getDate()}日`;
             return (
-              <li class="post-item">
+              <li class="post-item" data-tags={post.data.tags.join(',')}>
                 <time datetime={d.toISOString().split('T')[0]}>{monthDay}</time>
                 <a href={`/ja/blog/${slug}`}>{post.data.title}</a>
               </li>
@@ -115,4 +164,33 @@ for (const post of posts) {
       <a href="/ja/blog.xml" style="color: var(--link-color);">RSS フィード</a>
     </div>
   </main>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      var buttons = document.querySelectorAll('.tag-btn');
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var tag = btn.getAttribute('data-tag');
+          buttons.forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          var items = document.querySelectorAll('.post-item');
+          items.forEach(function(item) {
+            if (tag === 'all') {
+              item.classList.remove('hidden');
+            } else {
+              var tags = (item.getAttribute('data-tags') || '').split(',');
+              item.classList.toggle('hidden', tags.indexOf(tag) === -1);
+            }
+          });
+
+          // Hide year groups where all posts are hidden
+          document.querySelectorAll('.year-group').forEach(function(group) {
+            var visible = group.querySelectorAll('.post-item:not(.hidden)');
+            group.classList.toggle('hidden', visible.length === 0);
+          });
+        });
+      });
+    });
+  </script>
 </BaseLayout>
