@@ -216,4 +216,32 @@ const altLangUrl = lang === 'ja'
       )}
     </article>
   </main>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.prose pre').forEach(function(pre) {
+        var wrapper = document.createElement('div');
+        wrapper.style.position = 'relative';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+
+        var btn = document.createElement('button');
+        btn.textContent = 'Copy';
+        btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;background:var(--bg-primary);color:var(--text-label);border:1px solid var(--text-separator);border-radius:4px;padding:0.2rem 0.5rem;font-size:0.75rem;cursor:pointer;opacity:0;transition:opacity 0.15s;';
+        wrapper.appendChild(btn);
+
+        wrapper.addEventListener('mouseenter', function() { btn.style.opacity = '1'; });
+        wrapper.addEventListener('mouseleave', function() { btn.style.opacity = '0'; });
+
+        btn.addEventListener('click', function() {
+          var code = pre.querySelector('code');
+          var text = (code || pre).textContent;
+          navigator.clipboard.writeText(text).then(function() {
+            btn.textContent = 'Copied!';
+            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+          });
+        });
+      });
+    });
+  </script>
 </BaseLayout>
