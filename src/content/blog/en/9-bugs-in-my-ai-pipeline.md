@@ -25,6 +25,8 @@ I built an autonomous content pipeline using Claude Code. Three independent AI s
 
 Each phase is a separate Claude session. The Observer's output becomes the Strategist's input. The Strategist's output becomes the Marketer's input. No human in the loop: unless something fails quality checks.
 
+I drew this architecture diagram on paper and felt like a genius. On paper, it was perfect.
+
 ```yaml
 # The target architecture
 observer:
@@ -45,7 +47,7 @@ After 6 rounds of testing, I cataloged every failure. They fall into four catego
 
 **Bug #1: Parallel execution conflict**
 
-The first version used three separate cron jobs, all set to the same time. The Strategist hadn't finished reading the Observer's output when the Marketer started: with no input.
+The first version used three separate cron jobs, all set to the same time. The Strategist hadn't finished reading the Observer's output when the Marketer started: with no input. Three people talking at the same time in a meeting. Nobody listening.
 
 ```yaml
 # Before: all fire at once
@@ -100,7 +102,7 @@ available = get_available_publish_dates(
 
 **Bug #6: Self-reported quality checks**
 
-The AI was checking its own work: and always passing itself. "Is this article good?" "Yes, it's excellent."
+The AI was checking its own work: and always passing itself. "Is this article good?" "Yes, it's excellent." I had built the grading equivalent of a student marking their own homework. With a red pen. Giving themselves an A+.
 
 Fix: run quality checks in a **separate** Claude session that has no memory of the writing session. Independent reviewer, not self-assessment.
 
@@ -174,5 +176,7 @@ AI agent quality is determined outside the AI.
 The model is the chef. The context is the ingredients. The harness is the kitchen.
 
 If the kitchen is broken: wrong burners firing simultaneously, ingredients getting mixed up, no one tasting the food: it doesn't matter how talented the chef is.
+
+I spent 3 hours optimizing my prompts. I spent 0 minutes checking my kitchen. Turns out, I was bug #10.
 
 Before you optimize your prompts, check your kitchen.
