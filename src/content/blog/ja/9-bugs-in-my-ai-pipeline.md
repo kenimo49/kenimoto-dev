@@ -5,6 +5,7 @@ date: 2026-04-30
 lang: ja
 tags: [harness-engineering, claude-code, ai-agent, automation, devops]
 featured: true
+og_image: "https://kenimoto.dev/images/blog/9-bugs-in-my-ai-pipeline/og-ja.png"
 canonical_url: "https://kenimoto.dev/ja/blog/9-bugs-in-my-ai-pipeline"
 cross_posted_to: []
 ---

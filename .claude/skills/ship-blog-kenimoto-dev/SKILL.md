@@ -381,6 +381,24 @@ description: "I tested my autonomous..." → 132字 ✅
 
 **画像0枚の場合は警告。** コードブロックのみで図解がない記事は視覚的に弱い。
 
+### 4.6.1 OG画像生成
+
+記事ごとのOG画像（1200x630px）を生成する。SNS共有時のCTRに直結するため必須。
+
+```bash
+node tools/generate-og-images.mjs {slug}
+```
+
+- テンプレート: `tools/og-template.html`（navy-monoデザイン）
+- 出力先: `public/images/blog/{slug}/og.png`（EN）、`og-ja.png`（JA、同slugのEN記事がある場合）
+- frontmatterに `og_image` を設定:
+  ```yaml
+  og_image: "https://kenimoto.dev/images/blog/{slug}/og.png"
+  ```
+- [ ] OG画像が生成されているか
+- [ ] frontmatterに `og_image` が設定されているか
+- [ ] タイトル・タグが正しく表示されているか（生成画像を目視確認）
+
 ### 4.7 リンク・帰属チェック
 
 - [ ] **内部リンク（kenimoto.dev内）が最低2個あるか**（関連記事、著書ページ、Aboutページなど。回遊性とSEO内部リンク構造の両方に効く）

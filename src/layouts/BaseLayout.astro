@@ -5,9 +5,11 @@ interface Props {
   lang: string;
   ogUrl: string;
   ogDescription: string;
+  ogImage?: string;
 }
 
-const { title, description, lang, ogUrl, ogDescription } = Astro.props;
+const { title, description, lang, ogUrl, ogDescription, ogImage } = Astro.props;
+const resolvedOgImage = ogImage || "https://kenimoto.dev/og-image.png";
 ---
 
 <!doctype html>
@@ -28,7 +30,7 @@ const { title, description, lang, ogUrl, ogDescription } = Astro.props;
     </script>
     <meta property="og:title" content={title} />
     <meta property="og:description" content={ogDescription} />
-    <meta property="og:image" content="https://kenimoto.dev/og-image.png" />
+    <meta property="og:image" content={resolvedOgImage} />
     <meta property="og:url" content={ogUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={lang === 'ja' ? '井本 賢' : 'Ken Imoto'} />
@@ -36,7 +38,7 @@ const { title, description, lang, ogUrl, ogDescription } = Astro.props;
     <meta name="twitter:site" content="@kenimo49" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={ogDescription} />
-    <meta name="twitter:image" content="https://kenimoto.dev/og-image.png" />
+    <meta name="twitter:image" content={resolvedOgImage} />
     <script is:inline>
       (function() {
         var t = localStorage.getItem('theme');

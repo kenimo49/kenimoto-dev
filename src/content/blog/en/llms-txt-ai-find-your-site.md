@@ -5,6 +5,7 @@ date: 2026-04-30
 lang: en
 tags: [llmo, ai-search, seo, llms-txt, web-standards]
 featured: false
+og_image: "https://kenimoto.dev/images/blog/llms-txt-ai-find-your-site/og.png"
 canonical_url: "https://kenimoto.dev/blog/llms-txt-ai-find-your-site"
 cross_posted_to: []
 ---

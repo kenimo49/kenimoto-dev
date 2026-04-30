@@ -5,6 +5,7 @@ date: 2026-04-30
 lang: ja
 tags: [mcp, ai-agent, token-cost, claude-code, optimization]
 featured: false
+og_image: "https://kenimoto.dev/images/blog/mcp-token-cost-measurement/og.png"
 canonical_url: "https://kenimoto.dev/ja/blog/mcp-token-cost-measurement"
 cross_posted_to: []
 ---

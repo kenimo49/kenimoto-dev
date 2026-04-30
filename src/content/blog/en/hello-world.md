@@ -5,6 +5,7 @@ date: 2026-04-29
 lang: en
 tags: [harness-engineering, claude-code, ai-agent]
 featured: true
+og_image: "https://kenimoto.dev/images/blog/hello-world/og.png"
 ---
 
 ## The Pipeline

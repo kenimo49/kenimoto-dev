@@ -5,6 +5,7 @@ date: 2026-04-30
 lang: ja
 tags: [llmo, ai-search, seo, content-design, microsoft]
 featured: false
+og_image: "https://kenimoto.dev/images/blog/llm-content-design-microsoft-3-principles/og.png"
 canonical_url: "https://kenimoto.dev/ja/blog/llm-content-design-microsoft-3-principles"
 cross_posted_to: []
 ---

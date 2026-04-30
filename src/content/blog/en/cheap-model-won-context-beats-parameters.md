@@ -5,6 +5,7 @@ date: 2026-04-30
 lang: en
 tags: [context-engineering, rag, llm, cost-optimization, ai-architecture]
 featured: false
+og_image: "https://kenimoto.dev/images/blog/cheap-model-won-context-beats-parameters/og.png"
 canonical_url: "https://kenimoto.dev/blog/cheap-model-won-context-beats-parameters"
 cross_posted_to: []
 ---

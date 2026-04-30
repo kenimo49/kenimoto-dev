@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --dark: #1A1A2E;
+  --white: #FFFFFF;
+  --border: #D1D9E0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 56px 64px 48px;
+}
+.top-bar {
+  height: 4px;
+  background: var(--navy);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy-mid);
+  background: #E8EEF4;
+  padding: 4px 12px;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.title {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--dark);
+  max-height: 310px;
+  overflow: hidden;
+}
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 700;
+}
+.author-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+}
+.site {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy-mid);
+  letter-spacing: 0.02em;
+}
+</style>
+</head>
+<body>
+<div class="top-bar"></div>
+<div class="tags" id="tags"></div>
+<div class="title" id="title">TITLE</div>
+<div class="bottom">
+  <div class="author">
+    <div class="avatar">KI</div>
+    <span class="author-name">Ken Imoto</span>
+  </div>
+  <span class="site">kenimoto.dev</span>
+</div>
+</body>
+</html>
