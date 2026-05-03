@@ -134,16 +134,38 @@ const altLangUrl = lang === 'ja'
       .prose table {
         width: 100%;
         border-collapse: collapse;
-        margin: 1.5rem 0;
+        margin: 1.75rem 0;
+        font-size: 0.95rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      @media (min-width: 768px) {
+        .prose table {
+          display: table;
+          white-space: normal;
+        }
+      }
+      .prose thead {
+        background: var(--bg-card);
+        border-bottom: 2px solid var(--text-separator);
       }
       .prose th, .prose td {
         border: 1px solid var(--text-separator);
-        padding: 0.5rem 0.75rem;
+        padding: 0.65rem 1rem;
         text-align: left;
+        vertical-align: top;
       }
       .prose th {
         background: var(--bg-card);
         font-weight: 600;
+        color: var(--text-primary);
+      }
+      .prose tbody tr:nth-child(even) {
+        background: rgba(96, 165, 250, 0.05);
+      }
+      .prose tbody tr:hover {
+        background: rgba(96, 165, 250, 0.10);
       }
       .prose strong {
         color: var(--text-primary);
