@@ -131,7 +131,8 @@ const altLangUrl = lang === 'ja'
         border-top: 1px solid var(--text-separator);
         margin: 2rem 0;
       }
-      .prose table {
+      .prose table,
+      .prose :global(table) {
         width: 100%;
         border-collapse: collapse;
         margin: 1.75rem 0;
@@ -141,30 +142,36 @@ const altLangUrl = lang === 'ja'
         white-space: nowrap;
       }
       @media (min-width: 768px) {
-        .prose table {
+        .prose table,
+        .prose :global(table) {
           display: table;
           white-space: normal;
         }
       }
-      .prose thead {
+      .prose thead,
+      .prose :global(thead) {
         background: var(--bg-card);
         border-bottom: 2px solid var(--text-separator);
       }
-      .prose th, .prose td {
+      .prose th, .prose td,
+      .prose :global(th), .prose :global(td) {
         border: 1px solid var(--text-separator);
         padding: 0.65rem 1rem;
         text-align: left;
         vertical-align: top;
       }
-      .prose th {
+      .prose th,
+      .prose :global(th) {
         background: var(--bg-card);
         font-weight: 600;
         color: var(--text-primary);
       }
-      .prose tbody tr:nth-child(even) {
+      .prose tbody tr:nth-child(even),
+      .prose :global(tbody tr:nth-child(even)) {
         background: rgba(96, 165, 250, 0.05);
       }
-      .prose tbody tr:hover {
+      .prose tbody tr:hover,
+      .prose :global(tbody tr:hover) {
         background: rgba(96, 165, 250, 0.10);
       }
       .prose strong {
