@@ -106,6 +106,9 @@ const t = lang === 'ja' ? {
   cta: 'Kindleで購入する',
   ctaSub: 'Kindle Unlimitedで読み放題対象',
   primaryCta: '今すぐKindleで読む →',
+  ctaZenn: 'Zennで読む',
+  ctaZennSub: 'Zennで全文を読む',
+  primaryCtaZenn: '今すぐZennで読む →',
   affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
   publishedAt: '公開',
   updatedAt: '更新',
@@ -127,6 +130,9 @@ const t = lang === 'ja' ? {
   cta: 'Buy on Kindle',
   ctaSub: 'Available on Kindle Unlimited',
   primaryCta: 'Read now on Kindle →',
+  ctaZenn: 'Read on Zenn',
+  ctaZennSub: 'Full text on Zenn',
+  primaryCtaZenn: 'Read now on Zenn →',
   affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
   publishedAt: 'Published',
   updatedAt: 'Updated',
@@ -134,7 +140,12 @@ const t = lang === 'ja' ? {
   topicsLabel: 'Topics',
 };
 
-const destinationUrl = redirectDestination === 'zenn' ? zennUrl : kindleUrl;
+// CTA先決定: kindleUrl 優先、無ければ zennUrl
+const isZennOnly = !kindleUrl && !!zennUrl;
+const destinationUrl = redirectDestination === 'zenn' ? zennUrl : (kindleUrl || zennUrl);
+const heroPrimaryLabel = isZennOnly ? t.primaryCtaZenn : t.primaryCta;
+const footerCtaLabel = isZennOnly ? t.ctaZenn : t.cta;
+const footerCtaSubLabel = isZennOnly ? t.ctaZennSub : t.ctaSub;
 
 // 関連書籍のメタ情報を取得 (表紙・タイトル・series_role 表示用)
 const allBooks = await getCollection('books');
@@ -628,19 +639,19 @@ const bookSchema = {
       <div class="series-role-badge">{seriesRole}</div>
     )}
 
-    {kindleUrl && (
+    {destinationUrl && (
       <div class="hero-cta-row">
         <a
-          href={kindleUrl}
+          href={destinationUrl}
           class="hero-cta-primary"
           data-cta-amazon
           data-slug={slug}
           data-position="hero"
           rel="noopener"
         >
-          {t.primaryCta}
+          {heroPrimaryLabel}
         </a>
-        {lang === 'ja' && zennUrl && <a href={zennUrl} class="hero-cta-secondary" rel="noopener">{t.readSampleZenn}</a>}
+        {!isZennOnly && lang === 'ja' && zennUrl && <a href={zennUrl} class="hero-cta-secondary" rel="noopener">{t.readSampleZenn}</a>}
       </div>
     )}
 
@@ -786,23 +797,23 @@ const bookSchema = {
     )}
 
     <section class="cta-section">
-      <h2>{ctaLabel || t.cta}</h2>
-      <p class="cta-sub">{t.ctaSub}</p>
-      {kindleUrl && (
+      <h2>{ctaLabel || footerCtaLabel}</h2>
+      <p class="cta-sub">{footerCtaSubLabel}</p>
+      {destinationUrl && (
         <a
-          href={kindleUrl}
+          href={destinationUrl}
           class="cta-button"
           data-cta-amazon
           data-slug={slug}
           data-position="footer"
           rel="noopener"
         >
-          {t.cta}
+          {footerCtaLabel}
           {formattedPrice && ` (${formattedPrice})`}
         </a>
       )}
       <div class="secondary-links">
-        {lang === 'ja' && zennUrl && <a href={zennUrl} rel="noopener">{t.readSampleZenn}</a>}
+        {!isZennOnly && lang === 'ja' && zennUrl && <a href={zennUrl} rel="noopener">{t.readSampleZenn}</a>}
         {otherUrls.map((u) => <a href={u.url} rel="noopener">{u.label}</a>)}
       </div>
     </section>
