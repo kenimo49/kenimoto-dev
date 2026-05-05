@@ -126,9 +126,7 @@ A new domain's GA4 lies for the first 1–2 weeks. If your country breakdown is 
 
 The procedure is simple: **beat with five signals → suspect bimodal distributions → swap the primary metric to Engaged Sessions**. Doing this saves you from being whipsawed by early data.
 
-For my part, if I'd believed kaoriq was "growing nicely," I'd have prematurely tripped my Phase-B Shopify integration trigger (5,000 monthly PV) and exposed an e-commerce site to several thousand bots. Doubting GA4 is, in the end, a discipline for not making expensive mistakes.
-
-Beat the data before the data beats you.
+Doubting GA4 is, in the end, a discipline for not making expensive mistakes. Beat the data before the data beats you.
 
 ---
 
