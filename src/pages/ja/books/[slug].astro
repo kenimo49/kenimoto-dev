@@ -1,0 +1,50 @@
+---
+import BookLayout from '../../../layouts/BookLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books', ({ data }) => data.lang === 'ja');
+  return books.map(book => {
+    const slug = book.id.replace(/^ja\//, '');
+    return {
+      params: { slug },
+      props: { book },
+    };
+  });
+}
+
+const { book } = Astro.props;
+const { Content } = await render(book);
+const slug = book.id.replace(/^ja\//, '');
+const canonicalUrl = `https://kenimoto.dev/ja/books/${slug}`;
+---
+
+<BookLayout
+  title={book.data.title}
+  subtitle={book.data.subtitle}
+  description={book.data.description}
+  lang="ja"
+  slug={book.data.slug}
+  publishedDate={book.data.published_date}
+  updatedDate={book.data.updated_date}
+  kindleUrl={book.data.kindle_url}
+  zennUrl={book.data.zenn_url}
+  otherUrls={book.data.other_urls}
+  price={book.data.price}
+  currency={book.data.currency}
+  coverImage={book.data.cover_image}
+  ogImage={book.data.og_image}
+  topics={book.data.topics}
+  targetReaders={book.data.target_readers}
+  differentiation={book.data.differentiation}
+  chapters={book.data.chapters}
+  competitorComparison={book.data.competitor_comparison}
+  painPoints={book.data.pain_points}
+  relatedBooks={book.data.related_books}
+  ctaLabel={book.data.cta_label}
+  redirectDelaySeconds={book.data.redirect_delay_seconds}
+  redirectDestination={book.data.redirect_destination}
+  canonicalUrl={canonicalUrl}
+>
+  <Content />
+</BookLayout>

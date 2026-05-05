@@ -1,0 +1,121 @@
+---
+title: "実践Claude Code"
+subtitle: "コンテキストエンジニアリングで開発が変わる"
+description: "「Vibe Codingって何？」から始めて、プロダクトのアウトプットを300%向上させたエンジニアの全記録。Claude Codeの設計思想から、CLAUDE.mdの実践パターン、チーム開発、セキュリティまで——本気で使い倒すための実践書。"
+lang: "ja"
+slug: "claude-code-mastery"
+
+kindle_url: "https://amzn.asia/d/03Qnb8QT"
+zenn_url: "https://zenn.dev/kenimo49/books/claude-code-mastery"
+
+price: 1000
+currency: "JPY"
+published_date: 2025-09-01
+updated_date: 2026-04-15
+
+topics:
+  - "Claude Code"
+  - "コンテキストエンジニアリング"
+  - "CLAUDE.md"
+  - "AI開発"
+  - "開発効率化"
+
+target_readers:
+  - "Claude Codeを使い始めたが、もっと使い倒したいエンジニア"
+  - "AIコーディングツールの本質を理解して、チーム開発に活かしたい人"
+  - "CursorやGitHub CopilotとClaude Codeの違いを掴みたい人"
+  - "CLAUDE.mdをどう書けば良いか迷っている人"
+  - "AIを使った非コーディング業務（確定申告・プレゼン作成など）も視野に入れている人"
+
+differentiation:
+  - "著者が実務で1年以上使い込んだ一次体験ベース。机上論ではない"
+  - "Boris Chernyの設計思想からCLAUDE.mdの肥大化問題まで、表層と本質を両方カバー"
+  - "成功例だけでなく失敗から学んだことも正直に記載"
+  - "個人開発・チーム開発・非エンジニア活用まで19章で網羅"
+  - "AIエージェント時代のエンジニア像と未来予測まで踏み込む"
+
+pain_points:
+  - "Claude Codeに指示を出してもイマイチ結果がブレる"
+  - "CLAUDE.mdに何を書けば良いか分からず、毎回手探りになる"
+  - "チームで使い始めたが、メンバー間で運用がバラバラ"
+  - "プロンプトエンジニアリングとコンテキストエンジニアリングの違いが曖昧"
+  - "AIに任せると品質が下がる気がして、結局自分で書き直してしまう"
+  - "ツール乱立時代、Claude Codeに賭けて良いのか判断できない"
+
+competitor_comparison:
+  - book: "Claude Code 公式ドキュメント"
+    difference: "公式は機能解説中心。本書は「実務でどう使うか」「失敗パターン」「チーム展開」など運用知見に踏み込む"
+  - book: "プロンプトエンジニアリング系の書籍"
+    difference: "プロンプト術ではなく、プロジェクト全体の文脈設計（Context Engineering）の方法論を扱う"
+  - book: "CursorやGitHub Copilot解説本"
+    difference: "Claude Codeのターミナル設計思想を起点に、CLAUDE.mdによる「ドキュメントファースト開発」の体系を提示"
+
+related_books:
+  - "harness-claudemd"
+  - "context-engineering"
+  - "claude-code-quickstart"
+
+chapters:
+  - title: "はじめに"
+    free: true
+    summary: "なぜこの本を書いたか、Claude Codeとの出会い、本書の読み方ガイド"
+  - title: "Claude Codeの誕生：Boris Chernyが語る偶然の始まり"
+    free: true
+    summary: "「今、何の音楽を聴いてる？」という一言から始まったプロトタイプ。CLI選択・bash採用など4つの設計判断"
+  - title: "ターミナルベースという選択：CLI vs IDE論争を超えて"
+    summary: "なぜClaude CodeはIDE統合ではなくCLIを選んだのか。設計思想の核心"
+  - title: "AIネイティブ開発の潜在需要：なぜ今Claude Codeなのか"
+    summary: "Cursor、Copilotとの比較。AIネイティブ開発の要件とClaude Codeの位置付け"
+  - title: "CLAUDE.mdの本質：開発者は2行、実践者は100行"
+    free: true
+    summary: "Boris Chernyの2行CLAUDE.mdの真意。肥大化問題と7つの運用原則"
+  - title: "ドキュメントファースト開発：仕様より先に文脈を書く"
+    summary: "コードよりも先にCLAUDE.mdを書く逆転発想。ドキュメント駆動の利点と落とし穴"
+  - title: "CLAUDE.md実践パターン10選"
+    summary: "現場で使える具体的なテンプレートと書き分けパターン"
+  - title: "チームCLAUDE.md：複数人開発での運用設計"
+    summary: "個人とチームでCLAUDE.mdをどう分けるか。レビューフロー、merge戦略"
+  - title: "1日の開発フロー：朝のPlan Modeから夜のレビューまで"
+    summary: "朝の計画→実装→テスト→レビュー→引き継ぎ。1日のリズムが翌日の精度を決める"
+  - title: "設計統合：Claude Codeでアーキテクチャを描く"
+    summary: "システム設計、ER図、シーケンス図をAIと一緒に描くワークフロー"
+  - title: "テスト自動化：AIに書かせて、AIにレビューさせる"
+    summary: "テストファースト+AI協働。カバレッジと品質を両立させる方法"
+  - title: "マルチツール連携：MCP、GitHub Actions、外部API"
+    summary: "Claude Code単体ではなくエコシステムとして使う"
+  - title: "非エンジニアとの協働：仕様書・スライド・データ整理"
+    summary: "コードを書かないメンバーがAIネイティブ組織にどう参加するか"
+  - title: "ナレッジ自動化：社内ドキュメントをAIで育てる"
+    summary: "CLAUDE.mdを起点に組織のナレッジベースを成長させる仕組み"
+  - title: "ビジネスと財務：契約書レビューから経営判断まで"
+    summary: "コーディング以外の経営判断にもClaude Codeを活用する事例集"
+  - title: "個人の生産性革命：確定申告からプレゼンまで"
+    summary: "Claude Codeの非コーディング用途12カテゴリと「錯覚生産性」への対策"
+  - title: "Shai-Huludアタック：依存パッケージ経由の侵入リスク"
+    summary: "AIネイティブ時代のサプライチェーン攻撃と対策"
+  - title: "ポリシーとリスク：機密情報、ライセンス、社内規定"
+    summary: "Claude Code導入時に企業が直面する法務・セキュリティ論点"
+  - title: "エンジニアという肩書きが消える日"
+    summary: "AIエージェント時代の役割再定義。プログラマーの未来"
+  - title: "未来編：これからのClaude Codeとエンジニアリング"
+    summary: "今後3年の展望、Anthropicのロードマップ、エコシステム予測"
+  - title: "おわりに"
+    summary: "Context Engineeringの世界へようこそ"
+  - title: "参考文献"
+  - title: "著者について"
+  - title: "奥付"
+
+cta_label: "Kindleで購入する"
+redirect_delay_seconds: 5
+redirect_destination: "kindle"
+---
+
+私がこの本を書いた理由はシンプルです。Claude Codeを実務で使い倒す中で、**「ツールの使い方」ではなく「ツールとの協働の作法」が決定的に重要だ**と気づいたからです。
+
+Boris Cherny（Anthropic）が公開している有名なCLAUDE.mdは、たった2行です。しかし、その2行の裏には、コンテキスト設計の哲学が詰まっています。本書は、その哲学を私自身の1年以上の実務経験で検証し、再構成したものです。
+
+Claude Codeを単なる「AI補助ツール」と捉えている限り、得られる効果は限定的です。**プロジェクト全体の文脈を設計する**という視点に立ったとき、AIとの協働は劇的に変わります。私はこの設計行為を「Context Engineering」と呼んでいます。
+
+本書を読み終える頃には、CLAUDE.mdをどう書くか、チーム開発でどう運用するか、非コーディング業務にどう応用するか、すべての答えを自分の言葉で語れるようになっているはずです。
+
+> 「これは単なるツールではない。開発そのものの再定義だ」
