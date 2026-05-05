@@ -63,6 +63,11 @@ const books = defineCollection({
     })).default([]),
     pain_points: z.array(z.string()).default([]),
     related_books: z.array(z.string()).default([]),
+    related_articles: z.array(z.object({
+      slug: z.string(),
+      title: z.string(),
+    })).default([]),
+    keywords: z.array(z.string()).default([]),
 
     cta_label: z.string().optional(),
     redirect_delay_seconds: z.number().default(5),

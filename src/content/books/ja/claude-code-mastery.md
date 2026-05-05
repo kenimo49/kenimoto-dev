@@ -1,9 +1,9 @@
 ---
 title: "実践Claude Code"
 subtitle: "コンテキストエンジニアリングで開発が変わる"
-tagline: "Claude Codeを実務で使いこなすための実践ガイド | CLAUDE.md設計・Plan Mode活用・チーム開発適用"
-hero_message: "Claude Codeを実務で使いこなせない人へ — CLAUDE.md設計とコンテキストエンジニアリングで、AIとの開発を「指示出し」から「協働」に変える1冊。"
-description: "「Vibe Codingって何？」から始めて、プロダクトのアウトプットを300%向上させたエンジニアの全記録。Claude Codeの設計思想から、CLAUDE.mdの実践パターン、チーム開発、セキュリティまで——本気で使い倒すための実践書。"
+tagline: "Claude Code 使い方ガイド | CLAUDE.md 書き方・Plan Mode 設計・チーム開発の実践書"
+hero_message: "「Claude Code の使い方」「CLAUDE.md の書き方」が分からない人へ — 1年以上の実務運用で見えた、AIとの協働の作法。"
+description: "Claude Code の使い方と CLAUDE.md の書き方を、1年以上の実務運用に基づいて体系化。設計思想から、CLAUDE.md の実践パターン、Plan Mode 活用、チーム開発、セキュリティまで——Claude Code を本気で使いこなすための実践書。"
 lang: "ja"
 slug: "claude-code-mastery"
 
@@ -24,6 +24,17 @@ topics:
   - "AI開発"
   - "開発効率化"
 
+keywords:
+  - "Claude Code 使い方"
+  - "Claude Code 設計"
+  - "Claude Code 実践"
+  - "CLAUDE.md 書き方"
+  - "CLAUDE.md 設計"
+  - "Plan Mode"
+  - "コンテキストエンジニアリング"
+  - "AIコーディング"
+  - "AIエージェント開発"
+
 outcomes:
   - "CLAUDE.mdを「2行から100行まで」用途別に書き分けられるようになる"
   - "Plan Modeを起点にした1日の開発フローを設計し、生産性を体系的に上げられる"
@@ -32,10 +43,10 @@ outcomes:
   - "確定申告・プレゼン作成・契約書レビューなど非コーディング業務にもAIを応用できる"
 
 position_statement:
-  - "理論ではなく、1年以上の実務運用に基づく実践ガイド"
-  - "Cursor/Copilotではなく、Claude Code 特化の体系書"
-  - "個人開発からチーム開発・AIエージェント設計まで横断"
-  - "成功例だけでなく失敗パターンも正直に記載"
+  - "実務寄り (理論書ではなく、1年以上の運用知見ベース)"
+  - "Claude Code 特化 (Cursor/Copilot系ではなく単一ツール深掘り)"
+  - "中級者向け (入門書ではなく「使えるけどもう一段」レベル対象)"
+  - "横断型 (個人開発・チーム開発・AIエージェント設計まで網羅)"
 
 target_readers:
   - "【初心者】Claude Codeを使い始めたばかりで、何から学ぶか迷っている人"
@@ -72,6 +83,12 @@ related_books:
   - "harness-claudemd"
   - "context-engineering"
   - "claude-code-quickstart"
+
+related_articles:
+  - slug: "claude-code-hooks-v2-25-events"
+    title: "Claude Code Hooks v2 — 「お願い」を「プログラム」に変える25のイベント"
+  - slug: "claude-code-sub-agent-design"
+    title: "Claude CodeのSub-agent設計 — 1セッションで専門家チームを使い分ける"
 
 chapters:
   - title: "はじめに"

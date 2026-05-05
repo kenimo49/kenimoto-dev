@@ -40,6 +40,8 @@ interface Props {
   competitorComparison: Comparison[];
   painPoints: string[];
   relatedBooks: string[];
+  relatedArticles: { slug: string; title: string }[];
+  keywords: string[];
   ctaLabel?: string;
   redirectDelaySeconds: number;
   redirectDestination: 'kindle' | 'zenn';
@@ -73,6 +75,8 @@ const {
   competitorComparison,
   painPoints,
   relatedBooks,
+  relatedArticles,
+  keywords,
   ctaLabel,
   redirectDelaySeconds,
   redirectDestination,
@@ -93,9 +97,10 @@ const t = lang === 'ja' ? {
   toc: '目次',
   freeChapter: '無料公開',
   whyThisBook: 'なぜこの本か',
-  diffFromOthers: '他の本との違い',
+  diffFromOthers: '他のAI本との違い',
   painPointsHeading: 'この本で解決できる悩み',
   relatedBooks: 'シリーズ・関連書籍',
+  relatedArticles: '関連記事で深掘りする',
   cta: 'Kindleで購入する',
   ctaSub: 'Kindle Unlimitedで読み放題対象',
   primaryCta: '📕 今すぐKindleで読む',
@@ -113,9 +118,10 @@ const t = lang === 'ja' ? {
   toc: 'Table of contents',
   freeChapter: 'Free preview',
   whyThisBook: 'Why this book',
-  diffFromOthers: 'How this differs from other books',
+  diffFromOthers: 'How this differs from other AI books',
   painPointsHeading: 'Problems this book solves',
   relatedBooks: 'Related books',
+  relatedArticles: 'Dive deeper with related articles',
   cta: 'Buy on Kindle',
   ctaSub: 'Available on Kindle Unlimited',
   primaryCta: '📕 Read now on Kindle',
@@ -161,6 +167,7 @@ const bookSchema = {
   } : {}),
   about: topics,
   datePublished: publishedDate.toISOString().split('T')[0],
+  ...(keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
 };
 ---
 
@@ -423,6 +430,26 @@ const bookSchema = {
         outline: 2px solid var(--accent-blue);
         text-decoration: none;
       }
+      .related-articles {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .related-articles li {
+        padding: 0.65rem 0;
+        border-bottom: 1px solid var(--text-separator);
+      }
+      .related-articles li:last-child {
+        border-bottom: none;
+      }
+      .related-articles a {
+        color: var(--link-color);
+        font-size: 0.95rem;
+      }
+      .related-articles a::before {
+        content: "📄 ";
+        margin-right: 0.3rem;
+      }
       .cta-section {
         margin: 3rem 0 1.5rem;
         padding: 2rem;
@@ -647,6 +674,19 @@ const bookSchema = {
           {relatedBooks.map((rb) => (
             <li>
               <a href={lang === 'ja' ? `/ja/books/${rb}` : `/books/${rb}`}>{rb}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {relatedArticles.length > 0 && (
+      <section class="book-section">
+        <h2>{t.relatedArticles}</h2>
+        <ul class="related-articles">
+          {relatedArticles.map((a) => (
+            <li>
+              <a href={lang === 'ja' ? `/ja/blog/${a.slug}` : `/blog/${a.slug}`}>{a.title}</a>
             </li>
           ))}
         </ul>
