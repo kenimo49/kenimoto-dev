@@ -1,7 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
-import CountdownRedirect from '../components/CountdownRedirect.astro';
 import { getCollection } from 'astro:content';
 
 interface Chapter {
@@ -652,15 +651,6 @@ const bookSchema = {
         <span>{t.updatedAt}: <time datetime={updatedDate.toISOString()}>{updatedDate.toISOString().split('T')[0]}</time></span>
       )}
     </div>
-
-    {destinationUrl && (
-      <CountdownRedirect
-        destinationUrl={destinationUrl}
-        delaySeconds={redirectDelaySeconds}
-        lang={lang}
-        bookSlug={slug}
-      />
-    )}
 
     <section class="book-section">
       <h2>{t.overview}</h2>
