@@ -26,7 +26,6 @@ const books = defineCollection({
     subtitle: z.string().optional(),
     description: z.string(),
     lang: z.enum(['en', 'ja']),
-    slug: z.string(),
 
     kindle_url: z.string().url().optional(),
     zenn_url: z.string().url().optional(),

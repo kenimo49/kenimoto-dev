@@ -1,11 +1,11 @@
 ---
-import BookLayout from '../../../layouts/BookLayout.astro';
+import BookLayout from '../../layouts/BookLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books', ({ data }) => data.lang === 'ja');
+  const books = await getCollection('books', ({ data }) => data.lang === 'en');
   return books.map(book => {
-    const slug = book.id.replace(/^ja\//, '');
+    const slug = book.id.replace(/^en\//, '');
     return {
       params: { slug },
       props: { book },
@@ -15,8 +15,8 @@ export async function getStaticPaths() {
 
 const { book } = Astro.props;
 const { Content } = await render(book);
-const slug = book.id.replace(/^ja\//, '');
-const canonicalUrl = `https://kenimoto.dev/ja/books/${slug}`;
+const slug = book.id.replace(/^en\//, '');
+const canonicalUrl = `https://kenimoto.dev/books/${slug}`;
 ---
 
 <BookLayout
@@ -26,7 +26,7 @@ const canonicalUrl = `https://kenimoto.dev/ja/books/${slug}`;
   heroMessage={book.data.hero_message}
   positionStatement={book.data.position_statement}
   description={book.data.description}
-  lang="ja"
+  lang="en"
   slug={slug}
   publishedDate={book.data.published_date}
   updatedDate={book.data.updated_date}
