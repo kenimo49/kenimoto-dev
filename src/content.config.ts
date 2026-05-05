@@ -62,6 +62,8 @@ const books = defineCollection({
     cta_label: z.string().optional(),
     redirect_delay_seconds: z.number().default(5),
     redirect_destination: z.enum(['kindle', 'zenn']).default('kindle'),
+
+    affiliate_disclosure: z.boolean().default(false),
   }),
 });
 

@@ -13,6 +13,8 @@ currency: "JPY"
 published_date: 2025-09-01
 updated_date: 2026-04-15
 
+cover_image: "/images/books/claude-code-mastery.png"
+
 topics:
   - "Claude Code"
   - "コンテキストエンジニアリング"

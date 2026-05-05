@@ -39,6 +39,7 @@ interface Props {
   ctaLabel?: string;
   redirectDelaySeconds: number;
   redirectDestination: 'kindle' | 'zenn';
+  affiliateDisclosure?: boolean;
   canonicalUrl: string;
 }
 
@@ -67,6 +68,7 @@ const {
   ctaLabel,
   redirectDelaySeconds,
   redirectDestination,
+  affiliateDisclosure = false,
   canonicalUrl,
 } = Astro.props;
 
@@ -527,6 +529,6 @@ const bookSchema = {
       </div>
     )}
 
-    <p class="affiliate-note">{t.affiliateNote}</p>
+    {affiliateDisclosure && <p class="affiliate-note">{t.affiliateNote}</p>}
   </main>
 </BaseLayout>
