@@ -56,7 +56,8 @@ const links = [
         "author": { "@type": "Person", "name": "井本 賢" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://www.amazon.co.jp/dp/B0GXR5Q6NW",
+        "url": "https://kenimoto.dev/ja/books/engineer-it-quotes",
+        "sameAs": ["https://www.amazon.co.jp/dp/B0GXR5Q6NW", "https://www.amazon.co.jp/dp/B0GX3CS95M"],
         "about": ["エンジニアリング名言", "ソフトウェア哲学", "キャリア", "リーダーシップ"]
       },
       {
@@ -66,7 +67,8 @@ const links = [
         "author": { "@type": "Person", "name": "井本 賢" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://www.amazon.co.jp/dp/B0GX465PG7",
+        "url": "https://kenimoto.dev/ja/books/knowledge-graph-practical-guide",
+        "sameAs": ["https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide", "https://www.amazon.co.jp/dp/B0GX465PG7", "https://www.amazon.co.jp/dp/B0GX2Z73JV"],
         "about": ["ナレッジグラフ", "GraphRAG", "Neo4j", "プロパティグラフ"]
       },
       {
@@ -76,7 +78,8 @@ const links = [
         "author": { "@type": "Person", "name": "井本 賢" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://www.amazon.co.jp/dp/B0GX2R5HP4",
+        "url": "https://kenimoto.dev/ja/books/voice-ai-300ms-ux",
+        "sameAs": ["https://zenn.dev/kenimo49/books/voice-ai-300ms-ux", "https://www.amazon.co.jp/dp/B0GX2R5HP4", "https://www.amazon.co.jp/dp/B0GYQ4L2KP"],
         "about": ["音声AI", "レイテンシUX", "ターンテイキング", "TTFB", "エッジAI"]
       },
       {
@@ -129,7 +132,8 @@ const links = [
         "author": { "@type": "Person", "name": "井本 賢" },
         "bookFormat": "EBook",
         "inLanguage": "ja",
-        "url": "https://zenn.dev/kenimo49/books/llmo-ai-search-optimization",
+        "url": "https://kenimoto.dev/ja/books/llmo-ai-search-optimization",
+        "sameAs": ["https://zenn.dev/kenimo49/books/llmo-ai-search-optimization", "https://amzn.asia/d/02zAl1VB"],
         "about": ["LLMO", "LLM最適化", "SEO", "JSON-LD", "llms.txt", "AI検索"]
       },
       {
@@ -149,7 +153,8 @@ const links = [
         "author": { "@type": "Person", "name": "井本 賢" },
         "bookFormat": "EBook",
         "inLanguage": "ja",
-        "url": "https://zenn.dev/kenimo49/books/mcp-security-practice",
+        "url": "https://kenimoto.dev/ja/books/mcp-security-practice",
+        "sameAs": ["https://zenn.dev/kenimo49/books/mcp-security-practice", "https://amzn.asia/d/0cQpLy6g", "https://amzn.asia/d/03ceMosL"],
         "about": ["MCP", "Model Context Protocol", "セキュリティ", "OWASP"]
       },
       {
@@ -220,7 +225,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI開発シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-          <div class="book-card" style="position: relative; border: 1px solid var(--accent-blue);">
+          <div class="book-card" data-lp-url="/ja/books/voice-ai-300ms-ux" style="position: relative; border: 1px solid var(--accent-blue);">
             <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-blue); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
             <img src="/images/books/voice-ai-300ms-ux.jpg" alt="音声AIの300ms" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">音声AIの300ms</p>
@@ -276,7 +281,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI検索最適化シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-          <div class="book-card accent-amber">
+          <div class="book-card accent-amber" data-lp-url="/ja/books/llmo-ai-search-optimization">
             <img src="/images/books/llmo.png" alt="LLMO" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">LLMO実践ガイド</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">なぜあなたのサイトはChatGPTに無視されるのか</p>
@@ -285,7 +290,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/llmo-ai-search-optimization">Zenn</a>
             </div>
           </div>
-          <div class="book-card accent-amber">
+          <div class="book-card accent-amber" data-lp-url="/ja/books/llmo-quickstart">
             <img src="/images/books/llmo-quickstart.jpg" alt="LLMOクイックスタート" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">LLMOクイックスタート</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">エンジニアのためのAI検索最適化入門</p>
@@ -301,7 +306,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-green); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛡️ セキュリティ / 品質シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div class="book-card accent-green">
+          <div class="book-card accent-green" data-lp-url="/ja/books/mcp-security-practice">
             <img src="/images/books/mcp-security.png" alt="MCP実践セキュリティ" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">MCP実践セキュリティ</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">本番導入で躓かないための完全ガイド</p>
@@ -319,7 +324,7 @@ const links = [
         </div>
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-purple, #7c3aed); margin-bottom: 0.5rem; margin-top: 1.5rem; letter-spacing: 0.05em;">📊 ナレッジ & データシリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div class="book-card accent-purple" style="position: relative; border: 1px solid var(--accent-purple, #7c3aed);">
+          <div class="book-card accent-purple" data-lp-url="/ja/books/knowledge-graph-practical-guide" style="position: relative; border: 1px solid var(--accent-purple, #7c3aed);">
             <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-purple, #7c3aed); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
             <img src="/images/books/knowledge-graph-practical-guide.png" alt="ナレッジグラフ活用大全" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">ナレッジグラフ活用大全</p>
@@ -333,7 +338,7 @@ const links = [
 
         <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-rose, #e11d48); margin-bottom: 0.5rem; margin-top: 1.5rem; letter-spacing: 0.05em;">💡 エンジニアリング文化シリーズ</p>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div class="book-card accent-rose" style="position: relative; border: 1px solid var(--accent-rose, #e11d48);">
+          <div class="book-card accent-rose" data-lp-url="/ja/books/engineer-it-quotes" style="position: relative; border: 1px solid var(--accent-rose, #e11d48);">
             <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-rose, #e11d48); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
             <img src="/images/books/engineer-it-quotes.jpg" alt="エンジニアリング100の言葉" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">エンジニアリング100の言葉</p>
