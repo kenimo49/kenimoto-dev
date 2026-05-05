@@ -30,8 +30,8 @@ keywords:
   - "AI citation rate"
 
 tagline: "LLMO tutorial | 30-minute AI Search Optimization · llms.txt · JSON-LD shortest path"
-hero_message: "Want LLMO in 30 minutes? — 8 chapters distilling the core. Get cited by AI today with llms.txt and JSON-LD."
-series_role: "LLMO Trilogy [Quickstart] — The 30-minute starter"
+hero_message: "Want LLMO in 30 minutes? 8 chapters distilling the core. Get cited by AI today with llms.txt and JSON-LD."
+series_role: "LLMO Trilogy [Quickstart]. The 30-minute starter."
 
 outcomes:
   - "Understand LLMO and how it differs from Google SEO in 30 minutes"
@@ -97,7 +97,7 @@ redirect_delay_seconds: 5
 redirect_destination: "kindle"
 ---
 
-LLMO has depth, but the first step is genuinely simple. Drop in one `llms.txt` file. Add three `JSON-LD` patterns. Measure citations. That alone moves the needle dramatically.
+LLMO has depth, but the first step is simple. Drop in one `llms.txt` file. Add three `JSON-LD` patterns. Measure citations. That alone moves the needle.
 
 This book is just those first 30 minutes. When you want to go deeper, the main "LLMO Practical Guide" picks up where this stops.
 

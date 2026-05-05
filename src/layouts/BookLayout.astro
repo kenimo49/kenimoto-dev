@@ -105,7 +105,7 @@ const t = lang === 'ja' ? {
   relatedArticles: '関連記事で深掘りする',
   cta: 'Kindleで購入する',
   ctaSub: 'Kindle Unlimitedで読み放題対象',
-  primaryCta: '📕 今すぐKindleで読む',
+  primaryCta: '今すぐKindleで読む →',
   affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
   publishedAt: '公開',
   updatedAt: '更新',
@@ -126,7 +126,7 @@ const t = lang === 'ja' ? {
   relatedArticles: 'Dive deeper with related articles',
   cta: 'Buy on Kindle',
   ctaSub: 'Available on Kindle Unlimited',
-  primaryCta: '📕 Read now on Kindle',
+  primaryCta: 'Read now on Kindle →',
   affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
   publishedAt: 'Published',
   updatedAt: 'Updated',
@@ -224,9 +224,9 @@ const bookSchema = {
         letter-spacing: 0.01em;
       }
       .hero-message {
-        background: linear-gradient(135deg, rgba(96,165,250,0.12), rgba(245,158,11,0.08));
-        border-left: 4px solid var(--accent-blue);
-        padding: 1.25rem 1.5rem;
+        background: var(--bg-card);
+        border-left: 3px solid var(--accent-blue);
+        padding: 1rem 1.25rem;
         margin: 0 0 1rem;
         border-radius: 4px;
       }
@@ -249,8 +249,9 @@ const bookSchema = {
         line-height: 1.5;
       }
       .series-role-badge::before {
-        content: "📚 ";
-        margin-right: 0.2rem;
+        content: "▸ ";
+        color: var(--accent-blue);
+        margin-right: 0.15rem;
       }
       .hero-cta-row {
         display: flex;
@@ -349,10 +350,9 @@ const bookSchema = {
       .book-cover {
         max-width: 240px;
         height: auto;
-        border-radius: 8px;
+        border-radius: 4px;
         margin: 0 auto 1.5rem;
         display: block;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       }
       .book-section {
         margin: 2.5rem 0;
@@ -468,9 +468,8 @@ const bookSchema = {
         height: 100%;
       }
       .related-card:hover {
-        outline: 2px solid var(--accent-blue);
+        outline: 1px solid var(--accent-blue);
         text-decoration: none;
-        transform: translateY(-2px);
       }
       .related-card-cover {
         width: 70px;
@@ -500,7 +499,7 @@ const bookSchema = {
       }
       .related-card-role {
         font-size: 0.75rem;
-        color: var(--accent-blue);
+        color: var(--text-label);
         margin: 0;
         line-height: 1.4;
       }
@@ -529,7 +528,8 @@ const bookSchema = {
         font-size: 0.95rem;
       }
       .related-articles a::before {
-        content: "📄 ";
+        content: "› ";
+        color: var(--text-muted);
         margin-right: 0.3rem;
       }
       .cta-section {
@@ -762,7 +762,7 @@ const bookSchema = {
                   <div class="related-card-body">
                     <p class="related-card-title">{rb.data.title}</p>
                     {rb.data.subtitle && <p class="related-card-subtitle">{rb.data.subtitle}</p>}
-                    {rb.data.series_role && <p class="related-card-role">📚 {rb.data.series_role}</p>}
+                    {rb.data.series_role && <p class="related-card-role">{rb.data.series_role}</p>}
                   </div>
                 </a>
               </li>

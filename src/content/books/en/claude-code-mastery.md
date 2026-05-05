@@ -145,12 +145,12 @@ redirect_delay_seconds: 5
 redirect_destination: "kindle"
 ---
 
-I wrote this book for one reason: after working with Claude Code in production for over a year, I realized the deciding factor isn't *how to use the tool* — it's *how to collaborate with it*.
+I wrote this book for one reason. After running Claude Code in production for over a year, the deciding factor turned out not to be *how to use the tool*, but *how to collaborate with it*.
 
-Boris Cherny (Anthropic) famously published a 2-line CLAUDE.md. Behind those two lines sits a design philosophy. This book validates that philosophy against my own year-plus of real production use and rebuilds it as a workable, repeatable system.
+Boris Cherny (Anthropic) famously published a 2-line CLAUDE.md. Behind those two lines sits a way of thinking about context. This book takes that thinking, runs it through my own year of production use, and rebuilds it as a repeatable system.
 
-If you treat Claude Code as just another AI helper, you'll get limited mileage. The moment you shift to **designing the project's context** as a first-class engineering activity, working with AI changes dramatically. I call this design work **Context Engineering**.
+If you treat Claude Code as just another AI helper, you'll get limited mileage. The moment you shift to **designing the project's context** as a first-class engineering activity, working with AI becomes a different game. I call that design work **Context Engineering**.
 
-By the time you finish this book, you should be able to articulate — in your own words — how to write CLAUDE.md, how to operate it on a team, and how to apply it to non-coding work.
+By the end of the book, you should be able to articulate, in your own words, how to write CLAUDE.md, how to operate it on a team, and how to apply it to non-coding work.
 
-> "This isn't just a tool. It's a redefinition of development itself."
+> "This isn't just a tool. It's a different way of working."

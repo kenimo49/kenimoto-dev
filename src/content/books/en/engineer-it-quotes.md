@@ -31,8 +31,8 @@ keywords:
   - "engineer culture"
 
 tagline: "100 Engineering Quotes Decoded | Software philosophy · debugging · leadership through words"
-hero_message: "Why does that one line stick? — From the Linux trenches to software philosophy, debugging, and leadership. 100 quotes that map the engineer's mind."
-series_role: "Engineering Culture [Singular] — Thinking through 100 quotes"
+hero_message: "Why does that one line stick? From the Linux trenches to software philosophy, debugging, and leadership. 100 quotes that map the engineer's mind."
+series_role: "Engineering Culture [Singular]. Thinking through 100 quotes."
 
 outcomes:
   - "Understand classic software-philosophy quotes and their modern meaning"
@@ -96,7 +96,7 @@ redirect_delay_seconds: 5
 redirect_destination: "kindle"
 ---
 
-Some lines in engineering refuse to fade. Linus Torvalds in the trenches, Brian Kernighan's cold observations, Martin Fowler's business-minded clarity — each comes from a different vantage point, each cuts straight to what this profession actually is.
+Some lines in engineering refuse to fade. Linus Torvalds in the trenches, Brian Kernighan's cold observations, Martin Fowler's business-minded clarity. Each comes from a different vantage point, each cuts straight to what this profession actually is.
 
 This isn't just a quote collection. It decodes **why each line stays with you**, pairing original context with modern application.
 

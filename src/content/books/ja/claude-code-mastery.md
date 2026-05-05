@@ -2,9 +2,9 @@
 title: "実践Claude Code"
 subtitle: "コンテキストエンジニアリングで開発が変わる"
 tagline: "Claude Code 使い方ガイド | CLAUDE.md 書き方・Plan Mode 設計・チーム開発の実践書"
-hero_message: "AIに毎回違う指示を出してませんか？ — Claude Code を「指示出し」から「協働」に変えるのは、CLAUDE.md と Context Engineering です。"
-series_role: "ハーネス3部作の【実装担当】 — Claude Code を実務で使い倒す側"
-description: "Claude Code の使い方と CLAUDE.md の書き方を、1年以上の実務運用に基づいて体系化。設計思想から、CLAUDE.md の実践パターン、Plan Mode 活用、チーム開発、セキュリティまで——Claude Code を本気で使いこなすための実践書。"
+hero_message: "AIに毎回ちがう指示を出してませんか? CLAUDE.md と Context Engineering で、Claude Code を「指示出し」から「協働」に変える。"
+series_role: "ハーネス3部作の【実装担当】Claude Code を実務で使い倒す側"
+description: "Claude Code を1年以上、実務で使い込んだ。CLAUDE.md の書き方、Plan Mode 起点の1日の開発フロー、チーム展開、セキュリティ。19章で、現場で得た知見を1冊にまとめた。"
 lang: "ja"
 
 kindle_url: "https://amzn.asia/d/03Qnb8QT"
@@ -146,12 +146,12 @@ redirect_delay_seconds: 5
 redirect_destination: "kindle"
 ---
 
-私がこの本を書いた理由はシンプルです。Claude Codeを実務で使い倒す中で、**「ツールの使い方」ではなく「ツールとの協働の作法」が決定的に重要だ**と気づいたからです。
+この本を書いた理由は1つです。Claude Codeを実務で使い込むうちに、**「ツールの使い方」より「ツールとの協働の作法」のほうが効く**と分かってきたからです。
 
-Boris Cherny（Anthropic）が公開している有名なCLAUDE.mdは、たった2行です。しかし、その2行の裏には、コンテキスト設計の哲学が詰まっています。本書は、その哲学を私自身の1年以上の実務経験で検証し、再構成したものです。
+Boris Cherny（Anthropic）が公開しているCLAUDE.mdは、たった2行。その2行の裏に、コンテキスト設計の考え方が詰まっています。本書は、その考え方を私自身の1年以上の実務で検証して、運用パターンに落とし直したものです。
 
-Claude Codeを単なる「AI補助ツール」と捉えている限り、得られる効果は限定的です。**プロジェクト全体の文脈を設計する**という視点に立ったとき、AIとの協働は劇的に変わります。私はこの設計行為を「Context Engineering」と呼んでいます。
+Claude Codeを「AI補助ツール」として扱っている限り、効果は限られます。**プロジェクト全体の文脈を設計する**側に回ったとき、AIとの協働は別物になる。この設計を私は「Context Engineering」と呼んでいます。
 
-本書を読み終える頃には、CLAUDE.mdをどう書くか、チーム開発でどう運用するか、非コーディング業務にどう応用するか、すべての答えを自分の言葉で語れるようになっているはずです。
+読み終える頃には、CLAUDE.mdの書き方、チーム開発での運用、非コーディング業務への応用が、自分の言葉で語れるはずです。
 
-> 「これは単なるツールではない。開発そのものの再定義だ」
+> 「これは単なるツールではない。開発そのものの作法を変える。」

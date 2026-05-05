@@ -34,8 +34,8 @@ keywords:
   - "構造化データ"
 
 tagline: "LLMO 実践ガイド | AI検索最適化・llms.txt・JSON-LD・引用率改善の体系書"
-hero_message: "ChatGPT検索で、自社サイトが出てこない人へ — Google SEO だけでは届かない。LLMO の考え方と実装パターンで、AI に拾われるサイトを作る。"
-series_role: "LLMO 3部作の【本編】 — AI検索最適化の体系を扱う側"
+hero_message: "ChatGPT検索で、自社サイトが出てこない人へ。Google SEO だけでは届かない。LLMO の考え方と実装で、AI に拾われるサイトを作る。"
+series_role: "LLMO 3部作の【本編】AI検索最適化の体系を扱う側"
 
 outcomes:
   - "LLMO (LLM Optimization) の基礎概念と Google SEO との違いを理解できる"
@@ -113,6 +113,6 @@ redirect_destination: "kindle"
 
 Google SEO で1位を取っても、ChatGPT は引用してくれません。AI検索エンジンが見ているのは、Google のランキングシグナルとは別の世界です。
 
-本書では、その別世界の地図 — LLMO (LLM Optimization) — を、llms.txt / JSON-LD / 構造化データ / 引用率 KPI まで実装レベルで解説します。
+本書はその別世界の地図、LLMO (LLM Optimization) を、llms.txt / JSON-LD / 構造化データ / 引用率 KPI まで実装レベルで扱います。
 
 > 「Google に1位 ≠ ChatGPT に引用される。」

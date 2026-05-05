@@ -34,8 +34,8 @@ keywords:
   - "Emotion AI"
 
 tagline: "ナレッジグラフ 活用大全 | GraphRAG・Neo4j・RDF・Property Graph・Emotion AI の実践書"
-hero_message: "RAG だけでは AI は賢くなりません — 構造化することで初めて、関係性が見える。GraphRAG / Neo4j / Property Graph で AI に「賢さ」を与える方法。"
-series_role: "Knowledge & Data シリーズの【独立体系】 — GraphRAG / Neo4j で構造化する側"
+hero_message: "RAG だけでは AI は賢くなりません。構造化することで初めて、関係性が見える。GraphRAG / Neo4j / Property Graph で AI に「賢さ」を与える方法。"
+series_role: "Knowledge & Data シリーズの【独立体系】GraphRAG / Neo4j で構造化する側"
 
 outcomes:
   - "RDF / Property Graph / GraphRAG の使い分けを判断できる"

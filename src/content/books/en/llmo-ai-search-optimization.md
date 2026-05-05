@@ -32,8 +32,8 @@ keywords:
   - "Structured data"
 
 tagline: "LLMO Practical Guide | AI Search Optimization · llms.txt · JSON-LD · citation rate"
-hero_message: "Why doesn't ChatGPT mention your website? — Google SEO won't get you there. LLMO patterns make your site visible to AI search."
-series_role: "LLMO Trilogy [Main] — The systematic guide to AI Search Optimization"
+hero_message: "Why doesn't ChatGPT mention your website? Google SEO won't get you there. LLMO patterns make your site visible to AI search."
+series_role: "LLMO Trilogy [Main]. The systematic guide to AI Search Optimization."
 
 outcomes:
   - "Understand LLMO basics and how it differs from Google SEO"
@@ -108,6 +108,6 @@ redirect_destination: "kindle"
 
 Ranking #1 on Google won't get you quoted by ChatGPT. AI search engines look at a different signal landscape.
 
-This book maps that other landscape — **LLMO (LLM Optimization)** — through llms.txt, JSON-LD, structured data, and citation-rate KPIs. Implementation-level, not theory-level.
+This book maps that other landscape, **LLMO (LLM Optimization)**, through llms.txt, JSON-LD, structured data, and citation-rate KPIs. Implementation-level, not theory-level.
 
 > "#1 on Google ≠ cited by ChatGPT."

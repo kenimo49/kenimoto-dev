@@ -32,8 +32,8 @@ keywords:
   - "Agent Framework comparison"
 
 tagline: "Harness Engineering tutorial | AGENTS.md design · hooks implementation · AI agent operations"
-hero_message: "Your AI agent runs — but does it obey? — OpenAI, Anthropic, and LangChain each define harness differently. This book merges all 5 interpretations into one system."
-series_role: "Harness Trilogy [Architecture] — defining what a harness is, across 5 interpretations"
+hero_message: "Your AI agent runs. Does it obey? OpenAI, Anthropic, and LangChain each define harness differently. This book merges all 5 interpretations into one system."
+series_role: "Harness Trilogy [Architecture]. Defining what a harness is, across 5 interpretations."
 
 outcomes:
   - "Decompose any harness into the 6 building blocks framework"
@@ -120,10 +120,10 @@ redirect_delay_seconds: 5
 redirect_destination: "kindle"
 ---
 
-The phrase *Harness Engineering* is everywhere — and means something different to everyone. OpenAI talks about scaling Codex. Anthropic talks about long-running agents. LangChain frames it as `Agent = Model + Harness`. Martin Fowler points out that every codebase already has an implicit harness.
+The phrase *Harness Engineering* is everywhere, and means something different to everyone. OpenAI talks about scaling Codex. Anthropic talks about long-running agents. LangChain frames it as `Agent = Model + Harness`. Martin Fowler points out that every codebase already has an implicit harness.
 
 Each of them is right. But until now, no book has stitched these views into a single system.
 
-This book maps **what a harness is, how to design one, and how to operate it** — synthesizing the 5 interpretations into 6 building blocks, then walking through implementation with AGENTS.md, CLAUDE.md, and hooks all the way to Self-Evolving Agents.
+This book maps **what a harness is, how to design one, and how to operate it**. It synthesizes the 5 interpretations into 6 building blocks, then walks through implementation with AGENTS.md, CLAUDE.md, and hooks, all the way to Self-Evolving Agents.
 
 > "Prompt was 2024. Context was 2025. Harness is 2026."

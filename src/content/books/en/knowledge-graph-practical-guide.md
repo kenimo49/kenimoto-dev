@@ -32,8 +32,8 @@ keywords:
   - "Emotion AI"
 
 tagline: "Knowledge Graph Practical Guide | GraphRAG · Neo4j · RDF · Property Graph · Emotion AI"
-hero_message: "RAG alone won't make your AI smart — Relationships only emerge through structure. The hands-on guide to GraphRAG, Neo4j, and Property Graphs."
-series_role: "Knowledge & Data Series [Specialty] — Structured intelligence with GraphRAG and Neo4j"
+hero_message: "RAG alone won't make your AI smart. Relationships only emerge through structure. The hands-on guide to GraphRAG, Neo4j, and Property Graphs."
+series_role: "Knowledge & Data Series [Specialty]. Structured intelligence with GraphRAG and Neo4j."
 
 outcomes:
   - "Choose between RDF, Property Graph, and GraphRAG for each use case"
@@ -111,6 +111,6 @@ redirect_destination: "kindle"
 
 Vector search hands AI knowledge, not relationships. "Alice reports to Bob, who runs project C" is a graph fact, not a vector fact.
 
-This book is the field guide to giving AI that **structured intelligence** — Neo4j, RDF, Property Graphs, GraphRAG, Tree-sitter for code ASTs, MCP integration, and even Emotion AI — all turned into patterns you can ship.
+This book is the field guide to giving AI that **structured intelligence**: Neo4j, RDF, Property Graphs, GraphRAG, Tree-sitter for code ASTs, MCP integration, and even Emotion AI. All turned into patterns you can ship.
 
 > "Data gets smart not as vectors, but as graphs."

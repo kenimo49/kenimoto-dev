@@ -32,8 +32,8 @@ keywords:
   - "AI引用率 測定"
 
 tagline: "LLMO 入門 | 30分で始める AI検索最適化・llms.txt・JSON-LD の最短ルート"
-hero_message: "AI検索最適化を30分で始めたい人へ — LLMO の核心を 8章で凝縮。今日から llms.txt と JSON-LD で AI に拾われるサイトに。"
-series_role: "LLMO 3部作の【入門編】 — 30分で始める側"
+hero_message: "AI検索最適化を30分で始めたい人へ。LLMO のコアを 8章で凝縮。今日から llms.txt と JSON-LD で AI に拾われるサイトに。"
+series_role: "LLMO 3部作の【入門編】30分で始める側"
 
 outcomes:
   - "LLMO とは何か、Google SEOとの違いを30分で理解できる"
@@ -101,7 +101,7 @@ redirect_delay_seconds: 5
 redirect_destination: "kindle"
 ---
 
-LLMO は奥が深いですが、最初の一歩は本当にシンプルです。`llms.txt` を1ファイル置く、`JSON-LD` を3パターン書く、引用率を測る — これだけで、AI検索エンジンに拾われる確率は跳ね上がります。
+LLMO は奥が深いですが、最初の一歩はシンプルです。`llms.txt` を1ファイル置く。`JSON-LD` を3パターン書く。引用率を測る。これだけで、AI検索エンジンに拾われる確率は跳ね上がります。
 
 本書はその「最初の30分」だけに絞った入門書です。深く知りたくなったら、本編「LLMO実践ガイド」に進んでください。
 

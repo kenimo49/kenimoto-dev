@@ -31,8 +31,8 @@ keywords:
   - "TTFB voice"
 
 tagline: "Voice AI latency design | Pipecat · LiveKit · Deepgram — break the 525ms barrier"
-hero_message: "Ever felt 'something's off' talking to AI? — Human turn-taking happens at 200ms. Past 300ms, the UX collapses. This book explains why, and how to design around it."
-series_role: "Human-AI Interaction [Specialty] — Latency UX for voice agents"
+hero_message: "Ever felt 'something's off' talking to AI? Human turn-taking happens at 200ms. Past 300ms, the UX collapses. This book explains why, and how to design around it."
+series_role: "Human-AI Interaction [Specialty]. Latency UX for voice agents."
 
 outcomes:
   - "Translate Nielsen's response time thresholds into voice UX design decisions"
@@ -107,8 +107,8 @@ redirect_delay_seconds: 5
 redirect_destination: "kindle"
 ---
 
-When a person pauses half a second too long, you notice. With AI, you notice even more sharply.
+When a person pauses half a second too long, you notice. With AI, you notice more sharply.
 
-Human turn-taking happens at 200ms. Past 300ms, the UX feels off. Past 800ms, the conversation collapses. This book grounds those numbers in Nielsen's response time thresholds, then walks through the latest stacks — **Pipecat, LiveKit, Deepgram** — with concrete designs for streaming, perceptual hacks, and edge AI.
+Human turn-taking happens at 200ms. Past 300ms, the UX feels off. Past 800ms, the conversation collapses. This book grounds those numbers in Nielsen's response time thresholds, then walks through the latest stacks (**Pipecat, LiveKit, Deepgram**) with concrete designs for streaming, perceptual hacks, and edge AI.
 
 > "Speed isn't a feature. It's a precondition."
