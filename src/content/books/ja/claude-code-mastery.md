@@ -2,6 +2,7 @@
 title: "実践Claude Code"
 subtitle: "コンテキストエンジニアリングで開発が変わる"
 tagline: "Claude Codeを実務で使いこなすための実践ガイド | CLAUDE.md設計・Plan Mode活用・チーム開発適用"
+hero_message: "Claude Codeを実務で使いこなせない人へ — CLAUDE.md設計とコンテキストエンジニアリングで、AIとの開発を「指示出し」から「協働」に変える1冊。"
 description: "「Vibe Codingって何？」から始めて、プロダクトのアウトプットを300%向上させたエンジニアの全記録。Claude Codeの設計思想から、CLAUDE.mdの実践パターン、チーム開発、セキュリティまで——本気で使い倒すための実践書。"
 lang: "ja"
 slug: "claude-code-mastery"
@@ -30,12 +31,19 @@ outcomes:
   - "テスト自動化・MCP連携・GitHub Actions統合まで、Claude Codeを単体ツールでなくエコシステムとして運用できる"
   - "確定申告・プレゼン作成・契約書レビューなど非コーディング業務にもAIを応用できる"
 
+position_statement:
+  - "理論ではなく、1年以上の実務運用に基づく実践ガイド"
+  - "Cursor/Copilotではなく、Claude Code 特化の体系書"
+  - "個人開発からチーム開発・AIエージェント設計まで横断"
+  - "成功例だけでなく失敗パターンも正直に記載"
+
 target_readers:
-  - "Claude Codeを使い始めたが、もっと使い倒したいエンジニア"
-  - "AIコーディングツールの本質を理解して、チーム開発に活かしたい人"
-  - "CursorやGitHub CopilotとClaude Codeの違いを掴みたい人"
-  - "CLAUDE.mdをどう書けば良いか迷っている人"
-  - "AIを使った非コーディング業務（確定申告・プレゼン作成など）も視野に入れている人"
+  - "【初心者】Claude Codeを使い始めたばかりで、何から学ぶか迷っている人"
+  - "【中級者】Claude Codeで基本的な開発はできるが、もう一段使いこなしたい人"
+  - "【チーム開発者】複数人開発でCLAUDE.mdの運用に課題を感じているリーダー・マネージャー"
+  - "【AIエージェント開発者】Claude Code単体ではなく、AIエージェント設計の文脈で使いたい人"
+  - "【ツール比較中】CursorやGitHub CopilotとClaude Codeの違いを掴みたい人"
+  - "【非エンジニア活用検討中】確定申告・プレゼン作成など非コーディング業務にもAIを応用したい人"
 
 differentiation:
   - "著者が実務で1年以上使い込んだ一次体験ベース。机上論ではない"

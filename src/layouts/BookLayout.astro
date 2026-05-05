@@ -18,6 +18,8 @@ interface Props {
   title: string;
   subtitle?: string;
   tagline?: string;
+  heroMessage?: string;
+  positionStatement: string[];
   description: string;
   lang: 'en' | 'ja';
   slug: string;
@@ -49,6 +51,8 @@ const {
   title,
   subtitle,
   tagline,
+  heroMessage,
+  positionStatement,
   description,
   lang,
   slug,
@@ -84,6 +88,7 @@ const t = lang === 'ja' ? {
   back: '← トップに戻る',
   overview: '本書の概要',
   outcomes: 'この本でできるようになること',
+  position: 'この本の立ち位置',
   targetReaders: '対象読者',
   toc: '目次',
   freeChapter: '無料公開',
@@ -93,6 +98,7 @@ const t = lang === 'ja' ? {
   relatedBooks: 'シリーズ・関連書籍',
   cta: 'Kindleで購入する',
   ctaSub: 'Kindle Unlimitedで読み放題対象',
+  primaryCta: '📕 今すぐKindleで読む',
   affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
   publishedAt: '公開',
   updatedAt: '更新',
@@ -102,6 +108,7 @@ const t = lang === 'ja' ? {
   back: '← Back to home',
   overview: 'Overview',
   outcomes: 'What you will be able to do',
+  position: 'Where this book stands',
   targetReaders: 'Who is this book for',
   toc: 'Table of contents',
   freeChapter: 'Free preview',
@@ -111,6 +118,7 @@ const t = lang === 'ja' ? {
   relatedBooks: 'Related books',
   cta: 'Buy on Kindle',
   ctaSub: 'Available on Kindle Unlimited',
+  primaryCta: '📕 Read now on Kindle',
   affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
   publishedAt: 'Published',
   updatedAt: 'Updated',
@@ -193,6 +201,75 @@ const bookSchema = {
         margin: 0 0 1.5rem;
         font-weight: 500;
         letter-spacing: 0.01em;
+      }
+      .hero-message {
+        background: linear-gradient(135deg, rgba(96,165,250,0.12), rgba(245,158,11,0.08));
+        border-left: 4px solid var(--accent-blue);
+        padding: 1.25rem 1.5rem;
+        margin: 0 0 1.5rem;
+        border-radius: 4px;
+      }
+      .hero-message p {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        line-height: 1.55;
+      }
+      .hero-cta-row {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin: 0 0 2rem;
+      }
+      .hero-cta-primary {
+        background: var(--accent-amber);
+        color: white;
+        padding: 0.85rem 1.75rem;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: opacity 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .hero-cta-primary:hover {
+        opacity: 0.9;
+        text-decoration: none;
+      }
+      .hero-cta-secondary {
+        background: transparent;
+        color: var(--text-secondary);
+        padding: 0.85rem 1.5rem;
+        border: 1px solid var(--text-separator);
+        border-radius: 6px;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.15s;
+      }
+      .hero-cta-secondary:hover {
+        border-color: var(--text-label);
+        color: var(--text-primary);
+        text-decoration: none;
+      }
+      .position-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.75rem;
+      }
+      .position-list li {
+        background: var(--bg-card);
+        padding: 0.85rem 1.1rem;
+        border-radius: 6px;
+        color: var(--text-primary);
+        font-weight: 500;
+        line-height: 1.6;
+        border-top: 3px solid var(--accent-blue);
       }
       .outcomes-list {
         list-style: none;
@@ -432,6 +509,28 @@ const bookSchema = {
     {subtitle && <p class="subtitle">{subtitle}</p>}
     {tagline && <p class="tagline">{tagline}</p>}
 
+    {heroMessage && (
+      <div class="hero-message">
+        <p>{heroMessage}</p>
+      </div>
+    )}
+
+    {kindleUrl && (
+      <div class="hero-cta-row">
+        <a
+          href={kindleUrl}
+          class="hero-cta-primary"
+          data-cta-amazon
+          data-slug={slug}
+          data-position="hero"
+          rel="noopener"
+        >
+          {t.primaryCta}
+        </a>
+        {zennUrl && <a href={zennUrl} class="hero-cta-secondary" rel="noopener">{t.readSampleZenn}</a>}
+      </div>
+    )}
+
     <div class="book-meta">
       {formattedPrice && <span class="price">{formattedPrice}</span>}
       <span>{t.publishedAt}: <time datetime={publishedDate.toISOString()}>{publishedDate.toISOString().split('T')[0]}</time></span>
@@ -478,6 +577,15 @@ const bookSchema = {
         <h2>{t.painPointsHeading}</h2>
         <ul class="pain-points">
           {painPoints.map((p) => <li>{p}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {positionStatement.length > 0 && (
+      <section class="book-section">
+        <h2>{t.position}</h2>
+        <ul class="position-list">
+          {positionStatement.map((p) => <li>{p}</li>)}
         </ul>
       </section>
     )}
