@@ -1,0 +1,532 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import CountdownRedirect from '../components/CountdownRedirect.astro';
+
+interface Chapter {
+  title: string;
+  free?: boolean;
+  summary?: string;
+}
+
+interface Comparison {
+  book: string;
+  difference: string;
+}
+
+interface Props {
+  title: string;
+  subtitle?: string;
+  description: string;
+  lang: 'en' | 'ja';
+  slug: string;
+  publishedDate: Date;
+  updatedDate?: Date;
+  kindleUrl?: string;
+  zennUrl?: string;
+  otherUrls?: { label: string; url: string }[];
+  price?: number;
+  currency?: string;
+  coverImage?: string;
+  ogImage?: string;
+  topics: string[];
+  targetReaders: string[];
+  differentiation: string[];
+  chapters: Chapter[];
+  competitorComparison: Comparison[];
+  painPoints: string[];
+  relatedBooks: string[];
+  ctaLabel?: string;
+  redirectDelaySeconds: number;
+  redirectDestination: 'kindle' | 'zenn';
+  canonicalUrl: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  lang,
+  slug,
+  publishedDate,
+  updatedDate,
+  kindleUrl,
+  zennUrl,
+  otherUrls = [],
+  price,
+  currency = 'JPY',
+  coverImage,
+  ogImage,
+  topics,
+  targetReaders,
+  differentiation,
+  chapters,
+  competitorComparison,
+  painPoints,
+  relatedBooks,
+  ctaLabel,
+  redirectDelaySeconds,
+  redirectDestination,
+  canonicalUrl,
+} = Astro.props;
+
+const siteName = lang === 'ja' ? '井本 賢' : 'Ken Imoto';
+const homeUrl = lang === 'ja' ? '/ja' : '/';
+const aboutUrl = lang === 'ja' ? '/ja/about' : '/about';
+
+const t = lang === 'ja' ? {
+  back: '← トップに戻る',
+  overview: '本書の概要',
+  whatYouLearn: '何が学べるか',
+  targetReaders: '対象読者',
+  toc: '目次',
+  freeChapter: '無料公開',
+  whyThisBook: 'なぜこの本か',
+  diffFromOthers: '他の本との違い',
+  painPointsHeading: 'この本で解決できる悩み',
+  relatedBooks: 'シリーズ・関連書籍',
+  cta: 'Kindleで購入する',
+  ctaSub: 'Kindle Unlimitedで読み放題対象',
+  affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
+  publishedAt: '公開',
+  updatedAt: '更新',
+  readSampleZenn: 'Zennで試し読み',
+  topicsLabel: 'トピック',
+} : {
+  back: '← Back to home',
+  overview: 'Overview',
+  whatYouLearn: 'What you will learn',
+  targetReaders: 'Who is this book for',
+  toc: 'Table of contents',
+  freeChapter: 'Free preview',
+  whyThisBook: 'Why this book',
+  diffFromOthers: 'How this differs from other books',
+  painPointsHeading: 'Problems this book solves',
+  relatedBooks: 'Related books',
+  cta: 'Buy on Kindle',
+  ctaSub: 'Available on Kindle Unlimited',
+  affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
+  publishedAt: 'Published',
+  updatedAt: 'Updated',
+  readSampleZenn: 'Read sample on Zenn',
+  topicsLabel: 'Topics',
+};
+
+const destinationUrl = redirectDestination === 'zenn' ? zennUrl : kindleUrl;
+const formattedPrice = price !== undefined
+  ? (currency === 'JPY' ? `¥${price.toLocaleString()}` : `${currency} ${price}`)
+  : null;
+
+const bookSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Book',
+  name: title + (subtitle ? ` — ${subtitle}` : ''),
+  description,
+  inLanguage: lang,
+  bookFormat: 'EBook',
+  author: {
+    '@type': 'Person',
+    name: siteName,
+    url: 'https://kenimoto.dev',
+  },
+  publisher: {
+    '@type': 'Person',
+    name: siteName,
+  },
+  url: canonicalUrl,
+  ...(coverImage ? { image: coverImage } : {}),
+  ...(kindleUrl ? { sameAs: [kindleUrl, zennUrl].filter(Boolean) } : {}),
+  ...(price ? {
+    offers: {
+      '@type': 'Offer',
+      price: String(price),
+      priceCurrency: currency,
+      url: kindleUrl || zennUrl,
+      availability: 'https://schema.org/InStock',
+    },
+  } : {}),
+  about: topics,
+  datePublished: publishedDate.toISOString().split('T')[0],
+};
+---
+
+<BaseLayout
+  title={`${title} — ${siteName}`}
+  description={description}
+  lang={lang}
+  ogUrl={canonicalUrl}
+  ogDescription={description}
+  ogImage={ogImage || coverImage}
+>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="book" />
+    {topics.map(t => <meta property="book:tag" content={t} />)}
+    <script type="application/ld+json" set:html={JSON.stringify(bookSchema)} />
+    <style>
+      .book-lp {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem 4rem;
+      }
+      .book-lp h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0.5rem 0 0.5rem;
+        line-height: 1.3;
+        color: var(--text-primary);
+      }
+      .book-lp .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        margin: 0 0 1rem;
+      }
+      .book-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+      }
+      .book-meta .price {
+        background: var(--accent-amber);
+        color: white;
+        padding: 0.15rem 0.6rem;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+      .book-cover {
+        max-width: 240px;
+        height: auto;
+        border-radius: 8px;
+        margin: 0 auto 1.5rem;
+        display: block;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      }
+      .book-section {
+        margin: 2.5rem 0;
+      }
+      .book-section h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--text-separator);
+      }
+      .book-section p {
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin: 0 0 1rem;
+      }
+      .book-section ul {
+        padding-left: 1.5rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+      }
+      .book-section li {
+        margin: 0.4rem 0;
+      }
+      .toc-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .toc-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--text-separator);
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+      }
+      .toc-list li:last-child {
+        border-bottom: none;
+      }
+      .toc-num {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-variant-numeric: tabular-nums;
+        min-width: 2.5rem;
+      }
+      .toc-title {
+        flex: 1;
+        color: var(--text-primary);
+      }
+      .toc-free {
+        background: var(--accent-green);
+        color: white;
+        font-size: 0.7rem;
+        padding: 0.1rem 0.5rem;
+        border-radius: 3px;
+        font-weight: 600;
+      }
+      .pain-points {
+        background: var(--bg-card);
+        border-left: 3px solid var(--accent-amber);
+        padding: 1rem 1.25rem;
+        border-radius: 4px;
+      }
+      .pain-points li {
+        margin: 0.4rem 0;
+      }
+      .compare-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+      }
+      .compare-table th, .compare-table td {
+        text-align: left;
+        padding: 0.65rem 1rem;
+        border: 1px solid var(--text-separator);
+        vertical-align: top;
+      }
+      .compare-table th {
+        background: var(--bg-card);
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .compare-table td {
+        color: var(--text-secondary);
+      }
+      .related-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.75rem;
+        list-style: none;
+        padding: 0;
+      }
+      .related-list a {
+        display: block;
+        background: var(--bg-card);
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: outline 0.15s;
+      }
+      .related-list a:hover {
+        outline: 2px solid var(--accent-blue);
+        text-decoration: none;
+      }
+      .cta-section {
+        margin: 3rem 0 1.5rem;
+        padding: 2rem;
+        background: var(--bg-card);
+        border-radius: 8px;
+        text-align: center;
+      }
+      .cta-section h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.3rem;
+        color: var(--text-primary);
+      }
+      .cta-section .cta-sub {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin: 0 0 1.25rem;
+      }
+      .cta-button {
+        display: inline-block;
+        background: var(--accent-amber);
+        color: white;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: opacity 0.15s;
+      }
+      .cta-button:hover {
+        opacity: 0.9;
+        text-decoration: none;
+      }
+      .secondary-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+      }
+      .topics-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+      .topic-tag {
+        background: var(--bg-card);
+        color: var(--text-secondary);
+        padding: 0.2rem 0.7rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+      }
+      .affiliate-note {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--text-separator);
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        line-height: 1.6;
+      }
+      @media (max-width: 640px) {
+        .book-lp {
+          padding: 1.5rem 1rem 3rem;
+        }
+        .compare-table {
+          display: block;
+          overflow-x: auto;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <Nav lang={lang} current="" />
+
+  <main class="book-lp">
+    <a href={homeUrl} style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none;">{t.back}</a>
+
+    {coverImage && (
+      <img src={coverImage} alt={`${title} 表紙`} class="book-cover" loading="eager" />
+    )}
+
+    <h1>{title}</h1>
+    {subtitle && <p class="subtitle">{subtitle}</p>}
+
+    <div class="book-meta">
+      {formattedPrice && <span class="price">{formattedPrice}</span>}
+      <span>{t.publishedAt}: <time datetime={publishedDate.toISOString()}>{publishedDate.toISOString().split('T')[0]}</time></span>
+      {updatedDate && (
+        <span>{t.updatedAt}: <time datetime={updatedDate.toISOString()}>{updatedDate.toISOString().split('T')[0]}</time></span>
+      )}
+    </div>
+
+    {destinationUrl && (
+      <CountdownRedirect
+        destinationUrl={destinationUrl}
+        delaySeconds={redirectDelaySeconds}
+        lang={lang}
+        bookSlug={slug}
+      />
+    )}
+
+    <section class="book-section">
+      <h2>{t.overview}</h2>
+      <p>{description}</p>
+      <slot name="overview" />
+    </section>
+
+    {targetReaders.length > 0 && (
+      <section class="book-section">
+        <h2>{t.targetReaders}</h2>
+        <ul>
+          {targetReaders.map((r) => <li>{r}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {painPoints.length > 0 && (
+      <section class="book-section">
+        <h2>{t.painPointsHeading}</h2>
+        <ul class="pain-points">
+          {painPoints.map((p) => <li>{p}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {differentiation.length > 0 && (
+      <section class="book-section">
+        <h2>{t.whyThisBook}</h2>
+        <ul>
+          {differentiation.map((d) => <li>{d}</li>)}
+        </ul>
+      </section>
+    )}
+
+    {competitorComparison.length > 0 && (
+      <section class="book-section">
+        <h2>{t.diffFromOthers}</h2>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>{lang === 'ja' ? '比較対象' : 'Compared to'}</th>
+              <th>{lang === 'ja' ? '本書の違い' : "This book's difference"}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {competitorComparison.map((c) => (
+              <tr>
+                <td>{c.book}</td>
+                <td>{c.difference}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+    )}
+
+    {chapters.length > 0 && (
+      <section class="book-section">
+        <h2>{t.toc}</h2>
+        <ol class="toc-list">
+          {chapters.map((c, i) => (
+            <li>
+              <span class="toc-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="toc-title">{c.title}</span>
+              {c.free && <span class="toc-free">{t.freeChapter}</span>}
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    <section class="book-section">
+      <slot />
+    </section>
+
+    {relatedBooks.length > 0 && (
+      <section class="book-section">
+        <h2>{t.relatedBooks}</h2>
+        <ul class="related-list">
+          {relatedBooks.map((rb) => (
+            <li>
+              <a href={lang === 'ja' ? `/ja/books/${rb}` : `/books/${rb}`}>{rb}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <section class="cta-section">
+      <h2>{ctaLabel || t.cta}</h2>
+      <p class="cta-sub">{t.ctaSub}</p>
+      {kindleUrl && (
+        <a
+          href={kindleUrl}
+          class="cta-button"
+          data-cta-amazon
+          data-slug={slug}
+          data-position="footer"
+          rel="noopener"
+        >
+          {t.cta}
+          {formattedPrice && ` (${formattedPrice})`}
+        </a>
+      )}
+      <div class="secondary-links">
+        {zennUrl && <a href={zennUrl} rel="noopener">{t.readSampleZenn}</a>}
+        {otherUrls.map((u) => <a href={u.url} rel="noopener">{u.label}</a>)}
+      </div>
+    </section>
+
+    {topics.length > 0 && (
+      <div class="topics-row">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">{t.topicsLabel}:</span>
+        {topics.map((tp) => <span class="topic-tag">{tp}</span>)}
+      </div>
+    )}
+
+    <p class="affiliate-note">{t.affiliateNote}</p>
+  </main>
+</BaseLayout>
