@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import CountdownRedirect from '../components/CountdownRedirect.astro';
+import { getCollection } from 'astro:content';
 
 interface Chapter {
   title: string;
@@ -135,6 +136,18 @@ const t = lang === 'ja' ? {
 };
 
 const destinationUrl = redirectDestination === 'zenn' ? zennUrl : kindleUrl;
+
+// 関連書籍のメタ情報を取得 (表紙・タイトル・series_role 表示用)
+const allBooks = await getCollection('books');
+const relatedBookEntries = relatedBooks
+  .map((rbSlug) => {
+    const entry = allBooks.find((b) => {
+      const entrySlug = b.id.replace(/^(ja|en)\//, '');
+      return entrySlug === rbSlug && b.data.lang === lang;
+    });
+    return entry ? { slug: rbSlug, data: entry.data } : null;
+  })
+  .filter((x): x is { slug: string; data: typeof allBooks[number]['data'] } => x !== null);
 const formattedPrice = price !== undefined
   ? (currency === 'JPY' ? `¥${price.toLocaleString()}` : `${currency} ${price}`)
   : null;
@@ -427,25 +440,78 @@ const bookSchema = {
       .compare-table td {
         color: var(--text-secondary);
       }
-      .related-list {
+      .related-cards {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 0.75rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
         list-style: none;
         padding: 0;
+        margin: 0;
       }
-      .related-list a {
-        display: block;
+      @media (min-width: 640px) {
+        .related-cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .related-cards li {
+        margin: 0;
+      }
+      .related-card {
+        display: flex;
+        gap: 1rem;
         background: var(--bg-card);
-        padding: 0.75rem 1rem;
-        border-radius: 6px;
-        color: var(--text-secondary);
+        padding: 1rem;
+        border-radius: 8px;
         text-decoration: none;
-        transition: outline 0.15s;
+        color: var(--text-secondary);
+        transition: outline 0.15s, transform 0.15s;
+        align-items: flex-start;
+        height: 100%;
       }
-      .related-list a:hover {
+      .related-card:hover {
         outline: 2px solid var(--accent-blue);
         text-decoration: none;
+        transform: translateY(-2px);
+      }
+      .related-card-cover {
+        width: 70px;
+        height: auto;
+        aspect-ratio: 5 / 7;
+        object-fit: cover;
+        border-radius: 4px;
+        flex-shrink: 0;
+        background: var(--bg-primary);
+      }
+      .related-card-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .related-card-title {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 0.2rem;
+        line-height: 1.35;
+      }
+      .related-card-subtitle {
+        font-size: 0.8rem;
+        color: var(--text-label);
+        margin: 0 0 0.5rem;
+        line-height: 1.4;
+      }
+      .related-card-role {
+        font-size: 0.75rem;
+        color: var(--accent-blue);
+        margin: 0;
+        line-height: 1.4;
+      }
+      .related-card-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg-primary);
+        color: var(--text-muted);
+        font-size: 0.7rem;
       }
       .related-articles {
         list-style: none;
@@ -688,15 +754,30 @@ const bookSchema = {
       <slot />
     </section>
 
-    {relatedBooks.length > 0 && (
+    {relatedBookEntries.length > 0 && (
       <section class="book-section">
         <h2>{t.relatedBooks}</h2>
-        <ul class="related-list">
-          {relatedBooks.map((rb) => (
-            <li>
-              <a href={lang === 'ja' ? `/ja/books/${rb}` : `/books/${rb}`}>{rb}</a>
-            </li>
-          ))}
+        <ul class="related-cards">
+          {relatedBookEntries.map((rb) => {
+            const href = lang === 'ja' ? `/ja/books/${rb.slug}` : `/books/${rb.slug}`;
+            const titleFull = rb.data.subtitle ? `${rb.data.title} — ${rb.data.subtitle}` : rb.data.title;
+            return (
+              <li>
+                <a href={href} class="related-card" aria-label={titleFull}>
+                  {rb.data.cover_image ? (
+                    <img src={rb.data.cover_image} alt={`${rb.data.title} 表紙`} class="related-card-cover" loading="lazy" />
+                  ) : (
+                    <div class="related-card-cover related-card-fallback">No cover</div>
+                  )}
+                  <div class="related-card-body">
+                    <p class="related-card-title">{rb.data.title}</p>
+                    {rb.data.subtitle && <p class="related-card-subtitle">{rb.data.subtitle}</p>}
+                    {rb.data.series_role && <p class="related-card-role">📚 {rb.data.series_role}</p>}
+                  </div>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </section>
     )}
