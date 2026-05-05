@@ -146,3 +146,9 @@ If you've been using `.claude/commands/` and never opened the Skills page, do th
 - [Claude Code commands deprecated in favor of skills — Martin Emde](https://martinemde.com/blog/claude-code-commands-deprecated)
 
 Related read: I broke down [Claude Code vs ChatGPT Codex](https://kenimoto.dev/blog/claude-code-vs-chatgpt-codex-official-agents) recently. Codex's "custom instructions" sit in roughly the same conceptual slot as Skills, but the developer ergonomics are very different.
+
+---
+
+## Want to go deeper?
+
+This article touches a slice. The full Claude Code playbook — CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, non-coding applications — is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-code-skills-reusable-workflow-pattern)**.

@@ -104,3 +104,9 @@ The choice you don't have to make is the binary one. Pick the workflow per task.
 ---
 
 *Posted from a workflow where Claude Code drafted this article in conversation, and Codex was queued to fix the typos in a PR while I went to make coffee. The coffee was, predictably, a mistake. The PR was fine.*
+
+---
+
+## Want to go deeper?
+
+This article touches a slice. The full Claude Code playbook — CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, non-coding applications — is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-code-vs-chatgpt-codex-official-agents)**.

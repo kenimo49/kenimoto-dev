@@ -162,3 +162,9 @@ I started this piece by admitting I was guessing about LLMO. Now I have a benchm
 - [ConvertMate GEO Benchmark 2026](https://www.convertmate.io/research/geo-benchmark-2026) — 12,500-query follow-up study
 - [AI Search Statistics 2026](https://www.superlines.io/articles/ai-search-statistics/) — 60+ data points on visibility and traffic
 - [LLMO Framework](https://llmoframework.com) — Practical implementation guide for GEO strategies
+
+---
+
+## Want to go deeper?
+
+For the full LLMO playbook — llms.txt patterns, JSON-LD examples, citation-rate KPIs, and ChatGPT/Perplexity/Brave comparison — see **[LLMO Practical Guide: Why ChatGPT Ignores Your Website](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=geo-princeton-study-9-ways-ai-cites-you)**.

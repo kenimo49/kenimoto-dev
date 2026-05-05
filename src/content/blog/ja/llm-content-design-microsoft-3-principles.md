@@ -192,3 +192,9 @@ Microsoftの3原則をもう一度:
 私がこの記事で実践していることを数えてみてください。質問形式の見出し、出典付きの統計データ、太字の数値、比較表、自己完結的なセクション。全部、ここで書いた原則に従っています。メタですが、LLMOの記事をLLMOに最適化して書いているわけです。
 
 自分のサイトがAIに無視されていると感じたら、まずコンテンツの構造を見直してみてください。書いてある中身は良いのに、AIに「一皿」として取り出せない盛り付けになっているだけかもしれません。
+
+---
+
+## さらに深掘りしたい方へ
+
+LLMO の全体像 — llms.txt 設計、JSON-LD 実装、AI引用率 KPI、ChatGPT / Perplexity / Brave の引用ロジック比較 — を1冊で扱う **[なぜあなたのサイトはChatGPTに無視されるのか — LLMO実践ガイド](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llm-content-design-microsoft-3-principles)** を参考にしてください。

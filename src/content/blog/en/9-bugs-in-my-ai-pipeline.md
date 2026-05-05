@@ -185,3 +185,9 @@ If the kitchen is broken: wrong burners firing simultaneously, ingredients getti
 I spent 3 hours optimizing my prompts. I spent 0 minutes checking my kitchen. Turns out, I was bug #10.
 
 Before you optimize your prompts, check your kitchen.
+
+---
+
+## Want to go deeper?
+
+This article shows one piece. The full system — five vendor interpretations, six building blocks, and the implementation patterns from AGENTS.md to Self-Evolving Agents — is in **[Harness Engineering — From Using AI to Controlling AI](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=9-bugs-in-my-ai-pipeline)**.

@@ -162,3 +162,9 @@ If you're still typing your brand name into ChatGPT and squinting at the output,
 - [Peec AI](https://peec.ai/) — AI Search Analytics for brand mention analysis
 - [GEO: Generative Engine Optimization](https://arxiv.org/abs/2311.09735) — Aggarwal et al., Princeton / ACM SIGKDD 2024
 - [LLMO Framework](https://llmoframework.com) — KPI design and implementation guide
+
+---
+
+## Want to go deeper?
+
+For the full LLMO playbook — llms.txt patterns, JSON-LD examples, citation-rate KPIs, and ChatGPT/Perplexity/Brave comparison — see **[LLMO Practical Guide: Why ChatGPT Ignores Your Website](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=measure-ai-citations-llmo-kpi)**.

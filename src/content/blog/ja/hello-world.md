@@ -45,3 +45,9 @@ marketer:
 ## 学び
 
 AIエージェントの品質は、AIの外側で決まる。モデルはシェフだが、キッチンが壊れていたらどんなシェフも料理できない。
+
+---
+
+## さらに深掘りしたい方へ
+
+本記事はその一面に過ぎません。OpenAI・Anthropic・LangChain・Martin Fowler・学術の5つの解釈を1冊に統合した体系書 **[ハーネス・エンジニアリング — AIを"使う"から"操る"へ](https://kenimoto.dev/ja/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=hello-world)** で、ハーネスとは何か、どう設計し、どう運用するかを19章で解説しています。

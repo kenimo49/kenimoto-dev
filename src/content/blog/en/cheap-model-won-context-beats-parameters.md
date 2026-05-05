@@ -139,3 +139,9 @@ If you're designing an AI system today, here's the practical takeaway:
 I started this project thinking context engineering was about making good models better. I was wrong. Context engineering is about making any model good enough. The model is the chef. The context is the recipe, the ingredients, and the kitchen. A decent chef with a great kitchen beats a celebrity chef standing in an empty room.
 
 Before you upgrade your model, upgrade your context. Your budget (and your benchmarks) will thank you.
+
+---
+
+## Want to go deeper?
+
+The complete Context Engineering system — 5 strategies, RAG benchmarks (4.6× quality lift), MCP server design, Agentic RAG implementation — is in **[Turning LLMs from Liars into Experts: Context Engineering in Practice](https://kenimoto.dev/ja/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cheap-model-won-context-beats-parameters)**.

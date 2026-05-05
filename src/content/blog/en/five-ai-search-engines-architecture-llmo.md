@@ -130,3 +130,9 @@ I track my own AI citations monthly. The traffic is small. The conversion rate o
 My weather-app confusion from the beginning of this post? Turns out it's a feature. Five different architectures mean five different chances to get cited. Your blog post that Google ignores might be exactly what Perplexity picks up. The YouTube video Perplexity can't see is right in Gemini's wheelhouse.
 
 You don't need to win on all five platforms. You need to understand which ones your audience actually uses, and build for those. The architecture decides what gets cited. Now you know the architecture.
+
+---
+
+## Want to go deeper?
+
+For the full LLMO playbook — llms.txt patterns, JSON-LD examples, citation-rate KPIs, and ChatGPT/Perplexity/Brave comparison — see **[LLMO Practical Guide: Why ChatGPT Ignores Your Website](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=five-ai-search-engines-architecture-llmo)**.

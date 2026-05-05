@@ -175,3 +175,9 @@ Correlation isn't causation, and a sample size of one is a terrible experiment. 
 - [llms-txt-hub](https://github.com/thedaviddias/llms-txt-hub) — Directory of sites implementing llms.txt
 - [Stripe's llms.txt analysis](https://www.apideck.com/blog/stripe-llms-txt-instructions-section) — How Stripe uses instructions sections
 - [Mintlify's real-world examples](https://www.mintlify.com/blog/real-llms-txt-examples) — Implementation patterns from top tech companies
+
+---
+
+## Want to go deeper?
+
+Want to ship LLMO in 30 minutes? **[LLMO Quickstart](https://kenimoto.dev/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llms-txt-ai-find-your-site)** distills the core into 8 chapters with copy-pasteable templates.

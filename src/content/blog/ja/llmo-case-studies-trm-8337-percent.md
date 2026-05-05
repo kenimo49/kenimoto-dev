@@ -145,3 +145,9 @@ LLMO施策は1回で完成する種類のものではなく、 **エンティテ
 - 「LLMOをやったらSEOを捨てる」ではない。両方に効く施策が中央に集まっている
 
 派手な数字に踊らされず、構造を作るところから入る。TRMの事例から学ぶべきは8,337%の派手さではなく、 **0〜2週目を「ページ0本」で過ごした冷静さ** のほうかもしれません。
+
+---
+
+## さらに深掘りしたい方へ
+
+LLMO の全体像 — llms.txt 設計、JSON-LD 実装、AI引用率 KPI、ChatGPT / Perplexity / Brave の引用ロジック比較 — を1冊で扱う **[なぜあなたのサイトはChatGPTに無視されるのか — LLMO実践ガイド](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llmo-case-studies-trm-8337-percent)** を参考にしてください。
