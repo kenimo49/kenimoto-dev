@@ -816,4 +816,20 @@ const bookSchema = {
 
     {affiliateDisclosure && <p class="affiliate-note">{t.affiliateNote}</p>}
   </main>
+
+  <script is:inline>
+    // GA4 cta_click イベント発火 (ヒーローCTA・フッターCTA共通)
+    document.querySelectorAll('[data-cta-amazon]').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'cta_click', {
+            event_category: 'book_lp',
+            event_label: link.getAttribute('data-slug') || '',
+            cta_position: link.getAttribute('data-position') || 'unknown',
+            destination: link.href,
+          });
+        }
+      });
+    });
+  </script>
 </BaseLayout>
