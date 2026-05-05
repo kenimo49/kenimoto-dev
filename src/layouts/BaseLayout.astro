@@ -175,23 +175,32 @@ const resolvedOgImage = ogImage || "https://kenimoto.dev/og-image.png";
           });
         }
 
-        // Make book cards clickable (Kindle priority, then Zenn)
+        // Make book cards clickable.
+        // Priority: data-lp-url (LP page, same tab) > Kindle/Amazon link (new tab) > first link.
+        // Anchor clicks (Kindle/Zenn text) bubble through unchanged.
         document.querySelectorAll('.book-grid > div').forEach(function(card) {
-          var links = card.querySelectorAll('a');
-          if (!links.length) return;
-          var target = null;
-          for (var i = 0; i < links.length; i++) {
-            var href = links[i].href;
-            if (href.indexOf('amzn') !== -1 || href.indexOf('amazon') !== -1) {
-              target = href;
-              break;
+          var lpUrl = card.getAttribute('data-lp-url');
+          var fallbackTarget = null;
+          if (!lpUrl) {
+            var links = card.querySelectorAll('a');
+            if (!links.length) return;
+            for (var i = 0; i < links.length; i++) {
+              var href = links[i].href;
+              if (href.indexOf('amzn') !== -1 || href.indexOf('amazon') !== -1) {
+                fallbackTarget = href;
+                break;
+              }
             }
+            if (!fallbackTarget) fallbackTarget = links[0].href;
           }
-          if (!target) target = links[0].href;
           card.style.cursor = 'pointer';
           card.addEventListener('click', function(e) {
             if (e.target.tagName === 'A') return;
-            window.open(target, '_blank');
+            if (lpUrl) {
+              window.location.href = lpUrl;
+            } else {
+              window.open(fallbackTarget, '_blank');
+            }
           });
         });
       });
