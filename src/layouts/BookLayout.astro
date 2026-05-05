@@ -17,6 +17,7 @@ interface Comparison {
 interface Props {
   title: string;
   subtitle?: string;
+  tagline?: string;
   description: string;
   lang: 'en' | 'ja';
   slug: string;
@@ -30,6 +31,7 @@ interface Props {
   coverImage?: string;
   ogImage?: string;
   topics: string[];
+  outcomes: string[];
   targetReaders: string[];
   differentiation: string[];
   chapters: Chapter[];
@@ -46,6 +48,7 @@ interface Props {
 const {
   title,
   subtitle,
+  tagline,
   description,
   lang,
   slug,
@@ -59,6 +62,7 @@ const {
   coverImage,
   ogImage,
   topics,
+  outcomes,
   targetReaders,
   differentiation,
   chapters,
@@ -79,7 +83,7 @@ const aboutUrl = lang === 'ja' ? '/ja/about' : '/about';
 const t = lang === 'ja' ? {
   back: '← トップに戻る',
   overview: '本書の概要',
-  whatYouLearn: '何が学べるか',
+  outcomes: 'この本でできるようになること',
   targetReaders: '対象読者',
   toc: '目次',
   freeChapter: '無料公開',
@@ -97,7 +101,7 @@ const t = lang === 'ja' ? {
 } : {
   back: '← Back to home',
   overview: 'Overview',
-  whatYouLearn: 'What you will learn',
+  outcomes: 'What you will be able to do',
   targetReaders: 'Who is this book for',
   toc: 'Table of contents',
   freeChapter: 'Free preview',
@@ -181,7 +185,38 @@ const bookSchema = {
       .book-lp .subtitle {
         font-size: 1.1rem;
         color: var(--text-secondary);
-        margin: 0 0 1rem;
+        margin: 0 0 0.5rem;
+      }
+      .book-lp .tagline {
+        font-size: 0.95rem;
+        color: var(--text-label);
+        margin: 0 0 1.5rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+      }
+      .outcomes-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .outcomes-list li {
+        position: relative;
+        padding: 0.6rem 0 0.6rem 2rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        border-bottom: 1px solid var(--text-separator);
+      }
+      .outcomes-list li:last-child {
+        border-bottom: none;
+      }
+      .outcomes-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0.4rem;
+        top: 0.65rem;
+        color: var(--accent-green);
+        font-weight: 700;
+        font-size: 1rem;
       }
       .book-meta {
         display: flex;
@@ -395,6 +430,7 @@ const bookSchema = {
 
     <h1>{title}</h1>
     {subtitle && <p class="subtitle">{subtitle}</p>}
+    {tagline && <p class="tagline">{tagline}</p>}
 
     <div class="book-meta">
       {formattedPrice && <span class="price">{formattedPrice}</span>}
@@ -418,6 +454,15 @@ const bookSchema = {
       <p>{description}</p>
       <slot name="overview" />
     </section>
+
+    {outcomes.length > 0 && (
+      <section class="book-section">
+        <h2>{t.outcomes}</h2>
+        <ul class="outcomes-list">
+          {outcomes.map((o) => <li>{o}</li>)}
+        </ul>
+      </section>
+    )}
 
     {targetReaders.length > 0 && (
       <section class="book-section">

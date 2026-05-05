@@ -43,6 +43,9 @@ const books = defineCollection({
     og_image: z.string().optional(),
     topics: z.array(z.string()).default([]),
 
+    tagline: z.string().optional(),
+    outcomes: z.array(z.string()).default([]),
+
     target_readers: z.array(z.string()).default([]),
     differentiation: z.array(z.string()).default([]),
 

@@ -1,6 +1,7 @@
 ---
 title: "実践Claude Code"
 subtitle: "コンテキストエンジニアリングで開発が変わる"
+tagline: "Claude Codeを実務で使いこなすための実践ガイド | CLAUDE.md設計・Plan Mode活用・チーム開発適用"
 description: "「Vibe Codingって何？」から始めて、プロダクトのアウトプットを300%向上させたエンジニアの全記録。Claude Codeの設計思想から、CLAUDE.mdの実践パターン、チーム開発、セキュリティまで——本気で使い倒すための実践書。"
 lang: "ja"
 slug: "claude-code-mastery"
@@ -21,6 +22,13 @@ topics:
   - "CLAUDE.md"
   - "AI開発"
   - "開発効率化"
+
+outcomes:
+  - "CLAUDE.mdを「2行から100行まで」用途別に書き分けられるようになる"
+  - "Plan Modeを起点にした1日の開発フローを設計し、生産性を体系的に上げられる"
+  - "個人版・プロジェクト版・チーム版でCLAUDE.mdを使い分け、複数人開発でブレを抑えられる"
+  - "テスト自動化・MCP連携・GitHub Actions統合まで、Claude Codeを単体ツールでなくエコシステムとして運用できる"
+  - "確定申告・プレゼン作成・契約書レビューなど非コーディング業務にもAIを応用できる"
 
 target_readers:
   - "Claude Codeを使い始めたが、もっと使い倒したいエンジニア"

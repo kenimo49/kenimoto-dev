@@ -22,6 +22,7 @@ const canonicalUrl = `https://kenimoto.dev/ja/books/${slug}`;
 <BookLayout
   title={book.data.title}
   subtitle={book.data.subtitle}
+  tagline={book.data.tagline}
   description={book.data.description}
   lang="ja"
   slug={book.data.slug}
@@ -35,6 +36,7 @@ const canonicalUrl = `https://kenimoto.dev/ja/books/${slug}`;
   coverImage={book.data.cover_image}
   ogImage={book.data.og_image}
   topics={book.data.topics}
+  outcomes={book.data.outcomes}
   targetReaders={book.data.target_readers}
   differentiation={book.data.differentiation}
   chapters={book.data.chapters}
