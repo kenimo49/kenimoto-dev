@@ -32,7 +32,8 @@ keywords:
   - "Agent Framework comparison"
 
 tagline: "Harness Engineering tutorial | AGENTS.md design · hooks implementation · AI agent operations"
-hero_message: "Confused about what Harness Engineering actually means? — A unified guide that merges OpenAI, Anthropic, LangChain, and academic interpretations into one practical system."
+hero_message: "Your AI agent runs — but does it obey? — OpenAI, Anthropic, and LangChain each define harness differently. This book merges all 5 interpretations into one system."
+series_role: "Harness Trilogy [Architecture] — defining what a harness is, across 5 interpretations"
 
 outcomes:
   - "Decompose any harness into the 6 building blocks framework"
@@ -79,9 +80,8 @@ competitor_comparison:
     difference: "Not framework-specific. Maps the boundary between harness and Agent Frameworks."
 
 related_books:
-  - "harness-claudemd"
-  - "harness-code-review"
   - "claude-code-mastery"
+  - "harness-code-review"
 
 related_articles:
   - slug: "cheap-model-won-context-beats-parameters"

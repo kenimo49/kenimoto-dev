@@ -44,6 +44,7 @@ const books = defineCollection({
 
     tagline: z.string().optional(),
     hero_message: z.string().optional(),
+    series_role: z.string().optional(),
     position_statement: z.array(z.string()).default([]),
     outcomes: z.array(z.string()).default([]),
 

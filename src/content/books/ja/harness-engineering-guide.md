@@ -34,7 +34,8 @@ keywords:
   - "Agent Framework 比較"
 
 tagline: "ハーネスエンジニアリング 入門 | AGENTS.md 設計・hooks 実装・AIエージェント運用の体系書"
-hero_message: "「ハーネスエンジニアリングって何？」「みんな違うことを言ってる」と感じている人へ — OpenAI / Anthropic / LangChain の5つの解釈を1冊に統合した、初の体系書。"
+hero_message: 'AIエージェントは"動く"が"操れる"とは限らない — OpenAI/Anthropic/LangChain の5社で言ってることが違うハーネスを、1冊に統合した体系書。'
+series_role: "ハーネス3部作の【設計担当】 — ハーネスとは何かを5社の解釈で体系化する側"
 
 outcomes:
   - "6つの構成要素フレームワークで、どんなハーネスも分解・設計できるようになる"
@@ -81,9 +82,9 @@ competitor_comparison:
     difference: "フレームワーク特化ではなく、ハーネスと Agent Framework の境界・関係を整理する。"
 
 related_books:
-  - "harness-claudemd"
-  - "harness-code-review"
   - "claude-code-mastery"
+  - "harness-code-review"
+  - "context-engineering"
 
 related_articles:
   - slug: "claude-code-sub-agent-design"

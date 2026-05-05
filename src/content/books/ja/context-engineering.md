@@ -34,7 +34,8 @@ keywords:
   - "CLAUDE.md 設計"
 
 tagline: "Context Engineering 実践入門 | RAG・MCP・CLAUDE.md・Agentic RAG をベンチマークで体系化"
-hero_message: "「同じ質問なのに、AIの回答が毎回違う」と感じている人へ — 原因はプロンプトではなくコンテキスト。4.6倍の品質差を実証した実験データで、Context Engineering を体系的に学ぶ。"
+hero_message: "「大きいモデルほど上手に嘘をつく」 — RAG が品質を4.6倍に変える。これは Context Engineering を独自ベンチマークで定量実証した本です。"
+series_role: "Context Engineering 軸の【独立体系】 — RAG/MCP/CLAUDE.md を実証データで束ねる側 (ハーネス3部作とは別軸)"
 
 outcomes:
   - "5段階のコンテキスト戦略を理解し、品質を2.2倍以上に引き上げられる"
@@ -83,7 +84,7 @@ competitor_comparison:
 related_books:
   - "claude-code-mastery"
   - "harness-engineering-guide"
-  - "llmo-ai-search-optimization"
+  - "harness-code-review"
 
 related_articles:
   - slug: "cheap-model-won-context-beats-parameters"

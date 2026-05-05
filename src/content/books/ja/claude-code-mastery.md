@@ -2,7 +2,8 @@
 title: "実践Claude Code"
 subtitle: "コンテキストエンジニアリングで開発が変わる"
 tagline: "Claude Code 使い方ガイド | CLAUDE.md 書き方・Plan Mode 設計・チーム開発の実践書"
-hero_message: "「Claude Code の使い方」「CLAUDE.md の書き方」が分からない人へ — 1年以上の実務運用で見えた、AIとの協働の作法。"
+hero_message: "AIに毎回違う指示を出してませんか？ — Claude Code を「指示出し」から「協働」に変えるのは、CLAUDE.md と Context Engineering です。"
+series_role: "ハーネス3部作の【実装担当】 — Claude Code を実務で使い倒す側"
 description: "Claude Code の使い方と CLAUDE.md の書き方を、1年以上の実務運用に基づいて体系化。設計思想から、CLAUDE.md の実践パターン、Plan Mode 活用、チーム開発、セキュリティまで——Claude Code を本気で使いこなすための実践書。"
 lang: "ja"
 
@@ -79,7 +80,8 @@ competitor_comparison:
     difference: "Claude Codeのターミナル設計思想を起点に、CLAUDE.mdによる「ドキュメントファースト開発」の体系を提示"
 
 related_books:
-  - "harness-claudemd"
+  - "harness-engineering-guide"
+  - "harness-code-review"
   - "context-engineering"
   - "claude-code-quickstart"
 

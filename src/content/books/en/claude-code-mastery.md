@@ -32,7 +32,8 @@ keywords:
   - "Claude Code vs Cursor"
 
 tagline: "Claude Code tutorial | CLAUDE.md best practices · Plan Mode design · team workflows"
-hero_message: "Stuck with Claude Code or unsure how to design CLAUDE.md? — A field-tested guide from a year of real production use, turning AI from instruction-taker into a true pair programmer."
+hero_message: "Are you giving your AI a different instruction every time? — Turn Claude Code from instruction-taker into pair programmer with CLAUDE.md and Context Engineering."
+series_role: "Harness Trilogy [Implementation] — Where Claude Code becomes a daily collaborator"
 
 outcomes:
   - "Write CLAUDE.md effectively at any scale, from 2 lines to 100+ lines"
@@ -79,9 +80,9 @@ competitor_comparison:
     difference: "Starts from Claude Code's terminal-native design philosophy and builds a documentation-first development discipline around CLAUDE.md."
 
 related_books:
-  - "harness-claudemd"
+  - "harness-engineering-guide"
+  - "harness-code-review"
   - "context-engineering"
-  - "claude-code-quickstart"
 
 related_articles:
   - slug: "claude-code-skills-reusable-workflow-pattern"

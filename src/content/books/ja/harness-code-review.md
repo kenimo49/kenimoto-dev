@@ -34,7 +34,8 @@ keywords:
   - "Claude レビュー"
 
 tagline: "AIコードレビュー 自動化 | hooks 設計・CodeRabbit 導入・Conventional Comments・GitHub Actions パイプライン"
-hero_message: "「フォーマット指摘でレビュー時間が溶ける」と感じている人へ — hooks で機械的、AIで一次、人間は設計判断。3層に分けると、レビュー時間は60%減る。"
+hero_message: "AIが書いたコード、誰がレビューするのか? — hooks(機械)/AI(一次)/人間(設計判断) の3層に分けるだけで、レビュー時間は60%減る。"
+series_role: "ハーネス3部作の【品質担当】 — レビューを「仕組み」にする側"
 
 outcomes:
   - "hooks・AI・人間の3層モデルでレビューを役割分担できるようになる"
@@ -82,8 +83,8 @@ competitor_comparison:
 
 related_books:
   - "harness-engineering-guide"
-  - "harness-claudemd"
   - "claude-code-mastery"
+  - "context-engineering"
 
 related_articles:
   - slug: "claude-code-hooks-v2-25-events"
