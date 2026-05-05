@@ -86,7 +86,8 @@ const links = [
         "author": { "@type": "Person", "name": "井本 賢" },
         "bookFormat": "EBook",
         "inLanguage": "ja",
-        "url": "https://amzn.asia/d/0hgvOnOi",
+        "url": "https://kenimoto.dev/ja/books/harness-code-review",
+        "sameAs": ["https://zenn.dev/kenimo49/books/harness-code-review", "https://amzn.asia/d/0hgvOnOi"],
         "about": ["AIコードレビュー", "3層モデル", "レビュー自動化", "コード品質"]
       },
       {
@@ -96,8 +97,20 @@ const links = [
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "isbn": "",
-        "url": "https://amzn.asia/d/0eE7m2BJ",
+        "url": "https://kenimoto.dev/ja/books/harness-engineering-guide",
+        "sameAs": ["https://zenn.dev/kenimo49/books/harness-engineering-guide", "https://amzn.asia/d/0eE7m2BJ"],
         "about": ["ハーネスエンジニアリング", "AIエージェント", "CLAUDE.md", "AGENTS.md"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "LLMを「嘘つき」から「専門家」に変える技術 — Context Engineering 実践入門",
+        "author": { "@type": "Person", "name": "井本 賢" },
+        "bookFormat": "EBook",
+        "inLanguage": "ja",
+        "url": "https://kenimoto.dev/ja/books/context-engineering",
+        "sameAs": ["https://zenn.dev/kenimo49/books/context-engineering", "https://amzn.asia/d/0dNeVFvn"],
+        "about": ["Context Engineering", "RAG", "MCP", "LLM", "ハルシネーション", "ベンチマーク"]
       },
       {
         "@type": "Book",
@@ -217,7 +230,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/voice-ai-300ms-ux">Zenn</a>
             </div>
           </div>
-          <div class="book-card">
+          <div class="book-card" data-lp-url="/ja/books/harness-code-review">
             <img src="/images/books/harness-code-review.png" alt="AIコードレビューを仕組み化する技術" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">AIコードレビューを仕組み化する技術</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">レビュー時間60%削減の3層モデル</p>
@@ -226,7 +239,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/harness-code-review">Zenn</a>
             </div>
           </div>
-          <div class="book-card">
+          <div class="book-card" data-lp-url="/ja/books/harness-engineering-guide">
             <img src="/images/books/harness-engineering-guide.png" alt="ハーネス・エンジニアリング" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">ハーネス・エンジニアリング</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">AIを"使う"から"操る"へ</p>
@@ -244,7 +257,7 @@ const links = [
               <a href="https://zenn.dev/kenimo49/books/claude-code-mastery">Zenn</a>
             </div>
           </div>
-          <div class="book-card">
+          <div class="book-card" data-lp-url="/ja/books/context-engineering">
             <img src="/images/books/context-engineering.png" alt="Context Engineering実践入門" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Context Engineering実践入門</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">LLMを「嘘つき」から「専門家」に変える技術</p>
