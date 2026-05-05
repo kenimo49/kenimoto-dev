@@ -640,7 +640,7 @@ const bookSchema = {
         >
           {t.primaryCta}
         </a>
-        {zennUrl && <a href={zennUrl} class="hero-cta-secondary" rel="noopener">{t.readSampleZenn}</a>}
+        {lang === 'ja' && zennUrl && <a href={zennUrl} class="hero-cta-secondary" rel="noopener">{t.readSampleZenn}</a>}
       </div>
     )}
 
@@ -802,7 +802,7 @@ const bookSchema = {
         </a>
       )}
       <div class="secondary-links">
-        {zennUrl && <a href={zennUrl} rel="noopener">{t.readSampleZenn}</a>}
+        {lang === 'ja' && zennUrl && <a href={zennUrl} rel="noopener">{t.readSampleZenn}</a>}
         {otherUrls.map((u) => <a href={u.url} rel="noopener">{u.label}</a>)}
       </div>
     </section>
