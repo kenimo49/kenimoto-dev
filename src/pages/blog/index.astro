@@ -2,18 +2,13 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
+import { normalizeTags, topTags } from '../../lib/tags';
 
 const posts = (await getCollection('blog', ({ data }) => data.lang === 'en'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-// Collect all tags with counts
-const tagCounts = new Map<string, number>();
-for (const post of posts) {
-  for (const tag of post.data.tags) {
-    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
-  }
-}
-const sortedTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+// Show only tags with >=2 posts (capped at 10) to avoid singleton clutter
+const sortedTags = topTags(posts.map(p => p.data.tags));
 
 // Group posts by year
 const postsByYear = new Map<number, typeof posts>();
@@ -152,7 +147,7 @@ for (const post of posts) {
             const d = post.data.date;
             const monthDay = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
             return (
-              <li class="post-item" data-tags={post.data.tags.join(',')}>
+              <li class="post-item" data-tags={normalizeTags(post.data.tags).join(',')}>
                 <time datetime={d.toISOString().split('T')[0]}>{monthDay}</time>
                 <a href={`/blog/${slug}/`}>{post.data.title}</a>
               </li>
