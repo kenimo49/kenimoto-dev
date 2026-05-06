@@ -7,7 +7,11 @@ tags: [context-engineering, rag, llm, cost-optimization, ai-architecture]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/cheap-model-won-context-beats-parameters/og.png"
 canonical_url: "https://kenimoto.dev/blog/cheap-model-won-context-beats-parameters"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Hashnode
+    url: https://kenimo49.hashnode.dev/cheap-model-won-context-beats-parameters
+  - platform: Medium
+    url: https://medium.com/@kenimo49/the-cheap-model-that-won-why-context-beats-parameters-ken-imoto-3c371ec9424f
 ---
 
 I spent months assuming bigger models meant better results. Then I ran an experiment that made me feel like I'd been tipping 200% at a restaurant where the food was worse.
