@@ -122,6 +122,7 @@ const translations = {
     compareCol1: '比較対象',
     compareCol2: '本書の違い',
     coverAlt: '表紙',
+    otherLanguages: '他の言語版',
   },
   en: {
     back: '← Back to home',
@@ -150,6 +151,7 @@ const translations = {
     compareCol1: 'Compared to',
     compareCol2: "This book's difference",
     coverAlt: 'cover',
+    otherLanguages: 'Other editions',
   },
   pt: {
     back: '← Voltar ao início',
@@ -178,6 +180,7 @@ const translations = {
     compareCol1: 'Comparado com',
     compareCol2: 'Diferença deste livro',
     coverAlt: 'capa',
+    otherLanguages: 'Outras edições',
   },
   es: {
     back: '← Volver al inicio',
@@ -206,9 +209,21 @@ const translations = {
     compareCol1: 'Comparado con',
     compareCol2: 'Diferencia de este libro',
   coverAlt: 'portada',
+    otherLanguages: 'Otras ediciones',
   },
 };
 const t = translations[lang];
+
+// 他言語版ピル: alternates のうち x-default と現言語以外を表示
+const langLabels: Record<string, string> = {
+  en: 'English',
+  ja: '日本語',
+  pt: 'Português',
+  es: 'Español',
+};
+const otherLangAlternates = alternates.filter(
+  (a) => a.hreflang !== 'x-default' && a.hreflang !== lang
+);
 
 // CTA先決定: kindleUrl 優先、無ければ zennUrl
 const isZennOnly = !kindleUrl && !!zennUrl;
@@ -661,6 +676,30 @@ const bookSchema = {
         margin-top: 1rem;
         font-size: 0.9rem;
       }
+      .other-langs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0 0 1.5rem;
+        font-size: 0.85rem;
+      }
+      .other-langs-label {
+        color: var(--text-muted);
+      }
+      .other-lang-pill {
+        padding: 0.2rem 0.7rem;
+        border: 1px solid var(--text-separator);
+        border-radius: 4px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .other-lang-pill:hover {
+        border-color: var(--accent-blue);
+        color: var(--text-primary);
+        text-decoration: none;
+      }
       .topics-row {
         display: flex;
         flex-wrap: wrap;
@@ -740,6 +779,17 @@ const bookSchema = {
         <span>{t.updatedAt}: <time datetime={updatedDate.toISOString()}>{updatedDate.toISOString().split('T')[0]}</time></span>
       )}
     </div>
+
+    {otherLangAlternates.length > 0 && (
+      <div class="other-langs">
+        <span class="other-langs-label">{t.otherLanguages}:</span>
+        {otherLangAlternates.map((a) => (
+          <a href={a.href} hreflang={a.hreflang} class="other-lang-pill">
+            {langLabels[a.hreflang] || a.hreflang.toUpperCase()}
+          </a>
+        ))}
+      </div>
+    )}
 
     <section class="book-section">
       <h2>{t.overview}</h2>

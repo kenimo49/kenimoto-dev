@@ -27,12 +27,16 @@ const altLangUrl = isBlogPost
 <nav class="site-nav">
   <a href={homeUrl} class="nav-logo">kenimoto.dev</a>
   <div class="nav-links">
-    <a href={blogUrl} class:list={[{ active: current === 'blog' }]}>
-      {lang === 'ja' ? 'Blog' : 'Blog'}
-    </a>
-    <a href={aboutUrl} class:list={[{ active: current === 'about' }]}>
-      About
-    </a>
+    {(lang === 'en' || lang === 'ja') && (
+      <a href={blogUrl} class:list={[{ active: current === 'blog' }]}>
+        Blog
+      </a>
+    )}
+    {(lang === 'en' || lang === 'ja') && (
+      <a href={aboutUrl} class:list={[{ active: current === 'about' }]}>
+        About
+      </a>
+    )}
     <a href={altLangUrl} class="nav-lang">
       {altLangLabel}
     </a>

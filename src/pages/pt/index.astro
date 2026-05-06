@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import { getCollection } from 'astro:content';
+
+const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
+  .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
+---
+
+<BaseLayout
+  title="Ken Imoto — Edições em Português"
+  description="Livros do Ken Imoto disponíveis em português. Engenharia de Contexto, Claude Code, e desenvolvimento com IA."
+  lang="pt"
+  ogUrl="https://kenimoto.dev/pt/"
+  ogDescription="Livros sobre Claude Code, Engenharia de Contexto e desenvolvimento com IA, em português."
+>
+  <Nav lang="pt" current="home" />
+
+  <main class="pt-home">
+    <h1>Edições em Português</h1>
+    <p class="lead">
+      Livros do Ken Imoto disponíveis em português brasileiro. Os demais livros estão em inglês ou japonês.
+    </p>
+
+    <section class="book-list">
+      {ptBooks.map((book) => {
+        const slug = book.id.replace(/^pt\//, '');
+        return (
+          <a href={`/pt/books/${slug}/`} class="book-row">
+            {book.data.cover_image && (
+              <img src={book.data.cover_image} alt={`${book.data.title} capa`} class="book-row-cover" loading="lazy" />
+            )}
+            <div class="book-row-body">
+              <h2>{book.data.title}</h2>
+              {book.data.subtitle && <p class="book-row-subtitle">{book.data.subtitle}</p>}
+              {book.data.tagline && <p class="book-row-tagline">{book.data.tagline}</p>}
+            </div>
+          </a>
+        );
+      })}
+    </section>
+
+    <section class="other-langs-cta">
+      <h2>Procurando outros livros?</h2>
+      <p>
+        A coleção completa está disponível em <a href="/">inglês</a> e <a href="/ja/">japonês</a>.
+      </p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .pt-home {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+  .pt-home h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    color: var(--text-primary);
+  }
+  .pt-home .lead {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 2.5rem;
+  }
+  .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .book-row {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: outline 0.15s;
+    align-items: flex-start;
+  }
+  .book-row:hover {
+    outline: 1px solid var(--accent-blue);
+    text-decoration: none;
+  }
+  .book-row-cover {
+    width: 90px;
+    height: auto;
+    aspect-ratio: 5 / 7;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+    background: var(--bg-primary);
+  }
+  .book-row-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .book-row h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    color: var(--text-primary);
+    line-height: 1.35;
+  }
+  .book-row-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-label);
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+  .book-row-tagline {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .other-langs-cta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--text-separator);
+  }
+  .other-langs-cta h2 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+  }
+  .other-langs-cta p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .pt-home {
+      padding: 1.5rem 1rem 3rem;
+    }
+  }
+</style>
