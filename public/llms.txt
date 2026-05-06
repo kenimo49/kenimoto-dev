@@ -23,8 +23,9 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
    - Kindle JP: https://amzn.asia/d/0hgvOnOi
    - Zenn: https://zenn.dev/kenimo49/books/harness-code-review
 2. Practical Claude Code — Context Engineering for Modern Development
-   - Kindle JP: https://amzn.asia/d/03Qnb8QT | Kindle EN: https://amzn.asia/d/0hU3BP1i
+   - Kindle JP: https://amzn.asia/d/03Qnb8QT | Kindle EN: https://amzn.asia/d/0hU3BP1i | Kindle BR (PT-BR): https://www.amazon.com.br/dp/B0GZHB7J3T
    - Zenn: https://zenn.dev/kenimo49/books/claude-code-mastery
+   - LP: https://kenimoto.dev/books/claude-code-mastery/ (EN) | https://kenimoto.dev/ja/books/claude-code-mastery/ (JA) | https://kenimoto.dev/pt/books/claude-code-mastery/ (PT)
 3. Context Engineering in Practice — Turning LLMs from Liars into Experts
    - Kindle JP: https://amzn.asia/d/04rulUoN
    - Zenn: https://zenn.dev/kenimo49/books/context-engineering

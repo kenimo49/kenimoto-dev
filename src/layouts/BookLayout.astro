@@ -23,7 +23,7 @@ interface Props {
   seriesRole?: string;
   positionStatement: string[];
   description: string;
-  lang: 'en' | 'ja';
+  lang: 'en' | 'ja' | 'pt' | 'es';
   slug: string;
   publishedDate: Date;
   updatedDate?: Date;
@@ -90,58 +90,125 @@ const {
 } = Astro.props;
 
 const siteName = lang === 'ja' ? '井本 賢' : 'Ken Imoto';
-const homeUrl = lang === 'ja' ? '/ja/' : '/';
-const aboutUrl = lang === 'ja' ? '/ja/about/' : '/about/';
+const langPrefix = lang === 'en' ? '' : `/${lang}`;
+const homeUrl = `${langPrefix}/` || '/';
+const aboutUrl = `${langPrefix}/about/`;
 
-const t = lang === 'ja' ? {
-  back: '← トップに戻る',
-  overview: '本書の概要',
-  outcomes: 'この本でできるようになること',
-  position: 'この本の立ち位置',
-  targetReaders: '対象読者',
-  toc: '目次',
-  freeChapter: '無料公開',
-  whyThisBook: 'なぜこの本か',
-  diffFromOthers: '他のAI本との違い',
-  painPointsHeading: 'この本で解決できる悩み',
-  relatedBooks: 'シリーズ・関連書籍',
-  relatedArticles: '関連記事で深掘りする',
-  cta: 'Kindleで購入する',
-  ctaSub: 'Kindle Unlimitedで読み放題対象',
-  primaryCta: '今すぐKindleで読む →',
-  ctaZenn: 'Zennで読む',
-  ctaZennSub: 'Zennで全文を読む',
-  primaryCtaZenn: '今すぐZennで読む →',
-  affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
-  publishedAt: '公開',
-  updatedAt: '更新',
-  readSampleZenn: 'Zennで試し読み',
-  topicsLabel: 'トピック',
-} : {
-  back: '← Back to home',
-  overview: 'Overview',
-  outcomes: 'What you will be able to do',
-  position: 'Where this book stands',
-  targetReaders: 'Who is this book for',
-  toc: 'Table of contents',
-  freeChapter: 'Free preview',
-  whyThisBook: 'Why this book',
-  diffFromOthers: 'How this differs from other AI books',
-  painPointsHeading: 'Problems this book solves',
-  relatedBooks: 'Related books',
-  relatedArticles: 'Dive deeper with related articles',
-  cta: 'Buy on Kindle',
-  ctaSub: 'Available on Kindle Unlimited',
-  primaryCta: 'Read now on Kindle →',
-  ctaZenn: 'Read on Zenn',
-  ctaZennSub: 'Full text on Zenn',
-  primaryCtaZenn: 'Read now on Zenn →',
-  affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
-  publishedAt: 'Published',
-  updatedAt: 'Updated',
-  readSampleZenn: 'Read sample on Zenn',
-  topicsLabel: 'Topics',
+const translations = {
+  ja: {
+    back: '← トップに戻る',
+    overview: '本書の概要',
+    outcomes: 'この本でできるようになること',
+    position: 'この本の立ち位置',
+    targetReaders: '対象読者',
+    toc: '目次',
+    freeChapter: '無料公開',
+    whyThisBook: 'なぜこの本か',
+    diffFromOthers: '他のAI本との違い',
+    painPointsHeading: 'この本で解決できる悩み',
+    relatedBooks: 'シリーズ・関連書籍',
+    relatedArticles: '関連記事で深掘りする',
+    cta: 'Kindleで購入する',
+    ctaSub: 'Kindle Unlimitedで読み放題対象',
+    primaryCta: '今すぐKindleで読む →',
+    ctaZenn: 'Zennで読む',
+    ctaZennSub: 'Zennで全文を読む',
+    primaryCtaZenn: '今すぐZennで読む →',
+    affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
+    publishedAt: '公開',
+    updatedAt: '更新',
+    readSampleZenn: 'Zennで試し読み',
+    topicsLabel: 'トピック',
+    compareCol1: '比較対象',
+    compareCol2: '本書の違い',
+    coverAlt: '表紙',
+  },
+  en: {
+    back: '← Back to home',
+    overview: 'Overview',
+    outcomes: 'What you will be able to do',
+    position: 'Where this book stands',
+    targetReaders: 'Who is this book for',
+    toc: 'Table of contents',
+    freeChapter: 'Free preview',
+    whyThisBook: 'Why this book',
+    diffFromOthers: 'How this differs from other AI books',
+    painPointsHeading: 'Problems this book solves',
+    relatedBooks: 'Related books',
+    relatedArticles: 'Dive deeper with related articles',
+    cta: 'Buy on Kindle',
+    ctaSub: 'Available on Kindle Unlimited',
+    primaryCta: 'Read now on Kindle →',
+    ctaZenn: 'Read on Zenn',
+    ctaZennSub: 'Full text on Zenn',
+    primaryCtaZenn: 'Read now on Zenn →',
+    affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
+    publishedAt: 'Published',
+    updatedAt: 'Updated',
+    readSampleZenn: 'Read sample on Zenn',
+    topicsLabel: 'Topics',
+    compareCol1: 'Compared to',
+    compareCol2: "This book's difference",
+    coverAlt: 'cover',
+  },
+  pt: {
+    back: '← Voltar ao início',
+    overview: 'Visão geral',
+    outcomes: 'O que você será capaz de fazer',
+    position: 'Onde este livro se posiciona',
+    targetReaders: 'Para quem é este livro',
+    toc: 'Sumário',
+    freeChapter: 'Amostra grátis',
+    whyThisBook: 'Por que este livro',
+    diffFromOthers: 'Como este livro difere de outros sobre IA',
+    painPointsHeading: 'Problemas que este livro resolve',
+    relatedBooks: 'Livros relacionados',
+    relatedArticles: 'Aprofunde com artigos relacionados',
+    cta: 'Comprar no Kindle',
+    ctaSub: 'Disponível no Kindle Unlimited',
+    primaryCta: 'Ler agora no Kindle →',
+    ctaZenn: 'Ler no Zenn',
+    ctaZennSub: 'Texto completo no Zenn',
+    primaryCtaZenn: 'Ler agora no Zenn →',
+    affiliateNote: '* Esta página contém links da Amazon Associados. Compras podem gerar uma comissão para o autor.',
+    publishedAt: 'Publicado em',
+    updatedAt: 'Atualizado em',
+    readSampleZenn: 'Ler amostra no Zenn',
+    topicsLabel: 'Tópicos',
+    compareCol1: 'Comparado com',
+    compareCol2: 'Diferença deste livro',
+    coverAlt: 'capa',
+  },
+  es: {
+    back: '← Volver al inicio',
+    overview: 'Resumen',
+    outcomes: 'Lo que podrás hacer',
+    position: 'Dónde se sitúa este libro',
+    targetReaders: 'Para quién es este libro',
+    toc: 'Índice',
+    freeChapter: 'Vista previa',
+    whyThisBook: 'Por qué este libro',
+    diffFromOthers: 'En qué se diferencia de otros libros sobre IA',
+    painPointsHeading: 'Problemas que resuelve este libro',
+    relatedBooks: 'Libros relacionados',
+    relatedArticles: 'Profundiza con artículos relacionados',
+    cta: 'Comprar en Kindle',
+    ctaSub: 'Disponible en Kindle Unlimited',
+    primaryCta: 'Leer ahora en Kindle →',
+    ctaZenn: 'Leer en Zenn',
+    ctaZennSub: 'Texto completo en Zenn',
+    primaryCtaZenn: 'Leer ahora en Zenn →',
+    affiliateNote: '* Esta página contiene enlaces de Amazon Afiliados. Las compras pueden generar una comisión para el autor.',
+    publishedAt: 'Publicado',
+    updatedAt: 'Actualizado',
+    readSampleZenn: 'Leer muestra en Zenn',
+    topicsLabel: 'Temas',
+    compareCol1: 'Comparado con',
+    compareCol2: 'Diferencia de este libro',
+  coverAlt: 'portada',
+  },
 };
+const t = translations[lang];
 
 // CTA先決定: kindleUrl 優先、無ければ zennUrl
 const isZennOnly = !kindleUrl && !!zennUrl;
@@ -154,13 +221,19 @@ const footerCtaSubLabel = isZennOnly ? t.ctaZennSub : t.ctaSub;
 const allBooks = await getCollection('books');
 const relatedBookEntries = relatedBooks
   .map((rbSlug) => {
-    const entry = allBooks.find((b) => {
-      const entrySlug = b.id.replace(/^(ja|en)\//, '');
+    const sameLang = allBooks.find((b) => {
+      const entrySlug = b.id.replace(/^(ja|en|pt|es)\//, '');
       return entrySlug === rbSlug && b.data.lang === lang;
     });
-    return entry ? { slug: rbSlug, data: entry.data } : null;
+    if (sameLang) return { slug: rbSlug, data: sameLang.data, lang };
+    const enFallback = allBooks.find((b) => {
+      const entrySlug = b.id.replace(/^(ja|en|pt|es)\//, '');
+      return entrySlug === rbSlug && b.data.lang === 'en';
+    });
+    if (enFallback) return { slug: rbSlug, data: enFallback.data, lang: 'en' as const };
+    return null;
   })
-  .filter((x): x is { slug: string; data: typeof allBooks[number]['data'] } => x !== null);
+  .filter((x): x is { slug: string; data: typeof allBooks[number]['data']; lang: typeof lang | 'en' } => x !== null);
 const formattedPrice = price !== undefined
   ? (currency === 'JPY' ? `¥${price.toLocaleString()}` : `${currency} ${price}`)
   : null;
@@ -627,7 +700,7 @@ const bookSchema = {
     <a href={homeUrl} style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none;">{t.back}</a>
 
     {coverImage && (
-      <img src={coverImage} alt={`${title} 表紙`} class="book-cover" loading="eager" />
+      <img src={coverImage} alt={`${title} ${t.coverAlt}`} class="book-cover" loading="eager" />
     )}
 
     <h1>{title}</h1>
@@ -725,8 +798,8 @@ const bookSchema = {
         <table class="compare-table">
           <thead>
             <tr>
-              <th>{lang === 'ja' ? '比較対象' : 'Compared to'}</th>
-              <th>{lang === 'ja' ? '本書の違い' : "This book's difference"}</th>
+              <th>{t.compareCol1}</th>
+              <th>{t.compareCol2}</th>
             </tr>
           </thead>
           <tbody>
@@ -765,13 +838,14 @@ const bookSchema = {
         <h2>{t.relatedBooks}</h2>
         <ul class="related-cards">
           {relatedBookEntries.map((rb) => {
-            const href = lang === 'ja' ? `/ja/books/${rb.slug}/` : `/books/${rb.slug}/`;
+            const rbPrefix = rb.lang === 'en' ? '' : `/${rb.lang}`;
+            const href = `${rbPrefix}/books/${rb.slug}/`;
             const titleFull = rb.data.subtitle ? `${rb.data.title} — ${rb.data.subtitle}` : rb.data.title;
             return (
               <li>
                 <a href={href} class="related-card" aria-label={titleFull}>
                   {rb.data.cover_image ? (
-                    <img src={rb.data.cover_image} alt={`${rb.data.title} 表紙`} class="related-card-cover" loading="lazy" />
+                    <img src={rb.data.cover_image} alt={`${rb.data.title} ${t.coverAlt}`} class="related-card-cover" loading="lazy" />
                   ) : (
                     <div class="related-card-cover related-card-fallback">No cover</div>
                   )}
@@ -794,7 +868,7 @@ const bookSchema = {
         <ul class="related-articles">
           {relatedArticles.map((a) => (
             <li>
-              <a href={lang === 'ja' ? `/ja/blog/${a.slug}/` : `/blog/${a.slug}/`}>{a.title}</a>
+              <a href={`${langPrefix}/blog/${a.slug}/`}>{a.title}</a>
             </li>
           ))}
         </ul>

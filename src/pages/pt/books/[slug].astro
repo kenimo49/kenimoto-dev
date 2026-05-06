@@ -1,0 +1,61 @@
+---
+import BookLayout from '../../../layouts/BookLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { alternatesFor } from '../../../lib/alternates';
+
+export async function getStaticPaths() {
+  const all = await getCollection('books');
+  const books = all.filter(b => b.data.lang === 'pt');
+  return books.map(book => {
+    const slug = book.id.replace(/^pt\//, '');
+    return {
+      params: { slug },
+      props: { book, alternates: alternatesFor(all, 'books', slug) },
+    };
+  });
+}
+
+const { book, alternates } = Astro.props;
+const { Content } = await render(book);
+const slug = book.id.replace(/^pt\//, '');
+const canonicalUrl = `https://kenimoto.dev/pt/books/${slug}/`;
+---
+
+<BookLayout
+  title={book.data.title}
+  subtitle={book.data.subtitle}
+  tagline={book.data.tagline}
+  heroMessage={book.data.hero_message}
+  seriesRole={book.data.series_role}
+  positionStatement={book.data.position_statement}
+  description={book.data.description}
+  lang="pt"
+  slug={slug}
+  publishedDate={book.data.published_date}
+  updatedDate={book.data.updated_date}
+  kindleUrl={book.data.kindle_url}
+  zennUrl={book.data.zenn_url}
+  otherUrls={book.data.other_urls}
+  price={book.data.price}
+  currency={book.data.currency}
+  coverImage={book.data.cover_image}
+  ogImage={book.data.og_image}
+  topics={book.data.topics}
+  outcomes={book.data.outcomes}
+  targetReaders={book.data.target_readers}
+  differentiation={book.data.differentiation}
+  chapters={book.data.chapters}
+  competitorComparison={book.data.competitor_comparison}
+  painPoints={book.data.pain_points}
+  relatedBooks={book.data.related_books}
+  relatedArticles={book.data.related_articles}
+  keywords={book.data.keywords}
+  ctaLabel={book.data.cta_label}
+  redirectDelaySeconds={book.data.redirect_delay_seconds}
+  redirectDestination={book.data.redirect_destination}
+  affiliateDisclosure={book.data.affiliate_disclosure}
+  canonicalUrl={canonicalUrl}
+  alternates={alternates}
+>
+  <Content />
+</BookLayout>

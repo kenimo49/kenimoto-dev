@@ -1,24 +1,27 @@
 ---
 interface Props {
-  lang: 'en' | 'ja';
+  lang: 'en' | 'ja' | 'pt' | 'es';
   current?: 'home' | 'blog' | 'about';
 }
 
 const { lang, current = 'home' } = Astro.props;
 
-const homeUrl = lang === 'ja' ? '/ja/' : '/';
-const blogUrl = lang === 'ja' ? '/ja/blog/' : '/blog/';
-const aboutUrl = lang === 'ja' ? '/ja/about/' : '/about/';
+const langPrefix = lang === 'en' ? '' : `/${lang}`;
+const homeUrl = `${langPrefix}/` || '/';
+const blogUrl = `${langPrefix}/blog/`;
+const aboutUrl = `${langPrefix}/about/`;
 const pathname = Astro.url.pathname;
-const isBlogPost = lang === 'ja'
-  ? /^\/ja\/blog\/.+/.test(pathname)
-  : /^\/blog\/.+/.test(pathname);
+const blogRe = lang === 'en' ? /^\/blog\/.+/ : new RegExp(`^/${lang}/blog/.+`);
+const isBlogPost = blogRe.test(pathname);
 
+// 言語切替: enからjaへ、それ以外(ja/pt/es)からはenへ
+const altLang = lang === 'en' ? 'ja' : 'en';
+const altLangLabel = altLang === 'ja' ? 'JP' : 'EN';
 const altLangUrl = isBlogPost
-  ? (lang === 'ja' ? '/blog/' : '/ja/blog/')
-  : (lang === 'ja'
-    ? (pathname.replace(/^\/ja/, '') || '/')
-    : `/ja${pathname}`);
+  ? (altLang === 'en' ? '/blog/' : `/${altLang}/blog/`)
+  : (altLang === 'en'
+    ? (pathname.replace(/^\/(ja|pt|es)/, '') || '/')
+    : `/${altLang}${lang === 'en' ? pathname : pathname.replace(/^\/(ja|pt|es)/, '')}`);
 ---
 
 <nav class="site-nav">
@@ -31,7 +34,7 @@ const altLangUrl = isBlogPost
       About
     </a>
     <a href={altLangUrl} class="nav-lang">
-      {lang === 'ja' ? 'EN' : 'JP'}
+      {altLangLabel}
     </a>
     <button id="theme-toggle" class="theme-toggle" aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}>
       <span class="icon-sun">&#9788;</span>

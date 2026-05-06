@@ -34,7 +34,9 @@
 - Topics: Claude Code, Context Engineering, CLAUDE.md, AI-native development
 - Kindle JP: https://amzn.asia/d/03Qnb8QT
 - Kindle EN: https://amzn.asia/d/0hU3BP1i
+- Kindle BR (PT-BR): https://www.amazon.com.br/dp/B0GZHB7J3T (R$14.99) — *Engenharia de Contexto que Transforma seu Desenvolvimento*
 - Zenn: https://zenn.dev/kenimo49/books/claude-code-mastery (¥1,000)
+- LP: https://kenimoto.dev/books/claude-code-mastery/ (EN) / https://kenimoto.dev/ja/books/claude-code-mastery/ (JA) / https://kenimoto.dev/pt/books/claude-code-mastery/ (PT)
 
 ### Context Engineering in Practice — Turning LLMs from Liars into Experts
 - Topics: Context Engineering, RAG, MCP, LLM hallucination, benchmark experiments

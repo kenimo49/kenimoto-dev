@@ -7,7 +7,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
-    lang: z.enum(['en', 'ja']),
+    lang: z.enum(['en', 'ja', 'pt', 'es']),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     canonical_url: z.string().url().optional(),
@@ -25,7 +25,7 @@ const books = defineCollection({
     title: z.string(),
     subtitle: z.string().optional(),
     description: z.string(),
-    lang: z.enum(['en', 'ja']),
+    lang: z.enum(['en', 'ja', 'pt', 'es']),
 
     kindle_url: z.string().url().optional(),
     zenn_url: z.string().url().optional(),
