@@ -148,4 +148,4 @@ Before you upgrade your model, upgrade your context. Your budget (and your bench
 
 ## Want to go deeper?
 
-The complete Context Engineering system — 5 strategies, RAG benchmarks (4.6× quality lift), MCP server design, Agentic RAG implementation — is in **[Turning LLMs from Liars into Experts: Context Engineering in Practice](https://kenimoto.dev/ja/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cheap-model-won-context-beats-parameters)**.
+The complete Context Engineering system — 5 strategies, RAG benchmarks (4.6× quality lift), MCP server design, Agentic RAG implementation — is in **[Turning LLMs from Liars into Experts: Context Engineering in Practice](https://kenimoto.dev/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cheap-model-won-context-beats-parameters)**.
