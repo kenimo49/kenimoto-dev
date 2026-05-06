@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import { getCollection } from 'astro:content';
+
+const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
+  .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
+
+const links = [
+  { label: 'GitHub', url: 'https://github.com/kenimo49' },
+  { label: 'LinkedIn', url: 'https://linkedin.com/in/kenimo49' },
+  { label: 'X', url: 'https://x.com/kenimo49' },
+  { label: 'DEV.to', url: 'https://dev.to/kenimo49' },
+  { label: 'Amazon BR', url: 'https://www.amazon.com.br/stores/author/B0GQNPRCGF' },
+];
+---
+
+<BaseLayout
+  title="Sobre Ken Imoto"
+  description="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, fundador da Propel-Lab, autor do LLMO Framework e de 11 livros sobre desenvolvimento com IA."
+  lang="pt"
+  ogUrl="https://kenimoto.dev/pt/about/"
+  ogDescription="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, autor do LLMO Framework."
+>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href="https://kenimoto.dev/about/" />
+    <link rel="alternate" hreflang="ja" href="https://kenimoto.dev/ja/about/" />
+    <link rel="alternate" hreflang="pt" href="https://kenimoto.dev/pt/about/" />
+    <link rel="alternate" hreflang="x-default" href="https://kenimoto.dev/about/" />
+    <style>
+      .bio-block {
+        background: var(--bg-card);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .book-row {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--bg-card);
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--text-secondary);
+        transition: outline 0.15s;
+        align-items: flex-start;
+      }
+      .book-row:hover {
+        outline: 1px solid var(--accent-blue);
+        text-decoration: none;
+      }
+      .book-row-cover {
+        width: 70px;
+        aspect-ratio: 5 / 7;
+        object-fit: cover;
+        border-radius: 4px;
+        flex-shrink: 0;
+      }
+      .book-row h3 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0 0 0.2rem;
+        color: var(--text-primary);
+        line-height: 1.35;
+      }
+      .book-row p {
+        font-size: 0.85rem;
+        color: var(--text-label);
+        margin: 0;
+        line-height: 1.4;
+      }
+    </style>
+  </Fragment>
+
+  <Nav lang="pt" current="about" />
+
+  <main style="max-width: 600px; margin: 0 auto; padding: 4rem 2rem;">
+    <section style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem;">
+      <img src="/avatar.jpg" alt="Ken Imoto" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-avatar); flex-shrink: 0;" />
+      <div>
+        <h1 style="font-size: 1.75rem; font-weight: 700; margin: 0 0 0.25rem;">Ken Imoto</h1>
+        <p style="font-size: 1rem; color: var(--text-label); margin: 0;">Engenheiro de WebRTC e Voice AI</p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.25rem 0 0;">Fundador, <a href="https://propel-lab.co.jp">Propel-Lab</a></p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+      <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">Bio</h2>
+      <div class="bio-block">
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0 0 1rem;">
+          Ken Imoto é engenheiro de WebRTC e Voice AI, fundador da Propel-Lab. Constrói organizações AI-native usando LLMs, automação e agentes distribuídos.
+        </p>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0 0 1rem;">
+          É o criador do LLMO (Large Language Model Optimization) Framework, uma metodologia para otimizar a visibilidade de conteúdo em buscadores movidos por IA como ChatGPT e Perplexity. O framework está documentado no livro <em>Why ChatGPT Ignores Your Website: The LLMO Practical Guide</em> e no site companheiro <a href="https://llmoframework.com">llmoframework.com</a>.
+        </p>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0 0 1rem;">
+          Já publicou 11 livros cobrindo desenvolvimento com IA, engenharia de contexto, segurança de MCP e otimização para busca com IA. Títulos em destaque: <em>Practical Claude Code</em>, <em>Harness Engineering</em> e <em>MCP Security in Practice</em>.
+        </p>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">
+          Pesquisa atual: otimização de latência em Voice AI (a barreira dos 300ms), engenharia de contexto para sistemas multi-agente e simulação de agentes generativos. Três artigos publicados no Zenodo sobre análise quantitativa de texto gerado por IA, viés de cor em modelos de visão-linguagem, e padrões estilísticos em escrita técnica japonesa.
+        </p>
+      </div>
+    </section>
+
+    <section style="margin-bottom: 2rem;">
+      <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">
+        Edições em português ({ptBooks.length})
+      </h2>
+      {ptBooks.length === 0 ? (
+        <div class="bio-block">
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+            Nenhuma edição em português disponível ainda. Veja a coleção completa em <a href="/">inglês</a> ou <a href="/ja/">japonês</a>.
+          </p>
+        </div>
+      ) : (
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          {ptBooks.map((book) => {
+            const slug = book.id.replace(/^pt\//, '');
+            return (
+              <a href={`/pt/books/${slug}/`} class="book-row">
+                {book.data.cover_image && (
+                  <img src={book.data.cover_image} alt={`${book.data.title} capa`} class="book-row-cover" loading="lazy" />
+                )}
+                <div>
+                  <h3>{book.data.title}</h3>
+                  {book.data.subtitle && <p>{book.data.subtitle}</p>}
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      )}
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 1rem 0 0;">
+        A coleção completa (em inglês e japonês) está em <a href="/">kenimoto.dev</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">Contato</h2>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        {links.map(link => (
+          <li><a href={link.url}>{link.label}</a></li>
+        ))}
+        <li>📧 <a href="mailto:imoto@propel-lab.co.jp">imoto@propel-lab.co.jp</a></li>
+      </ul>
+    </section>
+  </main>
+</BaseLayout>

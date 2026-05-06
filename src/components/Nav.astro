@@ -32,11 +32,9 @@ const altLangUrl = isBlogPost
         Blog
       </a>
     )}
-    {(lang === 'en' || lang === 'ja') && (
-      <a href={aboutUrl} class:list={[{ active: current === 'about' }]}>
-        About
-      </a>
-    )}
+    <a href={aboutUrl} class:list={[{ active: current === 'about' }]}>
+      About
+    </a>
     <a href={altLangUrl} class="nav-lang">
       {altLangLabel}
     </a>

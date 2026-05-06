@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+import { getCollection } from 'astro:content';
+
+const esBooks = (await getCollection('books', ({ data }) => data.lang === 'es'))
+  .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
+---
+
+<BaseLayout
+  title="Ken Imoto — Ediciones en Español"
+  description="Libros de Ken Imoto disponibles en español. Ingeniería de Contexto, Claude Code, y desarrollo con IA."
+  lang="es"
+  ogUrl="https://kenimoto.dev/es/"
+  ogDescription="Libros sobre Claude Code, Ingeniería de Contexto y desarrollo con IA, en español."
+>
+  <Nav lang="es" current="home" />
+
+  <main class="es-home">
+    <h1>Ediciones en Español</h1>
+    <p class="lead">
+      Libros de Ken Imoto disponibles en español. Los demás libros están en inglés o japonés.
+    </p>
+
+    {esBooks.length === 0 ? (
+      <section class="empty-state">
+        <p>
+          No hay ediciones en español disponibles aún. Próximamente.
+        </p>
+        <p class="empty-cta">
+          Mientras tanto, consulta la colección completa en <a href="/">inglés</a> o <a href="/ja/">japonés</a>.
+        </p>
+      </section>
+    ) : (
+      <section class="book-list">
+        {esBooks.map((book) => {
+          const slug = book.id.replace(/^es\//, '');
+          return (
+            <a href={`/es/books/${slug}/`} class="book-row">
+              {book.data.cover_image && (
+                <img src={book.data.cover_image} alt={`${book.data.title} portada`} class="book-row-cover" loading="lazy" />
+              )}
+              <div class="book-row-body">
+                <h2>{book.data.title}</h2>
+                {book.data.subtitle && <p class="book-row-subtitle">{book.data.subtitle}</p>}
+                {book.data.tagline && <p class="book-row-tagline">{book.data.tagline}</p>}
+              </div>
+            </a>
+          );
+        })}
+      </section>
+    )}
+
+    <section class="other-langs-cta">
+      <h2>¿Buscando otros libros?</h2>
+      <p>
+        La colección completa está disponible en <a href="/">inglés</a> y <a href="/ja/">japonés</a>.
+      </p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .es-home {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+  .es-home h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+    color: var(--text-primary);
+  }
+  .es-home .lead {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 2.5rem;
+  }
+  .empty-state {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .empty-state p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 0.5rem;
+  }
+  .empty-cta {
+    font-size: 0.9rem;
+    color: var(--text-muted) !important;
+  }
+  .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .book-row {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: outline 0.15s;
+    align-items: flex-start;
+  }
+  .book-row:hover {
+    outline: 1px solid var(--accent-blue);
+    text-decoration: none;
+  }
+  .book-row-cover {
+    width: 90px;
+    height: auto;
+    aspect-ratio: 5 / 7;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+    background: var(--bg-primary);
+  }
+  .book-row-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .book-row h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    color: var(--text-primary);
+    line-height: 1.35;
+  }
+  .book-row-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-label);
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+  .book-row-tagline {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+  .other-langs-cta {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--text-separator);
+  }
+  .other-langs-cta h2 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+  }
+  .other-langs-cta p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .es-home {
+      padding: 1.5rem 1rem 3rem;
+    }
+  }
+</style>
