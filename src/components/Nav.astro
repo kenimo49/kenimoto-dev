@@ -6,16 +6,16 @@ interface Props {
 
 const { lang, current = 'home' } = Astro.props;
 
-const homeUrl = lang === 'ja' ? '/ja' : '/';
-const blogUrl = lang === 'ja' ? '/ja/blog' : '/blog';
-const aboutUrl = lang === 'ja' ? '/ja/about' : '/about';
+const homeUrl = lang === 'ja' ? '/ja/' : '/';
+const blogUrl = lang === 'ja' ? '/ja/blog/' : '/blog/';
+const aboutUrl = lang === 'ja' ? '/ja/about/' : '/about/';
 const pathname = Astro.url.pathname;
 const isBlogPost = lang === 'ja'
   ? /^\/ja\/blog\/.+/.test(pathname)
   : /^\/blog\/.+/.test(pathname);
 
 const altLangUrl = isBlogPost
-  ? (lang === 'ja' ? '/blog' : '/ja/blog')
+  ? (lang === 'ja' ? '/blog/' : '/ja/blog/')
   : (lang === 'ja'
     ? (pathname.replace(/^\/ja/, '') || '/')
     : `/ja${pathname}`);

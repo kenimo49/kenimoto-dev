@@ -28,12 +28,14 @@ for (const post of posts) {
   title="Blog — Ken Imoto"
   description="Articles on LLMO, AI development, context engineering, harness engineering, and more."
   lang="en"
-  ogUrl="https://kenimoto.dev/blog"
+  ogUrl="https://kenimoto.dev/blog/"
   ogDescription="Technical articles by Ken Imoto."
 >
   <Fragment slot="head">
     <link rel="alternate" type="application/rss+xml" title="Ken Imoto — Blog (EN)" href="/blog.xml" />
-    <link rel="alternate" hreflang="ja" href="https://kenimoto.dev/ja/blog" />
+    <link rel="alternate" hreflang="en" href="https://kenimoto.dev/blog/" />
+    <link rel="alternate" hreflang="ja" href="https://kenimoto.dev/ja/blog/" />
+    <link rel="alternate" hreflang="x-default" href="https://kenimoto.dev/blog/" />
     <style>
       .tag-filter {
         display: flex;
@@ -152,7 +154,7 @@ for (const post of posts) {
             return (
               <li class="post-item" data-tags={post.data.tags.join(',')}>
                 <time datetime={d.toISOString().split('T')[0]}>{monthDay}</time>
-                <a href={`/blog/${slug}`}>{post.data.title}</a>
+                <a href={`/blog/${slug}/`}>{post.data.title}</a>
               </li>
             );
           })}

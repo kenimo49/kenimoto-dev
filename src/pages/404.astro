@@ -10,6 +10,9 @@ import Nav from '../components/Nav.astro';
   ogUrl="https://kenimoto.dev/404"
   ogDescription="Page not found."
 >
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
   <Nav lang="en" current="" />
 
   <main style="max-width: 720px; margin: 0 auto; padding: 8rem 2rem; text-align: center;">
@@ -24,10 +27,10 @@ import Nav from '../components/Nav.astro';
       <a href="/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
         Home
       </a>
-      <a href="/blog" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+      <a href="/blog/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
         Blog
       </a>
-      <a href="/ja" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+      <a href="/ja/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
         Japanese
       </a>
     </div>

@@ -73,8 +73,8 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
 
 Technical articles on AI development, LLMO, context engineering, harness engineering, and more.
 
-- EN Blog: https://kenimoto.dev/blog
-- JA Blog: https://kenimoto.dev/ja/blog
+- EN Blog: https://kenimoto.dev/blog/
+- JA Blog: https://kenimoto.dev/ja/blog/
 - RSS (EN): https://kenimoto.dev/blog.xml
 - RSS (JA): https://kenimoto.dev/ja/blog.xml
 

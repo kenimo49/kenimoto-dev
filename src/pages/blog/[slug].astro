@@ -1,22 +1,24 @@
 ---
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { alternatesFor, normalizeCanonical } from '../../lib/alternates';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => data.lang === 'en');
+  const all = await getCollection('blog');
+  const posts = all.filter(p => p.data.lang === 'en');
   return posts.map(post => {
     const slug = post.id.replace(/^en\//, '');
     return {
       params: { slug },
-      props: { post },
+      props: { post, alternates: alternatesFor(all, 'blog', slug) },
     };
   });
 }
 
-const { post } = Astro.props;
+const { post, alternates } = Astro.props;
 const { Content } = await render(post);
 const slug = post.id.replace(/^en\//, '');
-const canonicalUrl = post.data.canonical_url || `https://kenimoto.dev/blog/${slug}`;
+const canonicalUrl = normalizeCanonical(post.data.canonical_url, `https://kenimoto.dev/blog/${slug}/`);
 ---
 
 <BlogLayout
@@ -28,6 +30,7 @@ const canonicalUrl = post.data.canonical_url || `https://kenimoto.dev/blog/${slu
   canonicalUrl={canonicalUrl}
   ogImage={post.data.og_image}
   crossPostedTo={post.data.cross_posted_to}
+  alternates={alternates}
 >
   <Content />
 </BlogLayout>

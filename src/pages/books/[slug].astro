@@ -1,22 +1,24 @@
 ---
 import BookLayout from '../../layouts/BookLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { alternatesFor } from '../../lib/alternates';
 
 export async function getStaticPaths() {
-  const books = await getCollection('books', ({ data }) => data.lang === 'en');
+  const all = await getCollection('books');
+  const books = all.filter(b => b.data.lang === 'en');
   return books.map(book => {
     const slug = book.id.replace(/^en\//, '');
     return {
       params: { slug },
-      props: { book },
+      props: { book, alternates: alternatesFor(all, 'books', slug) },
     };
   });
 }
 
-const { book } = Astro.props;
+const { book, alternates } = Astro.props;
 const { Content } = await render(book);
 const slug = book.id.replace(/^en\//, '');
-const canonicalUrl = `https://kenimoto.dev/books/${slug}`;
+const canonicalUrl = `https://kenimoto.dev/books/${slug}/`;
 ---
 
 <BookLayout
@@ -53,6 +55,7 @@ const canonicalUrl = `https://kenimoto.dev/books/${slug}`;
   redirectDestination={book.data.redirect_destination}
   affiliateDisclosure={book.data.affiliate_disclosure}
   canonicalUrl={canonicalUrl}
+  alternates={alternates}
 >
   <Content />
 </BookLayout>

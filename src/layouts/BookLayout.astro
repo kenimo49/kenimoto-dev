@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import { getCollection } from 'astro:content';
+import type { Alternate } from '../lib/alternates';
 
 interface Chapter {
   title: string;
@@ -48,6 +49,7 @@ interface Props {
   redirectDestination: 'kindle' | 'zenn';
   affiliateDisclosure?: boolean;
   canonicalUrl: string;
+  alternates?: Alternate[];
 }
 
 const {
@@ -84,11 +86,12 @@ const {
   redirectDestination,
   affiliateDisclosure = false,
   canonicalUrl,
+  alternates = [],
 } = Astro.props;
 
 const siteName = lang === 'ja' ? '井本 賢' : 'Ken Imoto';
-const homeUrl = lang === 'ja' ? '/ja' : '/';
-const aboutUrl = lang === 'ja' ? '/ja/about' : '/about';
+const homeUrl = lang === 'ja' ? '/ja/' : '/';
+const aboutUrl = lang === 'ja' ? '/ja/about/' : '/about/';
 
 const t = lang === 'ja' ? {
   back: '← トップに戻る',
@@ -205,7 +208,9 @@ const bookSchema = {
   ogImage={ogImage || coverImage}
 >
   <Fragment slot="head">
-    <link rel="canonical" href={canonicalUrl} />
+    {alternates.map(alt => (
+      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
+    ))}
     <meta property="og:type" content="book" />
     {topics.map(t => <meta property="book:tag" content={t} />)}
     <script type="application/ld+json" set:html={JSON.stringify(bookSchema)} />
@@ -760,7 +765,7 @@ const bookSchema = {
         <h2>{t.relatedBooks}</h2>
         <ul class="related-cards">
           {relatedBookEntries.map((rb) => {
-            const href = lang === 'ja' ? `/ja/books/${rb.slug}` : `/books/${rb.slug}`;
+            const href = lang === 'ja' ? `/ja/books/${rb.slug}/` : `/books/${rb.slug}/`;
             const titleFull = rb.data.subtitle ? `${rb.data.title} — ${rb.data.subtitle}` : rb.data.title;
             return (
               <li>
@@ -789,7 +794,7 @@ const bookSchema = {
         <ul class="related-articles">
           {relatedArticles.map((a) => (
             <li>
-              <a href={lang === 'ja' ? `/ja/blog/${a.slug}` : `/blog/${a.slug}`}>{a.title}</a>
+              <a href={lang === 'ja' ? `/ja/blog/${a.slug}/` : `/blog/${a.slug}/`}>{a.title}</a>
             </li>
           ))}
         </ul>
