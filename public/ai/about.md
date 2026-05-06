@@ -29,3 +29,5 @@ Ken Imoto is an AI Systems Engineer building AI-native organizations powered by 
 - LLMO Framework: https://llmoframework.com
 - GitHub: https://github.com/kenimo49
 - LinkedIn: https://linkedin.com/in/kenimo49
+- Hashnode: https://kenimo49.hashnode.dev
+- Medium: https://medium.com/@kenimo49
