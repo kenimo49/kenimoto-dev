@@ -98,10 +98,8 @@ Algumas começaram:
 
 Se você está hoje na fase de "escrever prompts melhores", o próximo passo provável é parar de escrever prompts e começar a escrever contexto. CLAUDE.md é o ponto de entrada mais barato. 30 minutos investidos no arquivo costumam economizar horas na semana seguinte.
 
-Eu juntei o que aprendi nesses meses em um livro chamado [Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery), focado em context engineering aplicado. Cobre CLAUDE.md, Skills, hooks, multi-agente, e os tropeços que valem a pena evitar. Está no Kindle Unlimited.
-
-Mas você não precisa do livro para começar. Abre o seu projeto agora, cria um CLAUDE.md com cinco linhas sobre como rodar os testes e qual é o padrão de erro. Veja o que muda na próxima sessão. Costuma ser óbvio.
+Abre o seu projeto agora, cria um CLAUDE.md com cinco linhas sobre como rodar os testes e qual é o padrão de erro. Veja o que muda na próxima sessão. Costuma ser óbvio.
 
 ---
 
-*Se quiser conversar, me chama no [TabNews](https://www.tabnews.com.br/kenimo49) ou responde aqui mesmo.*
+*ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev) · [TabNews](https://www.tabnews.com.br/kenimo49)*
