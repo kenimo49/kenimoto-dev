@@ -71,7 +71,7 @@ Não esperava esse efeito. Mas faz sentido: o Cursor te dá uma camada de IDE em
 
 ## Onde aprofundar
 
-Eu juntei o que aprendi nesses meses no livro [Practical Claude Code](https://www.amazon.com.br/dp/B0FYPZ9CGS) (versão PT-BR no Kindle, está no Kindle Unlimited). Cobre CLAUDE.md em detalhe, padrões de Skills, multi-agente, e o "porquê" de cada decisão de design do Claude Code.
+Eu juntei o que aprendi nesses meses no livro [Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery) (versão PT-BR no Kindle, está no Kindle Unlimited). Cobre CLAUDE.md em detalhe, padrões de Skills, multi-agente, e o "porquê" de cada decisão de design do Claude Code.
 
 Mas você não precisa do livro para começar. Cria um CLAUDE.md, abre o terminal, manda o primeiro pedido. Em duas semanas você sabe se voltar para o IDE faz sentido para você.
 
