@@ -102,4 +102,4 @@ Abre o seu projeto agora, cria um CLAUDE.md com cinco linhas sobre como rodar os
 
 ---
 
-*ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev) · [TabNews](https://www.tabnews.com.br/kenimo49)*
+*ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*

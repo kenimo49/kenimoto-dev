@@ -80,10 +80,10 @@ Os outros dois pilares (autoridade e citação) demandam mais tempo, mas começa
 
 ## Onde aprofundar
 
-A documentação completa do framework está em [llmoframework.com](https://llmoframework.com), com guias por plataforma (WordPress, Next.js, Astro), case studies com métricas, e referências de papers acadêmicos sobre como os modelos selecionam conteúdo para citação. É grátis.
+A documentação completa do framework está em [llmoframework.com/pt](https://llmoframework.com/pt/) (versão em português), com guias por plataforma (WordPress, Next.js, Astro), case studies com métricas, e referências de papers acadêmicos sobre como os modelos selecionam conteúdo para citação. É grátis.
 
 Mas você não precisa da framework para começar. Adiciona um `llms.txt`, escreve duas frases mais claras na homepage, e veja o que muda em 6 semanas. É como SEO em 2010: ainda dá para se posicionar antes da maioria perceber que é uma corrida.
 
 ---
 
-*ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev) · [TabNews](https://www.tabnews.com.br/kenimo49)*
+*ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*
