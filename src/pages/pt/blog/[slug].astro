@@ -1,0 +1,36 @@
+---
+import BlogLayout from '../../../layouts/BlogLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { alternatesFor, normalizeCanonical } from '../../../lib/alternates';
+
+export async function getStaticPaths() {
+  const all = await getCollection('blog');
+  const posts = all.filter(p => p.data.lang === 'pt');
+  return posts.map(post => {
+    const slug = post.id.replace(/^pt\//, '');
+    return {
+      params: { slug },
+      props: { post, alternates: alternatesFor(all, 'blog', slug) },
+    };
+  });
+}
+
+const { post, alternates } = Astro.props;
+const { Content } = await render(post);
+const slug = post.id.replace(/^pt\//, '');
+const canonicalUrl = normalizeCanonical(post.data.canonical_url, `https://kenimoto.dev/pt/blog/${slug}/`);
+---
+
+<BlogLayout
+  title={post.data.title}
+  description={post.data.description}
+  lang="pt"
+  date={post.data.date}
+  tags={post.data.tags}
+  canonicalUrl={canonicalUrl}
+  ogImage={post.data.og_image}
+  crossPostedTo={post.data.cross_posted_to}
+  alternates={alternates}
+>
+  <Content />
+</BlogLayout>
