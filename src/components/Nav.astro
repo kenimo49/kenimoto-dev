@@ -11,23 +11,45 @@ const homeUrl = `${langPrefix}/` || '/';
 const blogUrl = `${langPrefix}/blog/`;
 const aboutUrl = `${langPrefix}/about/`;
 const pathname = Astro.url.pathname;
-const blogRe = lang === 'en' ? /^\/blog\/.+/ : new RegExp(`^/${lang}/blog/.+`);
-const isBlogPost = blogRe.test(pathname);
 
-// 言語切替: enからjaへ、それ以外(ja/pt/es)からはenへ
-const altLang = lang === 'en' ? 'ja' : 'en';
-const altLangLabel = altLang === 'ja' ? 'JP' : 'EN';
-const altLangUrl = isBlogPost
-  ? (altLang === 'en' ? '/blog/' : `/${altLang}/blog/`)
-  : (altLang === 'en'
-    ? (pathname.replace(/^\/(ja|pt|es)/, '') || '/')
-    : `/${altLang}${lang === 'en' ? pathname : pathname.replace(/^\/(ja|pt|es)/, '')}`);
+// 利用可能な言語(blog/aboutが存在する言語の組み合わせ)
+const ALL_LANGS = ['en', 'ja', 'pt', 'es'] as const;
+const LANG_LABEL: Record<string, string> = { en: 'EN', ja: 'JP', pt: 'PT', es: 'ES' };
+const BLOG_LANGS = new Set(['en', 'ja', 'pt']); // blogがある言語
+
+// 現在のページ種別を推定
+function pageKind(p: string): 'home' | 'blog-list' | 'blog-post' | 'about' | 'books-list' | 'books-post' | 'other' {
+  const stripped = p.replace(/^\/(ja|pt|es)/, '') || '/';
+  if (stripped === '/') return 'home';
+  if (stripped === '/blog/' || stripped === '/blog') return 'blog-list';
+  if (stripped.startsWith('/blog/')) return 'blog-post';
+  if (stripped.startsWith('/about')) return 'about';
+  if (stripped === '/books/' || stripped === '/books') return 'books-list';
+  if (stripped.startsWith('/books/')) return 'books-post';
+  return 'other';
+}
+
+function urlForLang(target: string): string {
+  const prefix = target === 'en' ? '' : `/${target}`;
+  const kind = pageKind(pathname);
+  switch (kind) {
+    case 'home': return `${prefix}/` || '/';
+    case 'blog-list':
+    case 'blog-post':
+      // blogが存在しない言語(es)はホームへフォールバック
+      return BLOG_LANGS.has(target) ? `${prefix}/blog/` : (`${prefix}/` || '/');
+    case 'about': return `${prefix}/about/`;
+    case 'books-list':
+    case 'books-post': return `${prefix}/books/`;
+    default: return `${prefix}/` || '/';
+  }
+}
 ---
 
 <nav class="site-nav">
   <a href={homeUrl} class="nav-logo">kenimoto.dev</a>
   <div class="nav-links">
-    {(lang === 'en' || lang === 'ja' || lang === 'pt') && (
+    {BLOG_LANGS.has(lang) && (
       <a href={blogUrl} class:list={[{ active: current === 'blog' }]}>
         Blog
       </a>
@@ -35,9 +57,13 @@ const altLangUrl = isBlogPost
     <a href={aboutUrl} class:list={[{ active: current === 'about' }]}>
       About
     </a>
-    <a href={altLangUrl} class="nav-lang">
-      {altLangLabel}
-    </a>
+    <div class="nav-langs">
+      {ALL_LANGS.map((l) => (
+        l === lang
+          ? <span class="nav-lang current" aria-current="true">{LANG_LABEL[l]}</span>
+          : <a href={urlForLang(l)} class="nav-lang">{LANG_LABEL[l]}</a>
+      ))}
+    </div>
     <button id="theme-toggle" class="theme-toggle" aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}>
       <span class="icon-sun">&#9788;</span>
       <span class="icon-moon">&#9790;</span>
@@ -81,11 +107,33 @@ const altLangUrl = isBlogPost
     color: var(--text-primary);
   }
 
-  .nav-lang {
-    font-size: 0.8rem;
-    padding: 0.15rem 0.5rem;
+  .nav-langs {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
     border: 1px solid var(--text-separator);
     border-radius: 4px;
+    padding: 0.05rem 0.15rem;
+  }
+
+  .nav-lang {
+    font-size: 0.72rem;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    color: var(--text-label);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-lang:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-lang.current {
+    background: var(--text-separator);
+    color: var(--text-primary);
+    font-weight: 700;
+    cursor: default;
   }
 
   @media (max-width: 480px) {
@@ -96,5 +144,7 @@ const altLangUrl = isBlogPost
       gap: 0.75rem;
       font-size: 0.8rem;
     }
+    .nav-langs { gap: 0.15rem; }
+    .nav-lang { font-size: 0.7rem; padding: 0.1rem 0.3rem; }
   }
 </style>
