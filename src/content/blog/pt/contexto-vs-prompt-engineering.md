@@ -5,6 +5,7 @@ date: 2026-05-07
 lang: pt
 tags: ["context-engineering", "claude-code", "ia-desenvolvimento", "produtividade"]
 featured: true
+og_image: "https://kenimoto.dev/images/blog/contexto-vs-prompt-engineering/og-pt.png"
 ---
 
 Há mais ou menos um ano, eu estava convencido de que a habilidade do futuro era escrever prompts melhores. Estudei templates, comprei dois cursos, anotei frases mágicas tipo "think step by step" e "you are a senior engineer with 20 years of experience". Resultado: códigos um pouco melhores, mas nada que justificasse o tempo gasto reescrevendo o mesmo prompt cinco vezes por dia.
@@ -12,6 +13,8 @@ Há mais ou menos um ano, eu estava convencido de que a habilidade do futuro era
 Hoje eu rodo cinco projetos em paralelo com Claude Code. Não escrevo mais prompts longos. O que mudou foi a percepção de onde o esforço deve ir: não no input que mando agora, mas no contexto que o modelo já tem antes de eu abrir a boca.
 
 Esse texto é sobre essa virada. O nome dela tem rótulo: **engenharia de contexto**.
+
+![Onde fica o esforço: prompt engineering vs context engineering](/images/blog/contexto-vs-prompt-engineering/prompt-vs-context.png)
 
 ## O problema do prompt engineering
 
@@ -34,6 +37,8 @@ Foi aí que comecei a pensar em camadas de contexto. Em vez de um prompt gigante
 **3. Contexto de tarefa:** só o que é específico daquele pedido. "Faz autenticação com JWT" em vez de "faz autenticação com JWT seguindo nosso padrão de erro centralizado em utils/errors.ts e usando bcrypt para hash de senha como descrito em CLAUDE.md".
 
 **4. Contexto de ferramenta:** Skills, hooks, MCP servers. Capacidades que o modelo invoca quando precisa, sem que eu peça.
+
+![As 4 camadas de contexto: persistente, sessão, tarefa, ferramenta](/images/blog/contexto-vs-prompt-engineering/4-camadas-contexto.png)
 
 A diferença prática: meu prompt típico hoje tem três linhas. O modelo já sabe o resto.
 

@@ -39,7 +39,7 @@ function parseFrontmatter(content) {
 
 function findPosts(targetSlug) {
   const posts = [];
-  for (const lang of ['en', 'ja']) {
+  for (const lang of ['en', 'ja', 'pt']) {
     const dir = join(CONTENT_DIR, lang);
     if (!existsSync(dir)) continue;
     const files = readdirSync(dir).filter(f => f.endsWith('.md'));
