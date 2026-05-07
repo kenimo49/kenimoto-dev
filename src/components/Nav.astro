@@ -15,7 +15,7 @@ const pathname = Astro.url.pathname;
 // 利用可能な言語(blog/aboutが存在する言語の組み合わせ)
 const ALL_LANGS = ['en', 'ja', 'pt', 'es'] as const;
 const LANG_LABEL: Record<string, string> = { en: 'EN', ja: 'JP', pt: 'PT', es: 'ES' };
-const BLOG_LANGS = new Set(['en', 'ja', 'pt']); // blogがある言語
+const BLOG_LANGS = new Set(['en', 'ja', 'pt', 'es']); // blogがある言語
 
 // 現在のページ種別を推定
 function pageKind(p: string): 'home' | 'blog-list' | 'blog-post' | 'about' | 'books-list' | 'books-post' | 'other' {

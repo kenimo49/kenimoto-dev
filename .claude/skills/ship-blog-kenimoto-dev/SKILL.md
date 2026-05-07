@@ -1,7 +1,7 @@
 ---
 name: ship-blog-kenimoto-dev
-description: kenimoto.devエンジニアブログの記事作成オーケストレーション。ネタ探索→構成→執筆→品質チェック→公開→クロスポスト連携の7フェーズ対話フロー。EN/JA/PT-BR対応。
-argument-hint: [--lang en|ja|pt|both] [--theme "テーマ"] [--draft path] [--source qiita-path|devto-path] [--publish]
+description: kenimoto.devエンジニアブログの記事作成オーケストレーション。ネタ探索→構成→執筆→品質チェック→公開→クロスポスト連携の7フェーズ対話フロー。EN/JA/PT-BR/ES-LatAm対応。
+argument-hint: [--lang en|ja|pt|es|both] [--theme "テーマ"] [--draft path] [--source qiita-path|devto-path] [--publish]
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash, WebSearch, WebFetch
 ---
 
@@ -33,6 +33,7 @@ Phase 7: 記録         → カレンダー + 活動ログ
 | `--lang en` | 英語記事のみ作成 |
 | `--lang ja` | 日本語記事のみ作成 |
 | `--lang pt` | ポルトガル語(BR) 記事のみ作成。TabNewsクロスポスト前提 |
+| `--lang es` | スペイン語(LatAm-neutral) 記事のみ作成 |
 | `--lang both` | EN/JA両方を作成（デフォルト） |
 | `--theme "..."` | Phase 1 の絞り込みキーワード |
 | `--draft <path>` | Phase 3 から開始（既存下書きを使う） |
@@ -42,11 +43,12 @@ Phase 7: 記録         → カレンダー + 活動ログ
 ## 前提
 
 - ブログリポジトリ: `~/repos/kenimoto-dev/`
-- 記事格納先: `src/content/blog/{en,ja,pt}/{slug}.md`
-- Content Collections スキーマ: `src/content.config.ts`（pt locale 許容済）
+- 記事格納先: `src/content/blog/{en,ja,pt,es}/{slug}.md`
+- Content Collections スキーマ: `src/content.config.ts`（pt/es locale 許容済）
 - ペルソナ: `~/repos/sns-operations/accounts/kenimo49-x/strategy.md` の発信軸を参照
-- 品質チェック: `~/repos/sns-operations/.claude/skills/avoid-ai-writing-{en,ja,pt}/SKILL.md`
+- 品質チェック: `~/repos/sns-operations/.claude/skills/avoid-ai-writing-{en,ja,pt,es}/SKILL.md`
 - PT記事クロスポスト先: TabNews (`/ship-tabnews` または `harness-ops` の tabnews ドメイン経由)
+- ES記事クロスポスト先: 未確定 (kenimoto.dev/es/blog 単独で価値出す)
 - context-forge: `~/repos/context-forge/`（ネタDB）
 - Zenn Books: `~/repos/zenn-content/books/`（知見ストック）
 - 環境変数: `.env` の `GA4_PROPERTY_ID` 等
@@ -219,6 +221,20 @@ cross_posted_to: []  # Phase 6 で追記
   *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*
   ```
 
+#### スペイン語記事 (LatAm-neutral)
+- 一人称は **"yo"** (kenの個人体験角度)
+- LatAm-neutral 標準: メキシコ + Argentina + Colombia + Chile + Spain 全域に通じる語彙
+- Spain用語禁止: `ordenador → computadora`, `vosotros → ustedes`, `móvil → celular`, `coche → carro/auto`
+- "tú" + 3人称、ustedes (vosotros禁止)
+- 専門用語: 英語そのまま (Claude Code, prompt engineering 等)
+- 教育・実務寄りトーン: LatAm/ES 開発者層は実用性重視
+- self-promo 抑制: 本のCTA本文中に置かない、末尾署名のみ
+- 末尾署名 (シンプル):
+  ```
+  ---
+  *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/es/)*
+  ```
+
 ### Wit（人間味）のルール
 
 記事には最低3箇所のWit要素を入れる。AIが書いた「正しいが退屈な文章」を防ぐ最重要ルール。
@@ -257,6 +273,7 @@ cross_posted_to: []  # Phase 6 で追記
 | EN | 800 words | 1,500 words | 2,500 words |
 | JA | 1,500字 | 3,000字 | 5,000字 |
 | PT | 800 words | 1,200 words | 2,000 words |
+| ES | 800 words | 1,200 words | 2,000 words |
 
 ### 出力先
 
@@ -264,6 +281,7 @@ cross_posted_to: []  # Phase 6 で追記
 ~/repos/kenimoto-dev/src/content/blog/en/{slug}.md  # 英語
 ~/repos/kenimoto-dev/src/content/blog/ja/{slug}.md  # 日本語
 ~/repos/kenimoto-dev/src/content/blog/pt/{slug}.md  # ポルトガル語(BR)
+~/repos/kenimoto-dev/src/content/blog/es/{slug}.md  # スペイン語(LatAm-neutral)
 ```
 
 ### 画像生成（1記事あたり1-2枚）
@@ -342,10 +360,13 @@ Qiita/Dev.to/Zennの既存記事をkenimoto.dev用に変換する場合:
 - **日本語**: `/avoid-ai-writing-ja` を実行
 - **英語**: `/avoid-ai-writing-en` を実行
 - **ポルトガル語**: `/avoid-ai-writing-pt` を実行
+- **スペイン語**: `/avoid-ai-writing-es` を実行
 
 Tier 1 語彙が1つでもあれば修正必須。Tier 2 は2個以上で修正。
 
 PT特有チェック (Tier 3 phrases): "No mundo de hoje" / "É importante destacar" / "Em última análise" / "Vamos explorar" 等の AI 開幕・締めパターン。BR vs PT vocab 混在も自動チェック。
+
+ES特有チェック: Spain用語混入 (ordenador/vosotros/móvil/coche/ficheiro)、 "Sin duda" / "Es importante destacar" / "En conclusión" 等の AI クリシェ。
 
 ### 4.2 コードブロック検証
 
@@ -370,7 +391,7 @@ PT特有チェック (Tier 3 phrases): "No mundo de hoje" / "É importante desta
 - [ ] `title` が存在し、50-80文字以内
 - [ ] `description` が存在し、**80-160文字以内**（実測値を出力すること。80字未満はSEOスニペットが弱くなるため修正必須）
 - [ ] `date` が正しい日付形式
-- [ ] `lang` が `en`, `ja`, or `pt`
+- [ ] `lang` が `en`, `ja`, `pt`, or `es`
 - [ ] `tags` が3-5個
 - [ ] `canonical_url` が正しいURL形式
 
@@ -415,8 +436,8 @@ node tools/generate-og-images.mjs {slug}
 ```
 
 - テンプレート: `tools/og-template.html`（navy-monoデザイン）
-- 出力先: `public/images/blog/{slug}/og.png`（EN）、`og-ja.png`（JA）、`og-pt.png`（PT）
-- generate-og-images.mjs は `['en', 'ja', 'pt']` 全てサポート済 (2026-05-07更新)
+- 出力先: `public/images/blog/{slug}/og.png`（EN）、`og-ja.png`（JA）、`og-pt.png`（PT）、`og-es.png`（ES）
+- generate-og-images.mjs は `['en', 'ja', 'pt', 'es']` 全てサポート済 (2026-05-07更新)
 - frontmatterに `og_image` を設定:
   ```yaml
   og_image: "https://kenimoto.dev/images/blog/{slug}/og.png"
@@ -501,6 +522,7 @@ git push origin main
 | **Dev.to** | EN | そのまま or 英語圏向けに文脈追加 | kenimoto.dev/blog/{slug} |
 | **Zenn** | JA | Book連携。深い技術解説寄り | kenimoto.dev/ja/blog/{slug} |
 | **TabNews** | PT | self-promo抑制。本文+source_url。harness-ops tabnews-strategist が日曜選定 → 月水金21:00公開 | kenimoto.dev/pt/blog/{slug} |
+| **ES (未確定)** | ES | クロスポスト先未確定。kenimoto.dev/es/blog 単独運用。Dev.to Spanish も候補 | kenimoto.dev/es/blog/{slug} |
 | **Hashnode** | EN | navy-mono cover生成、Tags 5個 | kenimoto.dev/blog/{slug} |
 | **Medium** | EN | Story Import 半自動 | kenimoto.dev/blog/{slug} |
 
