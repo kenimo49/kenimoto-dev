@@ -109,8 +109,6 @@ chapters:
   - title: "おわりに"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 ベクトル検索 (RAG) でAIに「知識」を与えても、関係性は見えません。「AさんはBさんの上司で、Cプロジェクトを担当している」という構造は、ベクトルではなくグラフで初めて表現できます。

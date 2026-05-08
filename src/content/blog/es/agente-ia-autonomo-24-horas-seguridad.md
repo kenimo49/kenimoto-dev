@@ -5,9 +5,8 @@ date: 2026-05-08
 lang: es
 tags: [ia, agentes, seguridad, claudecode]
 featured: false
-canonical_url: "https://kenimoto.dev/es/blog/agente-ia-autonomo-24-horas-seguridad"
+canonical_url: "https://kenimoto.dev/es/blog/agente-ia-autonomo-24-horas-seguridad/"
 og_image: "https://kenimoto.dev/images/blog/agente-ia-autonomo-24-horas-seguridad/og-es.png"
-cross_posted_to: []
 ---
 
 Los agentes de IA autónomos están en todas las charlas de tech LatAm en 2026. Cursor, Claude Code, v0, Replit Agents. La promesa es la misma: pásale una tarea, deja que la máquina trabaje, vuelve al rato y revisa el resultado.

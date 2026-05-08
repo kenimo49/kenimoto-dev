@@ -2,9 +2,47 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
+import { staticAlternates } from '../../lib/alternates';
 
 const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
+
+const SITE_URL = 'https://kenimoto.dev';
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${SITE_URL}/#person`,
+  name: 'Ken Imoto',
+  jobTitle: 'WebRTC & Voice AI Engineer',
+  url: `${SITE_URL}/`,
+  sameAs: [
+    'https://github.com/kenimo49',
+    'https://linkedin.com/in/kenimo49',
+    'https://x.com/kenimo49',
+    'https://www.tabnews.com.br/kenimo49',
+    'https://medium.com/@kenimo49',
+  ],
+  worksFor: { '@id': `${SITE_URL}/#organization` },
+};
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website-pt`,
+  name: 'Ken Imoto — Edições em Português',
+  url: `${SITE_URL}/pt/`,
+  description: 'Livros sobre Claude Code, Engenharia de Contexto e desenvolvimento com IA, em português.',
+  inLanguage: 'pt-BR',
+  publisher: { '@id': `${SITE_URL}/#organization` },
+};
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: 'Propel-Lab',
+  url: 'https://propel-lab.co.jp/',
+  logo: `${SITE_URL}/og-image.png`,
+  founder: { '@id': `${SITE_URL}/#person` },
+};
 ---
 
 <BaseLayout
@@ -13,6 +51,8 @@ const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   lang="pt"
   ogUrl="https://kenimoto.dev/pt/"
   ogDescription="Livros sobre Claude Code, Engenharia de Contexto e desenvolvimento com IA, em português."
+  alternates={staticAlternates('/')}
+  jsonLd={[personJsonLd, websiteJsonLd, orgJsonLd]}
 >
   <Nav lang="pt" current="home" />
 

@@ -5,8 +5,7 @@ date: 2026-05-06
 lang: ja
 tags: [LLMO, GA4, AI, SEO]
 featured: false
-canonical_url: "https://kenimoto.dev/ja/blog/llmo-measurement-3-methods"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/llmo-measurement-3-methods/"
 ---
 
 先月、ChatGPT経由のアクセスが何件あったか答えられますか。

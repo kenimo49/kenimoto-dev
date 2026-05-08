@@ -92,8 +92,6 @@ chapters:
   - title: "Afterword — Find Your Line"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 Some lines in engineering refuse to fade. Linus Torvalds in the trenches, Brian Kernighan's cold observations, Martin Fowler's business-minded clarity. Each comes from a different vantage point, each cuts straight to what this profession actually is.

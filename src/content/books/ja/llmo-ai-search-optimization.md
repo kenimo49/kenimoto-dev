@@ -107,8 +107,6 @@ chapters:
   - title: "おわりに"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 Google SEO で1位を取っても、ChatGPT は引用してくれません。AI検索エンジンが見ているのは、Google のランキングシグナルとは別の世界です。

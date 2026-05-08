@@ -121,8 +121,6 @@ chapters:
     free: true
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 ハーネスエンジニアリングという言葉が独り歩きしています。OpenAIは「Codexのスケーラビリティ」、Anthropicは「長時間実行エージェント」、LangChainは「Agent = Model + Harness」、Martin Fowlerは「コードベースに既に存在する暗黙のハーネス」。

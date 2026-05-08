@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Nav from '../../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { normalizeTags, topTags } from '../../../lib/tags';
+import { staticAlternates } from '../../../lib/alternates';
 
 const posts = (await getCollection('blog', ({ data }) => data.lang === 'ja'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -25,6 +26,7 @@ for (const post of posts) {
   lang="ja"
   ogUrl="https://kenimoto.dev/ja/blog/"
   ogDescription="井本 賢の技術記事。"
+  alternates={staticAlternates('/blog/')}
 >
   <Fragment slot="head">
     <link rel="alternate" type="application/rss+xml" title="井本 賢 — ブログ (JA)" href="/ja/blog.xml" />

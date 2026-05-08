@@ -103,8 +103,6 @@ chapters:
   - title: "References"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 When a person pauses half a second too long, you notice. With AI, you notice more sharply.

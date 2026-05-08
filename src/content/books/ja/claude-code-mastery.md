@@ -142,8 +142,6 @@ chapters:
   - title: "奥付"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 この本を書いた理由は1つです。Claude Codeを実務で使い込むうちに、**「ツールの使い方」より「ツールとの協働の作法」のほうが効く**と分かってきたからです。

@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Nav from '../../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { normalizeTags, topTags } from '../../../lib/tags';
+import { staticAlternates } from '../../../lib/alternates';
 
 const posts = (await getCollection('blog', ({ data }) => data.lang === 'es'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -23,6 +24,7 @@ for (const post of posts) {
   lang="es"
   ogUrl="https://kenimoto.dev/es/blog/"
   ogDescription="Artículos técnicos de ken imoto."
+  alternates={staticAlternates('/blog/')}
 >
   <Fragment slot="head">
     <link rel="alternate" type="application/rss+xml" title="ken imoto — Blog (ES)" href="/es/blog.xml" />

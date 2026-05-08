@@ -106,8 +106,6 @@ chapters:
   - title: "おわりに"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 MCP は便利ですが、本番に出した瞬間に「あれ、これ大丈夫?」となる場面が多いプロトコルです。

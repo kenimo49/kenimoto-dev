@@ -6,19 +6,67 @@ import type { Alternate } from '../lib/alternates';
 interface Props {
   title: string;
   description: string;
-  lang: 'en' | 'ja';
+  lang: 'en' | 'ja' | 'pt' | 'es';
   date: Date;
+  updated?: Date;
   tags: string[];
   canonicalUrl: string;
   ogImage?: string;
-  crossPostedTo?: { platform: string; url: string }[];
   alternates?: Alternate[];
 }
 
-const { title, description, lang, date, tags, canonicalUrl, ogImage, crossPostedTo, alternates = [] } = Astro.props;
+const { title, description, lang, date, updated, tags, canonicalUrl, ogImage, alternates = [] } = Astro.props;
 const formattedDate = date.toISOString().split('T')[0];
 const siteName = lang === 'ja' ? '井本 賢' : 'Ken Imoto';
-const blogIndexUrl = lang === 'ja' ? '/ja/blog/' : '/blog/';
+const SITE_URL = 'https://kenimoto.dev';
+const langPrefix = lang === 'en' ? '' : `/${lang}`;
+const blogIndexUrl = `${langPrefix}/blog/`;
+const homeUrl = `${langPrefix}/` || '/';
+
+// 4 言語 UI ラベル
+const T = {
+  en: { back: '← Back to Blog', helpful: 'Was this article helpful?', yes: 'Yes', no: 'No', thanks: 'Thank you for your feedback', home: 'Home', articles: 'Articles' },
+  ja: { back: '← ブログに戻る', helpful: 'この記事は役に立ちましたか？', yes: 'はい', no: 'いいえ', thanks: 'ご回答ありがとうございます', home: 'ホーム', articles: '記事' },
+  pt: { back: '← Voltar ao Blog', helpful: 'Este artigo foi útil?', yes: 'Sim', no: 'Não', thanks: 'Obrigado pelo seu feedback', home: 'Início', articles: 'Artigos' },
+  es: { back: '← Volver al Blog', helpful: '¿Te resultó útil este artículo?', yes: 'Sí', no: 'No', thanks: 'Gracias por tus comentarios', home: 'Inicio', articles: 'Artículos' },
+}[lang];
+
+const ogImageAbs = ogImage
+  ? (ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_URL).href)
+  : `${SITE_URL}/og-image.png`;
+
+const blogPostingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  image: ogImageAbs,
+  datePublished: date.toISOString(),
+  dateModified: (updated ?? date).toISOString(),
+  author: {
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
+    name: siteName,
+    url: `${SITE_URL}/`,
+  },
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  url: canonicalUrl,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  ...(tags.length > 0 ? { keywords: tags.join(', ') } : {}),
+  inLanguage: lang === 'ja' ? 'ja-JP' : (lang === 'pt' ? 'pt-BR' : (lang === 'es' ? 'es-ES' : 'en-US')),
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: T.home, item: `${SITE_URL}${homeUrl}` },
+    { '@type': 'ListItem', position: 2, name: T.articles, item: `${SITE_URL}${blogIndexUrl}` },
+    { '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+  ],
+};
+
+const articleJsonLd = [blogPostingJsonLd, breadcrumbJsonLd];
 ---
 
 <BaseLayout
@@ -28,33 +76,17 @@ const blogIndexUrl = lang === 'ja' ? '/ja/blog/' : '/blog/';
   ogUrl={canonicalUrl}
   ogDescription={description}
   ogImage={ogImage}
+  ogType="article"
+  alternates={alternates}
+  jsonLd={articleJsonLd}
+  articleMeta={{
+    publishedTime: date.toISOString(),
+    modifiedTime: (updated ?? date).toISOString(),
+    author: siteName,
+    tags,
+  }}
 >
   <Fragment slot="head">
-    {alternates.map(alt => (
-      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
-    ))}
-    <meta property="og:type" content="article" />
-    <meta property="article:published_time" content={date.toISOString()} />
-    {tags.map(tag => <meta property="article:tag" content={tag} />)}
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": title,
-      "description": description,
-      "datePublished": date.toISOString(),
-      "author": {
-        "@type": "Person",
-        "name": lang === 'ja' ? '井本 賢' : 'Ken Imoto',
-        "url": "https://kenimoto.dev"
-      },
-      "publisher": {
-        "@type": "Person",
-        "name": lang === 'ja' ? '井本 賢' : 'Ken Imoto',
-      },
-      "url": canonicalUrl,
-      "mainEntityOfPage": canonicalUrl,
-      "keywords": tags.join(', '),
-    })} />
     <style>
       .prose {
         font-size: 1rem;
@@ -179,14 +211,14 @@ const blogIndexUrl = lang === 'ja' ? '/ja/blog/' : '/blog/';
     </style>
   </Fragment>
 
-  <Nav lang={lang} current="blog" />
+  <Nav lang={lang} current="blog" alternates={alternates} />
 
   <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem;">
     <article>
       <!-- Article header -->
       <header style="margin-bottom: 2.5rem;">
         <a href={blogIndexUrl} style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none;">
-          &larr; {lang === 'ja' ? 'ブログに戻る' : 'Back to Blog'}
+          {T.back}
         </a>
         <h1 style="font-size: 2rem; font-weight: 700; margin: 1rem 0 0.75rem; line-height: 1.3;">{title}</h1>
         <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted);">
@@ -206,34 +238,19 @@ const blogIndexUrl = lang === 'ja' ? '/ja/blog/' : '/blog/';
         <slot />
       </div>
 
-      <!-- Cross-post notice -->
-      {crossPostedTo && crossPostedTo.length > 0 && (
-        <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--text-separator); font-size: 0.85rem; color: var(--text-muted);">
-          <p>
-            {lang === 'ja' ? 'この記事は' : 'Also published on '}
-            {crossPostedTo.map((cp, i) => (
-              <>
-                <a href={cp.url} style="color: var(--link-color);">{cp.platform}</a>
-                {i < crossPostedTo.length - 1 ? ', ' : ''}
-              </>
-            ))}
-            {lang === 'ja' ? ' にもクロスポストしています。' : '.'}
-          </p>
-        </footer>
-      )}
       <div class="feedback" id="feedback-section">
-        <p class="feedback-question">{lang === 'ja' ? 'この記事は役に立ちましたか？' : 'Was this article helpful?'}</p>
+        <p class="feedback-question">{T.helpful}</p>
         <div class="feedback-buttons">
           <button class="feedback-btn" data-reaction="helpful" aria-label="Helpful">
             <span class="feedback-icon">&#9650;</span>
-            <span>{lang === 'ja' ? 'はい' : 'Yes'}</span>
+            <span>{T.yes}</span>
           </button>
           <button class="feedback-btn" data-reaction="not_helpful" aria-label="Not helpful">
             <span class="feedback-icon">&#9660;</span>
-            <span>{lang === 'ja' ? 'いいえ' : 'No'}</span>
+            <span>{T.no}</span>
           </button>
         </div>
-        <p class="feedback-thanks" style="display: none;">{lang === 'ja' ? 'ご回答ありがとうございます' : 'Thank you for your feedback'}</p>
+        <p class="feedback-thanks" style="display: none;">{T.thanks}</p>
       </div>
 
     </article>

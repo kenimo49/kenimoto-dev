@@ -6,8 +6,7 @@ lang: en
 tags: [llmo, ai-search, seo, llms-txt, web-standards]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/llms-txt-ai-find-your-site/og.png"
-canonical_url: "https://kenimoto.dev/blog/llms-txt-ai-find-your-site"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/blog/llms-txt-ai-find-your-site/"
 ---
 
 I spent two weeks optimizing my site's SEO. Meta tags, structured data, Open Graph images — the whole ritual. Then I asked ChatGPT about my own blog and got silence. Not wrong information. Not outdated information. *Nothing*.

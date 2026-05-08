@@ -116,8 +116,6 @@ chapters:
     free: true
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 The phrase *Harness Engineering* is everywhere, and means something different to everyone. OpenAI talks about scaling Codex. Anthropic talks about long-running agents. LangChain frames it as `Agent = Model + Harness`. Martin Fowler points out that every codebase already has an implicit harness.

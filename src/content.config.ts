@@ -11,11 +11,8 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     canonical_url: z.string().url().optional(),
-    cross_posted_to: z.array(z.object({
-      platform: z.string(),
-      url: z.string().url(),
-    })).default([]),
     og_image: z.string().optional(),
+    updated: z.coerce.date().optional(),
   }),
 });
 
@@ -70,8 +67,6 @@ const books = defineCollection({
     keywords: z.array(z.string()).default([]),
 
     cta_label: z.string().optional(),
-    redirect_delay_seconds: z.number().default(5),
-    redirect_destination: z.enum(['kindle', 'zenn']).default('kindle'),
 
     affiliate_disclosure: z.boolean().default(false),
   }),

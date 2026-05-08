@@ -96,8 +96,6 @@ chapters:
   - title: "おわりに — あなたの一文を見つける"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 エンジニアリングの世界には、何度も引用され、何年経っても色あせない言葉があります。Linus Torvalds の現場の毒舌、Brian Kernighan の冷徹な観察、Martin Fowler の経営的視座。それぞれ違う立場から、エンジニアという職業の本質を撃ち抜いてくる一文たち。

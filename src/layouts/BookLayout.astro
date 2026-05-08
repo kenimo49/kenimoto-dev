@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import type { Alternate } from '../lib/alternates';
+import { withAffiliateTag } from '../lib/affiliate';
 
 interface Chapter {
   title: string;
@@ -45,8 +46,6 @@ interface Props {
   relatedArticles: { slug: string; title: string }[];
   keywords: string[];
   ctaLabel?: string;
-  redirectDelaySeconds: number;
-  redirectDestination: 'kindle' | 'zenn';
   affiliateDisclosure?: boolean;
   canonicalUrl: string;
   alternates?: Alternate[];
@@ -82,8 +81,6 @@ const {
   relatedArticles,
   keywords,
   ctaLabel,
-  redirectDelaySeconds,
-  redirectDestination,
   affiliateDisclosure = false,
   canonicalUrl,
   alternates = [],
@@ -226,8 +223,11 @@ const otherLangAlternates = alternates.filter(
 );
 
 // CTA先決定: kindleUrl 優先、無ければ zennUrl
+// Amazon URL は PUBLIC_AMAZON_TAG が設定されていれば ?tag= を自動注入
+const amazonTag = import.meta.env.PUBLIC_AMAZON_TAG ?? '';
+const taggedKindleUrl = withAffiliateTag(kindleUrl, amazonTag);
 const isZennOnly = !kindleUrl && !!zennUrl;
-const destinationUrl = redirectDestination === 'zenn' ? zennUrl : (kindleUrl || zennUrl);
+const destinationUrl = taggedKindleUrl || zennUrl;
 const heroPrimaryLabel = isZennOnly ? t.primaryCtaZenn : t.primaryCta;
 const footerCtaLabel = isZennOnly ? t.ctaZenn : t.cta;
 const footerCtaSubLabel = isZennOnly ? t.ctaZennSub : t.ctaSub;
@@ -253,22 +253,24 @@ const formattedPrice = price !== undefined
   ? (currency === 'JPY' ? `¥${price.toLocaleString()}` : `${currency} ${price}`)
   : null;
 
+const SITE_URL = 'https://kenimoto.dev';
+const homeAbsUrl = `${SITE_URL}${homeUrl}`;
+const booksIndexUrl = `${SITE_URL}${langPrefix}/books/`;
+
 const bookSchema = {
   '@context': 'https://schema.org',
   '@type': 'Book',
   name: title + (subtitle ? ` — ${subtitle}` : ''),
   description,
-  inLanguage: lang,
+  inLanguage: lang === 'ja' ? 'ja-JP' : (lang === 'pt' ? 'pt-BR' : (lang === 'es' ? 'es-ES' : 'en-US')),
   bookFormat: 'EBook',
   author: {
     '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
     name: siteName,
-    url: 'https://kenimoto.dev',
+    url: `${SITE_URL}/`,
   },
-  publisher: {
-    '@type': 'Person',
-    name: siteName,
-  },
+  publisher: { '@id': `${SITE_URL}/#organization` },
   url: canonicalUrl,
   ...(coverImage ? { image: coverImage } : {}),
   ...(kindleUrl ? { sameAs: [kindleUrl, zennUrl].filter(Boolean) } : {}),
@@ -283,8 +285,28 @@ const bookSchema = {
   } : {}),
   about: topics,
   datePublished: publishedDate.toISOString().split('T')[0],
+  ...(updatedDate ? { dateModified: updatedDate.toISOString().split('T')[0] } : {}),
   ...(keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
 };
+
+const T_NAV = {
+  en: { home: 'Home', books: 'Books' },
+  ja: { home: 'ホーム', books: '書籍' },
+  pt: { home: 'Início', books: 'Livros' },
+  es: { home: 'Inicio', books: 'Libros' },
+}[lang];
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: T_NAV.home, item: homeAbsUrl },
+    { '@type': 'ListItem', position: 2, name: T_NAV.books, item: booksIndexUrl },
+    { '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+  ],
+};
+
+const bookJsonLd = [bookSchema, breadcrumbJsonLd];
 ---
 
 <BaseLayout
@@ -294,14 +316,12 @@ const bookSchema = {
   ogUrl={canonicalUrl}
   ogDescription={description}
   ogImage={ogImage || coverImage}
+  ogType="book"
+  alternates={alternates}
+  jsonLd={bookJsonLd}
 >
   <Fragment slot="head">
-    {alternates.map(alt => (
-      <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />
-    ))}
-    <meta property="og:type" content="book" />
     {topics.map(t => <meta property="book:tag" content={t} />)}
-    <script type="application/ld+json" set:html={JSON.stringify(bookSchema)} />
     <style>
       .book-lp {
         max-width: 760px;
@@ -733,7 +753,7 @@ const bookSchema = {
     </style>
   </Fragment>
 
-  <Nav lang={lang} current="" />
+  <Nav lang={lang} current="" alternates={alternates} />
 
   <main class="book-lp">
     <a href={homeUrl} style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none;">{t.back}</a>

@@ -97,8 +97,6 @@ chapters:
   - title: "おわりに"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 LLMO は奥が深いですが、最初の一歩はシンプルです。`llms.txt` を1ファイル置く。`JSON-LD` を3パターン書く。引用率を測る。これだけで、AI検索エンジンに拾われる確率は跳ね上がります。

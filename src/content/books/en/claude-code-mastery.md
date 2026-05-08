@@ -141,8 +141,6 @@ chapters:
   - title: "Colophon"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 I wrote this book for one reason. After running Claude Code in production for over a year, the deciding factor turned out not to be *how to use the tool*, but *how to collaborate with it*.

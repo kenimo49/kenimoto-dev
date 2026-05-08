@@ -114,8 +114,6 @@ chapters:
   - title: "Colophon"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 Spending review time on formatting issues is like a chef washing dishes. Reviews stall because humans are doing the mechanical work.

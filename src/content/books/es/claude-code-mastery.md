@@ -135,8 +135,6 @@ chapters:
   - title: "Colofón"
 
 cta_label: "Comprar en Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 Escribí este libro por una razón. Después de más de un año usando Claude Code en producción, el factor decisivo no fue *cómo usar la herramienta*, sino *cómo colaborar con ella*.

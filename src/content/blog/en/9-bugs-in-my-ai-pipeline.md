@@ -6,8 +6,7 @@ lang: en
 tags: [harness-engineering, claude-code, ai-agent, automation, devops]
 featured: true
 og_image: "https://kenimoto.dev/images/blog/9-bugs-in-my-ai-pipeline/og.png"
-canonical_url: "https://kenimoto.dev/blog/9-bugs-in-my-ai-pipeline"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/blog/9-bugs-in-my-ai-pipeline/"
 ---
 
 I tested my autonomous content pipeline 6 times and found 9 bugs.

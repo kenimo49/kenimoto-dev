@@ -102,8 +102,6 @@ chapters:
   - title: "Afterword"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 Ranking #1 on Google won't get you quoted by ChatGPT. AI search engines look at a different signal landscape.

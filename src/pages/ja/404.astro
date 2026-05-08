@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+---
+
+<BaseLayout
+  title="ページが見つかりません — kenimoto.dev"
+  description="お探しのページは見つかりませんでした。"
+  lang="ja"
+  ogUrl="https://kenimoto.dev/ja/404/"
+  ogDescription="ページが見つかりません。"
+  noindex={true}
+>
+  <Nav lang="ja" current="" />
+
+  <main style="max-width: 720px; margin: 0 auto; padding: 8rem 2rem; text-align: center;">
+    <p style="font-size: 4rem; margin-bottom: 0.5rem; opacity: 0.2; font-weight: 700;">404</p>
+    <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">
+      ページが見つかりません
+    </h1>
+    <p style="color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7;">
+      お探しのページは存在しないか、移動された可能性があります。
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/ja/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+        ホーム
+      </a>
+      <a href="/ja/blog/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+        ブログ
+      </a>
+      <a href="/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+        English
+      </a>
+    </div>
+  </main>
+</BaseLayout>

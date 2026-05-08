@@ -9,10 +9,8 @@ import Nav from '../components/Nav.astro';
   lang="en"
   ogUrl="https://kenimoto.dev/404"
   ogDescription="Page not found."
+  noindex={true}
 >
-  <Fragment slot="head">
-    <meta name="robots" content="noindex" />
-  </Fragment>
   <Nav lang="en" current="" />
 
   <main style="max-width: 720px; margin: 0 auto; padding: 8rem 2rem; text-align: center;">

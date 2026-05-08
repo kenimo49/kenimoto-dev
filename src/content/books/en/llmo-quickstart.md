@@ -93,8 +93,6 @@ chapters:
   - title: "Afterword"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 LLMO has depth, but the first step is simple. Drop in one `llms.txt` file. Add three `JSON-LD` patterns. Measure citations. That alone moves the needle.

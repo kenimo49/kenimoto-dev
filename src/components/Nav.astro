@@ -1,10 +1,13 @@
 ---
+import type { Alternate } from '../lib/alternates';
+
 interface Props {
   lang: 'en' | 'ja' | 'pt' | 'es';
-  current?: 'home' | 'blog' | 'about';
+  current?: 'home' | 'blog' | 'about' | '';
+  alternates?: Alternate[];
 }
 
-const { lang, current = 'home' } = Astro.props;
+const { lang, current = 'home', alternates = [] } = Astro.props;
 
 const langPrefix = lang === 'en' ? '' : `/${lang}`;
 const homeUrl = `${langPrefix}/` || '/';
@@ -16,6 +19,13 @@ const pathname = Astro.url.pathname;
 const ALL_LANGS = ['en', 'ja', 'pt', 'es'] as const;
 const LANG_LABEL: Record<string, string> = { en: 'EN', ja: 'JP', pt: 'PT', es: 'ES' };
 const BLOG_LANGS = new Set(['en', 'ja', 'pt', 'es']); // blogがある言語
+
+// alternates が渡されていれば該当言語の URL を使う（個別記事 → 対応言語版へ正しく遷移）
+const alternateMap = new Map<string, string>();
+for (const alt of alternates) {
+  if (alt.hreflang === 'x-default') continue;
+  alternateMap.set(alt.hreflang, alt.href);
+}
 
 // 現在のページ種別を推定
 function pageKind(p: string): 'home' | 'blog-list' | 'blog-post' | 'about' | 'books-list' | 'books-post' | 'other' {
@@ -30,13 +40,17 @@ function pageKind(p: string): 'home' | 'blog-list' | 'blog-post' | 'about' | 'bo
 }
 
 function urlForLang(target: string): string {
+  // alternates から個別記事の対応言語版が見つかれば優先
+  const altHref = alternateMap.get(target);
+  if (altHref) return altHref;
+
   const prefix = target === 'en' ? '' : `/${target}`;
   const kind = pageKind(pathname);
   switch (kind) {
     case 'home': return `${prefix}/` || '/';
     case 'blog-list':
     case 'blog-post':
-      // blogが存在しない言語(es)はホームへフォールバック
+      // 対応翻訳が無い場合は blog index にフォールバック
       return BLOG_LANGS.has(target) ? `${prefix}/blog/` : (`${prefix}/` || '/');
     case 'about': return `${prefix}/about/`;
     case 'books-list':
@@ -64,9 +78,15 @@ function urlForLang(target: string): string {
           : <a href={urlForLang(l)} class="nav-lang">{LANG_LABEL[l]}</a>
       ))}
     </div>
-    <button id="theme-toggle" class="theme-toggle" aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}>
-      <span class="icon-sun">&#9788;</span>
-      <span class="icon-moon">&#9790;</span>
+    <button
+      id="theme-toggle"
+      class="theme-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label={lang === 'ja' ? 'テーマ切替' : 'Toggle theme'}
+    >
+      <span class="icon-sun" aria-hidden="true">&#9788;</span>
+      <span class="icon-moon" aria-hidden="true">&#9790;</span>
     </button>
   </div>
 </nav>

@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
+import { staticAlternates } from '../../lib/alternates';
 
 const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
@@ -22,6 +23,7 @@ const links = [
   lang="pt"
   ogUrl="https://kenimoto.dev/pt/about/"
   ogDescription="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, autor do LLMO Framework."
+  alternates={staticAlternates('/about/')}
 >
   <Fragment slot="head">
     <link rel="alternate" hreflang="en" href="https://kenimoto.dev/about/" />

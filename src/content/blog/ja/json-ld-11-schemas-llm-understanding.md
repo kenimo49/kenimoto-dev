@@ -6,8 +6,7 @@ lang: ja
 tags: [LLMO, JSON-LD, SchemaOrg, AI]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/json-ld-11-schemas-llm-understanding/og.png"
-canonical_url: "https://kenimoto.dev/ja/blog/json-ld-11-schemas-llm-understanding"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/json-ld-11-schemas-llm-understanding/"
 ---
 
 ChatGPTに「この会社の専門は何ですか」と聞いて、的外れな返答が来たことありませんか。

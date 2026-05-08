@@ -109,8 +109,6 @@ chapters:
   - title: "参考文献"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 人と話していて、相手の返事が0.5秒遅れたら「あれ?」と思いますよね。AIと話していても同じ。むしろAI相手の方が、遅延を強く感じます。

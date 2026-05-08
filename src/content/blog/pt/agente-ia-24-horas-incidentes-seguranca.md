@@ -5,9 +5,8 @@ date: 2026-05-08
 lang: pt
 tags: [ia, agentes, seguranca, claudecode]
 featured: false
-canonical_url: "https://kenimoto.dev/pt/blog/agente-ia-24-horas-incidentes-seguranca"
+canonical_url: "https://kenimoto.dev/pt/blog/agente-ia-24-horas-incidentes-seguranca/"
 og_image: "https://kenimoto.dev/images/blog/agente-ia-24-horas-incidentes-seguranca/og-pt.png"
-cross_posted_to: []
 ---
 
 Todo mundo no LinkedIn está postando sobre "agentes autônomos de IA". Você abre o feed e tem alguém dizendo que demitiu metade do time porque o Claude Code resolve tudo sozinho. Eu li isso umas trinta vezes e resolvi testar de verdade.

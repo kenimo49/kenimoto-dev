@@ -6,8 +6,7 @@ lang: en
 tags: [context-engineering, rag, llm, ai-architecture]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/full-context-engineering-rag-80-percent/og.png"
-canonical_url: "https://kenimoto.dev/blog/full-context-engineering-rag-80-percent"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/blog/full-context-engineering-rag-80-percent/"
 ---
 
 I read a post about "Full Context Engineering" and immediately added four more layers to my RAG pipeline. Structured output instructions. Hierarchical document layout. Role definition. Few-shot examples. The whole buffet.

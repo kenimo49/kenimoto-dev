@@ -105,8 +105,6 @@ chapters:
   - title: "Afterword"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 Vector search hands AI knowledge, not relationships. "Alice reports to Bob, who runs project C" is a graph fact, not a vector fact.

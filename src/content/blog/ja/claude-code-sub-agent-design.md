@@ -5,8 +5,7 @@ date: 2026-05-01
 lang: ja
 tags: [claude-code, ai-agent, sub-agent, harness-engineering, automation]
 featured: false
-canonical_url: "https://kenimoto.dev/ja/blog/claude-code-sub-agent-design"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/claude-code-sub-agent-design/"
 ---
 
 Claude Codeで大きなリファクタリングをしていたとき、コードベース全体を調査させたらコンテキストウィンドウの70%が検索結果で埋まりました。肝心のリファクタリング指示を出す頃には、窓が狭すぎて的外れな提案しか返ってこない。

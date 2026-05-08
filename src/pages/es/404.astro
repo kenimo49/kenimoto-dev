@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Nav from '../../components/Nav.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada — kenimoto.dev"
+  description="La página que buscas no existe."
+  lang="es"
+  ogUrl="https://kenimoto.dev/es/404/"
+  ogDescription="Página no encontrada."
+  noindex={true}
+>
+  <Nav lang="es" current="" />
+
+  <main style="max-width: 720px; margin: 0 auto; padding: 8rem 2rem; text-align: center;">
+    <p style="font-size: 4rem; margin-bottom: 0.5rem; opacity: 0.2; font-weight: 700;">404</p>
+    <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">
+      Página no encontrada
+    </h1>
+    <p style="color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7;">
+      La página que buscas no existe o ha sido movida.
+    </p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/es/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+        Inicio
+      </a>
+      <a href="/es/blog/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+        Blog
+      </a>
+      <a href="/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+        English
+      </a>
+    </div>
+  </main>
+</BaseLayout>

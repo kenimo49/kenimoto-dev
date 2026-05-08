@@ -5,9 +5,8 @@ date: 2026-05-08
 lang: en
 tags: [ai, agents, security, claudecode]
 featured: false
-canonical_url: "https://kenimoto.dev/blog/autonomous-agent-24-hours-security-lessons"
+canonical_url: "https://kenimoto.dev/blog/autonomous-agent-24-hours-security-lessons/"
 og_image: "https://kenimoto.dev/images/blog/autonomous-agent-24-hours-security-lessons/og.png"
-cross_posted_to: []
 ---
 
 I read a stack of posts about "autonomous AI agents," opened Claude Code, passed `--dangerously-skip-permissions`, and let it run for twenty-four hours.

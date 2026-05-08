@@ -6,8 +6,7 @@ lang: ja
 tags: [ga4, analytics, llmo, build-in-public, bot-traffic]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/new-domain-first-week-ga4-is-a-lie/og-ja.png"
-canonical_url: "https://kenimoto.dev/ja/blog/new-domain-first-week-ga4-is-a-lie"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/new-domain-first-week-ga4-is-a-lie/"
 ---
 
 新規ドメインを取って4日後、GA4を開いたら **65 PV / 34 ユーザー / 9カ国** と表示されました。

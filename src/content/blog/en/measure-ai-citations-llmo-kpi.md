@@ -5,8 +5,7 @@ date: 2026-05-02
 lang: en
 tags: [llmo, ai-search, seo, measurement, analytics]
 featured: false
-canonical_url: "https://kenimoto.dev/blog/measure-ai-citations-llmo-kpi"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/blog/measure-ai-citations-llmo-kpi/"
 ---
 
 I've spent the past few weeks writing about LLMO — how to get cited by AI search engines, which content structures work, what Princeton's GEO study says about visibility. All useful stuff. One problem: I had no idea whether any of it was actually working.

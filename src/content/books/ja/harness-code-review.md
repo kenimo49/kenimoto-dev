@@ -116,8 +116,6 @@ chapters:
   - title: "奥付"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 「フォーマット指摘に時間を使うのは、料理人が皿洗いに時間を使うようなもの。」

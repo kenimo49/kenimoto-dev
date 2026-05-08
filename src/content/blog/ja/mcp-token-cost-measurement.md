@@ -6,8 +6,7 @@ lang: ja
 tags: [mcp, ai-agent, token-cost, claude-code, optimization]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/mcp-token-cost-measurement/og.png"
-canonical_url: "https://kenimoto.dev/ja/blog/mcp-token-cost-measurement"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/mcp-token-cost-measurement/"
 ---
 
 MCPサーバーを5つ接続した状態でClaude Codeを起動したら、何も質問していないのにコンテキストウィンドウの40%が埋まっていました。

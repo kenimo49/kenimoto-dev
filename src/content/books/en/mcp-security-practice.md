@@ -101,8 +101,6 @@ chapters:
   - title: "Afterword"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 MCP is convenient — until you put it in production. Then suddenly: "wait, is this actually safe?"

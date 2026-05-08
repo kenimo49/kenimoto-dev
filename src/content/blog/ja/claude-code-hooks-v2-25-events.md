@@ -5,8 +5,7 @@ date: 2026-05-02
 lang: ja
 tags: [claude-code, hooks, ai-agent, automation, developer-tools]
 featured: false
-canonical_url: "https://kenimoto.dev/ja/blog/claude-code-hooks-v2-25-events"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/claude-code-hooks-v2-25-events/"
 ---
 
 CLAUDE.mdに「ファイル編集後は必ずlintを走らせて」と書きました。3日間は守られていました。4日目、deadlineに追われたClaude Codeは見事にlintをスキップし、フォーマットが壊れたコードをそのままコミットしてくれました。

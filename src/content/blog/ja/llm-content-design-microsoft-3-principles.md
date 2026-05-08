@@ -6,8 +6,7 @@ lang: ja
 tags: [llmo, ai-search, seo, content-design, microsoft]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/llm-content-design-microsoft-3-principles/og.png"
-canonical_url: "https://kenimoto.dev/ja/blog/llm-content-design-microsoft-3-principles"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/llm-content-design-microsoft-3-principles/"
 ---
 
 私はSEOを10年やってきたエンジニアです。検索順位を上げる方法なら寝ながらでも語れます。でも2025年の秋、Microsoftが公式ブログに出したたった1行で、目が覚めました。

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import { staticAlternates } from '../lib/alternates';
 
 // EN about: EN プラットフォームのみ。他言語は Nav の言語スイッチャー経由
 const links = [
@@ -19,6 +20,7 @@ const links = [
   lang="en"
   ogUrl="https://kenimoto.dev/about/"
   ogDescription="About Ken Imoto — WebRTC & Voice AI Engineer, LLMO Framework Author."
+  alternates={staticAlternates('/about/')}
 >
   <Fragment slot="head">
     <style>

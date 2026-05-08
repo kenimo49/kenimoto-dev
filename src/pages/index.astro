@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import { staticAlternates } from '../lib/alternates';
 
 // Connect セクション: EN ページなので EN プラットフォームのみ表示
 // 他言語版は Nav の言語スイッチャーで遷移可。JSON-LD sameAs には全部記載 (SEO/LLMO)
@@ -13,6 +14,28 @@ const links = [
   { label: 'Medium', url: 'https://medium.com/@kenimo49' },
   { label: 'Reddit', url: 'https://www.reddit.com/user/AccountOk6578/' },
 ];
+
+const SITE_URL = 'https://kenimoto.dev';
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  name: 'Ken Imoto',
+  alternateName: 'kenimoto.dev',
+  url: `${SITE_URL}/`,
+  description: 'Ken Imoto — WebRTC & Voice AI Engineer. Building AI-native organizations powered by LLMs, real-time AI, and context engineering.',
+  inLanguage: 'en-US',
+  publisher: { '@id': `${SITE_URL}/#organization` },
+};
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: 'Propel-Lab',
+  url: 'https://propel-lab.co.jp/',
+  logo: `${SITE_URL}/og-image.png`,
+  founder: { '@id': `${SITE_URL}/#person` },
+};
 ---
 
 <BaseLayout
@@ -21,12 +44,15 @@ const links = [
   lang="en"
   ogUrl="https://kenimoto.dev/"
   ogDescription="LLMO Framework Author. Building AI-native organizations powered by LLMs, real-time AI, and context engineering."
+  alternates={staticAlternates('/')}
+  jsonLd={[websiteJsonLd, orgJsonLd]}
 >
   <Fragment slot="head">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://kenimoto.dev/#person",
       "name": "Ken Imoto",
       "jobTitle": "WebRTC & Voice AI Engineer",
       "affiliation": { "@type": "Organization", "name": "Propel-Lab", "url": "https://propel-lab.co.jp" },

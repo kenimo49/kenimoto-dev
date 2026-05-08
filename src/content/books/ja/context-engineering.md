@@ -108,8 +108,6 @@ chapters:
   - title: "(以下続く、計22章+付録A)"
 
 cta_label: "Kindleで購入する"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 「同じ質問をしているのに、AIの回答が全然違う」。原因は、**プロンプトではなくコンテキスト**にあります。

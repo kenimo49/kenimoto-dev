@@ -5,8 +5,7 @@ date: 2026-05-05
 lang: en
 tags: [ga4, analytics, llmo, build-in-public, bot-traffic]
 featured: false
-canonical_url: "https://kenimoto.dev/blog/new-domain-first-week-ga4-is-a-lie"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/blog/new-domain-first-week-ga4-is-a-lie/"
 ---
 
 Four days after registering a new domain, I opened GA4 and saw **65 page views / 34 users / 9 countries**.

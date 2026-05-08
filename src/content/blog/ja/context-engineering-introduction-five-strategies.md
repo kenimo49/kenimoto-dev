@@ -5,9 +5,8 @@ date: 2026-05-08
 lang: ja
 tags: [AI, ContextEngineering, Claude, LLM]
 featured: false
-canonical_url: "https://kenimoto.dev/ja/blog/context-engineering-introduction-five-strategies"
+canonical_url: "https://kenimoto.dev/ja/blog/context-engineering-introduction-five-strategies/"
 og_image: "https://kenimoto.dev/images/blog/context-engineering-introduction-five-strategies/og-ja.png"
-cross_posted_to: []
 ---
 
 同じLLMに、同じ質問をしました。それなのに、5つの全く違う回答が返ってきました。

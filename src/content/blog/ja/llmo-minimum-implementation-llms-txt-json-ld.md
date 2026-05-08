@@ -6,8 +6,7 @@ lang: ja
 tags: [llmo, ai-search, llms-txt, json-ld, geo]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/llmo-minimum-implementation-llms-txt-json-ld/og.png"
-canonical_url: "https://kenimoto.dev/ja/blog/llmo-minimum-implementation-llms-txt-json-ld"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/llmo-minimum-implementation-llms-txt-json-ld/"
 ---
 
 「LLMOで90日8,337%増」を読んで奮い立った私が、まず90分間ボーッとした話を聞いてください。実装は15分で済むのに、私は「何から始めるべきか」を考え続けていました。

@@ -5,8 +5,7 @@ date: 2026-05-03
 lang: ja
 tags: [ai-agent, cost, claude-code, local-llm, api]
 featured: false
-canonical_url: "https://kenimoto.dev/ja/blog/ai-agent-cost-structure-breakeven"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/ai-agent-cost-structure-breakeven/"
 ---
 
 AIエージェントの選定記事を10本読んで、「精度」「拡張性」「エコシステム」の比較表を眺めた。よくわかった。ただ、一番知りたいことが書いていない。

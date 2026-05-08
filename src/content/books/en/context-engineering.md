@@ -105,8 +105,6 @@ chapters:
   - title: "(continues — 22 chapters plus Appendix A)"
 
 cta_label: "Read on Kindle"
-redirect_delay_seconds: 5
-redirect_destination: "kindle"
 ---
 
 The same question keeps giving you wildly different answers. The cause isn't your prompt. It's your **context**.

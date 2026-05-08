@@ -50,3 +50,22 @@ export function normalizeCanonical(canonicalOverride: string | undefined, fallba
   if (url.startsWith(SITE) && !url.endsWith('/')) return `${url}/`;
   return url;
 }
+
+/**
+ * 静的ページ用の hreflang ペア生成。
+ * path は EN 側の絶対パス ("/", "/blog/", "/about/", "/books/")。
+ * EN/JA/PT/ES の 4 言語 + x-default (EN) を返す。
+ */
+export function staticAlternates(path: string): Alternate[] {
+  const enPath = path;
+  const jaPath = path === '/' ? '/ja/' : `/ja${path}`;
+  const ptPath = path === '/' ? '/pt/' : `/pt${path}`;
+  const esPath = path === '/' ? '/es/' : `/es${path}`;
+  return [
+    { hreflang: 'en', href: `${SITE}${enPath}` },
+    { hreflang: 'ja', href: `${SITE}${jaPath}` },
+    { hreflang: 'pt', href: `${SITE}${ptPath}` },
+    { hreflang: 'es', href: `${SITE}${esPath}` },
+    { hreflang: 'x-default', href: `${SITE}${enPath}` },
+  ];
+}

@@ -6,8 +6,7 @@ lang: ja
 tags: [llmo, geo, ai-search, content-strategy, case-study]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/llmo-case-studies-trm-8337-percent/og.png"
-canonical_url: "https://kenimoto.dev/ja/blog/llmo-case-studies-trm-8337-percent"
-cross_posted_to: []
+canonical_url: "https://kenimoto.dev/ja/blog/llmo-case-studies-trm-8337-percent/"
 ---
 
 「ChatGPT流入が90日で8,337%増えた」と聞いたとき、私が最初に思ったのは「元が1日1ビューだったんでしょ」でした。実際そうでした。元は8ビュー、90日後は675ビュー。割合の魔法です。

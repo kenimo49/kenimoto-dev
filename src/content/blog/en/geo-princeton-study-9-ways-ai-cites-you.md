@@ -5,9 +5,8 @@ date: 2026-05-01
 lang: en
 tags: [llmo, geo, ai-search, seo, content-optimization]
 featured: false
-canonical_url: "https://kenimoto.dev/blog/geo-princeton-study-9-ways-ai-cites-you"
+canonical_url: "https://kenimoto.dev/blog/geo-princeton-study-9-ways-ai-cites-you/"
 og_image: "https://kenimoto.dev/images/blog/geo-princeton-study-9-ways-ai-cites-you/og.png"
-cross_posted_to: []
 ---
 
 I've been writing about LLMO for weeks now, and I keep catching myself doing the same thing: guessing. "I think AI likes structured content." "Citations probably help." "Maybe shorter paragraphs?" It's all vibes. Educated vibes, sure, but vibes.
