@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { staticAlternates } from '../../lib/alternates';
+import { buildScholarlyArticleJsonLd } from '../../lib/research-papers';
 
 const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
@@ -52,7 +53,7 @@ const orgJsonLd = {
   ogUrl="https://kenimoto.dev/pt/"
   ogDescription="Livros sobre Claude Code, Engenharia de Contexto e desenvolvimento com IA, em português."
   alternates={staticAlternates('/')}
-  jsonLd={[personJsonLd, websiteJsonLd, orgJsonLd]}
+  jsonLd={[personJsonLd, websiteJsonLd, orgJsonLd, ...buildScholarlyArticleJsonLd(`${SITE_URL}/#person`)]}
 >
   <Nav lang="pt" current="home" />
 

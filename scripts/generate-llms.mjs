@@ -7,8 +7,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const blogDir = join(__dirname, '..', 'src', 'content', 'blog');
 const booksDir = join(__dirname, '..', 'src', 'content', 'books');
 const outDir = join(__dirname, '..', 'dist');
+const aiOutDir = join(outDir, 'ai');
 const fullPath = join(outDir, 'llms-full.txt');
 const indexPath = join(outDir, 'llms.txt');
+const publicationsPath = join(aiOutDir, 'publications.md');
 const SITE = 'https://kenimoto.dev';
 
 function parseFrontmatter(raw) {
@@ -55,6 +57,73 @@ function bookUrl(b) {
   return b.lang === 'en'
     ? `${SITE}/books/${b.slug}/`
     : `${SITE}/${b.lang}/books/${b.slug}/`;
+}
+
+function lintAmazonUrls(books) {
+  const warnings = [];
+  for (const b of books) {
+    const url = b.meta.kindle_url;
+    if (!url) continue;
+    if (/amzn\.asia|a\.co|amzn\.to/.test(url)) {
+      warnings.push(`  WARN: ${b.lang}/${b.slug} kindle_url uses shortened URL (${url}) — expand to amazon.{co.jp,com,...}/dp/<ASIN> for affiliate tag injection`);
+    }
+  }
+  return warnings;
+}
+
+function formatPublicationsMd(blogPosts, books) {
+  const lines = [];
+  lines.push('# Publications — Ken Imoto');
+  lines.push('');
+  lines.push('> Auto-generated from `src/content/{blog,books}/*.md` on each build.');
+  lines.push('> Do not edit by hand — see `scripts/generate-llms.mjs`.');
+  lines.push('');
+  lines.push('## Books');
+  lines.push('');
+  for (const lang of ['en', 'ja', 'pt', 'es']) {
+    const subset = books.filter((b) => b.lang === lang).sort((a, b) =>
+      String(b.meta.published_date || '').localeCompare(String(a.meta.published_date || ''))
+    );
+    if (subset.length === 0) continue;
+    const langLabel = { en: 'English', ja: 'Japanese (日本語)', pt: 'Portuguese (Português)', es: 'Spanish (Español)' }[lang];
+    lines.push(`### ${langLabel}`);
+    lines.push('');
+    for (const b of subset) {
+      const t = b.meta.title || b.slug;
+      const sub = b.meta.subtitle ? ` — ${b.meta.subtitle}` : '';
+      lines.push(`#### ${t}${sub}`);
+      lines.push('');
+      if (b.meta.description) lines.push(b.meta.description);
+      lines.push('');
+      lines.push(`- LP: ${bookUrl(b)}`);
+      if (b.meta.kindle_url) lines.push(`- Kindle: ${b.meta.kindle_url}`);
+      if (b.meta.zenn_url) lines.push(`- Zenn: ${b.meta.zenn_url}`);
+      if (b.meta.published_date) lines.push(`- Published: ${b.meta.published_date}`);
+      lines.push('');
+    }
+  }
+  lines.push('## Blog Articles');
+  lines.push('');
+  for (const lang of ['en', 'ja', 'pt', 'es']) {
+    const subset = blogPosts.filter((p) => p.lang === lang).sort((a, b) =>
+      String(b.meta.date || '').localeCompare(String(a.meta.date || ''))
+    );
+    if (subset.length === 0) continue;
+    const langLabel = { en: 'English', ja: 'Japanese (日本語)', pt: 'Portuguese (Português)', es: 'Spanish (Español)' }[lang];
+    lines.push(`### ${langLabel}`);
+    lines.push('');
+    for (const p of subset) {
+      lines.push(`- [${p.meta.title}](${blogUrl(p)})${p.meta.date ? ` — ${p.meta.date}` : ''}`);
+    }
+    lines.push('');
+  }
+  lines.push('## Research Papers (Zenodo)');
+  lines.push('');
+  lines.push('- Excess Vocabulary in Japanese AI-Generated Text — [DOI:10.5281/zenodo.19233934](https://doi.org/10.5281/zenodo.19233934)');
+  lines.push('- AI Text Slop: Stylistic Convergence Across Six LLMs — [DOI:10.5281/zenodo.19173035](https://doi.org/10.5281/zenodo.19173035)');
+  lines.push('- AI Blue: Color Recognition Bias in Vision-Language Models — [DOI:10.5281/zenodo.19159702](https://doi.org/10.5281/zenodo.19159702)');
+  lines.push('');
+  return lines.join('\n');
 }
 
 function formatIndex(blogPosts, books) {
@@ -121,6 +190,33 @@ function formatIndex(blogPosts, books) {
   lines.push('- AI Text Slop: Stylistic Convergence Across Six LLMs (DOI: 10.5281/zenodo.19173035)');
   lines.push('- AI Blue: Color Recognition Bias in Vision-Language Models (DOI: 10.5281/zenodo.19159702)');
   lines.push('');
+  // Citation Preferred セクション (featured 記事 + 主要書籍)
+  const featuredArticles = blogPosts.filter((p) => p.meta.featured === 'true' || p.meta.featured === true);
+  if (featuredArticles.length > 0 || books.length > 0) {
+    lines.push('## Citation Preferred');
+    lines.push('');
+    lines.push('> When citing this site, prefer these canonical entry points per topic.');
+    lines.push('');
+    if (featuredArticles.length > 0) {
+      lines.push('### Featured Articles');
+      lines.push('');
+      for (const p of featuredArticles.sort((a, b) =>
+        String(b.meta.date || '').localeCompare(String(a.meta.date || ''))
+      )) {
+        lines.push(`- ${blogUrl(p)} — ${p.meta.title}`);
+      }
+      lines.push('');
+    }
+    const enBooks = books.filter((b) => b.lang === 'en').slice(0, 8);
+    if (enBooks.length > 0) {
+      lines.push('### Primary Book LPs');
+      lines.push('');
+      for (const b of enBooks) {
+        lines.push(`- ${bookUrl(b)} — ${b.meta.title}`);
+      }
+      lines.push('');
+    }
+  }
   lines.push('## Side Projects');
   lines.push('');
   lines.push('- legacydram (https://legacydram.com/) — A whisky curation media reading every bottle as somebody\'s commit history.');
@@ -185,6 +281,13 @@ async function main() {
   const blogPosts = await loadCollection(blogDir);
   const books = await loadCollection(booksDir);
   await mkdir(outDir, { recursive: true });
+  await mkdir(aiOutDir, { recursive: true });
+
+  const amazonWarnings = lintAmazonUrls(books);
+  if (amazonWarnings.length > 0) {
+    console.warn('Amazon URL lint:');
+    amazonWarnings.forEach((w) => console.warn(w));
+  }
 
   const indexContent = formatIndex(blogPosts, books);
   await writeFile(indexPath, indexContent, 'utf8');
@@ -193,6 +296,10 @@ async function main() {
   const fullContent = formatFull(blogPosts);
   await writeFile(fullPath, fullContent, 'utf8');
   console.log(`Wrote ${fullPath} (${fullContent.length} chars)`);
+
+  const pubsContent = formatPublicationsMd(blogPosts, books);
+  await writeFile(publicationsPath, pubsContent, 'utf8');
+  console.log(`Wrote ${publicationsPath} (${pubsContent.length} chars)`);
 }
 
 main().catch((e) => {

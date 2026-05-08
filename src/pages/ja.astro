@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import { staticAlternates } from '../lib/alternates';
+import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
 
 // Connect セクション: JA ページなので JA プラットフォームのみ表示
 // 他言語版 (DEV.to/Hashnode/Medium=EN, TabNews=PT, Reddit=EN) は Nav の言語スイッチャー経由
@@ -60,7 +61,7 @@ const orgJsonLd = {
   ogUrl="https://kenimoto.dev/ja/"
   ogDescription="LLMOフレームワーク提唱者。Kindle著者「実践Claude Code」「LLMO」。Qiita 67,000+ PV。"
   alternates={staticAlternates('/')}
-  jsonLd={[personJsonLd, websiteJsonLd, orgJsonLd]}
+  jsonLd={[personJsonLd, websiteJsonLd, orgJsonLd, ...buildScholarlyArticleJsonLd(`${SITE_URL}/#person`)]}
 >
   <Fragment slot="head">
     <script type="application/ld+json">

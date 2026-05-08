@@ -91,6 +91,9 @@ const langPrefix = lang === 'en' ? '' : `/${lang}`;
 const homeUrl = `${langPrefix}/` || '/';
 const aboutUrl = `${langPrefix}/about/`;
 
+// codex 指摘: kindle_url がある書籍は disclosure を自動表示 (frontmatter false でも上書き)
+const showAffiliateDisclosure = !!kindleUrl || affiliateDisclosure;
+
 const translations = {
   ja: {
     back: '← トップに戻る',
@@ -257,12 +260,17 @@ const SITE_URL = 'https://kenimoto.dev';
 const homeAbsUrl = `${SITE_URL}${homeUrl}`;
 const booksIndexUrl = `${SITE_URL}${langPrefix}/books/`;
 
+const inLanguageTag = lang === 'ja' ? 'ja-JP' : (lang === 'pt' ? 'pt-BR' : (lang === 'es' ? 'es-ES' : 'en-US'));
+const sameAsList = [kindleUrl, zennUrl].filter(Boolean);
+
+// Book + Product 双型 (codex 指摘: LP として販売文脈を強化)
 const bookSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Book',
+  '@type': ['Book', 'Product'],
+  '@id': `${canonicalUrl}#book`,
   name: title + (subtitle ? ` — ${subtitle}` : ''),
   description,
-  inLanguage: lang === 'ja' ? 'ja-JP' : (lang === 'pt' ? 'pt-BR' : (lang === 'es' ? 'es-ES' : 'en-US')),
+  inLanguage: inLanguageTag,
   bookFormat: 'EBook',
   author: {
     '@type': 'Person',
@@ -273,7 +281,8 @@ const bookSchema = {
   publisher: { '@id': `${SITE_URL}/#organization` },
   url: canonicalUrl,
   ...(coverImage ? { image: coverImage } : {}),
-  ...(kindleUrl ? { sameAs: [kindleUrl, zennUrl].filter(Boolean) } : {}),
+  ...(sameAsList.length > 0 ? { sameAs: sameAsList } : {}),
+  isPartOf: { '@id': `${SITE_URL}/#website` },
   ...(price ? {
     offers: {
       '@type': 'Offer',
@@ -281,12 +290,14 @@ const bookSchema = {
       priceCurrency: currency,
       url: kindleUrl || zennUrl,
       availability: 'https://schema.org/InStock',
+      seller: { '@id': `${SITE_URL}/#organization` },
     },
   } : {}),
   about: topics,
   datePublished: publishedDate.toISOString().split('T')[0],
   ...(updatedDate ? { dateModified: updatedDate.toISOString().split('T')[0] } : {}),
   ...(keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
+  ...(seriesRole ? { genre: seriesRole } : {}),
 };
 
 const T_NAV = {
@@ -974,7 +985,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
       </div>
     )}
 
-    {affiliateDisclosure && <p class="affiliate-note">{t.affiliateNote}</p>}
+    {showAffiliateDisclosure && <p class="affiliate-note">{t.affiliateNote}</p>}
   </main>
 
   <script is:inline>
