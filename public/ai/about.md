@@ -15,6 +15,10 @@ Ken Imoto is an AI Systems Engineer building AI-native organizations powered by 
 
 - Building AI systems at [Propel-Lab](https://propel-lab.co.jp) — an AI/LLM technology company based in Fukuoka, Japan
 
+## Side Projects
+
+- [legacydram](https://legacydram.com/) — A whisky curation media reading every bottle as somebody's commit history. People · Craft · Tasting (EN/JA bilingual).
+
 ## Research Interests
 
 - Human-AI Interaction
@@ -27,6 +31,7 @@ Ken Imoto is an AI Systems Engineer building AI-native organizations powered by 
 - Website: https://kenimoto.dev
 - Company: https://propel-lab.co.jp
 - LLMO Framework: https://llmoframework.com
+- legacydram (Side Project): https://legacydram.com
 - GitHub: https://github.com/kenimo49
 - LinkedIn: https://linkedin.com/in/kenimo49
 - Hashnode: https://kenimo49.hashnode.dev
