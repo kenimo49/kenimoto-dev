@@ -7,6 +7,9 @@ tags: [claude-code, chatgpt-codex, ai-agents, developer-tools, anthropic, openai
 featured: false
 og_image: "https://kenimoto.dev/images/blog/claude-code-vs-chatgpt-codex-official-agents/og.png"
 canonical_url: "https://kenimoto.dev/blog/claude-code-vs-chatgpt-codex-official-agents/"
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/claude-code-vs-chatgpt-codex-two-official-agents-one-choice-you-dont-have-to-make-52fn
 ---
 
 For a long time my AI coding workflow was a junk drawer. Aider, Continue, OpenClaw, three different VS Code plugins, an `.envrc` with API keys for providers I'd forgotten I had. Then in April 2026, Anthropic tightened the rules on third-party clients hitting Claude Max, and half my drawer stopped opening.

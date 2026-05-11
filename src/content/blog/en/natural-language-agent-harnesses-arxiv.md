@@ -6,6 +6,9 @@ lang: en
 tags: [ai, claudecode, harness, agents]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/natural-language-agent-harnesses-arxiv/"
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-was-calling-it-setup-for-six-months-arxiv-has-a-better-word-harness-2i95
 ---
 
 I had a folder on my laptop called `agent-setup/`. Inside was a CLAUDE.md, a couple of YAML configs, three skills, and a bash script that wired them together. I'd been calling it "the setup" for about six months. When teammates asked what I was doing this quarter, I'd say things like "I'm rebuilding the setup" or "the setup ate my Tuesday." Nobody pushed back. Engineers tolerate vague language the way doctors tolerate handwriting.

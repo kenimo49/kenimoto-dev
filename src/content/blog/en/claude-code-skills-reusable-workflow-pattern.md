@@ -7,6 +7,9 @@ tags: [claude-code, anthropic, ai-agents, developer-tools, skills]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/claude-code-skills-reusable-workflow-pattern/og.png"
 canonical_url: "https://kenimoto.dev/blog/claude-code-skills-reusable-workflow-pattern/"
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-copy-pasted-the-same-prompt-47-times-before-noticing-claude-code-has-skills-1dbi
 ---
 
 I copy-pasted the same review prompt 47 times last month. PRs, internal scripts, the README of a side project I was supposed to ship in 2024. The prompt was fine. I was the problem. Claude Code has had a feature for this since late 2025, and I'd been ignoring it because the docs page had a name I didn't understand: **Skills**.

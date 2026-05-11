@@ -6,6 +6,9 @@ lang: en
 tags: [llmo, ai-search, seo, architecture, content-strategy]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/five-ai-search-engines-architecture-llmo/"
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/one-question-five-ai-search-engines-five-different-answers-4c4o
 ---
 
 I asked five AI search engines the same question: "What's the best CI/CD tool for a small team?" Google AI Overviews recommended GitHub Actions. ChatGPT went with GitLab CI. Perplexity cited a 2026 benchmark from a blog I'd never heard of. Gemini pulled in a YouTube tutorial. Claude said it depends on your stack and asked me three follow-up questions.
