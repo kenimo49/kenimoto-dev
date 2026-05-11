@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  padding: 64px 96px;
+  background: var(--white);
+  color: var(--dark);
+}
+.eyebrow {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.title {
+  font-size: 68px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 56px;
+  line-height: 1.1;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 56px;
+}
+.card {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 36px 40px;
+  min-height: 480px;
+}
+.card:nth-child(1) { border-top: 10px solid var(--navy); }
+.card:nth-child(2) { border-top: 10px solid var(--navy-mid); }
+.card:nth-child(3) { border-top: 10px solid var(--navy-light); }
+.card-name {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.card-role {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 28px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid #D8E0EC;
+}
+.row:last-child { border-bottom: none; }
+.label {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+.value {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: right;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 2px solid var(--navy-bg);
+}
+.stat {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+.stat strong {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--navy);
+}
+.brand {
+  font-size: 28px;
+  color: var(--secondary);
+}
+</style>
+</head>
+<body>
+  <div class="eyebrow">1 PR, 500 líneas, 3 sub-agentes</div>
+  <div class="title">3 revisores, 3 ángulos, 41% de desacuerdo</div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-name">@explore-reviewer</div>
+      <div class="card-role">Arqueólogo de código</div>
+      <div class="row"><span class="label">Herramientas</span><span class="value">Read Grep Glob</span></div>
+      <div class="row"><span class="label">Hallazgos</span><span class="value">28</span></div>
+      <div class="row"><span class="label">Únicos</span><span class="value">11</span></div>
+      <div class="row"><span class="label">Fuerte en</span><span class="value">Dep. entre archivos</span></div>
+      <div class="row"><span class="label">Débil en</span><span class="value">Severidad</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-name">@security-reviewer</div>
+      <div class="card-role">Estimador CVSS</div>
+      <div class="row"><span class="label">Herramientas</span><span class="value">Read Grep Glob WebSearch</span></div>
+      <div class="row"><span class="label">Hallazgos</span><span class="value">22</span></div>
+      <div class="row"><span class="label">Únicos</span><span class="value">9</span></div>
+      <div class="row"><span class="label">Fuerte en</span><span class="value">Fix concreto</span></div>
+      <div class="row"><span class="label">Débil en</span><span class="value">Disciplina de alcance</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-name">@plan-architect</div>
+      <div class="card-role">Auditor de convenciones</div>
+      <div class="row"><span class="label">Herramientas</span><span class="value">Read Grep Glob</span></div>
+      <div class="row"><span class="label">Hallazgos</span><span class="value">28</span></div>
+      <div class="row"><span class="label">Únicos</span><span class="value">12</span></div>
+      <div class="row"><span class="label">Fuerte en</span><span class="value">Deriva de diseño</span></div>
+      <div class="row"><span class="label">Débil en</span><span class="value">Queda en el diff</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="stat">Los 3 coincidieron: <strong>18%</strong> &nbsp;&nbsp; 2 de 3: <strong>41%</strong> &nbsp;&nbsp; Solo 1: <strong>41%</strong></div>
+    <div class="brand">kenimoto.dev</div>
+  </div>
+</body>
+</html>
