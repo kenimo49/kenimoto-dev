@@ -54,6 +54,18 @@ const books = defineCollection({
       summary: z.string().optional(),
     })).default([]),
 
+    // 任意: TOCを3パート構造で書くとき (案B "TOC圧縮 + part毎mini-CTA")
+    // partsを定義すると chapters より優先される。番号は通しで振り直される。
+    parts: z.array(z.object({
+      name: z.string(),
+      summary: z.string().optional(),
+      chapters: z.array(z.object({
+        title: z.string(),
+        free: z.boolean().default(false),
+        summary: z.string().optional(),
+      })),
+    })).optional(),
+
     competitor_comparison: z.array(z.object({
       book: z.string(),
       difference: z.string(),
