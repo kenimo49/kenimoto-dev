@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --border: #D8E0EC;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  padding: 56px 80px;
+}
+.title {
+  font-size: 60px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.subtitle {
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-bottom: 38px;
+}
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 36px;
+}
+.col {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 32px 32px;
+  border-top: 10px solid var(--navy-light);
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+}
+.col:nth-child(2) { border-top-color: var(--navy-mid); }
+.col:nth-child(3) { border-top-color: var(--navy); }
+.attempt {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy-mid);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+.fix {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 26px;
+}
+.row {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+.label {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--secondary);
+  width: 130px;
+  flex-shrink: 0;
+}
+.value {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--navy);
+}
+.value.gone { color: var(--navy-mid); }
+.detail {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--dark);
+  line-height: 1.45;
+  margin-top: 18px;
+}
+.bottom {
+  background: var(--navy);
+  border-radius: 16px;
+  padding: 32px 40px;
+  color: var(--white);
+}
+.bottom-label {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy-light);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.bottom-main {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.bottom-sub {
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--navy-bg);
+}
+</style>
+</head>
+<body>
+<div class="title">Tres 'correcciones', tres formas de esconder el mismo bug</div>
+<div class="subtitle">Lo que hizo Claude cuando le pedí que arreglara un 500</div>
+<div class="cols">
+  <div class="col">
+    <div class="attempt">INTENTO 1</div>
+    <div class="fix">try-catch</div>
+    <div class="row"><div class="label">Síntoma:</div><div class="value gone">desapareció</div></div>
+    <div class="row"><div class="label">Causa:</div><div class="value">escondida</div></div>
+    <div class="detail">La conexión que disparó el error volvió al pool en estado roto.</div>
+  </div>
+  <div class="col">
+    <div class="attempt">INTENTO 2</div>
+    <div class="fix">valor default en el retorno</div>
+    <div class="row"><div class="label">Síntoma:</div><div class="value gone">desapareció</div></div>
+    <div class="row"><div class="label">Causa:</div><div class="value">escondida</div></div>
+    <div class="detail">Lista vacía cayó en un cache downstream y se quedó ahí una hora.</div>
+  </div>
+  <div class="col">
+    <div class="attempt">INTENTO 3</div>
+    <div class="fix">retry con backoff</div>
+    <div class="row"><div class="label">Síntoma:</div><div class="value gone">desapareció</div></div>
+    <div class="row"><div class="label">Causa:</div><div class="value">amplificada</div></div>
+    <div class="detail">3 retries × nueva conexión cada uno — pool drenó más rápido, otros endpoints dieron timeout.</div>
+  </div>
+</div>
+<div class="bottom">
+  <div class="bottom-label">CAUSA RAÍZ REAL</div>
+  <div class="bottom-main">Agotamiento del connection pool</div>
+  <div class="bottom-sub">2 horas después — el mismo incidente apareció en otro endpoint que compartía el mismo cliente de DB.</div>
+</div>
+</body>
+</html>

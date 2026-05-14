@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --border: #D8E0EC;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  padding: 48px 80px;
+}
+.title {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.05;
+  margin-bottom: 6px;
+}
+.subtitle {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-bottom: 28px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 32px;
+}
+.row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 16px 22px;
+  border-left: 8px solid var(--navy-mid);
+  align-items: center;
+  min-height: 78px;
+}
+.num {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+}
+.habit {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.prompt {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--dark);
+  line-height: 1.3;
+  margin-top: 4px;
+}
+</style>
+</head>
+<body>
+<div class="title">10 Hábitos de Debug → 10 Fragmentos de Prompt</div>
+<div class="subtitle">Cola no prompt ou no CLAUDE.md pra ele investigar em vez de suprimir.</div>
+<div class="grid">
+  <div class="row"><div class="num">1</div><div class="body"><div class="habit">Suspeite do input</div><div class="prompt">Confirme que o log está completo</div></div></div>
+  <div class="row"><div class="num">2</div><div class="body"><div class="habit">Reproduza antes</div><div class="prompt">Se não reproduzir, diga e pare</div></div></div>
+  <div class="row"><div class="num">3</div><div class="body"><div class="habit">Ache a fronteira</div><div class="prompt">Onde o que funciona vira quebrado?</div></div></div>
+  <div class="row"><div class="num">4</div><div class="body"><div class="habit">Diff vs estado bom</div><div class="prompt">Rode git log --oneline -20</div></div></div>
+  <div class="row"><div class="num">5</div><div class="body"><div class="habit">Monte uma timeline</div><div class="prompt">Súbito ou gradual? Cruza com deploy</div></div></div>
+  <div class="row"><div class="num">6</div><div class="body"><div class="habit">Audite retry/cache/timeout</div><div class="prompt">E se a chamada está lenta mas não falhou?</div></div></div>
+  <div class="row"><div class="num">7</div><div class="body"><div class="habit">Caminho de amplificação</div><div class="prompt">Erro pequeno virando tempestade?</div></div></div>
+  <div class="row"><div class="num">8</div><div class="body"><div class="habit">Observe, não chute</div><div class="prompt">Proponha log a adicionar, não fix fake</div></div></div>
+  <div class="row"><div class="num">9</div><div class="body"><div class="habit">Simplifique o suspeito</div><div class="prompt">Menor input que ainda dispara o bug</div></div></div>
+  <div class="row"><div class="num">10</div><div class="body"><div class="habit">Quebre de propósito</div><div class="prompt">Preveja o resultado antes de rodar</div></div></div>
+</div>
+</body>
+</html>
