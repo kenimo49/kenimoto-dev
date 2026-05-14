@@ -795,7 +795,8 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
           data-cta-amazon
           data-slug={slug}
           data-position="hero"
-          rel="noopener"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {heroPrimaryLabel}
         </a>
@@ -966,7 +967,8 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
           data-cta-amazon
           data-slug={slug}
           data-position="footer"
-          rel="noopener"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {footerCtaLabel}
           {formattedPrice && ` (${formattedPrice})`}
@@ -998,6 +1000,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
             event_label: link.getAttribute('data-slug') || '',
             cta_position: link.getAttribute('data-position') || 'unknown',
             destination: link.href,
+            transport_type: 'beacon',
           });
         }
       });
