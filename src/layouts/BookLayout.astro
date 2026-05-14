@@ -746,6 +746,36 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         color: var(--text-secondary);
         padding-left: 1.5rem;
       }
+      .free-preview-chapter-body :global(aside.book-callout) {
+        background: var(--bg-elev);
+        border-left: 4px solid var(--accent-amber);
+        padding: 0.85rem 1.1rem;
+        margin: 1.25rem 0;
+        border-radius: 0 4px 4px 0;
+        color: var(--text-secondary);
+      }
+      .free-preview-chapter-body :global(aside.book-callout > *:first-child) {
+        margin-top: 0;
+      }
+      .free-preview-chapter-body :global(aside.book-callout > *:last-child) {
+        margin-bottom: 0;
+      }
+      .free-preview-chapter-body :global(aside.book-callout--alert) {
+        border-left-color: #e07b5d;
+        background: rgba(224, 123, 93, 0.08);
+      }
+      .free-preview-chapter-body :global(details.book-details) {
+        margin: 1.25rem 0;
+        padding: 0.5rem 1rem;
+        background: var(--bg-elev);
+        border-radius: 4px;
+      }
+      .free-preview-chapter-body :global(details.book-details > summary) {
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--text-primary);
+        padding: 0.4rem 0;
+      }
       .free-preview-chapter-body :global(img) {
         max-width: 100%;
         height: auto;
