@@ -84,4 +84,15 @@ const books = defineCollection({
   }),
 });
 
-export const collections = { blog, books };
+// 無料章 (LP内 Free Preview) — book frontmatter とは別コレクション
+// id format: "{lang}/{book-slug}/{chapter-slug}"
+// 例: "en/claude-code-mastery/ch01-birth"
+const freeChapters = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/free_chapters' }),
+  schema: z.object({
+    title: z.string(),
+    free: z.boolean().optional(),
+  }),
+});
+
+export const collections = { blog, books, freeChapters };

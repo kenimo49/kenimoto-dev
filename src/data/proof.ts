@@ -20,6 +20,9 @@ export interface ProofData {
   kuBadge: Record<Lang, string>;
   guarantee: Record<Lang, string>;
   partCta: Record<Lang, string>;
+  freePreviewHeading: Record<Lang, string>;
+  freePreviewLead: Record<Lang, string>;
+  freePreviewChapterCta: Record<Lang, string>;
 }
 
 export const proof: ProofData = {
@@ -112,5 +115,26 @@ export const proof: ProofData = {
     en: 'Sounds good so far → Continue on Kindle',
     pt: 'Curtindo até aqui → Continuar no Kindle',
     es: 'Te interesa hasta aquí → Continuar en Kindle',
+  },
+
+  freePreviewHeading: {
+    ja: '無料で読める章',
+    en: 'Read for free',
+    pt: 'Leia de graça',
+    es: 'Lee gratis',
+  },
+
+  freePreviewLead: {
+    ja: '買う前に3章をその場で読めます。気に入ったらKindleで続きを。',
+    en: 'Read three full chapters right here before you buy. Liked it? Continue on Kindle.',
+    pt: 'Leia 3 capítulos completos aqui mesmo antes de comprar. Curtiu? Continue no Kindle.',
+    es: 'Lee 3 capítulos completos aquí antes de comprar. ¿Te gustó? Continúa en Kindle.',
+  },
+
+  freePreviewChapterCta: {
+    ja: 'この続きはKindleで →',
+    en: 'Continue this chapter on Kindle →',
+    pt: 'Continue este capítulo no Kindle →',
+    es: 'Continúa este capítulo en Kindle →',
   },
 };

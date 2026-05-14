@@ -1,7 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import type { Alternate } from '../lib/alternates';
 import { withAffiliateTag } from '../lib/affiliate';
 import { proof } from '../data/proof';
@@ -283,6 +283,31 @@ const partChapterStartIndex: number[] = [];
 // hero CTA に試し読みを並べる(Kindle商品ページ "サンプルを読む" 機能への踏み台)
 const sampleUrl = taggedKindleUrl;
 
+// 無料章 (Free Preview): src/content/free_chapters/{lang}/{slug}/*.md
+// id format: "{lang}/{slug}/{chapter}" — bookと同じ {lang}/{slug} prefixで自動マッチング
+const FREE_PREVIEW_ORDER = ['preface', 'ch01-birth', 'ch04-claude-md-essence'];
+const allFreeChapters = await getCollection('freeChapters', (entry) => {
+  // entry.id 形式: "en/claude-code-mastery/preface" 等
+  return entry.id.startsWith(`${lang}/${slug}/`);
+});
+type FreeChEntry = (typeof allFreeChapters)[number];
+const freeChByName: Record<string, FreeChEntry | undefined> = {};
+for (const e of allFreeChapters) {
+  const chSlug = e.id.split('/').pop()!.replace(/\.md$/, '');
+  freeChByName[chSlug] = e;
+}
+const orderedFreeChapters = FREE_PREVIEW_ORDER
+  .map((name) => freeChByName[name])
+  .filter((e): e is FreeChEntry => e !== undefined);
+
+// 各章の本文Componentを事前にrender
+const freePreviewRenders = await Promise.all(
+  orderedFreeChapters.map(async (e) => {
+    const { Content } = await render(e);
+    return { id: e.id, title: e.data.title, Content };
+  })
+);
+
 // 社会的証明: proof.ts の指標を現言語に解決
 const proofMetrics = proof.metrics.map((m) => ({
   id: m.id,
@@ -296,6 +321,9 @@ const proofSampleLabel = proof.sampleLabel[lang];
 const proofKuBadge = proof.kuBadge[lang];
 const proofGuarantee = proof.guarantee[lang];
 const proofPartCta = proof.partCta[lang];
+const proofFreePreviewHeading = proof.freePreviewHeading[lang];
+const proofFreePreviewLead = proof.freePreviewLead[lang];
+const proofFreePreviewChapterCta = proof.freePreviewChapterCta[lang];
 
 const SITE_URL = 'https://kenimoto.dev';
 const homeAbsUrl = `${SITE_URL}${homeUrl}`;
@@ -604,6 +632,134 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         .social-proof-label {
           font-size: 0.68rem;
         }
+      }
+
+      /* Free Preview: 無料章を accordion で展開 */
+      .free-preview {
+        margin: 0 0 3rem;
+        padding: 1.5rem 1.25rem;
+        background: var(--bg-elev);
+        border-radius: 8px;
+        border: 1px solid var(--accent-amber);
+      }
+      .free-preview-heading {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin: 0 0 0.4rem;
+        padding: 0;
+        border: none;
+      }
+      .free-preview-lead {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin: 0 0 1.25rem !important;
+        line-height: 1.6;
+      }
+      .free-preview-chapter {
+        background: var(--bg-base);
+        border: 1px solid var(--text-separator);
+        border-radius: 6px;
+        margin: 0 0 0.75rem;
+        transition: border-color 0.15s;
+      }
+      .free-preview-chapter[open] {
+        border-color: var(--accent-amber);
+      }
+      .free-preview-chapter-summary {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        cursor: pointer;
+        list-style: none;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .free-preview-chapter-summary::-webkit-details-marker { display: none; }
+      .free-preview-chapter-num {
+        display: inline-flex;
+        min-width: 2.5rem;
+        height: 2.5rem;
+        align-items: center;
+        justify-content: center;
+        background: var(--accent-amber);
+        color: white;
+        border-radius: 50%;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      .free-preview-chapter-title {
+        flex: 1;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+      .free-preview-chapter-toggle {
+        font-size: 1.4rem;
+        color: var(--accent-amber);
+        font-weight: 700;
+        transition: transform 0.2s;
+      }
+      .free-preview-chapter[open] .free-preview-chapter-toggle {
+        transform: rotate(45deg);
+      }
+      .free-preview-chapter-body {
+        padding: 0.5rem 1.5rem 1.25rem;
+        border-top: 1px dashed var(--text-separator);
+      }
+      .free-preview-chapter-body :global(h1),
+      .free-preview-chapter-body :global(h2),
+      .free-preview-chapter-body :global(h3) {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin: 1.5rem 0 0.5rem;
+      }
+      .free-preview-chapter-body :global(p) {
+        font-size: 0.95rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin: 0 0 1rem;
+      }
+      .free-preview-chapter-body :global(blockquote) {
+        margin: 1rem 0;
+        padding: 0.5rem 1rem;
+        border-left: 3px solid var(--accent-amber);
+        background: var(--bg-elev);
+        color: var(--text-secondary);
+        font-style: italic;
+      }
+      .free-preview-chapter-body :global(pre) {
+        background: var(--bg-elev);
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+        font-size: 0.85rem;
+      }
+      .free-preview-chapter-body :global(code) {
+        font-family: 'SF Mono', 'Monaco', 'Menlo', monospace;
+        font-size: 0.85em;
+      }
+      .free-preview-chapter-body :global(ul),
+      .free-preview-chapter-body :global(ol) {
+        font-size: 0.95rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        padding-left: 1.5rem;
+      }
+      .free-preview-end-cta {
+        display: inline-block;
+        margin-top: 1.25rem;
+        padding: 0.75rem 1.25rem;
+        background: var(--accent-amber);
+        color: white;
+        border-radius: 4px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: opacity 0.15s;
+      }
+      .free-preview-end-cta:hover {
+        opacity: 0.85;
       }
 
       /* 案B: TOC 3パート構造 + mini-CTA */
@@ -1004,6 +1160,42 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         ))}
       </div>
     </section>
+
+    {/* Free Preview: 3章をその場で読める (accordion全閉じ初期) */}
+    {freePreviewRenders.length > 0 && (
+      <section class="free-preview" aria-label={proofFreePreviewHeading}>
+        <h2 class="free-preview-heading">📖 {proofFreePreviewHeading}</h2>
+        <p class="free-preview-lead">{proofFreePreviewLead}</p>
+        {freePreviewRenders.map(({ id, title, Content }, idx) => {
+          const chSlug = id.split('/').pop()!.replace(/\.md$/, '');
+          return (
+            <details class="free-preview-chapter">
+              <summary class="free-preview-chapter-summary">
+                <span class="free-preview-chapter-num">{String(idx + 1).padStart(2, '0')}</span>
+                <span class="free-preview-chapter-title">{title}</span>
+                <span class="free-preview-chapter-toggle" aria-hidden="true">+</span>
+              </summary>
+              <div class="free-preview-chapter-body">
+                <Content />
+                {destinationUrl && (
+                  <a
+                    href={destinationUrl}
+                    class="free-preview-end-cta"
+                    data-cta-amazon
+                    data-slug={slug}
+                    data-position={`free-preview-${chSlug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {proofFreePreviewChapterCta}
+                  </a>
+                )}
+              </div>
+            </details>
+          );
+        })}
+      </section>
+    )}
 
     {otherLangAlternates.length > 0 && (
       <div class="other-langs">
