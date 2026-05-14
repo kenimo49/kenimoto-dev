@@ -284,21 +284,25 @@ const partChapterStartIndex: number[] = [];
 const sampleUrl = taggedKindleUrl;
 
 // 無料章 (Free Preview): src/content/free_chapters/{lang}/{slug}/*.md
-// id format: "{lang}/{slug}/{chapter}" — bookと同じ {lang}/{slug} prefixで自動マッチング
-const FREE_PREVIEW_ORDER = ['preface', 'ch01-birth', 'ch04-claude-md-essence'];
+// id形式: "{lang}/{slug}/{chapter}" — book と同じ {lang}/{slug} prefix で自動マッチング
+// 並び順: intro系 (preface/introduction/chapter0) を先頭、続いてファイル名昇順 (ch01, ch02, ...)
+const INTRO_NAMES = ['preface', 'introduction', 'chapter0', 'chapter00'];
 const allFreeChapters = await getCollection('freeChapters', (entry) => {
-  // entry.id 形式: "en/claude-code-mastery/preface" 等
   return entry.id.startsWith(`${lang}/${slug}/`);
 });
 type FreeChEntry = (typeof allFreeChapters)[number];
-const freeChByName: Record<string, FreeChEntry | undefined> = {};
-for (const e of allFreeChapters) {
-  const chSlug = e.id.split('/').pop()!.replace(/\.md$/, '');
-  freeChByName[chSlug] = e;
-}
-const orderedFreeChapters = FREE_PREVIEW_ORDER
-  .map((name) => freeChByName[name])
-  .filter((e): e is FreeChEntry => e !== undefined);
+const introOrder = (s: string): number => {
+  const idx = INTRO_NAMES.indexOf(s);
+  return idx >= 0 ? idx : 100;
+};
+const chapterSlugOf = (e: FreeChEntry): string =>
+  e.id.split('/').pop()!.replace(/\.md$/, '');
+const orderedFreeChapters: FreeChEntry[] = [...allFreeChapters].sort((a, b) => {
+  const ao = introOrder(chapterSlugOf(a));
+  const bo = introOrder(chapterSlugOf(b));
+  if (ao !== bo) return ao - bo;
+  return chapterSlugOf(a).localeCompare(chapterSlugOf(b));
+});
 
 // 各章の本文Componentを事前にrender
 const freePreviewRenders = await Promise.all(
