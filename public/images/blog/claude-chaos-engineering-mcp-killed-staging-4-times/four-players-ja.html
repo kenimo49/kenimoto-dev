@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+:root { --navy: #1E3A5F; --navy-mid: #3D6B99; --navy-light: #7BA3CC; --navy-bg: #E8EEF4; --navy-bg-light: #F0F4F8; --dark: #1A1A2E; --secondary: #6B7B8D; --white: #FFFFFF; --border: #D8E0EC; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body { font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif; background: var(--white); color: var(--dark); padding: 64px 96px; }
+.title { font-size: 60px; font-weight: 900; color: var(--dark); line-height: 1.1; margin-bottom: 10px; }
+.subtitle { font-size: 28px; font-weight: 400; color: var(--secondary); margin-bottom: 44px; }
+.matrix { width: 100%; border-collapse: separate; border-spacing: 0; }
+.matrix th, .matrix td { text-align: left; padding: 22px 22px; vertical-align: top; }
+.matrix thead th { font-size: 26px; font-weight: 900; color: var(--white); background: var(--navy); border-right: 2px solid var(--navy-mid); }
+.matrix thead th:last-child { border-right: none; }
+.matrix thead th:first-child { border-radius: 16px 0 0 0; }
+.matrix thead th:last-child { border-radius: 0 16px 0 0; }
+.matrix tbody td { font-size: 24px; background: var(--navy-bg-light); border-bottom: 2px solid var(--white); border-right: 2px solid var(--white); line-height: 1.4; }
+.matrix tbody td:last-child { border-right: none; }
+.matrix tbody tr:nth-child(even) td { background: #E8EEF4; }
+.matrix .player { font-weight: 900; color: var(--navy); font-size: 30px; }
+.matrix .yes { font-weight: 900; color: #2E7D5B; }
+.matrix .neutral { color: var(--secondary); }
+</style>
+</head>
+<body>
+<div class="title">2026年のAI駆動カオスエンジニアリング</div>
+<div class="subtitle">4プレイヤー、4つのレバー。Krkn-AI / Steadybit / Harness AI / Dynatrace</div>
+<table class="matrix">
+  <thead>
+    <tr>
+      <th style="width: 22%">プレイヤー</th>
+      <th style="width: 22%">提供企業</th>
+      <th style="width: 30%">コアアプローチ</th>
+      <th style="width: 14%">MCP対応</th>
+      <th style="width: 12%">リリース</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="player">Krkn-AI</td>
+      <td>Red Hat + IBM Research</td>
+      <td>遺伝的アルゴリズムでSLOギリギリ違反のパラメータを探索</td>
+      <td class="neutral">内蔵</td>
+      <td>OSS継続</td>
+    </tr>
+    <tr>
+      <td class="player">Steadybit</td>
+      <td>Steadybit GmbH</td>
+      <td>専用カオスMCPサーバー第一号。実験履歴・ポストモーテム読込</td>
+      <td class="yes">✅ 業界初</td>
+      <td>2025-06</td>
+    </tr>
+    <tr>
+      <td class="player">Harness AI</td>
+      <td>Harness Inc.</td>
+      <td>GenAI実験設計。Claude / Cursor / Windsurf / VS Code 連携</td>
+      <td class="yes">✅ マルチIDE</td>
+      <td>2025-01</td>
+    </tr>
+    <tr>
+      <td class="player">Dynatrace</td>
+      <td>Dynatrace</td>
+      <td>AIエンジンが過去インシデント直前のパターンを予測</td>
+      <td class="neutral">観測連携</td>
+      <td>既存</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

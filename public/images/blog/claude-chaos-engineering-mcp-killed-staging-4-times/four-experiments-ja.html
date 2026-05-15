@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --red: #B23A3A;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  padding: 50px 80px;
+}
+.title { font-size: 56px; font-weight: 900; color: var(--dark); line-height: 1.1; margin-bottom: 6px; }
+.subtitle { font-size: 28px; font-weight: 400; color: var(--secondary); margin-bottom: 36px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 22px; margin-bottom: 32px; }
+.col { background: var(--navy-bg-light); border-radius: 16px; padding: 26px 24px; border-top: 10px solid var(--navy-light); display: flex; flex-direction: column; min-height: 520px; }
+.col:nth-child(2) { border-top-color: var(--navy-light); }
+.col:nth-child(3) { border-top-color: var(--navy-mid); }
+.col.bad { border-top-color: var(--red); background: #FBEFEF; }
+.exp-num { font-size: 22px; font-weight: 700; color: var(--navy-mid); margin-bottom: 6px; letter-spacing: 0.06em; }
+.col.bad .exp-num { color: var(--red); }
+.fix { font-size: 30px; font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 18px; }
+.col.bad .fix { color: var(--red); }
+.row { display: flex; align-items: baseline; margin-bottom: 8px; font-size: 22px; }
+.label { font-weight: 700; color: var(--secondary); width: 140px; flex-shrink: 0; }
+.value { font-weight: 700; color: var(--navy); }
+.value.green { color: #2E7D5B; }
+.value.red { color: var(--red); }
+.detail { font-size: 20px; color: var(--dark); line-height: 1.5; margin-top: 12px; }
+.bottom { background: var(--navy); border-radius: 16px; padding: 28px 36px; color: var(--white); }
+.bottom-label { font-size: 24px; font-weight: 700; color: var(--navy-light); letter-spacing: 0.06em; margin-bottom: 6px; }
+.bottom-main { font-size: 38px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; }
+.bottom-sub { font-size: 24px; font-weight: 400; color: var(--navy-bg); line-height: 1.4; }
+</style>
+</head>
+<body>
+<div class="title">4本の実験。3本green、1本でstaging完全停止。</div>
+<div class="subtitle">Claudeが提案した4本の実験。4本目で半年見逃していた本番バグが顔を出した。</div>
+<div class="cols">
+  <div class="col">
+    <div class="exp-num">実験 1</div>
+    <div class="fix">プール30%削減 / 3分 / 1ポッド</div>
+    <div class="row"><div class="label">SLOゲート:</div><div class="value">err &lt; 1%</div></div>
+    <div class="row"><div class="label">エラーレート:</div><div class="value green">0.2%</div></div>
+    <div class="row"><div class="label">p99レイテンシ:</div><div class="value">+12%</div></div>
+    <div class="row"><div class="label">結果:</div><div class="value green">green</div></div>
+    <div class="detail">他レプリカが負荷を吸収。ゲート内で完了。</div>
+  </div>
+  <div class="col">
+    <div class="exp-num">実験 2</div>
+    <div class="fix">プール50%削減 / リトライon / 2ポッド</div>
+    <div class="row"><div class="label">SLOゲート:</div><div class="value">err &lt; 1%</div></div>
+    <div class="row"><div class="label">エラーレート:</div><div class="value green">0.4%</div></div>
+    <div class="row"><div class="label">p99レイテンシ:</div><div class="value">~640 ms</div></div>
+    <div class="row"><div class="label">結果:</div><div class="value green">green</div></div>
+    <div class="detail">リトライ層がプール圧迫を吸収。</div>
+  </div>
+  <div class="col">
+    <div class="exp-num">実験 3</div>
+    <div class="fix">プール70%削減 / timeout 1.5秒</div>
+    <div class="row"><div class="label">SLOゲート:</div><div class="value">err &lt; 1%</div></div>
+    <div class="row"><div class="label">エラーレート:</div><div class="value green">0.7%</div></div>
+    <div class="row"><div class="label">p99レイテンシ:</div><div class="value">~520 ms</div></div>
+    <div class="row"><div class="label">結果:</div><div class="value green">green</div></div>
+    <div class="detail">短いtimeoutが遅い呼び出しを早期切断。</div>
+  </div>
+  <div class="col bad">
+    <div class="exp-num">実験 4</div>
+    <div class="fix">プール90%削減 / リトライ無制限 / 3ポッド</div>
+    <div class="row"><div class="label">SLOゲート:</div><div class="value">err &lt; 1%</div></div>
+    <div class="row"><div class="label">エラーレート:</div><div class="value red">23%</div></div>
+    <div class="row"><div class="label">p99レイテンシ:</div><div class="value red">14 秒</div></div>
+    <div class="row"><div class="label">結果:</div><div class="value red">staging停止</div></div>
+    <div class="detail">プール枯渇 → リトライ嵐 → レートリミッタ自己DoS。</div>
+  </div>
+</div>
+<div class="bottom">
+  <div class="bottom-label">半年見逃していた本番バグ</div>
+  <div class="bottom-main">プール枯渇 → リトライ嵐 → レートリミッタ自己DoS</div>
+  <div class="bottom-sub">過去6ヶ月で11件の本番イベント。各4〜90秒、誰かがGrafanaを開く前に自己回復。</div>
+</div>
+</body>
+</html>
