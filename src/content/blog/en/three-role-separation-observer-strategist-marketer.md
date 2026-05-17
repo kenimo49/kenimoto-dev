@@ -7,7 +7,9 @@ tags: [claude-code, agents, cron, harness-engineering, multi-agent]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/three-role-separation-observer-strategist-marketer"
 og_image: "https://kenimoto.dev/images/blog/three-role-separation-observer-strategist-marketer/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-gave-my-strategist-agent-websearch-5-topics-took-20-minutes-splitting-it-into-3-roles-made-it-3-4ibm-temp-slug-6102820
 ---
 
 I thought one agent doing everything was elegant. One `claude -p` call, "pick today's topics and write the articles," done. It took 20 minutes to pick 5 topics.

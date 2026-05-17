@@ -7,6 +7,9 @@ tags: [context-engineering, rag, llm, ai-architecture]
 featured: false
 og_image: "https://kenimoto.dev/images/blog/full-context-engineering-rag-80-percent/og.png"
 canonical_url: "https://kenimoto.dev/blog/full-context-engineering-rag-80-percent/"
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-stacked-4-more-context-layers-on-top-of-rag-sonnet-got-12-better-haiku-got-14-worse-2lfg-temp-slug-1489718
 ---
 
 I read a post about "Full Context Engineering" and immediately added four more layers to my RAG pipeline. Structured output instructions. Hierarchical document layout. Role definition. Few-shot examples. The whole buffet.

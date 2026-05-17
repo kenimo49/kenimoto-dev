@@ -7,7 +7,9 @@ tags: [claude-code, sub-agents, code-review, agents]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/three-sub-agents-reviewed-same-pr-40-percent-disagreement"
 og_image: "https://kenimoto.dev/images/blog/three-sub-agents-reviewed-same-pr-40-percent-disagreement/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-asked-3-claude-code-sub-agents-to-review-the-same-pr-they-disagreed-on-41-of-the-comments-1751-temp-slug-4861615
 ---
 
 I thought multi-agent code review was a free upgrade. Three sub-agents looking at the same PR sounded like three pairs of eyes for the cost of one engineer's coffee.
