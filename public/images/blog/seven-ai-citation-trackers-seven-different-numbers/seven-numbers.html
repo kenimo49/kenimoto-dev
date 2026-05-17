@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --border: #D8E0EC;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+body {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  padding: 56px 80px;
+  position: relative;
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.title {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  letter-spacing: 0.02em;
+}
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 20px 28px;
+  margin-bottom: 24px;
+  border-left: 8px solid var(--navy);
+}
+.input-row .label {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.input-row .val {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+}
+.input-row .meta {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-left: auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 80px 280px 1fr 1.4fr 1.2fr;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid var(--navy-bg);
+}
+.row { display: contents; }
+.cell {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 32px;
+  line-height: 1.1;
+  border-bottom: 1px solid var(--border);
+}
+.head .cell {
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 900;
+  font-size: 32px;
+  border-bottom: none;
+  padding: 12px 16px;
+}
+.row.r-odd .cell { background: var(--navy-bg-light); }
+.row.r-even .cell { background: var(--white); }
+.row.last .cell { border-bottom: none; }
+.cell.num {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--navy);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.cell.idx {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy-light);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.cell.tool {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--dark);
+}
+.cell .sub {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-top: 4px;
+}
+.cell.def {
+  font-size: 32px;
+  color: var(--dark);
+}
+.cell.cov {
+  font-size: 32px;
+  color: var(--dark);
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  margin-top: 14px;
+  border-top: 2px solid var(--navy-bg);
+}
+.big-stat {
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.brand {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">7 trackers, same site, 7 different numbers</div>
+    <div class="subtitle">May 1&ndash;15, 2026 &middot; kenimoto.dev</div>
+  </div>
+
+  <div class="input-row">
+    <div class="label">Input</div>
+    <div class="val">kenimoto.dev</div>
+    <div class="meta">12 brand queries &middot; 5 LLMs &middot; 15 days</div>
+  </div>
+
+  <div class="grid">
+    <div class="row head">
+      <div class="cell">#</div>
+      <div class="cell">Tool</div>
+      <div class="cell">Citations reported</div>
+      <div class="cell">What it counts</div>
+      <div class="cell">LLM coverage</div>
+    </div>
+    <div class="row r-odd">
+      <div class="cell idx">1</div>
+      <div class="cell tool">Profound<div class="sub">$499 / mo</div></div>
+      <div class="cell num">147</div>
+      <div class="cell def">Source link in answer</div>
+      <div class="cell cov">ChatGPT, Perplexity, Gemini</div>
+    </div>
+    <div class="row r-even">
+      <div class="cell idx">2</div>
+      <div class="cell tool">Peec AI<div class="sub">&euro;89 / mo</div></div>
+      <div class="cell num">312</div>
+      <div class="cell def">Brand mention (any form)</div>
+      <div class="cell cov">5 LLMs, 115 languages</div>
+    </div>
+    <div class="row r-odd">
+      <div class="cell idx">3</div>
+      <div class="cell tool">Otterly AI<div class="sub">$29 / mo</div></div>
+      <div class="cell num">38</div>
+      <div class="cell def">Cited URL in answer</div>
+      <div class="cell cov">ChatGPT, Perplexity, AI Overviews</div>
+    </div>
+    <div class="row r-even">
+      <div class="cell idx">4</div>
+      <div class="cell tool">Bluefish AI<div class="sub">enterprise</div></div>
+      <div class="cell num">89</div>
+      <div class="cell def">Brand share-of-voice</div>
+      <div class="cell cov">ChatGPT, Gemini, Copilot</div>
+    </div>
+    <div class="row r-odd">
+      <div class="cell idx">5</div>
+      <div class="cell tool">Scrunch<div class="sub">mid-tier</div></div>
+      <div class="cell num">203</div>
+      <div class="cell def">Mentions + source link</div>
+      <div class="cell cov">ChatGPT, Perplexity</div>
+    </div>
+    <div class="row r-even">
+      <div class="cell idx">6</div>
+      <div class="cell tool">Semrush AI Toolkit<div class="sub">bundled</div></div>
+      <div class="cell num">71</div>
+      <div class="cell def">Domain in answer URL</div>
+      <div class="cell cov">ChatGPT, Perplexity, Gemini</div>
+    </div>
+    <div class="row r-odd last">
+      <div class="cell idx">7</div>
+      <div class="cell tool">Self-built Python<div class="sub">~$8 / mo API</div></div>
+      <div class="cell num">54</div>
+      <div class="cell def">My definition, my prompts</div>
+      <div class="cell cov">ChatGPT, Claude, Perplexity</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="big-stat">38 to 312 &middot; 8.2&times; spread</div>
+    <div class="brand">kenimoto.dev &middot; same input, 7 answers</div>
+  </div>
+</body>
+</html>
