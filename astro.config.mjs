@@ -38,6 +38,15 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-US',
+          ja: 'ja-JP',
+          pt: 'pt-BR',
+          es: 'es-ES',
+        },
+      },
     }),
   ],
   markdown: {

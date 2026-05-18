@@ -75,6 +75,10 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
     <meta property="og:image" content={resolvedOgImage} />
     <meta property="og:url" content={ogUrl} />
     <meta property="og:type" content={ogType} />
+    <meta property="og:locale" content={lang === 'ja' ? 'ja_JP' : (lang === 'pt' ? 'pt_BR' : (lang === 'es' ? 'es_ES' : 'en_US'))} />
+    {alternates.filter((a) => a.hreflang !== 'x-default' && a.hreflang !== lang).map((alt) => (
+      <meta property="og:locale:alternate" content={alt.hreflang === 'ja' ? 'ja_JP' : (alt.hreflang === 'pt' ? 'pt_BR' : (alt.hreflang === 'es' ? 'es_ES' : 'en_US'))} />
+    ))}
     <meta property="og:site_name" content={lang === 'ja' ? '井本 賢' : 'Ken Imoto'} />
     {ogType === 'article' && articleMeta?.publishedTime && (
       <meta property="article:published_time" content={articleMeta.publishedTime} />
