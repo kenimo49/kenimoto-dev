@@ -10,6 +10,8 @@ og_image: "https://kenimoto.dev/images/blog/30-llms-txt-files-5-anti-patterns-al
 cross_posted_to:
   - platform: Dev.to
     url: https://dev.to/kenimo49/i-audited-30-llmstxt-files-in-the-wild-5-anti-patterns-are-already-forming-l3m
+  - platform: Hashnode
+    url: https://kenimo49.hashnode.dev/30-llms-txt-files-5-anti-patterns-already-forming
 ---
 
 I shipped my third llms.txt this month and felt extremely productive. The kind of productive where you close the laptop, pour a coffee, and feel like the entire AI-search problem is now solved on a personal level.
