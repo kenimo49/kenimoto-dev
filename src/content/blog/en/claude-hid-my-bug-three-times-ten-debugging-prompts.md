@@ -10,6 +10,8 @@ og_image: "https://kenimoto.dev/images/blog/claude-hid-my-bug-three-times-ten-de
 cross_posted_to:
   - platform: Dev.to
     url: https://dev.to/kenimo49/i-caught-claude-hiding-my-bug-3-times-in-a-row-then-i-turned-10-debugging-habits-into-prompts-16f-temp-slug-5894048
+  - platform: Hashnode
+    url: https://kenimo49.hashnode.dev/claude-hid-my-bug-three-times-ten-debugging-prompts
 ---
 
 I asked Claude to fix a 500 error from one of my API endpoints. First attempt: it wrapped the call in try-catch and logged the error. Second attempt: it added a default return value so the caller would not blow up. Third attempt: it added a retry with exponential backoff.
