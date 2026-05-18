@@ -7,7 +7,9 @@ tags: [ai, claudecode, spec, openapi]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/spec-driven-development-claude-code-three-failures/"
 og_image: "https://kenimoto.dev/images/blog/spec-driven-development-claude-code-three-failures/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-refused-to-write-specs-until-claude-code-generated-wrong-code-three-times-56f1
 ---
 
 I read the phrase "spec-driven development" and immediately decided it was for people without taste. Six months later, Claude Code generated a discount system that applied coupons to itself. Three times in a row.

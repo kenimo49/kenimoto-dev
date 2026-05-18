@@ -7,7 +7,9 @@ tags: [llmo, llms-txt, ai-search, anti-patterns, audit]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/30-llms-txt-files-5-anti-patterns-already-forming/"
 og_image: "https://kenimoto.dev/images/blog/30-llms-txt-files-5-anti-patterns-already-forming/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-audited-30-llmstxt-files-in-the-wild-5-anti-patterns-are-already-forming-l3m
 ---
 
 I shipped my third llms.txt this month and felt extremely productive. The kind of productive where you close the laptop, pour a coffee, and feel like the entire AI-search problem is now solved on a personal level.

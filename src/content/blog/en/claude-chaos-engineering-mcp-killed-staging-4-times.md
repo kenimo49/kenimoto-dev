@@ -7,7 +7,9 @@ tags: [chaos-engineering, claude-code, mcp, sre, ai-coding]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-chaos-engineering-mcp-killed-staging-4-times"
 og_image: "https://kenimoto.dev/images/blog/claude-chaos-engineering-mcp-killed-staging-4-times/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-let-claude-design-4-chaos-experiments-via-mcp-the-4th-took-down-staging-and-found-a-6-month-old-4fel
 ---
 
 Every experiment in this post ran in staging. Production was double-locked: a `## Chaos Rules` block in CLAUDE.md forbidding production targets, and a `PreToolUse` hook that exits 2 if `--env=production` shows up in any chaos command. I'll show both at the end. The point of saying this upfront is that "I let Claude design chaos experiments" is the kind of sentence people read sideways. The TL;DR is: staging only, twice-locked, and the whole exercise was supervised end to end.

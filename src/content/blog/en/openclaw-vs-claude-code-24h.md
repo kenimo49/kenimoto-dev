@@ -7,7 +7,9 @@ tags: [ai, openclaw, claudecode, agents]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/openclaw-vs-claude-code-24h/"
 og_image: "https://kenimoto.dev/images/blog/openclaw-vs-claude-code-24h/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/openclaw-hit-250k-stars-faster-than-react-i-spent-24-hours-trying-to-like-it-379a
 ---
 
 I switched my entire dev setup from Claude Code to OpenClaw on a Tuesday morning. By 11am I was googling "how to remove openclaw". By 6pm I had written a SOUL.md file longer than the actual feature I was shipping.
