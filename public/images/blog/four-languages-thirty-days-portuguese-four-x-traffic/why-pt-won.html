@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --border: #D8E0EC;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+body {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  padding: 56px 80px;
+  position: relative;
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+.title {
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 28px;
+  height: 720px;
+  margin-bottom: 40px;
+}
+.card {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  border-top: 10px solid var(--navy);
+}
+.card-num {
+  font-size: 96px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1.0;
+  margin-bottom: 16px;
+  letter-spacing: -0.04em;
+}
+.card-title {
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.card-body {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--dark);
+  line-height: 1.45;
+  flex: 1;
+}
+.card-body b {
+  color: var(--navy);
+  font-weight: 700;
+}
+.card-tag {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--navy-mid);
+  border-radius: 999px;
+  padding: 10px 24px;
+  align-self: flex-start;
+  margin-top: 16px;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 22px;
+  border-top: 2px solid var(--navy-bg);
+}
+.big-stat {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--navy);
+}
+.brand {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">Why PT pulled ahead</div>
+    <div class="subtitle">three asymmetries, one outcome</div>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-num">1</div>
+      <div class="card-title">A real community door</div>
+      <div class="card-body">
+        TabNews is a <b>Brazilian developer hub</b> with no English equivalent.
+        Posting a translated article there gets read; posting the same in EN goes nowhere unless you already have an audience.
+      </div>
+      <div class="card-tag">referral asymmetry</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">2</div>
+      <div class="card-title">Thinner AI-search competition</div>
+      <div class="card-body">
+        English LLMO content is a saturated market.
+        <b>Portuguese AI-search SERPs</b> have fewer technical blogs fighting for the same prompts, so the first decent answer wins.
+      </div>
+      <div class="card-tag">SOV asymmetry</div>
+    </div>
+
+    <div class="card">
+      <div class="card-num">3</div>
+      <div class="card-title">Early-mover on llms.txt</div>
+      <div class="card-body">
+        Major BR dev sites do not ship <b>/pt/llms.txt</b> yet.
+        Being one of the few sites that does feeds AI crawlers a clean menu in their language.
+      </div>
+      <div class="card-tag">crawler asymmetry</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="big-stat">PT 748 PV &middot; EN 195 PV &middot; JA 27 PV &middot; ES 7 PV</div>
+    <div class="brand">kenimoto.dev &middot; 22-day GA4 snapshot</div>
+  </div>
+</body>
+</html>

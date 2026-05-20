@@ -1,5 +1,5 @@
 ---
-title: "Plugamos o Claude num MCP server de Chaos Engineering. Matou o staging 4 vezes antes de achar o bug que a gente ignorou por 6 meses."
+title: "Pluguei o Claude num MCP de Chaos. Matou staging 4 vezes pra achar um bug que ignorávamos há 6 meses."
 description: "A Steadybit lançou em meados de 2025 o que é descrito como o primeiro MCP server de Chaos Engineering. Pluguei o Claude Code e pedi numa frase só: desenha experimentos pra testar a resiliência do payment-service sob pressão de connection pool. O Claude propôs 4. Três voltaram verdes. O quarto derrubou o staging inteiro e expôs um bug real de produção que tava lá há meio ano. Hoje conto a corrida, o bug, e os 3 guardrails que agora exijo antes de deixar qualquer IA desenhar experimento de chaos."
 date: 2026-05-16
 lang: pt
@@ -10,11 +10,11 @@ og_image: "https://kenimoto.dev/images/blog/claude-chaos-engineering-mcp-killed-
 cross_posted_to: []
 ---
 
-Primeiro o aviso. Todo experimento desse post rodou em staging. Produção ficou com cadeado duplo: um bloco `## Chaos Rules` no CLAUDE.md proibindo alvos de produção, e um hook `PreToolUse` que dá `exit 2` se aparecer `--env=production` em qualquer comando de chaos. Mostro os dois no final. Falo isso logo de cara porque "deixei o Claude desenhar experimentos de chaos" é o tipo de frase que as pessoas leem de canto. Resumo: só staging, cadeado duplo, e a coisa toda foi supervisionada de ponta a ponta.
+A Steadybit lançou em meados de 2025 o que é descrito como o primeiro MCP server de Chaos Engineering do mercado. Pluguei o Claude Code nele e pedi, numa frase só, pra desenhar experimentos de resiliência do `payment-service` sob pressão de connection pool. O Claude propôs quatro. Três voltaram verdes, sem violar SLO. O quarto derrubou o staging inteiro. Quando fui rastrear, não era bug fabricado por teste. Era um padrão real de produção que aparecia nos logs há 6 meses, que ninguém tinha conseguido reproduzir: esgotamento de pool → tempestade de retry → rate limiter dando self-DoS.
 
-Com isso fora do caminho: a Steadybit lançou em meados de 2025 o que é descrito como o primeiro MCP server de Chaos Engineering do mercado. Pluguei o Claude Code nele e pedi, numa frase só, pra desenhar experimentos de resiliência do `payment-service` sob pressão de connection pool. O Claude propôs quatro. Três voltaram verdes, sem violar SLO. O quarto derrubou o staging inteiro. Quando fui rastrear, não era bug fabricado por teste. Era um padrão real de produção que aparecia nos logs há 6 meses, que ninguém tinha conseguido reproduzir: esgotamento de pool → tempestade de retry → rate limiter dando self-DoS. Hoje conto a corrida, o bug, e os 3 guardrails que agora exijo antes de qualquer IA desenhar experimento de chaos.
+Aviso curto antes de seguir: todo experimento rodou em staging, com cadeado duplo (`## Chaos Rules` no CLAUDE.md proibindo alvos de produção + hook `PreToolUse` com `exit 2` em `--env=production`). Mostro os dois no final.
 
-Esse é o 6º post de uma série de harness que tá rolando desde 12/05: sub-agentes, voice AI, separação em 3 papéis, ferramental de debug, e agora chaos. Cada post se sustenta sozinho, então se você só quer o capítulo de chaos, não precisa ler os cinco anteriores. O irmão direto na vibe "deixei a IA solta por X horas" é o post de [agente de IA, 24 horas, lições de segurança](https://kenimoto.dev/pt/blog/agente-ia-24-horas-incidentes-seguranca).
+Hoje conto a corrida, o bug e os 3 guardrails que agora exijo antes de qualquer IA desenhar experimento de chaos.
 
 ![Quatro experimentos de chaos. Três completaram dentro do SLO. O quarto esgotou o connection pool, disparou tempestade de retry, e ainda fez o rate limiter morder a si mesmo; staging foi inteiro pro chão.](/images/blog/claude-chaos-engineering-mcp-killed-staging-4-times/four-experiments-pt.png)
 
@@ -141,7 +141,7 @@ Tira qualquer uma das quatro e a história termina diferente. Sem LLM, ninguém 
 
 ## R$ por um dia
 
-Pra dar concretude: staging fora do ar por umas 2 horas (incluindo investigação inicial e o post-mortem rápido) custou pra gente uns 5 engenheiros de plantão × 2h × ~R$ 100/h ≈ R$ 1.000 de tempo direto, mais o gap de outras prioridades. Aceitável. Se essa mesma cadeia tivesse acordado em produção primeiro (pool exaurido em pico, retry storm rodando em todo cliente, rate limiter dando self-DoS), era violação de SLA com cliente PIX + perda de receita de pagamentos por minuto. Pra um payment-service de fintech / e-commerce do tamanho médio, esse minuto custa por aí dos R$ 100.000 de impacto total, considerando reembolsos, ressarcimento e o cabo de comunicação com clientes que ninguém quer pegar de novo. O chaos pago R$ 1.000 pra descobrir o que evitou um incidente de R$ 100.000. É o trade que justifica.
+Pra dar concretude: staging fora do ar por umas 2 horas (incluindo investigação inicial e o post-mortem rápido) custou uns 5 engenheiros de plantão × 2h × ~R$ 100/h ≈ R$ 1.000 de tempo direto, mais o gap de outras prioridades. Aceitável. Se essa mesma cadeia tivesse acordado em produção primeiro (pool exaurido em pico, retry storm rodando em todo cliente, rate limiter dando self-DoS), era violação de SLA com cliente PIX + perda de receita de pagamentos por minuto. Pra um payment-service de fintech / e-commerce do tamanho médio, esse minuto custa por aí dos R$ 100.000 de impacto total, considerando reembolsos, ressarcimento e o cabo de comunicação com clientes que ninguém quer pegar de novo. O chaos pago R$ 1.000 pra descobrir o que evitou um incidente de R$ 100.000. É o trade que justifica.
 
 ## O que eu diria pra quem vai tentar isso semana que vem
 

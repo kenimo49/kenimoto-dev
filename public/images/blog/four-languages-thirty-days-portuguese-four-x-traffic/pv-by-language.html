@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --border: #D8E0EC;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+body {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  padding: 56px 80px;
+  position: relative;
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+.title {
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  letter-spacing: 0.02em;
+}
+.chart {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  row-gap: 32px;
+  column-gap: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+  height: 640px;
+}
+.lang-label {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--navy);
+  text-align: right;
+}
+.bar-wrap {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.bar {
+  height: 80px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 28px;
+  color: var(--white);
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+.bar.pt { background: var(--navy); width: 100%; }
+.bar.en { background: var(--navy-mid); width: 26%; }
+.bar.ja { background: var(--navy-light); width: 4%; color: var(--navy); padding: 0; }
+.bar.es { background: var(--navy-light); width: 1.5%; color: var(--navy); padding: 0; }
+.bar.ja .ext, .bar.es .ext {
+  position: absolute;
+  left: calc(100% + 16px);
+  color: var(--navy);
+  font-size: 40px;
+  font-weight: 900;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 2px solid var(--navy-bg);
+}
+.big-stat {
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.brand {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">4 languages, 22 days, 1 winner</div>
+    <div class="subtitle">kenimoto.dev &middot; pageviews by /lang/ prefix</div>
+  </div>
+
+  <div class="chart">
+    <div class="lang-label">PT</div>
+    <div class="bar-wrap"><div class="bar pt">748 PV</div></div>
+
+    <div class="lang-label">EN</div>
+    <div class="bar-wrap"><div class="bar en">195 PV</div></div>
+
+    <div class="lang-label">JA</div>
+    <div class="bar-wrap">
+      <div class="bar ja"></div>
+      <div style="position: absolute; left: calc(4% + 16px); font-size: 40px; font-weight: 900; color: var(--navy);">27 PV</div>
+    </div>
+
+    <div class="lang-label">ES</div>
+    <div class="bar-wrap">
+      <div class="bar es"></div>
+      <div style="position: absolute; left: calc(1.5% + 16px); font-size: 40px; font-weight: 900; color: var(--navy);">7 PV</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="big-stat">PT &asymp; 3.8&times; EN &middot; 28&times; JA &middot; 107&times; ES</div>
+    <div class="brand">2026-04-30 &mdash; 2026-05-21</div>
+  </div>
+</body>
+</html>
