@@ -102,6 +102,12 @@
 - Kindle JP: https://www.amazon.co.jp/dp/B0GXR5Q6NW (¥500)
 - Kindle EN: https://www.amazon.co.jp/dp/B0GX3CS95M ($4.99)
 
+### エンジニアの心理トリック大全 — コードは正しいのに、なぜ提案が通らないのか
+- Topics: Cognitive Bias, Engineering Psychology, System 1/2, Code Review, Estimation, 1on1, Psychological Safety, Hiring
+- Zenn: https://zenn.dev/kenimo49/books/engineer-psychology-tricks (Free)
+- 20の認知バイアスと心理テクニックをエンジニア実務に翻訳した一冊。全15章。
+- 第1部 基礎(システム1/2、AI時代の新バイアス) / 第2部 対自分(見積もり/技術選定/デバッグ/キャリア) / 第3部 対人(レビュー/説得/1on1/会議/交渉) / 第4部 チーム(心理的安全性/リモート/採用)
+
 ## Technical Writing
 
 - **Qiita**: 67,000+ PV, 25+ articles — https://qiita.com/kenimo49
