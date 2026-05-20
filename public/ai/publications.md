@@ -26,9 +26,11 @@
 ## Books — AI Development Series
 
 ### AIコードレビューを仕組み化する技術 — レビュー時間60%削減の3層モデル
-- Topics: AI Code Review, 3-Layer Model, Review Automation, Code Quality
+- Topics: AI Code Review, 3-Layer Model, Review Automation, Code Quality, Harness Engineering, AGENTS.md, CodeRabbit, GitHub Actions, Conventional Comments
 - Kindle JP: https://amzn.asia/d/0hgvOnOi
+- Kindle BR (PT-BR): https://www.amazon.com.br/dp/B0H2DB9YXD (R$24.99) — *Revisão de Código com Harness Engineering: Automação de revisão na era dos agentes de IA*
 - Zenn: https://zenn.dev/kenimo49/books/harness-code-review (¥1,000)
+- LP: https://kenimoto.dev/books/harness-code-review/ (EN) / https://kenimoto.dev/ja/books/harness-code-review/ (JA) / https://kenimoto.dev/pt/books/harness-code-review/ (PT)
 
 ### Practical Claude Code — Context Engineering for Modern Development
 - Topics: Claude Code, Context Engineering, CLAUDE.md, AI-native development
