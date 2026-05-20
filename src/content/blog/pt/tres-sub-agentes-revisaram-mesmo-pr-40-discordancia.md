@@ -118,6 +118,20 @@ A Lei de Brooks era sobre custo de comunicação entre humanos num projeto atras
 
 Se você rodou o Claude Code [autonomamente por 24 horas](/pt/blog/agente-ia-24-horas-incidentes-seguranca/) e sobreviveu para contar, já sabe disso pelo outro lado: o gargalo migra para quem está lendo a saída do agente.
 
+## O custo, em horas
+
+A planilha é instrutiva. Pra um PR de 500 linhas:
+
+| Item | Orçado | Real |
+|---|---|---|
+| Três sub-agentes em paralelo (Sonnet 4.6) | ~3 min | 3 min |
+| Eu lendo os 78 comentários e taguendo coverage | 15 min | 22 min |
+| Mesclar os "1 de 3" (decisão por achado) | 0 min | 28 min |
+| Decidir entre concreto vs abstrato no fix | 0 min | 14 min |
+| **Total** | **~20 min** | **~67 min** |
+
+47 minutos a mais dentro de uma rotina de PR review em fintech ou e-commerce BR (sênior 2026 fica por aí dos R$ 100-150/h) viram uns R$ 80-120 de custo direto sem contar context switch. Pra 12 PRs no mês é uma manhã que sumiu da contagem. Pra um time de 5 seniores fazendo review paralelo, é R$ 5-7 mil de custo invisível por mês até alguém medir.
+
 ## Qual é o número certo de sub-agentes
 
 Não acho que a resposta seja um. Na mesma semana eu rodei o experimento com N=1 num PR menor, só uma passada de revisão geral. Ele deixou passar o tipo de dependência entre arquivos que o explore-reviewer teria pego. Um par de olhos é genuinamente pior que dois.
@@ -138,9 +152,39 @@ Revisão de código multi-agente não é grátis. É mais parecida com "três re
 
 O bug que ninguém pegou foi o que mais me deixou humilde. Três agentes, três ângulos, todos read-only, todos mirando o mesmo diff. Nenhum percebeu a mudança de timing porque nenhum foi solicitado a perceber. **Sub-agentes são excelentes nas perguntas que você coloca no system prompt. São medianos nas perguntas que você esqueceu de fazer.** O limite real é esse, não o modelo.
 
-Se você levar uma coisa daqui: escreva um quarto prompt de sub-agente chamado `what-am-i-not-asking`, entregue o diff e peça para ele nomear as categorias que os outros agentes vão deixar passar. Aí leia a resposta. Aí escreva os prompts de revisão de verdade. Eu não fiz isso no experimento desse post, e foi exatamente por isso que perdi uma hora no merge e um colega achou a minha race condition.
+Se você levar uma coisa daqui, é um quarto sub-agente. O que eu uso hoje:
+
+```markdown
+---
+name: what-am-i-not-asking
+description: Identificar categorias de bug que os outros sub-agentes vão deixar passar.
+model: sonnet
+allowed-tools: Read Grep Glob
+---
+
+Você é um meta-revisor. Sua tarefa não é apontar bugs no diff. Sua tarefa
+é ler o diff e os system prompts dos outros sub-agentes ativos
+(explore-reviewer, security-reviewer, plan-architect) e nomear até 5
+categorias de problema que nenhum dos outros agentes vai conseguir pegar.
+
+Para cada categoria:
+1. Cite a evidência no diff que sugere a categoria.
+2. Explique por que cada agente existente vai passar batido (limite de
+   ferramenta, limite de prompt, limite de contexto).
+3. Sugira o nome de um sub-agente novo (ou ajuste de prompt) que resolveria.
+
+Não proponha fixes. Só perguntas que os outros não estão fazendo.
+```
+
+Roda esse antes dos outros três. Lê a resposta. Aí escreve os prompts de revisão de verdade. Eu não fiz isso no experimento desse post, e foi exatamente por isso que perdi uma hora no merge e um colega achou a minha race condition de timing dois dias depois.
 
 O número de menos de 1% da Anthropic é real. Também é medido num pipeline que alguém ficou meses ajustando, não em três sub-agentes que você escreveu entre reuniões. Ajuste os seus. Até lá, conte com 40%.
+
+---
+
+Se você quer o sistema completo de revisão em três camadas (portão automático / IA / humano), eu escrevi um livro com `.coderabbit.yaml`, workflows de GitHub Actions e o exemplo final em Next.js + TypeScript + Prisma:
+
+**Revisão de Código com Harness Engineering** — Kindle BR, R$ 24,99 → [amazon.com.br/dp/B0H2DB9YXD](https://www.amazon.com.br/dp/B0H2DB9YXD)
 
 ---
 

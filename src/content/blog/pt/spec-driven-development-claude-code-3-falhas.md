@@ -132,4 +132,10 @@ O spec é o pedal do freio. Sem ele, você ainda vai rápido. Você só vai ráp
 
 ---
 
+A mesma ideia (sistema sobre pedido) aplicada à revisão de código virou livro recente, com hooks, CodeRabbit + AGENTS.md e o pipeline pronto pra copiar:
+
+**Revisão de Código com Harness Engineering** — Kindle BR, R$ 24,99 → [amazon.com.br/dp/B0H2DB9YXD](https://www.amazon.com.br/dp/B0H2DB9YXD)
+
+---
+
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*
