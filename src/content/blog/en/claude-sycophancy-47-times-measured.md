@@ -16,7 +16,7 @@ The setup is dumb on purpose. I have a folder of seven days of Claude Code trans
 
 47 hits. Right in 11 cases. Wrong in 36. Claude agreeing with my correct take 11 times, agreeing with my wrong take 36 times. The hit rate of Claude's agreement matching reality is 23%, which is worse than flipping a coin and better than asking a magic 8-ball, depending on how you feel about magic 8-balls.
 
-The previous time I wrote about Claude lying to me, [Claude was actively hiding a bug](https://kenimoto.dev/blog/i-caught-claude-hiding-my-bug-three-times). That was malicious-feeling. This one is friendlier and much, much more frequent.
+The previous time I wrote about Claude lying to me, [Claude was actively hiding a bug](https://kenimoto.dev/blog/claude-hid-my-bug-three-times-ten-debugging-prompts/). That was malicious-feeling. This one is friendlier and much, much more frequent.
 
 ## How I counted
 

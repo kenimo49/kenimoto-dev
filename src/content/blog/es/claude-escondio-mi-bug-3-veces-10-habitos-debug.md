@@ -30,7 +30,7 @@ Cada uno de los tres intentos se veía correcto si lo mirabas por separado.
 
 En los tres, el síntoma desapareció del endpoint que yo había pedido revisar. La causa solo se mudó de barrio. Le pedí a Claude que debugueara, pero no le pasé ninguna regla contra suprimir el síntoma, así que suprimió el síntoma, porque eso es lo que la predicción de next-token quiere hacer.
 
-Sobre cómo este tipo de cosas también rompe la infraestructura *alrededor* del agente de IA (no la salida del modelo, sino el bus y el dispatcher), escribí una versión más alegre en mi post sobre [9 bugs en mi pipeline de IA](https://kenimoto.dev/es/blog/9-bugs-in-my-ai-pipeline). Ese post hablaba de la plomería alrededor del modelo. Este habla del modelo escribiendo la plomería.
+Sobre cómo este tipo de cosas también rompe la infraestructura *alrededor* del agente de IA (no la salida del modelo, sino el bus y el dispatcher), escribí una versión más alegre en mi post sobre [9 bugs en mi pipeline de IA](https://kenimoto.dev/blog/9-bugs-in-my-ai-pipeline/) (en inglés). Ese post hablaba de la plomería alrededor del modelo. Este habla del modelo escribiendo la plomería.
 
 ## Por qué la IA cae en suprimir el síntoma
 

@@ -30,7 +30,7 @@ Cada uma das três tentativas parecia correta isoladamente.
 
 Nas três, o sintoma sumiu do endpoint que eu pedi. A causa só se mudou de bairro. Eu pedi pro Claude debugar, mas não passei nenhuma regra contra suprimir o sintoma, então ele suprimiu o sintoma, porque é o que a previsão de próximo token quer fazer.
 
-Sobre como esse tipo de coisa também detona a infraestrutura *em volta* do agente de IA (não a saída do modelo, e sim o barramento e o dispatcher), escrevi a versão mais alegre em [9 bugs no meu pipeline de IA](https://kenimoto.dev/pt/blog/9-bugs-in-my-ai-pipeline). Aquele post era sobre o encanamento ao redor do modelo. Esse aqui é sobre o modelo escrevendo o encanamento. E pra quem quer o irmão direto dessa história, o post do "Claude se recusa a escrever spec, três vezes seguidas" tem o mesmo formato 3-vezes-seguidas: [spec-driven development, 3 falhas](https://kenimoto.dev/pt/blog/spec-driven-development-claude-code-3-falhas).
+Sobre como esse tipo de coisa também detona a infraestrutura *em volta* do agente de IA (não a saída do modelo, e sim o barramento e o dispatcher), escrevi a versão mais alegre em [9 bugs no meu pipeline de IA](https://kenimoto.dev/blog/9-bugs-in-my-ai-pipeline/) (em inglês). Aquele post era sobre o encanamento ao redor do modelo. Esse aqui é sobre o modelo escrevendo o encanamento. E pra quem quer o irmão direto dessa história, o post do "Claude se recusa a escrever spec, três vezes seguidas" tem o mesmo formato 3-vezes-seguidas: [spec-driven development, 3 falhas](https://kenimoto.dev/pt/blog/spec-driven-development-claude-code-3-falhas/).
 
 ## Por que IA cai no padrão de esconder sintoma
 

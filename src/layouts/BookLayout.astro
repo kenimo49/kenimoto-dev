@@ -244,6 +244,26 @@ const heroPrimaryLabel = isZennOnly ? t.primaryCtaZenn : t.primaryCta;
 const footerCtaLabel = isZennOnly ? t.ctaZenn : t.cta;
 const footerCtaSubLabel = isZennOnly ? t.ctaZennSub : t.ctaSub;
 
+// 関連記事の存在チェック: 該当言語のblog翻訳がなければEN版にfallback (404防止)
+const allBlogPosts = await getCollection('blog');
+const enFallbackNote: Record<string, string> = {
+  ja: '（英語版）',
+  pt: '(em inglês)',
+  es: '(en inglés)',
+  en: '',
+};
+const resolvedRelatedArticles = relatedArticles.map((a) => {
+  const inLang = allBlogPosts.some((p) => p.id === `${lang}/${a.slug}`);
+  if (inLang) {
+    return { slug: a.slug, title: a.title, href: `${langPrefix}/blog/${a.slug}/`, fallback: false };
+  }
+  const inEn = allBlogPosts.some((p) => p.id === `en/${a.slug}`);
+  if (inEn) {
+    return { slug: a.slug, title: a.title, href: `/blog/${a.slug}/`, fallback: lang !== 'en' };
+  }
+  return null;
+}).filter((x): x is { slug: string; title: string; href: string; fallback: boolean } => x !== null);
+
 // 関連書籍のメタ情報を取得 (表紙・タイトル・series_role 表示用)
 const allBooks = await getCollection('books');
 const relatedBookEntries = relatedBooks
@@ -336,10 +356,14 @@ const booksIndexUrl = `${SITE_URL}${langPrefix}/books/`;
 const inLanguageTag = lang === 'ja' ? 'ja-JP' : (lang === 'pt' ? 'pt-BR' : (lang === 'es' ? 'es-ES' : 'en-US'));
 const sameAsList = [kindleUrl, zennUrl].filter(Boolean);
 
-// Book + Product 双型 (codex 指摘: LP として販売文脈を強化)
+// Book + Product 双型は price がある場合のみ。
+// price 未設定で Product 型にすると Search Console が「商品スニペット」エラー
+// (offers/review/aggregateRating のいずれかが必須) を出す。
+// EN 版は USD 価格未設定なので Book 単独にして Product 必須項目から外す。
+const useProductType = !!price;
 const bookSchema = {
   '@context': 'https://schema.org',
-  '@type': ['Book', 'Product'],
+  '@type': useProductType ? ['Book', 'Product'] : 'Book',
   '@id': `${canonicalUrl}#book`,
   name: title + (subtitle ? ` — ${subtitle}` : ''),
   description,
@@ -1041,6 +1065,11 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         color: var(--text-muted);
         margin-right: 0.3rem;
       }
+      .lang-fallback-note {
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        margin-left: 0.3rem;
+      }
       .cta-section {
         margin: 3rem 0 1.5rem;
         padding: 2rem;
@@ -1408,13 +1437,14 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
       </section>
     )}
 
-    {relatedArticles.length > 0 && (
+    {resolvedRelatedArticles.length > 0 && (
       <section class="book-section">
         <h2>{t.relatedArticles}</h2>
         <ul class="related-articles">
-          {relatedArticles.map((a) => (
+          {resolvedRelatedArticles.map((a) => (
             <li>
-              <a href={`${langPrefix}/blog/${a.slug}/`}>{a.title}</a>
+              <a href={a.href}>{a.title}</a>
+              {a.fallback && <span class="lang-fallback-note"> {enFallbackNote[lang]}</span>}
             </li>
           ))}
         </ul>
