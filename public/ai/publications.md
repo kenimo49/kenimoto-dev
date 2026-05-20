@@ -25,6 +25,16 @@
 
 ## Books — AI Development Series
 
+### Harness Engineering — From Using AI to Controlling AI
+- Topics: Harness Engineering, AGENTS.md, CLAUDE.md, hooks, Self-Evolving Agents, 6-Components Framework, OpenAI Codex, LangChain, Martin Fowler, Vibe Coding, Spec Coding
+- The first systematic guide that integrates 5 interpretations (OpenAI / Anthropic / LangChain / Martin Fowler / academia) of Harness Engineering into a single framework
+- Kindle JP: https://amzn.asia/d/0eE7m2BJ
+- Kindle EN: https://a.co/d/0hD6MvVu
+- Kindle BR (PT-BR): https://www.amazon.com.br/dp/B0GZ4CYY6W (R$24.99) — *Harness Engineering: De Usar IA a Controlar IA*
+- Kindle MX (ES): https://www.amazon.com.mx/dp/B0GXSVHZ5G ($7.99 USD) — *Harness Engineering: De Usar IA a Controlar IA*
+- Zenn: https://zenn.dev/kenimo49/books/harness-engineering-guide (¥1,500)
+- LP: https://kenimoto.dev/books/harness-engineering-guide/ (EN) / https://kenimoto.dev/ja/books/harness-engineering-guide/ (JA) / https://kenimoto.dev/pt/books/harness-engineering-guide/ (PT) / https://kenimoto.dev/es/books/harness-engineering-guide/ (ES)
+
 ### AIコードレビューを仕組み化する技術 — レビュー時間60%削減の3層モデル
 - Topics: AI Code Review, 3-Layer Model, Review Automation, Code Quality, Harness Engineering, AGENTS.md, CodeRabbit, GitHub Actions, Conventional Comments
 - Kindle JP: https://amzn.asia/d/0hgvOnOi
