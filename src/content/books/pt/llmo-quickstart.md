@@ -5,6 +5,7 @@ description: "Coloque o LLMO (Otimização para Busca por IA) pra rodar em 30 mi
 lang: "pt"
 
 zenn_url: "https://zenn.dev/kenimo49"
+kindle_url: "https://www.amazon.com.br/dp/B0H1YG3QDP"
 
 published_date: 2026-05-21
 
