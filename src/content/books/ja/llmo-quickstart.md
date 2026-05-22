@@ -5,7 +5,6 @@ description: "LLMO (AI検索最適化) を30分で始めるための入門書。
 lang: "ja"
 
 kindle_url: "https://amzn.asia/d/04skv9ST"
-zenn_url: "https://zenn.dev/kenimo49"
 
 price: 300
 currency: "JPY"

@@ -5,7 +5,6 @@ description: "Practical Claude Code teaches how to use Claude Code and write CLA
 lang: "en"
 
 kindle_url: "https://amzn.asia/d/0hU3BP1i"
-zenn_url: "https://zenn.dev/kenimo49/books/claude-code-mastery"
 
 published_date: 2025-09-01
 updated_date: 2026-04-15

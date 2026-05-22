@@ -5,7 +5,6 @@ description: "Harness Engineering, mapped across the 5 interpretations from Open
 lang: "en"
 
 kindle_url: "https://a.co/d/0hD6MvVu"
-zenn_url: "https://zenn.dev/kenimo49/books/harness-engineering-guide"
 
 published_date: 2026-03-15
 updated_date: 2026-04-20

@@ -5,7 +5,6 @@ description: "RAG alone won't make your AI smart. Relationships only emerge thro
 lang: "en"
 
 kindle_url: "https://www.amazon.co.jp/dp/B0GX2Z73JV"
-zenn_url: "https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide"
 
 published_date: 2026-04-28
 updated_date: 2026-05-01

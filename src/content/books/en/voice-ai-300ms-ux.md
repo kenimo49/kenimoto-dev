@@ -5,7 +5,6 @@ description: "Voice AI experience is 90% latency. Human turn-taking happens at 2
 lang: "en"
 
 kindle_url: "https://www.amazon.co.jp/dp/B0GYQ4L2KP"
-zenn_url: "https://zenn.dev/kenimo49/books/voice-ai-300ms-ux"
 
 published_date: 2026-04-25
 

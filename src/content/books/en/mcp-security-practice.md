@@ -5,7 +5,6 @@ description: "Before you ship MCP (Model Context Protocol) to production, read t
 lang: "en"
 
 kindle_url: "https://amzn.asia/d/03ceMosL"
-zenn_url: "https://zenn.dev/kenimo49/books/mcp-security-practice"
 
 published_date: 2026-03-25
 updated_date: 2026-04-30

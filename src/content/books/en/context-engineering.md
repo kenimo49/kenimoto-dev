@@ -5,7 +5,6 @@ description: "Why does the same question give wildly different answers? The caus
 lang: "en"
 
 kindle_url: "https://amzn.asia/d/04OYOGkH"
-zenn_url: "https://zenn.dev/kenimo49/books/context-engineering"
 
 published_date: 2026-02-15
 updated_date: 2026-04-10

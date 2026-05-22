@@ -5,7 +5,6 @@ description: "Get LLMO (AI Search Optimization) running in 30 minutes. 8 chapter
 lang: "en"
 
 kindle_url: "https://amzn.asia/d/04XYlHKe"
-zenn_url: "https://zenn.dev/kenimo49"
 
 published_date: 2026-04-10
 

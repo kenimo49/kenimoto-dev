@@ -5,7 +5,6 @@ description: "From Linux trenches to software philosophy, debugging, leadership,
 lang: "en"
 
 kindle_url: "https://www.amazon.co.jp/dp/B0GX3CS95M"
-zenn_url: "https://zenn.dev/kenimo49"
 
 published_date: 2026-05-01
 

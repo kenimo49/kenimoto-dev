@@ -5,7 +5,6 @@ description: "Google SEO won't get you cited by ChatGPT or Perplexity. This book
 lang: "en"
 
 kindle_url: "https://amzn.asia/d/04rulUoN"
-zenn_url: "https://zenn.dev/kenimo49/books/llmo-ai-search-optimization"
 
 published_date: 2026-02-20
 updated_date: 2026-04-15

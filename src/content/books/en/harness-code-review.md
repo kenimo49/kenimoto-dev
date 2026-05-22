@@ -5,7 +5,6 @@ description: "Code review time keeps inflating because humans are doing the mech
 lang: "en"
 
 kindle_url: "https://www.amazon.com/Systematizing-AI-Code-Review-Propel-Lab-ebook/dp/B0GX71K2BV"
-zenn_url: "https://zenn.dev/kenimo49/books/harness-code-review"
 
 published_date: 2026-04-21
 updated_date: 2026-04-21
