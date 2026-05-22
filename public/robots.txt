@@ -13,4 +13,7 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://kenimoto.dev/sitemap-index.xml
