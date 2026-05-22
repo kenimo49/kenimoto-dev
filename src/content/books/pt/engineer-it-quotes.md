@@ -4,7 +4,6 @@ subtitle: "100 Frases da Engenharia Decifradas"
 description: "Da trincheira do Linux à filosofia de software, debugging, liderança e arquitetura. 100 frases do mundo da engenharia, cada uma destrinchada pelo contexto original e pela aplicação moderna — um livro de filosofia pra engenheiros, decifrado uma linha por vez."
 lang: "pt"
 
-zenn_url: "https://zenn.dev/kenimo49"
 kindle_url: "https://www.amazon.com.br/dp/B0H2KR8L6T"
 
 published_date: 2026-05-22

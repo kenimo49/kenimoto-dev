@@ -4,7 +4,6 @@ subtitle: "Otimização para Busca por IA para Engenheiros"
 description: "Coloque o LLMO (Otimização para Busca por IA) pra rodar em 30 minutos. 8 capítulos destilam o essencial: escrever llms.txt, os padrões mínimos de JSON-LD e medir taxa de citação por IA. O caminho mais rápido pra engenheiros que já conhecem SEO começarem a ser citados pela IA."
 lang: "pt"
 
-zenn_url: "https://zenn.dev/kenimo49"
 kindle_url: "https://www.amazon.com.br/dp/B0H1YG3QDP"
 
 published_date: 2026-05-21
