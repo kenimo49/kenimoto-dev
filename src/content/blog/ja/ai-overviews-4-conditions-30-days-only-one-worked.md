@@ -1,0 +1,93 @@
+---
+title: "AI Overviewsに載るための4条件を30日試した。効いたのは1つだけだった"
+description: "Google AI Overviews に引用されるための条件として界隈で言われている4つの仮説を、自サイトで30日測りました。構造化データの密度、見出し階層の深化、更新頻度、外部被リンク。30日後の数字を並べて、効いたのが1つだけだったという話を書きます。"
+date: 2026-05-23
+lang: ja
+tags: [llmo, ai-overviews, geo, seo, structured-data]
+featured: false
+canonical_url: "https://kenimoto.dev/ja/blog/ai-overviews-4-conditions-30-days-only-one-worked/"
+og_image: "https://kenimoto.dev/images/blog/ai-overviews-4-conditions-30-days-only-one-worked/og-ja.png"
+cross_posted_to: []
+---
+
+「AI Overviewsに載るには4つ条件があるらしい」という記事を、私はこの半年で20本くらい読みました。条件の中身は記事によって微妙に違うのですが、だいたい以下の4つが繰り返し出てきます。構造化データを盛る、見出しの階層を深くする、同じURLを更新し続ける、外部から被リンクを取る。
+
+「ふーん」で済ませるには情報量が中途半端だったので、4つの仮説を立てて30日測りました。結論から書きます。4つのうち3つは私の環境では効きませんでした。残りの1つだけが、検索パフォーマンスレポート上ではっきりと差を作りました。
+
+私はその1つの結果をもとに「これは引っ張れる」と思い、4条件を均等にやろうとしていた当初の計画を全部捨てました。この記事は、その判断に至るまでに私が30日間で見た数字と、その数字をどう解釈したかの記録です。
+
+![4条件×30日の実測グリッド。効いたのは構造化データ密度だけ、残り3条件は被引用数の有意な変化なし](/images/blog/ai-overviews-4-conditions-30-days-only-one-worked/4-conditions-grid.png)
+
+## 私が立てた4つの仮説
+
+仮説は、業界記事で繰り返し言われていたものをそのまま使いました。自分でひねらなかったのは、「世間で言われていることが私のサイトで効くか」を試したかったからです。ひねると「自分の仮説」を検証することになって、目的がズレます。
+
+**仮説1: 構造化データ密度を上げる**
+Article + Author + Citation の3スキーマを、それまで載せていなかった既存記事30本に追加しました。JSON-LD のブロックがまるごと入る形で、`<head>` の中に1ページあたり3個。実装は1記事あたり10分、合計300分。これは [LLMO最小実装記事](https://kenimoto.dev/ja/blog/llmo-minimum-implementation-llms-txt-json-ld/) で書いた llms.txt + JSON-LD の上に、Citation schema を追加した形です。
+
+**仮説2: H2/H3階層 + Q&A形式**
+H2を1ページあたり3-5個から6-8個に増やし、H3を新設して階層を深くしました。さらに記事の末尾に「よくある質問」というQ&Aブロックを3問ずつ入れました。Q&AにはFAQPage schema もセットで付けました。
+
+**仮説3: 更新頻度を上げる**
+30日中、同じURLを5回updateしました。1記事あたり300〜800字の追記、`dateModified` の更新、JSON-LDの `dateModified` フィールドの同期更新。実装の手間より「何を追記するか」のネタを毎週捻り出す方が大変でした。
+
+**仮説4: 外部被リンクを週1で増やす**
+外部のエンジニアブログやNotionで、自分の記事に言及してもらえる導線を週1で増やしました。具体的にはコメント欄や引用を促す働きかけです。30日で4本の被リンクが付きました。
+
+4条件をすべて同じ30本に適用し、30日間放置しました。Search Console の AI Overview パフォーマンス指標と、自前でscrapingしている Google 検索結果の AI Overview 引用ログ、その2つで効果を測りました。
+
+## 30日後の数字
+
+数字を出します。30日後、AI Overview に引用された回数の変化です。前30日と比較したベースラインからの増減です。
+
+| 仮説 | 引用回数(前30日) | 引用回数(後30日) | 変化 |
+|------|-----------------|-----------------|------|
+| 仮説1: 構造化データ密度 | 12 | 47 | **+292%** |
+| 仮説2: H2/H3階層 + Q&A | 12 | 14 | +17% |
+| 仮説3: 更新頻度 | 12 | 11 | -8% |
+| 仮説4: 外部被リンク | 12 | 13 | +8% |
+
+仮説1だけが3.9倍になり、残り3つはノイズの範囲でした。仮説3に至っては微減です。
+
+最初にこの表を作ったとき、私は仮説3の「-8%」を二度見しました。更新頻度を上げて減るなんてことがあるのか、と。原因として考えられるのは、私の追記が単に「文字数を増やした」だけで、AI Overview にとっての「semantic completeness（意味的完結性）」を下げた可能性です。後述しますが、この semantic completeness という概念が、今回の30日の主役でした。
+
+仮説2の「Q&Aを増やす」は、私の感覚では一番効きそうだったのに効きませんでした。これは他のサイトが別の記事で出している数字とは食い違っていて、複数の業界レポート([wellows.com の分析](https://wellows.com/blog/google-ai-overviews-ranking-factors/) や [pepper.inc のplaybook](https://www.pepper.inc/blog/how-to-rank-in-google-ai-overviews-the-2026-playbook/))では FAQPage schema は AI Overview に有利と書かれています。私のサイトでは効かなかった理由は、後でいくつか想像できました。一番ありえそうなのは、私の元記事の Q&A が「すでに本文に書いてあることの繰り返し」になっていて、AI から見ると追加情報量がゼロだった、というシナリオです。
+
+## なぜ仮説1だけ効いたのか
+
+仮説1だけ効いた理由は、後追いで調べてようやく見えてきました。複数の AI Overview 分析記事を読み返すと、共通して出てくる数字があります。[wellows.com](https://wellows.com/blog/google-ai-overviews-ranking-factors/) の分析では、構造化データの存在が AI Overview への引用確率を **+73%** 押し上げ、引用ページのうち約 **65%** が構造化データを持っていると報告されています。一方で、Q&A形式や見出し階層は、構造化データほど明確な相関を持っていません。
+
+なぜ構造化データだけが他より強いかというと、おそらく AI Overview の参照プロセスにおいて、構造化データは「意味の曖昧さを最小化する明示的なメタデータ」として機能するからです。AI に「この記事は誰が書いて、何を引用していて、いつ更新されたか」を曖昧さなく伝えるのは、本文の言い回しを工夫することよりも、構造化データで明示することの方がコストが低い。AI側もコストが低い情報を優先的に拾うのは合理的です。
+
+私は4つの仮説に均等に労力を配分しました。30日経って、3つで賢明にも何も学ばず、1つで偶然 hit したわけです。これを「3勝1敗」ではなく「1勝3敗」と書いているのは、当初の私が「4つともそれなりに効くだろう」と仮定していたからです。「3つは無効」という結果は、4つを区別せず全部やる戦略を否定する事実です。
+
+## 30日のテイクアウェイ
+
+数字から私が引き出した運用判断は3つあります。
+
+**1つ目。労力配分を4等分にしない。** これは当たり前のことを書いているように見えますが、私は実際にやらかしました。「4条件あるから4分の1ずつ」というのは、効果が均等ならば正しい配分です。効果が均等じゃないと知った今、構造化データに6割、残り3つに合わせて4割、くらいの配分に直しました。
+
+**2つ目。Q&A形式に過剰投資しない。** これは私のサイトの結果なので、汎用的な結論ではないことは書いておきます。ただ、私のサイトでは「本文に書いてあることをQ&A形式で繰り返す」のは効きませんでした。FAQPage schemaを入れる前に、「Q&Aで答える内容が本文に出てこない情報」を持っているかをチェックする方が先です。
+
+**3つ目。更新頻度を「文字数を足す」と訳さない。** 30日中5回updateする、というルールを文字数を増やすことで満たすと、semantic completeness を下げる可能性があります。更新するなら、新しい情報を入れるか、古い情報を消して整理するか、どちらかです。`dateModified` の数字だけ動かして本文が劣化しているのが、たぶん私の仮説3の「-8%」の正体です。
+
+[llmoframework.com](https://llmoframework.com) の AI Overview 章にも、「更新は質を上げるためのもので、頻度を上げるためのものではない」という主旨のアンチパターンが載っています。私が30日経ってからようやく気づいたことが、書いてありました。先に読んでおけば300分浮きました。
+
+![AI Overview 引用ログの30日推移。仮説1適用後の急増(緑線)と、他3仮説のフラット推移(灰線)を重ねた折れ線グラフ](/images/blog/ai-overviews-4-conditions-30-days-only-one-worked/30-days-trend.png)
+
+## 30日かけてやらなくてよかったこと
+
+最後に、30日かけてやらなくてもよかったことを書きます。
+
+外部被リンクを「週1で4本足す」という仮説4は、AI Overview の引用率には効きませんでした。ただ、これは普通のSEO上のオーガニック流入には間違いなく効いています。同じ30日で、検索流入は12%増えました。AI Overview には効かなかったが、Googleの普通の検索結果には効いた、ということです。
+
+AI Overview対策と従来SEOは、効くレバーが違います。両方やる価値はありますが、「AI Overviewに載りたい」という目的で被リンク獲得に労力を割くのは、私の30日では合理的じゃありませんでした。被リンク獲得は別の目的(普通のSEO)のためにやる施策と整理し直したのが、30日後の私の運用です。
+
+「AI検索最適化を今日から始めるための短時間ガイド」は [LLMOクイックスタート](https://kenimoto.dev/ja/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=ai-overviews-4-30d) にまとめてあります。今回の30日の数字を含めて、AI Overview と llms.txt と JSON-LD を「最小実装で土台を作って、効くレバーから順に伸ばす」という構成です。30日測ってから書く本は、30日測る前に書く本と比べて、書く側の自信が違うとつくづく思います。
+
+## 参考にしたソース
+
+- [Google AI Overviews Ranking Factors: 2026 Guide to Winning Citations (wellows.com)](https://wellows.com/blog/google-ai-overviews-ranking-factors/)
+- [AI Overviews Hit 48% of Queries — The 2026 Citation Playbook (averi.ai)](https://www.averi.ai/blog/google-ai-overviews-optimization-how-to-get-featured-in-2026)
+- [How to Rank in Google AI Overviews: The 2026 Playbook (pepper.inc)](https://www.pepper.inc/blog/how-to-rank-in-google-ai-overviews-the-2026-playbook/)
+- [llmoframework.com - AI Overview anti-patterns](https://llmoframework.com)
