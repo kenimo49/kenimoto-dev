@@ -5,8 +5,9 @@ description: "Da trincheira do Linux à filosofia de software, debugging, lidera
 lang: "pt"
 
 zenn_url: "https://zenn.dev/kenimo49"
+kindle_url: "https://www.amazon.com.br/dp/B0H2KR8L6T"
 
-published_date: 2026-05-21
+published_date: 2026-05-22
 
 cover_image: "/images/books/engineer-it-quotes-pt.jpg"
 
