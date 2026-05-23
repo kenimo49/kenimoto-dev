@@ -133,4 +133,10 @@ Dizem que engenharia é assim mesmo.
 
 ---
 
+## Quer ir mais fundo?
+
+Este artigo cataloga os 5 anti-padrões. O guia completo de LLMO — padrões de llms.txt prontos pra copiar, exemplos de JSON-LD, KPIs de citação, comparação ChatGPT/Perplexity/Brave — está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=auditei-30-arquivos-llms-txt-5-anti-padroes)**.
+
+---
+
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*

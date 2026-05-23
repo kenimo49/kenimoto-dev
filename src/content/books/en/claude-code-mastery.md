@@ -31,7 +31,7 @@ keywords:
   - "Claude Code vs Cursor"
 
 tagline: "Claude Code tutorial | CLAUDE.md best practices · Plan Mode design · team workflows"
-hero_message: "Are you giving your AI a different instruction every time? — Turn Claude Code from instruction-taker into pair programmer with CLAUDE.md and Context Engineering."
+hero_message: "Reinventing your AI instructions every session? CLAUDE.md and Context Engineering replace ad-hoc prompts with a repeatable system — Claude Code stops being an instruction-taker and starts being a pair programmer."
 series_role: "Harness Trilogy [Implementation] — Where Claude Code becomes a daily collaborator"
 
 outcomes:

@@ -143,6 +143,12 @@ Eu entrei nas 24 horas esperando aprender sobre a capacidade do agente. Saí com
 
 ---
 
+## Quer ir mais fundo?
+
+Este artigo cobre a fatia "como impedir que o agente quebre coisa irreversível". O playbook completo de harness engineering — AGENTS.md de 2 linhas até 100, hooks de pre-commit/pre-tool-use, padrões de auto mode, definição de harness em 5 frameworks — está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=agente-ia-24-horas-incidentes-seguranca)**.
+
+---
+
 *Nota da revisão (13/05/2026): esta versão passou por duas rodadas de reedição após feedback de leitores do TabNews sobre fluidez de tradução. A análise técnica e as referências OWASP permanecem idênticas — só o português ficou menos com cara de tradução literal de inglês.*
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*
