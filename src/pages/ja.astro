@@ -90,7 +90,7 @@ const orgJsonLd = {
         "name": "Propel-Lab",
         "url": "https://propel-lab.co.jp"
       },
-      "knowsAbout": ["LLMO", "LLM最適化", "WebRTC", "リアルタイムAI", "コンテキストエンジニアリング", "AIエージェント設計", "MCP", "Claude Code", "Android開発"]
+      "knowsAbout": ["LLMO", "LLM最適化", "AI Native MEO", "WebRTC", "リアルタイムAI", "コンテキストエンジニアリング", "AIエージェント設計", "MCP", "Claude Code", "Android開発"]
     }
     </script>
     <script type="application/ld+json">
@@ -266,7 +266,8 @@ const orgJsonLd = {
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Now</h2>
         <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent-blue);">
           <ul style="list-style: none; padding: 0; line-height: 2; margin: 0;">
-            <li>LLMOフレームワーク & LLMOチェックアプリの開発</li>
+            <li>LLMOフレームワーク・LLMOチェッカー・Open LLMO Research Initiative の開発</li>
+            <li>AI Native MEO を LLMO の実店舗向け実装系として文書化</li>
             <li>ハーネスエンジニアリングをプロダクトに適用 — 開発・運用・マーケティングまでAIエージェントで実践</li>
             <li>実践での知見を本や記事として公開</li>
           </ul>
@@ -495,16 +496,30 @@ const orgJsonLd = {
       <!-- Side Projects -->
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Side Projects</h2>
-        <a href="https://legacydram.com/ja/" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
-          <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">🥃 legacydram <span style="font-weight: 400; color: var(--text-muted);">— ウィスキー × エンジニアの視点</span></p>
-          <p style="font-size: 0.75rem; color: var(--text-label);">瓶の中身を「他人のレガシーコード」として読み解くキュレーションメディア。 People · Craft · Tasting。</p>
-        </a>
+        <div style="display: grid; gap: 0.75rem;">
+          <a href="https://legacydram.com/ja/" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
+            <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">🥃 legacydram <span style="font-weight: 400; color: var(--text-muted);">— ウィスキー × エンジニアの視点</span></p>
+            <p style="font-size: 0.75rem; color: var(--text-label);">瓶の中身を「他人のレガシーコード」として読み解くキュレーションメディア。 People · Craft · Tasting。</p>
+          </a>
+          <a href="https://ainativemeo.com/ja/" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
+            <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">📍 ainativemeo <span style="font-weight: 400; color: var(--text-muted);">— AI 時代の実店舗最適化</span></p>
+            <p style="font-size: 0.75rem; color: var(--text-label);">「人ではなく AI に勧めてもらう時代」の実店舗集客を、Google Business Profile を JSON-LD として読む / 各 AI エンジンの引用挙動を実測する、というエンジニア視点で書いていく。日英バイリンガル。</p>
+          </a>
+        </div>
       </section>
 
       <!-- Open Source -->
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Open Source</h2>
         <div style="display: grid; gap: 0.75rem;">
+          <a href="https://github.com/open-llmo" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
+            <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">open-llmo <span style="font-weight: 400; color: var(--text-muted);">— GitHub organization · MIT</span></p>
+            <p style="font-size: 0.75rem; color: var(--text-label);">Open LLMO Research Initiative。「ある URL が AI からどれだけ引きやすいか」を測るための仕様・バリデータ・ツール群を、従来の SEO シグナルを超えた切り口で整備する。</p>
+          </a>
+          <a href="https://github.com/open-llmo/llmo-checker" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
+            <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">llmo-checker <span style="font-weight: 400; color: var(--text-muted);">— TypeScript CLI · MIT</span></p>
+            <p style="font-size: 0.75rem; color: var(--text-label);">URL の「AI からの引きやすさ」を Lighthouse 風に採点する CLI。 llms.txt / JSON-LD / robots policy / 意味構造を静的にチェックし、0〜100 の LLMO Score を JSON で返す。v0.1 draft。</p>
+          </a>
           <a href="https://github.com/kenimo49/domain-pre-flight" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
             <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">domain-pre-flight <span style="font-weight: 400; color: var(--text-muted);">— Python CLI · MIT</span></p>
             <p style="font-size: 0.75rem; color: var(--text-label);">サイト・アプリ用ドメインを取る前の最後のチェック。構造 / 過去履歴 / typosquat / 多言語意味 / LLMO / 商標 deeplink を 1 コマンドで判定。</p>
