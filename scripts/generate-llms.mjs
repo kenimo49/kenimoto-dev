@@ -219,6 +219,13 @@ function formatIndex(blogPosts, books) {
   lines.push('');
   lines.push('- [legacydram](https://legacydram.com/) — A whisky curation media reading every bottle as somebody\'s commit history.');
   lines.push('');
+  lines.push('## Open Source');
+  lines.push('');
+  lines.push('- [domain-pre-flight](https://github.com/kenimo49/domain-pre-flight) — Python CLI · MIT. A pre-flight check before you register a domain for a new site or app. Structure, history, typosquat, multi-language semantics, LLMO, and trademark deeplinks in one command.');
+  lines.push('- [voice-clone](https://github.com/kenimo49/voice-clone) — Python · MIT. A voice-cloning tool built on Qwen3-TTS. Clone a voice from ~3 seconds of audio and have any text read in that voice. WSLg recording, multi-language.');
+  lines.push('- [speech-habit-lens](https://github.com/kenimo49/speech-habit-lens) — Python CLI · MIT. A 1-minute speech habit analyzer combining AmiVoice ESAS (20 acoustic emotion parameters) with an LLM. Three layers — acoustic, textual, and the cross-layer that links body and language — rendered as a Markdown report.');
+  lines.push('- [persona-hub](https://github.com/kenimo49/persona-hub) — TypeScript + Python · Apache-2.0. A two-part persona hub: a lightweight TypeScript SDK that scores quiz answers locally, and an optional FastAPI service that persists results so the same user can carry their profile across services. Pre-alpha.');
+  lines.push('');
   lines.push('## Content URLs');
   lines.push('');
   lines.push('- [EN Blog](https://kenimoto.dev/blog/)');
