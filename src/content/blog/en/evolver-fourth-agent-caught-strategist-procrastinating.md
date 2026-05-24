@@ -7,7 +7,9 @@ tags: [harness-engineering, ai-agent, claude-code, self-evolving, multi-agent]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/evolver-fourth-agent-caught-strategist-procrastinating"
 og_image: "https://kenimoto.dev/images/blog/evolver-fourth-agent-caught-strategist-procrastinating/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-added-a-4th-agent-that-audits-my-other-agents-it-caught-my-strategist-procrastinating-for-3-29hd
 ---
 
 I built a three-layer agent harness and called it "autonomous." Observer collected the data. Strategist picked the theme. Marketer wrote the article. They all followed `strategy.md`, the file that holds my rules. The cron fired every Monday at 09:00 and the articles showed up by lunch. I felt very clever about it.

@@ -7,7 +7,9 @@ tags: [voice-ai, latency, realtime-api, webrtc, benchmarks]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/five-voice-ai-stacks-only-two-under-300ms"
 og_image: "https://kenimoto.dev/images/blog/five-voice-ai-stacks-only-two-under-300ms/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-benchmarked-5-voice-ai-stacks-only-2-stayed-under-300ms-27df
 ---
 
 I kept reading that voice AI agents respond in under 300ms. AssemblyAI says it, Vapi says it, every Realtime API launch post says it. So I built five stacks, dropped a stopwatch into each pipeline, and ran the same one-minute conversation through all of them.

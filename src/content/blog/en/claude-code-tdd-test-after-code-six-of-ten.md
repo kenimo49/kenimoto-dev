@@ -7,7 +7,9 @@ tags: [claude-code, tdd, prompt-engineering, ai-coding, hooks]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-code-tdd-test-after-code-six-of-ten"
 og_image: "https://kenimoto.dev/images/blog/claude-code-tdd-test-after-code-six-of-ten/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-told-claude-code-to-do-tdd-it-wrote-the-test-after-the-code-6-out-of-10-times-49id
 ---
 
 My CLAUDE.md had a section called `## TDD First`. Six lines. Very clear. I had spent twenty minutes drafting it. Then I ran a 30-day audit of my own commits and discovered that across the features I had asked Claude Code to TDD, the test file was committed *after* the source file 6 out of 10 times. Not "the test failed first then I fixed it." The test file did not exist at the moment the source file got committed.

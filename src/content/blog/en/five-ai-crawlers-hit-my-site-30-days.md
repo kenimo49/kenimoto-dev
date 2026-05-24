@@ -7,7 +7,9 @@ tags: [llmo, ai-search, server-logs, crawlers, cloudflare]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/five-ai-crawlers-hit-my-site-30-days/"
 og_image: "https://kenimoto.dev/images/blog/five-ai-crawlers-hit-my-site-30-days/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/5-ai-crawlers-hit-my-sites-14300-times-in-30-days-heres-what-their-user-agents-told-me-about-2kfc
 ---
 
 I thought `robots.txt` was the boundary. Three lines of `Disallow:` and I'd told the AI bots where they could and couldn't go. Done. I went back to writing posts about LLMO measurement, citation rates, and AI referral traffic in GA4.

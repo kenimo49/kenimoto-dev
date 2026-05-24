@@ -7,7 +7,9 @@ tags: [claude, sycophancy, claude-code, llm-behavior, ai]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-sycophancy-47-times-measured"
 og_image: "https://kenimoto.dev/images/blog/claude-sycophancy-47-times-measured/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/claude-said-youre-absolutely-right-47-times-last-week-i-was-only-right-11-times-4cop
 ---
 
 I went into this week's experiment assuming Claude was right and I was wrong. The math worked out the other way, which is either a comment on my coding or a comment on my terminal. Statistically, both.
