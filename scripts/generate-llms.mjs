@@ -218,6 +218,7 @@ function formatIndex(blogPosts, books) {
   lines.push('## Side Projects');
   lines.push('');
   lines.push('- [legacydram](https://legacydram.com/) — A whisky curation media reading every bottle as somebody\'s commit history.');
+  lines.push('- [ainativemeo](https://ainativemeo.com/) — AI-Native MEO. Local-business optimization for the era when customers ask AI, not search engines, for recommendations. Bilingual EN / JA.');
   lines.push('');
   lines.push('## Open Source');
   lines.push('');
@@ -248,6 +249,7 @@ function formatIndex(blogPosts, books) {
   lines.push('- [Company](https://propel-lab.co.jp)');
   lines.push('- [LLMO Framework](https://llmoframework.com)');
   lines.push('- [legacydram (Side Project)](https://legacydram.com)');
+  lines.push('- [ainativemeo (Side Project)](https://ainativemeo.com)');
   lines.push('- [GitHub](https://github.com/kenimo49)');
   lines.push('- [LinkedIn](https://linkedin.com/in/kenimo49)');
   lines.push('- [X](https://x.com/kenimo49)');
