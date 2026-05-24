@@ -30,4 +30,4 @@ Multi-agent architectures using MCP (Model Context Protocol), autonomous task ex
 - Robotics: Pepper × SLAM co-development with Aldebaran (SoftBank live deployment)
 - Managed 5 parallel projects across AWS/Azure/Firebase simultaneously
 - Published 4 books (bilingual JP/EN) on AI development
-- 39,000+ PV on Qiita (technical writing)
+- 123,000+ PV on Qiita across 90 articles (technical writing)
