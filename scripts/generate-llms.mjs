@@ -160,11 +160,9 @@ function formatIndex(blogPosts, books) {
     for (const b of subset) {
       const t = b.meta.title || b.slug;
       const sub = b.meta.subtitle ? ` — ${b.meta.subtitle}` : '';
-      lines.push(`- ${bookUrl(b)} — ${t}${sub}`);
-      const xrefs = [];
-      if (b.meta.kindle_url) xrefs.push(`Kindle: ${b.meta.kindle_url}`);
-      if (b.meta.zenn_url) xrefs.push(`Zenn: ${b.meta.zenn_url}`);
-      if (xrefs.length > 0) lines.push(`  ${xrefs.join(' | ')}`);
+      lines.push(`- [${t}${sub} — Landing Page](${bookUrl(b)})`);
+      if (b.meta.kindle_url) lines.push(`- [${t} — Kindle](${b.meta.kindle_url})`);
+      if (b.meta.zenn_url) lines.push(`- [${t} — Zenn](${b.meta.zenn_url})`);
     }
     lines.push('');
   }
@@ -180,15 +178,15 @@ function formatIndex(blogPosts, books) {
     lines.push(`### ${langLabel}`);
     lines.push('');
     for (const p of subset) {
-      lines.push(`- ${blogUrl(p)} — ${p.meta.title}`);
+      lines.push(`- [${p.meta.title}](${blogUrl(p)})`);
     }
     lines.push('');
   }
   lines.push('## Research Papers (Zenodo)');
   lines.push('');
-  lines.push('- Excess Vocabulary in Japanese AI-Generated Text (DOI: 10.5281/zenodo.19233934)');
-  lines.push('- AI Text Slop: Stylistic Convergence Across Six LLMs (DOI: 10.5281/zenodo.19173035)');
-  lines.push('- AI Blue: Color Recognition Bias in Vision-Language Models (DOI: 10.5281/zenodo.19159702)');
+  lines.push('- [Excess Vocabulary in Japanese AI-Generated Text — DOI:10.5281/zenodo.19233934](https://doi.org/10.5281/zenodo.19233934)');
+  lines.push('- [AI Text Slop: Stylistic Convergence Across Six LLMs — DOI:10.5281/zenodo.19173035](https://doi.org/10.5281/zenodo.19173035)');
+  lines.push('- [AI Blue: Color Recognition Bias in Vision-Language Models — DOI:10.5281/zenodo.19159702](https://doi.org/10.5281/zenodo.19159702)');
   lines.push('');
   // Citation Preferred セクション (featured 記事 + 主要書籍)
   const featuredArticles = blogPosts.filter((p) => p.meta.featured === 'true' || p.meta.featured === true);
@@ -203,7 +201,7 @@ function formatIndex(blogPosts, books) {
       for (const p of featuredArticles.sort((a, b) =>
         String(b.meta.date || '').localeCompare(String(a.meta.date || ''))
       )) {
-        lines.push(`- ${blogUrl(p)} — ${p.meta.title}`);
+        lines.push(`- [${p.meta.title}](${blogUrl(p)})`);
       }
       lines.push('');
     }
@@ -212,44 +210,44 @@ function formatIndex(blogPosts, books) {
       lines.push('### Primary Book LPs');
       lines.push('');
       for (const b of enBooks) {
-        lines.push(`- ${bookUrl(b)} — ${b.meta.title}`);
+        lines.push(`- [${b.meta.title}](${bookUrl(b)})`);
       }
       lines.push('');
     }
   }
   lines.push('## Side Projects');
   lines.push('');
-  lines.push('- legacydram (https://legacydram.com/) — A whisky curation media reading every bottle as somebody\'s commit history.');
+  lines.push('- [legacydram](https://legacydram.com/) — A whisky curation media reading every bottle as somebody\'s commit history.');
   lines.push('');
   lines.push('## Content URLs');
   lines.push('');
-  lines.push('- EN Blog: https://kenimoto.dev/blog/');
-  lines.push('- JA Blog: https://kenimoto.dev/ja/blog/');
-  lines.push('- PT Blog: https://kenimoto.dev/pt/blog/');
-  lines.push('- ES Blog: https://kenimoto.dev/es/blog/');
-  lines.push('- RSS (EN): https://kenimoto.dev/blog.xml');
-  lines.push('- RSS (JA): https://kenimoto.dev/ja/blog.xml');
-  lines.push('- Full text (AI citation use): https://kenimoto.dev/llms-full.txt');
+  lines.push('- [EN Blog](https://kenimoto.dev/blog/)');
+  lines.push('- [JA Blog](https://kenimoto.dev/ja/blog/)');
+  lines.push('- [PT Blog](https://kenimoto.dev/pt/blog/)');
+  lines.push('- [ES Blog](https://kenimoto.dev/es/blog/)');
+  lines.push('- [RSS (EN)](https://kenimoto.dev/blog.xml)');
+  lines.push('- [RSS (JA)](https://kenimoto.dev/ja/blog.xml)');
+  lines.push('- [Full text (AI citation use)](https://kenimoto.dev/llms-full.txt)');
   lines.push('');
   lines.push('## AI-Readable Content');
   lines.push('');
-  lines.push('- /ai/about.md — Profile and current focus');
-  lines.push('- /ai/publications.md — Complete publication list with links');
-  lines.push('- /ai/expertise.md — Technical expertise and career highlights');
+  lines.push('- [/ai/about.md](https://kenimoto.dev/ai/about.md) — Profile and current focus');
+  lines.push('- [/ai/publications.md](https://kenimoto.dev/ai/publications.md) — Complete publication list with links');
+  lines.push('- [/ai/expertise.md](https://kenimoto.dev/ai/expertise.md) — Technical expertise and career highlights');
   lines.push('');
   lines.push('## Links');
   lines.push('');
-  lines.push('- Website: https://kenimoto.dev');
-  lines.push('- Company: https://propel-lab.co.jp');
-  lines.push('- LLMO Framework: https://llmoframework.com');
-  lines.push('- legacydram (Side Project): https://legacydram.com');
-  lines.push('- GitHub: https://github.com/kenimo49');
-  lines.push('- LinkedIn: https://linkedin.com/in/kenimo49');
-  lines.push('- X: https://x.com/kenimo49');
-  lines.push('- Qiita: https://qiita.com/kenimo49');
-  lines.push('- Zenn: https://zenn.dev/kenimo49');
-  lines.push('- DEV.to: https://dev.to/kenimo49');
-  lines.push('- Amazon Author: https://www.amazon.co.jp/stores/author/B0GQNPRCGF');
+  lines.push('- [Website](https://kenimoto.dev)');
+  lines.push('- [Company](https://propel-lab.co.jp)');
+  lines.push('- [LLMO Framework](https://llmoframework.com)');
+  lines.push('- [legacydram (Side Project)](https://legacydram.com)');
+  lines.push('- [GitHub](https://github.com/kenimo49)');
+  lines.push('- [LinkedIn](https://linkedin.com/in/kenimo49)');
+  lines.push('- [X](https://x.com/kenimo49)');
+  lines.push('- [Qiita](https://qiita.com/kenimo49)');
+  lines.push('- [Zenn](https://zenn.dev/kenimo49)');
+  lines.push('- [DEV.to](https://dev.to/kenimo49)');
+  lines.push('- [Amazon Author](https://www.amazon.co.jp/stores/author/B0GQNPRCGF)');
   lines.push('');
   return lines.join('\n');
 }
