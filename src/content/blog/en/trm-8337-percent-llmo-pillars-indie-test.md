@@ -7,7 +7,9 @@ tags: [llmo, geo, ai-search, case-study, indie]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/trm-8337-percent-llmo-pillars-indie-test"
 og_image: "https://kenimoto.dev/images/blog/trm-8337-percent-llmo-pillars-indie-test/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/trm-grew-chatgpt-referrals-8337-in-90-days-i-copied-their-4-llmo-pillars-onto-3-indie-sites-5500-temp-slug-3077237
 ---
 
 When a US SEO agency called The Rank Masters published their 90-day case study showing an **8,337% lift in ChatGPT referrals**, the headline did exactly what headlines are supposed to do. I clicked. Then I noticed the baseline was 8 visits and the post-period was 675. So yes, the percentage is technically true. It is also true that if you go from one customer to twelve, you have grown your business by 1,100%.

@@ -7,7 +7,9 @@ tags: [claudecode, refactoring, performance, ai]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-refactor-100-functions-7-slower-production/"
 og_image: "https://kenimoto.dev/images/blog/claude-refactor-100-functions-7-slower-production/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-refactored-100-functions-with-claude-ci-was-green-production-got-slower-in-7-spots-3gnl-temp-slug-7395836
 ---
 
 I asked Claude Code to refactor 100 functions across a Python service I owned. It did the job in two passes. CI was green on both. The PR description was so neat I almost felt bad shipping it on a Friday.
