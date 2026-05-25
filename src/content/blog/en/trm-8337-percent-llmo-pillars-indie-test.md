@@ -30,7 +30,7 @@ The three indie sites:
 
 I picked sites at three very different stages on purpose. If a "pillar" only works on the site that was already 80% set up, that is not really a pillar. That is a finishing touch.
 
-Baseline period was 30 days before the test. Treatment period was the 90 days that followed. I used GA4 with the `chatgpt.com` and `perplexity.ai` referrer regex from [llmoframework.com's pillars guide](https://llmoframework.com/pillars), plus the four AI crawler user-agent filters in my server logs to confirm cross-channel pickup. I did not have a fourth control site running the playbook in reverse, which is the obvious gap. I am calling it before someone else does.
+Baseline period was 30 days before the test. Treatment period was the 90 days that followed. I used GA4 with the `chatgpt.com` and `perplexity.ai` referrer regex from [llmoframework.com's pillars guide](https://llmoframework.com/framework/overview/), plus the four AI crawler user-agent filters in my server logs to confirm cross-channel pickup. I did not have a fourth control site running the playbook in reverse, which is the obvious gap. I am calling it before someone else does.
 
 ## The four pillars, as TRM described them
 
@@ -128,4 +128,4 @@ It also took me six hours.
 
 ---
 
-If you want the implementation details, the [llmoframework.com pillars guide](https://llmoframework.com/pillars) has the JSON-LD templates I used, and my deeper write-up on which schemas actually get parsed by LLM crawlers is in [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=trm-8337-indie-test).
+If you want the implementation details, the [llmoframework.com pillars guide](https://llmoframework.com/framework/overview/) has the JSON-LD templates I used, and my deeper write-up on which schemas actually get parsed by LLM crawlers is in [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=trm-8337-indie-test).
