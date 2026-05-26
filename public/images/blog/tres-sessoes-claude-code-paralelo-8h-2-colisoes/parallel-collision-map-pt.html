@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --alert: #C0392B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  padding: 56px 88px;
+  background: var(--white);
+  color: var(--dark);
+}
+.eyebrow {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.title {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 36px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 44px;
+}
+
+.box {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 28px 36px;
+  min-height: 320px;
+}
+
+.box-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.box-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+
+.path {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  color: var(--secondary);
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.file {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 21px;
+  padding: 10px 14px;
+  background: var(--white);
+  border-left: 4px solid var(--navy-light);
+  border-radius: 4px;
+  color: var(--dark);
+}
+
+.file.safe { border-left-color: #95A5A6; }
+.file.risk { border-left-color: var(--navy-mid); }
+.file.danger { border-left-color: var(--alert); font-weight: 700; }
+
+.box.safe-box { border-top: 8px solid #95A5A6; }
+.box.danger-box { border-top: 8px solid var(--alert); }
+
+.timeline {
+  background: var(--navy-bg);
+  border-radius: 16px;
+  padding: 28px 36px 32px 36px;
+}
+
+.timeline-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+}
+
+.timeline-bar {
+  position: relative;
+  height: 14px;
+  background: var(--white);
+  border-radius: 8px;
+  margin: 0 60px 16px 60px;
+}
+
+.timeline-bar::before, .timeline-bar::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  width: 4px;
+  height: 30px;
+  background: var(--secondary);
+}
+.timeline-bar::before { left: -2px; }
+.timeline-bar::after { right: -2px; }
+
+.hour-labels {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 50px 16px 50px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.collision-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+.collision {
+  flex: 1;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.collision-mark {
+  background: var(--alert);
+  color: var(--white);
+  font-weight: 900;
+  font-size: 26px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.collision-detail { flex: 1; }
+
+.collision-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.collision-what {
+  font-size: 19px;
+  color: var(--dark);
+  margin-top: 4px;
+  line-height: 1.45;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 2px solid var(--navy-bg);
+}
+
+.stat {
+  font-size: 24px;
+  color: var(--secondary);
+}
+.stat strong {
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--navy);
+}
+
+.brand {
+  font-size: 22px;
+  color: var(--secondary);
+}
+</style>
+</head>
+<body>
+  <div class="eyebrow">3 worktrees, 1 ~/.claude/, 8 horas</div>
+  <div class="title">Worktrees isolam o código. Não isolam o harness.</div>
+
+  <div class="layout">
+    <div class="box safe-box">
+      <div class="box-label">// por worktree</div>
+      <div class="box-title">Isolado pelo git</div>
+      <div class="path">~/repos/wt-voice-buffer/<br>~/repos/wt-og-emit/<br>~/repos/wt-citations/</div>
+      <div class="files">
+        <div class="file safe">src/voice/buffer.ts</div>
+        <div class="file safe">src/seo/og-emit.ts</div>
+        <div class="file safe">src/cite/parser.ts</div>
+      </div>
+    </div>
+
+    <div class="box danger-box">
+      <div class="box-label">// compartilhado entre todas as sessões</div>
+      <div class="box-title">Estado de harness compartilhado</div>
+      <div class="path">~/.claude/</div>
+      <div class="files">
+        <div class="file risk">settings.json &nbsp;&nbsp; colisão rara</div>
+        <div class="file danger">skills/_index.md &nbsp;&nbsp; colisão #1</div>
+        <div class="file danger">projects/repo/memory/architecture.md &nbsp;&nbsp; colisão #2</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-title">Log de 8 horas: duas sobrescritas silenciosas</div>
+    <div class="hour-labels">
+      <span>0h</span><span>1h</span><span>2h</span><span>3h</span><span>4h</span><span>5h</span><span>6h</span><span>7h</span><span>8h</span>
+    </div>
+    <div class="timeline-bar"></div>
+
+    <div class="collision-row">
+      <div class="collision">
+        <div class="collision-mark">!</div>
+        <div class="collision-detail">
+          <div class="collision-time">03:42 &nbsp; colisão #1</div>
+          <div class="collision-what">Sessão C lê _index.md desatualizado e sobrescreve registro de Skill da Sessão A.</div>
+        </div>
+      </div>
+      <div class="collision">
+        <div class="collision-mark">!</div>
+        <div class="collision-detail">
+          <div class="collision-time">06:18 &nbsp; colisão #2</div>
+          <div class="collision-what">Sessão B lê architecture.md desatualizado e sobrescreve invariantes do buffer da Sessão A.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="stat">Custo de retrabalho na manhã seguinte: <strong>R$ 280</strong> &nbsp;&nbsp; Padrões em uso hoje: <strong>3</strong></div>
+    <div class="brand">kenimoto.dev</div>
+  </div>
+</body>
+</html>
