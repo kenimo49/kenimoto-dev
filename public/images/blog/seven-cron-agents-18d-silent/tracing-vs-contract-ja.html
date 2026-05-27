@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --alert: #C0392B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  padding: 56px 88px;
+  background: var(--white);
+  color: var(--dark);
+}
+.eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.title {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 48px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 40px;
+}
+.col {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 40px 44px;
+  min-height: 600px;
+  border-top: 8px solid var(--navy);
+}
+.col.contract {
+  border-top-color: var(--alert);
+  background: #FBF1EF;
+}
+.col h2 {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.col .sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+.col.contract .sub { color: var(--alert); }
+.col .desc {
+  font-size: 26px;
+  color: var(--dark);
+  line-height: 1.45;
+  margin-bottom: 28px;
+}
+.col ul {
+  list-style: none;
+  padding: 0;
+}
+.col li {
+  font-size: 24px;
+  margin-bottom: 16px;
+  padding-left: 36px;
+  position: relative;
+  line-height: 1.4;
+  color: var(--dark);
+}
+.col li:before {
+  content: "▸";
+  color: var(--navy);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+.col.contract li:before { color: var(--alert); }
+.col li.bad { color: var(--secondary); }
+.col li.bad:before { content: "✗"; color: var(--secondary); }
+.footer {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
+  padding-top: 8px;
+  letter-spacing: -0.01em;
+}
+.footer strong { color: var(--alert); }
+</style>
+</head>
+<body>
+<div class="eyebrow">監視範囲が違う2つのアプローチ</div>
+<div class="title">tracingは「動いた処理」だけ見える。<br/>exit-code契約は「動かなかった処理」を拾う。</div>
+
+<div class="cols">
+  <div class="col">
+    <h2>tracing / observability</h2>
+    <div class="sub">対象: 実行された処理</div>
+    <div class="desc">span、token、latency、retry。エージェントが通った経路の可視化に強い。</div>
+    <ul>
+      <li>タスクごとのtoken消費</li>
+      <li>ツール呼び出しのlatency</li>
+      <li>リトライ / エラー率</li>
+      <li class="bad">起動すらしなかったプロセス</li>
+      <li class="bad">発火しなかったcron</li>
+      <li class="bad">何もせず exit 0 のエージェント</li>
+    </ul>
+  </div>
+  <div class="col contract">
+    <h2>exit-code契約 + heartbeat</h2>
+    <div class="sub">対象: 動くべきだった処理</div>
+    <div class="desc">各エージェントが「N時間ごとに成功pingを送る」と宣言。ping切れ = ページャ。</div>
+    <ul>
+      <li>そもそも動いたか?</li>
+      <li>正常終了したか?</li>
+      <li>exit 0 / 1 / 2 を原因にマップ</li>
+      <li>24h heartbeat切れ → dead man's switch</li>
+      <li>cron wrapperが exit code を記録</li>
+      <li>healthchecks.io / systemd OnFailure=</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">observabilityは可視性 · <strong>契約は責任</strong> · 両方が要る</div>
+</body>
+</html>

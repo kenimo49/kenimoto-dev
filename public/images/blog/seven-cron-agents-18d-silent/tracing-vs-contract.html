@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --alert: #C0392B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  padding: 56px 88px;
+  background: var(--white);
+  color: var(--dark);
+}
+.eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.title {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 48px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-bottom: 40px;
+}
+.col {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 40px 44px;
+  min-height: 600px;
+  border-top: 8px solid var(--navy);
+}
+.col.contract {
+  border-top-color: var(--alert);
+  background: #FBF1EF;
+}
+.col h2 {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.col .sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--navy);
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+.col.contract .sub { color: var(--alert); }
+.col .desc {
+  font-size: 26px;
+  color: var(--dark);
+  line-height: 1.45;
+  margin-bottom: 28px;
+}
+.col ul {
+  list-style: none;
+  padding: 0;
+}
+.col li {
+  font-size: 24px;
+  margin-bottom: 16px;
+  padding-left: 36px;
+  position: relative;
+  line-height: 1.4;
+  color: var(--dark);
+}
+.col li:before {
+  content: "▸";
+  color: var(--navy);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+}
+.col.contract li:before { color: var(--alert); }
+.col li.bad { color: var(--secondary); }
+.col li.bad:before { content: "✗"; color: var(--secondary); }
+.footer {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--dark);
+  text-align: center;
+  padding-top: 8px;
+  letter-spacing: -0.01em;
+}
+.footer strong { color: var(--alert); }
+</style>
+</head>
+<body>
+<div class="eyebrow">two scopes, two failure modes</div>
+<div class="title">Tracing sees what ran. Exit-code contracts see what didn't.</div>
+
+<div class="cols">
+  <div class="col">
+    <h2>Tracing &amp; observability</h2>
+    <div class="sub">scope: things that executed</div>
+    <div class="desc">Spans, tokens, latency, retries. Great for code paths the agent actually ran through.</div>
+    <ul>
+      <li>token spend per task</li>
+      <li>tool-call latency</li>
+      <li>retry / error rate</li>
+      <li class="bad">a process that never spawned</li>
+      <li class="bad">a cron that didn't fire</li>
+      <li class="bad">an agent that exited 0 with no work done</li>
+    </ul>
+  </div>
+  <div class="col contract">
+    <h2>Exit-code contract + heartbeat</h2>
+    <div class="sub">scope: things that should have run</div>
+    <div class="desc">Each agent declares "I will ping success every N hours." Missing ping = page.</div>
+    <ul>
+      <li>did this run at all?</li>
+      <li>did it finish successfully?</li>
+      <li>exit 0 / 1 / 2 mapped to causes</li>
+      <li>24h heartbeat → dead man's switch</li>
+      <li>cron wrapper logs exit code</li>
+      <li>healthchecks.io or systemd OnFailure=</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer">observability adds visibility · <strong>contracts add accountability</strong> · you need both</div>
+</body>
+</html>

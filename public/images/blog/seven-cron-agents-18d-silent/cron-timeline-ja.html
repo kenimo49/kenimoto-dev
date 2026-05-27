@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --alert: #C0392B;
+  --muted: #B0B8C1;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  padding: 56px 88px;
+  background: var(--white);
+  color: var(--dark);
+}
+.eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.title {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.timeline {
+  display: grid;
+  grid-template-columns: 220px repeat(18, 1fr);
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.row-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  text-align: right;
+  padding-right: 16px;
+}
+.cell {
+  height: 44px;
+  border-radius: 6px;
+}
+.cell.ok { background: var(--navy-mid); }
+.cell.silent { background: var(--alert); }
+.cell.legend {
+  height: auto;
+  display: inline-block;
+  width: 32px;
+  vertical-align: middle;
+  margin: 0 8px 0 24px;
+}
+.day-labels {
+  display: grid;
+  grid-template-columns: 220px repeat(18, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+  margin-bottom: 40px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  color: var(--secondary);
+  text-align: center;
+}
+.day-labels span:first-child { text-align: right; padding-right: 16px; }
+.legend-row {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 48px;
+}
+.legend-swatch {
+  width: 36px;
+  height: 24px;
+  border-radius: 4px;
+}
+.footnote {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--navy);
+  margin-top: 28px;
+  font-weight: 700;
+}
+.callout {
+  position: absolute;
+  background: var(--alert);
+  color: var(--white);
+  font-weight: 900;
+  font-size: 32px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  letter-spacing: -0.01em;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.12));
+}
+</style>
+</head>
+<body>
+<div class="eyebrow">cron · 毎日 09:00 起動 · 18日間</div>
+<div class="title">cronに置いた7本のエージェント。<br/>2本は初日から動かず、18日間誰も気付かなかった。</div>
+
+<div class="timeline">
+  <div class="row-header">observer-A</div>
+  <div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div>
+
+  <div class="row-header">strategist-A</div>
+  <div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div>
+
+  <div class="row-header">marketer-A</div>
+  <div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div>
+
+  <div class="row-header">observer-B</div>
+  <div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div>
+
+  <div class="row-header">strategist-B</div>
+  <div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div>
+
+  <div class="row-header">marketer-B</div>
+  <div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div><div class="cell silent"></div>
+
+  <div class="row-header">evolver</div>
+  <div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div><div class="cell ok"></div>
+</div>
+
+<div class="day-labels">
+  <span>day</span>
+  <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+</div>
+
+<div class="legend-row">
+  <div class="legend-item"><div class="legend-swatch" style="background: var(--navy-mid);"></div><span>正常実行 exit 0 / 出力あり</span></div>
+  <div class="legend-item"><div class="legend-swatch" style="background: var(--alert);"></div><span>プロセス起動失敗 / 沈黙</span></div>
+</div>
+
+<div class="footnote">Telegram通知なし · cron mailなし · stdout → /dev/null · tracingにも痕跡なし</div>
+</body>
+</html>
