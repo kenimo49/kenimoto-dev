@@ -30,7 +30,7 @@ keywords:
   - "Claude review"
   - "software engineering best practices"
 
-tagline: "AI code review automation | hooks design · CodeRabbit setup · Conventional Comments · GitHub Actions pipeline"
+tagline: "The 3-layer model that cut my code review time by 60% — hooks for format, AI for first pass, humans for design judgment"
 hero_message: "Who reviews the code that AI just wrote? Split the work into three layers — hooks (machines), AI (first pass), humans (design judgment) — and review time drops 60%."
 series_role: "Harness Trilogy [Quality] — turning review into a system"
 

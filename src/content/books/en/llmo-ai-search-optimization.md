@@ -30,7 +30,7 @@ keywords:
   - "AI citation rate"
   - "Structured data"
 
-tagline: "LLMO Practical Guide | AI Search Optimization · llms.txt · JSON-LD · citation rate"
+tagline: "Google SEO won't get you cited by ChatGPT — this is the playbook for being seen by AI search, with measurement included"
 hero_message: "Why doesn't ChatGPT mention your website? Google SEO won't get you there. LLMO patterns make your site visible to AI search."
 series_role: "LLMO Trilogy [Main]. The systematic guide to AI Search Optimization."
 

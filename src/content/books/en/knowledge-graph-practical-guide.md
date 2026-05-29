@@ -30,7 +30,7 @@ keywords:
   - "Knowledge Graph construction"
   - "Emotion AI"
 
-tagline: "Knowledge Graph Practical Guide | GraphRAG · Neo4j · RDF · Property Graph · Emotion AI"
+tagline: "Why RAG alone won't make your AI smart — GraphRAG, Neo4j, and Property Graphs explained with working code, not abstractions"
 hero_message: "RAG alone won't make your AI smart. Relationships only emerge through structure. The hands-on guide to GraphRAG, Neo4j, and Property Graphs."
 series_role: "Knowledge & Data Series [Specialty]. Structured intelligence with GraphRAG and Neo4j."
 

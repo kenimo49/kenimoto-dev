@@ -30,7 +30,7 @@ keywords:
   - "OpenAI Codex"
   - "Agent Framework comparison"
 
-tagline: "Harness Engineering tutorial | AGENTS.md design · hooks implementation · AI agent operations"
+tagline: "Five interpretations from OpenAI, Anthropic, LangChain, Martin Fowler, and academia — merged into one system for engineers running AI agents in production"
 hero_message: "Your AI agent runs. Does it obey? OpenAI, Anthropic, and LangChain each define harness differently. This book merges all 5 interpretations into one system."
 series_role: "Harness Trilogy [Architecture]. Defining what a harness is, across 5 interpretations."
 

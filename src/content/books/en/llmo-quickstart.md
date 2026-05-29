@@ -28,7 +28,7 @@ keywords:
   - "Perplexity SEO start"
   - "AI citation rate"
 
-tagline: "LLMO tutorial | 30-minute AI Search Optimization · llms.txt · JSON-LD shortest path"
+tagline: "Get cited by AI search in a weekend — 8 chapters of llms.txt, JSON-LD, and citation-rate KPIs distilled from the full guide"
 hero_message: "Want LLMO in 30 minutes? 8 chapters distilling the core. Get cited by AI today with llms.txt and JSON-LD."
 series_role: "LLMO Trilogy [Quickstart]. The 30-minute starter."
 
