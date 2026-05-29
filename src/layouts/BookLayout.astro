@@ -1205,17 +1205,29 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
           {heroPrimaryLabel}
         </a>
         {!isZennOnly && sampleUrl && (
-          <a
-            href={sampleUrl}
-            class="hero-cta-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-cta-sample
-            data-slug={slug}
-            data-position="hero-sample"
-          >
-            {proofSampleLabel}
-          </a>
+          freePreviewRenders.length > 0 ? (
+            <a
+              href="#free-preview"
+              class="hero-cta-secondary"
+              data-cta-sample
+              data-slug={slug}
+              data-position="hero-sample-anchor"
+            >
+              {proofSampleLabel}
+            </a>
+          ) : (
+            <a
+              href={sampleUrl}
+              class="hero-cta-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta-sample
+              data-slug={slug}
+              data-position="hero-sample"
+            >
+              {proofSampleLabel}
+            </a>
+          )
         )}
         {!isZennOnly && lang === 'ja' && zennUrl && (
           <a href={zennUrl} class="hero-cta-secondary" rel="noopener" data-cta-zenn data-slug={slug} data-position="hero-zenn">{t.readSampleZenn}</a>
@@ -1254,7 +1266,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
 
     {/* Free Preview: 3章をその場で読める (accordion全閉じ初期) */}
     {freePreviewRenders.length > 0 && (
-      <section class="free-preview" aria-label={proofFreePreviewHeading}>
+      <section class="free-preview" id="free-preview" aria-label={proofFreePreviewHeading}>
         <h2 class="free-preview-heading">📖 {proofFreePreviewHeading}</h2>
         <p class="free-preview-lead">{proofFreePreviewLead}</p>
         {freePreviewRenders.map(({ id, title, Content }, idx) => {
@@ -1527,6 +1539,31 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
       } else {
         bind();
       }
+    })();
+
+    // Free Preview anchor jump: 最初の章を auto-open
+    (function () {
+      function openFirstFreePreview() {
+        var first = document.querySelector('.free-preview details.free-preview-chapter');
+        if (first && !first.hasAttribute('open')) first.setAttribute('open', '');
+      }
+      function maybeOpen() {
+        if (window.location.hash === '#free-preview') openFirstFreePreview();
+      }
+      function bindAnchors() {
+        document.querySelectorAll('a[href="#free-preview"]').forEach(function (link) {
+          if (link.__fpBound) return;
+          link.__fpBound = true;
+          link.addEventListener('click', function () { setTimeout(openFirstFreePreview, 50); });
+        });
+      }
+      function init() { maybeOpen(); bindAnchors(); }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+      window.addEventListener('hashchange', maybeOpen);
     })();
   </script>
 </BaseLayout>
