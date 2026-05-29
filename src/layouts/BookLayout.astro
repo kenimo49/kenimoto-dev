@@ -1173,7 +1173,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
     <a href={homeUrl} style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none;">{t.back}</a>
 
     {coverImage && (
-      <img src={coverImage} alt={`${title} ${t.coverAlt}`} class="book-cover" loading="eager" />
+      <img src={coverImage} alt={`${title} ${t.coverAlt}`} class="book-cover" loading="eager" fetchpriority="high" decoding="async" />
     )}
 
     <h1>{title}</h1>
