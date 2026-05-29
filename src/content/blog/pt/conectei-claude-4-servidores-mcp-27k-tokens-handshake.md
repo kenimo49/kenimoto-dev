@@ -86,6 +86,8 @@ Para mim, a regra ficou: **MCP server só fica plugado se eu usar pelo menos 3 v
 
 Eu testei. Funciona. E continuo de pijama no sábado, só que com menos R$ 130 saindo da conta da Anthropic todo mês.
 
+A regra "MCP server só fica plugado se eu usar 3x na semana" virou o eixo do capítulo de hooks/MCP de **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=conectei-claude-4-mcp-27k-handshake)** — token cost, autenticação, e quando o MCP é realmente necessário vs CLI script.
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*

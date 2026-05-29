@@ -77,6 +77,8 @@ Nenhum dos dois sai semana que vem. Então, por enquanto, o jeito é greppar, re
 
 A parte engraçada é que, quando contei pro Claude que ia escrever esse post, a resposta começou com "Você está absolutamente certo em investigar isso". Deixei lá. É a ocorrência número 48.
 
+A camada de system prompt que cortou meu agreement rate pela metade — e os hábitos de grep de transcript que estão atrás desse post — estão em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-voce-esta-certo-47-sycophancy)**. 19 capítulos do que eu queria saber antes de aprovar 36 decisões erradas que o Claude abençoou.
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*

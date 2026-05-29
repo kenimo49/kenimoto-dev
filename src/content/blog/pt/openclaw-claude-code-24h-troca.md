@@ -153,6 +153,8 @@ Se você levar uma coisa só dessa terça, leve essa. OpenClaw e Claude Code nã
 
 A ferramenta certa é aquela cujas suposições batem com as suas. Escolha por suposição, não por estrela.
 
+O contrato de confiança do lado Claude — CLAUDE.md "de 2 linhas a 100", Plan Mode como porta de entrada, operação em time — está em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=openclaw-claude-code-24h)**. É o lado oposto do SOUL.md, e a razão pela qual eu escolhi.
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*
