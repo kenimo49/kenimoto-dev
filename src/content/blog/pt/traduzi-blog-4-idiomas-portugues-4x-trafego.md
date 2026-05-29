@@ -98,6 +98,8 @@ Se você tava resistindo a multi-idioma porque "não tenho tempo", considera o s
 
 No meu blog, foi o português. No seu, pode ser indonésio, coreano, polonês. O único jeito de descobrir é publicar 1 artigo em cada, plugar o GA4 e ver qual é o primeiro que as engines de AI começam a citar.
 
+A parte de "como medir quem cita o quê" (llms.txt, JSON-LD, KPIs de citação, comparação ChatGPT / Perplexity / Brave) eu destilei em 8 capítulos em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=traduzi-blog-4-idiomas)**. É o "plugar o GA4 e ver" do parágrafo acima, no formato de fim de semana.
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*
