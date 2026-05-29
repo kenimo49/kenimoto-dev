@@ -84,6 +84,8 @@ A documentação completa do framework está em [llmoframework.com/pt](https://l
 
 Mas você não precisa da framework para começar. Adiciona um `llms.txt`, escreve duas frases mais claras na homepage, e veja o que muda em 6 semanas. É como SEO em 2010: ainda dá para se posicionar antes da maioria perceber que é uma corrida.
 
+Se quiser a versão de 8 capítulos pronta pra copiar — templates de `llms.txt`, JSON-LD exemplos, KPIs de citação, comparação ChatGPT / Perplexity / Brave — montei tudo em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=chatgpt-ignora-seu-site-llmo)**. É o mesmo conteúdo do framework, mas no formato de fim de semana.
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*

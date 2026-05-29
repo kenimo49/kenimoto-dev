@@ -135,6 +135,8 @@ E o custo prático, em real: incidente de 2 horas com equipe de 5 pessoas é 10 
 
 "Deixa o Claude debugar" é meia verdade. Ele é rápido mesmo. Só que ele defaulta pra rápido em *esconder* o problema, a não ser que você arme ele diferente. Os 10 prompts armam. O CLAUDE.md lembra por você. Os hooks pegam o que escapou.
 
+A camada de CLAUDE.md / hooks / MCP em três camadas que mantém o agente no trilho — e o capítulo de debug que destila esses 10 hábitos pra prompt — está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-escondeu-bug-3x-debug)**. 19 capítulos, e o capítulo de debug é o que eu mais releio.
+
 Fontes:
 - [2025 Stack Overflow Developer Survey, AI section](https://survey.stackoverflow.co/2025/ai)
 - [Closing the developer AI trust gap (Stack Overflow Blog, fev 2026)](https://stackoverflow.blog/2026/02/18/closing-the-developer-ai-trust-gap/)
