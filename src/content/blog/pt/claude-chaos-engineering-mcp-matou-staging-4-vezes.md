@@ -157,6 +157,8 @@ Leva o hábito de post-mortem do chaos pro AI-coding em geral. Esse post existe 
 
 A IA desenha chaos mais rápido que qualquer SRE com quem já trabalhei. Sem os três guardrails, mata staging mais rápido também. Coloca os três, e você ganha a versão em que o LLM acha o bug que você tava perdendo há meio ano, e o on-call do final de semana fica com o final de semana.
 
+O panorama completo (Krkn-AI / Harness / Steadybit / Dynatrace, Chaos Engineering 2.0, e como rodar chaos em produção sem virar manchete) virou um livro de 14 capítulos: **[Chaos Engineering: Guia Prático para Sistemas Distribuídos Modernos](https://kenimoto.dev/pt/books/chaos-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-chaos-mcp-4-vezes)** (atualmente em desenvolvimento).
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*

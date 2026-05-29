@@ -86,7 +86,7 @@ A soma é da ordem de **R$ 500 a R$ 600 por semana** em tempo de equipe perdido 
 
 Eu fazia review em 30 segundos e achava que estava ajudando. Depois de medir os 5 vieses no meu próprio histórico, descobri que era eu o causador de metade das brigas. Os 30 dias que passei medindo deram um número, e o número doeu o suficiente para eu mudar o jeito de comentar. Não é mais 30 segundos, é uns 4 minutos. E os PRs param de virar briga.
 
-Esse capítulo é parte de um livro maior em PT-BR sobre psicologia aplicada à engenharia (engineer-psychology-tricks-pt), onde o capítulo 8 é especificamente sobre code review. Aqui eu peguei só os 5 vieses, do meu jeito, com os números do meu time.
+Esse capítulo é parte de um livro maior em PT-BR sobre psicologia aplicada à engenharia: **[Manual completo dos truques psicológicos para engenheiros](https://kenimoto.dev/pt/books/engineer-psychology-tricks?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=code-review-vira-briga-5-vieses)**. O capítulo 8 é especificamente sobre code review. Aqui eu peguei só os 5 vieses, do meu jeito, com os números do meu time.
 
 ---
 

@@ -112,6 +112,8 @@ Maio de 2026, começando do zero:
 
 O erro mais profundo que cometi foi achar que "300ms" é propriedade do **modelo** que escolhi. É propriedade da **arquitetura** que escolhi. O modelo só decide o quão confortável aquela arquitetura é.
 
+A arquitetura completa de latência (turn-taking de 200ms, por que 300ms quebra a UX, Pipecat / LiveKit / Deepgram, quebrando a barreira dos 525ms) está em **[The 300ms Threshold — Why Talking to AI Feels Wrong](https://kenimoto.dev/books/voice-ai-300ms-ux?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cinco-stacks-voice-ai-300ms)** (em inglês — a versão PT-BR está em planejamento).
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*

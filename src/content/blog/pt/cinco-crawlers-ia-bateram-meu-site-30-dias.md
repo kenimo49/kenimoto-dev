@@ -113,6 +113,8 @@ Três mudanças concretas depois da janela de 30 dias:
 
 Eu esperava que os logs confirmassem o que eu já achava sobre LLMO. Em geral não confirmaram. Citação não é o único sinal que vale acompanhar. Quem está puxando suas páginas é uma pergunta separada, e a resposta está em texto puro num log que provavelmente você já tem.
 
+O sistema completo de LLMO — llms.txt, JSON-LD, KPIs de citação, e análise de crawler como o que descrevi aqui — está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cinco-crawlers-ia-30-dias)**. O capítulo de medição cobre o sétimo KPI que esse post não teve espaço pra incluir.
+
 ---
 
 *ken imoto · WebRTC & Voice AI engineer · [kenimoto.dev](https://kenimoto.dev/pt/) · [TabNews](https://www.tabnews.com.br/kenimo49)*
