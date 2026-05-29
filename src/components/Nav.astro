@@ -3,7 +3,7 @@ import type { Alternate } from '../lib/alternates';
 
 interface Props {
   lang: 'en' | 'ja' | 'pt' | 'es';
-  current?: 'home' | 'blog' | 'about' | '';
+  current?: 'home' | 'blog' | 'books' | 'about' | '';
   alternates?: Alternate[];
 }
 
@@ -12,6 +12,7 @@ const { lang, current = 'home', alternates = [] } = Astro.props;
 const langPrefix = lang === 'en' ? '' : `/${lang}`;
 const homeUrl = `${langPrefix}/` || '/';
 const blogUrl = `${langPrefix}/blog/`;
+const booksUrl = `${langPrefix}/books/`;
 const aboutUrl = `${langPrefix}/about/`;
 const pathname = Astro.url.pathname;
 
@@ -68,6 +69,9 @@ function urlForLang(target: string): string {
         Blog
       </a>
     )}
+    <a href={booksUrl} class:list={[{ active: current === 'books' }]}>
+      Books
+    </a>
     <a href={aboutUrl} class:list={[{ active: current === 'about' }]}>
       About
     </a>
