@@ -31,7 +31,7 @@ keywords:
   - "MCP audit"
 
 tagline: "MCP Security Complete Guide | OWASP MCP Top 10 · token cost · file upload"
-hero_message: "Sure your MCP is production-ready? Token cost, file uploads, OWASP MCP Top 10. Verified through real production deployment of freee tax automation."
+hero_message: "Is your MCP actually production-ready? Token cost measurements, file upload edge cases, OWASP MCP Top 10 — verified by running freee tax automation in production."
 series_role: "Security Series [Implementation]. Specifically MCP protocol security."
 
 outcomes:

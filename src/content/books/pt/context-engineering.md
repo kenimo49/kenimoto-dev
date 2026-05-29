@@ -1,7 +1,7 @@
 ---
 title: "Transformando LLMs de Mentirosos em Especialistas"
 subtitle: "Engenharia de Contexto na Prática"
-description: "Sua IA mente com confiança? O problema não é o modelo — é o contexto. Em três ferramentas internas fictícias, este livro mede a qualidade de resposta em cinco estratégias de contexto e mostra que um modelo pequeno com RAG bem desenhado supera um modelo maior operando sozinho. A partir desses dados, constrói o sistema completo de Engenharia de Contexto: estratégia em 5 estágios, RAG, MCP, CLAUDE.md e Agentic RAG."
+description: "A mesma pergunta dá respostas diferentes — o problema é o contexto, não o prompt. Benchmarks originais mostram ganho de até 4,6× em qualidade. O sistema completo de Engenharia de Contexto: 5 estágios, RAG, MCP, CLAUDE.md, Agentic RAG."
 lang: "pt"
 
 kindle_url: "https://www.amazon.com.br/dp/B0H12378CJ"

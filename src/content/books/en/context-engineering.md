@@ -1,7 +1,7 @@
 ---
 title: "Turning LLMs from Liars into Experts"
 subtitle: "Context Engineering in Practice"
-description: "Why does the same question give wildly different answers? The cause isn't your prompt — it's your context. Across three fictional internal tools, this book runs original benchmarks proving that context strategy moves answer quality by up to 4.6x. Larger models lie more convincingly. Small model + RAG outperforms a large model alone. From those findings the book builds the full Context Engineering system: 5-stage strategy, RAG, MCP server design, CLAUDE.md, and Agentic RAG."
+description: "Why does the same question give wildly different answers? Not your prompt — your context. Original benchmarks show up to 4.6x quality gain. The complete Context Engineering system: 5-stage strategy, RAG, MCP, CLAUDE.md, Agentic RAG."
 lang: "en"
 
 kindle_url: "https://amzn.asia/d/04OYOGkH"

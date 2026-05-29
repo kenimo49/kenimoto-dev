@@ -1,7 +1,7 @@
 ---
 title: "AIコードレビューを仕組み化する技術"
 subtitle: "hooks・AI・人間の3層モデル"
-description: "AIコードレビューを仕組み化する3層モデル。フォーマット指摘は hooks で機械的に強制、CodeRabbit/Copilot/Claude が一次レビューを担い、人間は設計判断と方向性だけに集中する。AGENTS.md にレビュー方針を書き、フィードバックループで仕組み自体が進化する設計を、Next.js + TypeScript の実装例とともに解説。"
+description: "AIコードレビューを仕組み化する3層モデル。hooks がフォーマットを強制、CodeRabbit/Copilot/Claude が一次レビュー、人間は設計判断に集中。AGENTS.md とフィードバックループで仕組みが進化する設計を Next.js + TypeScript の実装例で解説。"
 lang: "ja"
 
 kindle_url: "https://amzn.asia/d/0hgvOnOi"

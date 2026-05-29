@@ -1,7 +1,7 @@
 ---
 title: "実践Claude Code"
 subtitle: "コンテキストエンジニアリングで開発が変わる"
-tagline: "Claude Code 使い方ガイド | CLAUDE.md 書き方・Plan Mode 設計・チーム開発の実践書"
+tagline: "毎日 Claude Code を使うエンジニアへ — CLAUDE.md・Plan Mode・チーム展開の実践ガイド"
 hero_message: "AIに毎回ちがう指示を出してませんか? CLAUDE.md と Context Engineering で、Claude Code を「指示出し」から「協働」に変える。"
 series_role: "ハーネス3部作の【実装担当】Claude Code を実務で使い倒す側"
 description: "Claude Code を1年以上、実務で使い込んだ。CLAUDE.md の書き方、Plan Mode 起点の1日の開発フロー、チーム展開、セキュリティ。19章で、現場で得た知見を1冊にまとめた。"
