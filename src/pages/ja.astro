@@ -22,15 +22,21 @@ const personJsonLd = {
   name: '井本 賢',
   alternateName: 'Ken Imoto',
   jobTitle: 'WebRTC×音声AIエンジニア',
-  url: `${SITE_URL}/`,
+  description: 'LLM・自動化・分散エージェントでAIネイティブな組織を構築しています。',
+  url: `${SITE_URL}/ja`,
   sameAs: [
-    'https://github.com/kenimo49',
-    'https://linkedin.com/in/kenimo49',
-    'https://x.com/kenimo49',
     'https://qiita.com/kenimo49',
     'https://zenn.dev/kenimo49',
+    'https://github.com/kenimo49',
+    'https://x.com/kenimo49',
+    'https://linkedin.com/in/kenimo49',
+    'https://dev.to/kenimo49',
+    'https://kenimo49.hashnode.dev',
+    'https://medium.com/@kenimo49',
+    'https://www.tabnews.com.br/kenimo49',
   ],
   worksFor: { '@id': `${SITE_URL}/#organization` },
+  knowsAbout: ['LLMO', 'LLM最適化', 'AI-Native MEO', 'WebRTC', 'リアルタイムAI', 'コンテキストエンジニアリング', 'AIエージェント設計', 'MCP', 'Claude Code', 'Android開発'],
 };
 const websiteJsonLd = {
   '@context': 'https://schema.org',
@@ -64,35 +70,6 @@ const orgJsonLd = {
   jsonLd={[personJsonLd, websiteJsonLd, orgJsonLd, ...buildScholarlyArticleJsonLd(`${SITE_URL}/#person`)]}
 >
   <Fragment slot="head">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "井本 賢",
-      "alternateName": "Ken Imoto",
-      "jobTitle": "WebRTC×音声AIエンジニア",
-      "affiliation": { "@type": "Organization", "name": "Propel-Lab", "url": "https://propel-lab.co.jp" },
-      "description": "LLM・自動化・分散エージェントでAIネイティブな組織を構築しています。",
-      "url": "https://kenimoto.dev/ja",
-      "sameAs": [
-        "https://qiita.com/kenimo49",
-        "https://zenn.dev/kenimo49",
-        "https://github.com/kenimo49",
-        "https://x.com/kenimo49",
-        "https://linkedin.com/in/kenimo49",
-        "https://dev.to/kenimo49",
-        "https://kenimo49.hashnode.dev",
-        "https://medium.com/@kenimo49",
-        "https://www.tabnews.com.br/kenimo49"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Propel-Lab",
-        "url": "https://propel-lab.co.jp"
-      },
-      "knowsAbout": ["LLMO", "LLM最適化", "AI-Native MEO", "WebRTC", "リアルタイムAI", "コンテキストエンジニアリング", "AIエージェント設計", "MCP", "Claude Code", "Android開発"]
-    }
-    </script>
     <script type="application/ld+json">
     [
       {
