@@ -84,8 +84,21 @@ related_books:
 chapters:
   - title: "Preface"
     free: true
+    sub_chapters:
+      - "Why I Wrote This Book"
+      - "Book Structure"
+      - "Target Audience"
+      - "What This Book Doesn't Cover"
+      - "About the Author"
   - title: "MCP Mechanics and Threat Model"
     free: true
+    sub_chapters:
+      - "The Protocol That Solves LLM's \"Cannot Do\""
+      - "Why Not Just Call APIs Directly?"
+      - "MCP's Three Components"
+      - "Three Functions Provided by MCP"
+      - "Differences Between MCP and Traditional Approaches"
+      - "Current State of the Ecosystem"
   - title: "OWASP MCP Top 10"
     free: true
   - title: "Authentication and Authorization Design"

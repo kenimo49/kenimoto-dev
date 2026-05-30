@@ -92,9 +92,20 @@ chapters:
   - title: "Capítulo 1: O que é viés cognitivo"
     free: true
     summary: "Por que engenheiros lógicos são justamente os mais vulneráveis aos vieses. Cinco vieses do dia a dia: ancoragem, confirmação, manada, Dunning-Kruger, custo afundado"
+    sub_chapters:
+      - "A natureza do viés cognitivo"
+      - "Por que engenheiros são especialmente vulneráveis"
+      - "Cinco vieses do dia a dia da engenharia"
+      - "Lado ativo e lado defensivo"
+      - "Como ler este livro"
   - title: "Capítulo 2: Sistema 1 e Sistema 2"
     free: true
     summary: "A teoria dos dois processos de Kahneman aplicada ao cérebro do programador. Quando o Sistema 1 sai do controle, e como acordar o Sistema 2 de propósito"
+    sub_chapters:
+      - "Os dois sistemas"
+      - "O que acontece no cérebro do programador"
+      - "Quatro padrões em que o Sistema 1 sai do controle"
+      - "Como acionar o Sistema 2 propositalmente"
   - title: "Capítulo 3: Vieses cognitivos na era da IA"
     free: true
     summary: "Viés de automação com Copilot, autoridade com LLM, alucinação. Por que sentimos que ficou rápido sem ter ficado (RCT METR 2025)"

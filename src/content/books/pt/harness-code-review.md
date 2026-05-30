@@ -91,8 +91,22 @@ chapters:
     free: true
   - title: "Integrando revisão de código à camada de verificação de qualidade do harness"
     free: true
+    sub_chapters:
+      - "O modelo de seis camadas do harness"
+      - "As três subcamadas da verificação de qualidade"
+      - "\"Quase sempre\" vs \"sem exceção, sempre\""
+      - "Por que não impor tudo?"
+      - "Visão geral da estrutura de arquivos"
   - title: "O modelo de revisão em três camadas — automática / IA / humana"
     free: true
+    sub_chapters:
+      - "Dividir papéis em três camadas"
+      - "Primeira camada: portão automático (sem humano envolvido)"
+      - "Segunda camada: revisão por IA (reconhecimento de padrões)"
+      - "Terceira camada: revisão humana (julgamento e direção)"
+      - "O efeito das três camadas"
+      - "Fronteiras de responsabilidade entre as camadas"
+      - "Quando a revisão humana não é necessária"
   - title: "Primeira camada: o portão imposto por hooks e CI"
   - title: "Segunda camada: projetando a adoção da revisão por IA"
   - title: "Terceira camada: estreitando o foco da revisão humana para design e direção"

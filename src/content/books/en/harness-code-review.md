@@ -92,8 +92,22 @@ chapters:
     free: true
   - title: "Embedding code review in the harness's quality-verification layer"
     free: true
+    sub_chapters:
+      - "The 6-Layer Harness Model"
+      - "Three Sublayers of the Quality Verification Layer"
+      - "\"Almost Every Time\" vs. \"Every Single Time\""
+      - "Why Not Enforce Everything?"
+      - "File Structure Overview"
   - title: "The 3-Layer Review Model — automated / AI / human"
     free: true
+    sub_chapters:
+      - "Dividing Roles Across Three Layers"
+      - "Layer 1: Automated Gates (No Human Involvement)"
+      - "Layer 2: AI Review (Pattern Recognition)"
+      - "Layer 3: Human Review (Judgment and Direction)"
+      - "The Effect of Three Layers"
+      - "Responsibility Boundaries per Layer"
+      - "When Human Review Is Not Needed"
   - title: "Layer 1: gates enforced by hooks and CI"
   - title: "Layer 2: introducing AI review by design"
   - title: "Layer 3: narrowing human review to design and direction"

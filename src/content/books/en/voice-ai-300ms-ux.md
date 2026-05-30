@@ -84,8 +84,17 @@ chapters:
     free: true
   - title: "Why 300ms — Nielsen's Response Time Thresholds"
     free: true
+    sub_chapters:
+      - "A Universal Rhythm"
+      - "What 200ms Means"
+      - "The 600ms \"Thinking\" Impression"
+      - "Implications for Voice AI"
   - title: "Three Cliffs — 300ms / 500ms / 800ms"
     free: true
+    sub_chapters:
+      - "Applying a GUI Classic to Voice"
+      - "In Voice UI, the Thresholds Shrink"
+      - "The Doherty Threshold — Another Baseline"
   - title: "Cascade Pipeline Decomposition — STT / LLM / TTS"
   - title: "Implementation with Pipecat"
   - title: "Implementation with LiveKit"

@@ -85,10 +85,26 @@ related_books:
 chapters:
   - title: "Preface"
     free: true
+    sub_chapters:
+      - "Why This Book, Why Now"
+      - "How This Book Is Organized"
+      - "Who This Book Is For"
   - title: "Why Knowledge Graphs Now"
     free: true
+    sub_chapters:
+      - "Nodes, Edges, and Triples"
+      - "How It Differs from Relational Databases"
+      - "How It Differs from Vector Databases"
+      - "Components of a Knowledge Graph"
+      - "The Cypher Query Language"
   - title: "RDF vs Property Graph"
     free: true
+    sub_chapters:
+      - "The \"Connection\" Problem in the Age of Generative AI"
+      - "Breaking Down Data Silos"
+      - "Three Reasons Knowledge Graphs Are Back in the Spotlight"
+      - "Historical Background"
+      - "No-Code / Low-Code Democratization"
   - title: "Neo4j Fundamentals"
   - title: "Cypher / SPARQL Query Design"
   - title: "What is GraphRAG"

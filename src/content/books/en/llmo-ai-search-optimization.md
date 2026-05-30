@@ -84,6 +84,12 @@ related_books:
 chapters:
   - title: "Preface — Why LLMO?"
     free: true
+    sub_chapters:
+      - "Background"
+      - "Purpose of This Book"
+      - "Target Audience"
+      - "How to Read This Book"
+      - "Technical Environment"
   - title: "How AI Search Engines Work"
     free: true
   - title: "Google SEO vs LLMO"
