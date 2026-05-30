@@ -923,6 +923,11 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         margin: 0 auto 1.5rem;
         display: block;
       }
+      /* JA 限定: Zenn 風に表紙を縦長大きめ表示 (JA技術書LPの慣習) */
+      :global(html[lang="ja"]) .book-cover {
+        max-width: 300px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      }
       .book-section {
         margin: 2.5rem 0;
       }
@@ -967,6 +972,17 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         font-size: 0.85rem;
         font-variant-numeric: tabular-nums;
         min-width: 2.5rem;
+      }
+      /* JA 限定: 章番号を Zenn 風 badge スタイル (アクセント背景) */
+      :global(html[lang="ja"]) .toc-num {
+        background: var(--bg-elev);
+        color: var(--text-primary);
+        font-weight: 600;
+        padding: 0.15rem 0.5rem;
+        border-radius: 3px;
+        min-width: auto;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
       }
       /* 節レベル目次 (JA 慣習で必須、 他言語は任意) */
       .toc-sub-list {
