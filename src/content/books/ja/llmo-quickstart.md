@@ -86,8 +86,20 @@ related_articles: []
 chapters:
   - title: "はじめに — 30分で始めるLLMO"
     free: true
+    sub_chapters:
+      - "この本について"
+      - "本書の構成"
+      - "想定読者"
+      - "もっと深く学びたい方へ"
   - title: "LLMO とは — Google SEO との違い"
     free: true
+    sub_chapters:
+      - "なぜ今LLMOなのか"
+      - "LLMOとは何か"
+      - "SEOは死なない、でもSEOだけでは不十分"
+      - "LLMに情報が届く3つの経路"
+      - "3経路の最適化優先順位"
+      - "なぜエンジニアがLLMOをやるべきなのか"
   - title: "llms.txt の最小実装"
   - title: "JSON-LD 必須3パターン"
   - title: "コンテンツの構造化"

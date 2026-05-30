@@ -91,8 +91,17 @@ chapters:
     free: true
   - title: "なぜ300msなのか — Nielsen の応答時間閾値"
     free: true
+    sub_chapters:
+      - "世界共通の「間」"
+      - "200msの意味"
+      - "600msの「考えている」印象"
+      - "音声AIへのインプリケーション"
   - title: "3つの崖 — 300ms / 500ms / 800ms"
     free: true
+    sub_chapters:
+      - "GUIの古典を音声に適用する"
+      - "音声UIでは閾値が「縮む」"
+      - "ドハティの閾値 — もう1つの基準線"
   - title: "カスケードパイプライン分解 — STT / LLM / TTS"
   - title: "Pipecat による実装"
   - title: "LiveKit による実装"
