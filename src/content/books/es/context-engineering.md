@@ -1,6 +1,7 @@
 ---
 title: "Convirtiendo LLMs de Mentirosos en Expertos"
 subtitle: "Ingeniería de Contexto en la Práctica"
+tagline: "Ingeniería de Contexto desde cero — RAG, MCP, CLAUDE.md y Agentic RAG, con benchmarks que muestran hasta 4,6× de mejora"
 description: "¿Tu IA miente con seguridad? El problema no es el modelo — es el contexto. En tres herramientas internas ficticias, este libro mide la calidad de respuesta con cinco estrategias de contexto y demuestra que un modelo pequeño con RAG bien diseñado supera a un modelo más grande operando solo. A partir de esos datos construye el sistema completo de Ingeniería de Contexto: estrategia en 5 etapas, RAG, MCP, CLAUDE.md y Agentic RAG."
 lang: "es"
 
@@ -32,7 +33,6 @@ keywords:
   - "diseño de CLAUDE.md"
   - "Claude Haiku"
 
-tagline: "Ingeniería de Contexto en la Práctica | RAG · MCP · CLAUDE.md · Agentic RAG, con benchmarks de punta a punta"
 hero_message: "Los modelos más grandes solo mienten con más seguridad. RAG eleva la calidad de respuesta hasta 4,6x. Este libro demuestra la Ingeniería de Contexto con benchmarks originales — no con suposiciones."
 series_role: "Volumen 2 de la Serie de Prácticas de IA para Ingenieros (LatAm) — entre claude-code-mastery (Vol 1) y harness-engineering-guide (Vol 3)"
 

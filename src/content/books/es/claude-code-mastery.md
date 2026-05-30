@@ -1,7 +1,7 @@
 ---
 title: "Practical Claude Code"
 subtitle: "La Ingeniería de Contexto que Transforma tu Desarrollo"
-tagline: "Tutorial de Claude Code | patrones de CLAUDE.md, diseño de Plan Mode y workflows de equipo"
+tagline: "Claude Code desde cero hasta producción — CLAUDE.md, Plan Mode y workflows de equipo, desde un año de uso real"
 hero_message: "¿Le mandas instrucciones distintas a la IA cada vez? Con CLAUDE.md e Ingeniería de Contexto, Claude Code deja de recibir órdenes y pasa a programar contigo."
 series_role: "Trilogía Harness [Implementación]: el libro donde Claude Code se vuelve compañero del día a día"
 description: "Practical Claude Code enseña cómo usar Claude Code y escribir CLAUDE.md a partir de más de un año de uso real en producción. De la filosofía de diseño a los patrones de CLAUDE.md, de los flujos de Plan Mode a la operación en equipo y la seguridad: la guía de campo para ingenieros que quieren dominar Claude Code de verdad."

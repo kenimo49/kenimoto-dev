@@ -1,6 +1,7 @@
 ---
 title: "Harness Engineering"
 subtitle: "De Usar IA a Controlar IA"
+tagline: "Harness Engineering desde cero — cinco interpretaciones (OpenAI, Anthropic, LangChain, Martin Fowler, academia) unificadas en un solo sistema para ingenieros en producción"
 description: "Harness Engineering, integrada en las 5 interpretaciones de OpenAI, Anthropic, LangChain, Martin Fowler y la academia. La primera guía sistemática que destila los 6 componentes, los patrones de implementación de AGENTS.md/CLAUDE.md/hooks y los Self-Evolving Agents — la referencia práctica para la palabra clave de 2026."
 lang: "es"
 
@@ -32,7 +33,6 @@ keywords:
   - "OpenAI Codex"
   - "comparación Agent Framework"
 
-tagline: "Tutorial de Harness Engineering | diseño de AGENTS.md · implementación de hooks · operación de agentes de IA"
 hero_message: "Tu agente de IA ejecuta. ¿Pero obedece? OpenAI, Anthropic y LangChain definen harness de formas distintas. Este libro funde las 5 interpretaciones en un único sistema."
 series_role: "Volumen 3 de la Serie de Prácticas de IA para Ingenieros (LatAm) [Arquitectura]: el libro que define qué es un harness, en 5 interpretaciones."
 
