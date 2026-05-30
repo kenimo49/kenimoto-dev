@@ -596,16 +596,30 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         font-size: 0.8rem;
       }
 
-      /* Hero下: 著者bio 1行 + 7日返品 */
+      /* Hero下: 著者bio 1行 + 顔写真 + 7日返品 — EN 必須 / JA Zenn流 OK / PT/ES OK */
       .author-bio-line {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
         font-size: 0.85rem;
         color: var(--text-secondary);
-        line-height: 1.6;
+        line-height: 1.5;
         margin: 0 0 1.5rem;
         padding: 0.6rem 0.8rem;
         background: var(--bg-elev);
         border-left: 3px solid var(--accent-amber);
         border-radius: 2px;
+      }
+      .author-bio-line .author-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        object-fit: cover;
+      }
+      .author-bio-line .author-bio-text-wrap {
+        flex: 1;
+        min-width: 0;
       }
       .author-bio-line .guarantee-text {
         color: var(--text-muted);
@@ -1251,11 +1265,22 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
       )}
     </div>
 
-    {/* 著者bio 1行 + 7日返品 — heroの信用構築 */}
-    <p class="author-bio-line">
-      <span class="author-bio-text">{proofAuthorBio}</span>
-      {!isZennOnly && kindleUrl && <span class="guarantee-text"> · {proofGuarantee}</span>}
-    </p>
+    {/* 著者bio 1行 + 顔写真 + 7日返品 — heroの信用構築 (EN 必須、 JA/PT/ES OK) */}
+    <div class="author-bio-line">
+      <img
+        src="https://github.com/kenimo49.png"
+        alt="ken imoto"
+        class="author-avatar"
+        width="40"
+        height="40"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="author-bio-text-wrap">
+        <span class="author-bio-text">{proofAuthorBio}</span>
+        {!isZennOnly && kindleUrl && <span class="guarantee-text"> · {proofGuarantee}</span>}
+      </div>
+    </div>
 
     {/* 案C: Social Proof Block — hero直下に4枚カードで指標を並列 */}
     <section class="social-proof" aria-label={proofSectionHeading}>
