@@ -354,6 +354,7 @@ const proofGuarantee = proof.guarantee[lang];
 const proofPartCta = proof.partCta[lang];
 const proofFreePreviewHeading = proof.freePreviewHeading[lang];
 const ptHeadlineSignal = lang === 'pt' ? proof.ptHeadlineSignal : null;
+const jaHeadlineSignal = lang === 'ja' ? proof.jaHeadlineSignal : null;
 const proofFreePreviewLead = proof.freePreviewLead[lang];
 const proofFreePreviewChapterCta = proof.freePreviewChapterCta[lang];
 
@@ -598,7 +599,8 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
       }
 
       /* PT 限定: hero CTA 直下の量的シグナル 1行 (Rocketseat 風アンカー) */
-      .pt-headline-signal {
+      .pt-headline-signal,
+      .ja-headline-signal {
         font-size: 0.85rem;
         color: var(--text-secondary);
         margin: 0.5rem 0 1rem;
@@ -1292,6 +1294,10 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
 
     {ptHeadlineSignal && (
       <p class="pt-headline-signal">{ptHeadlineSignal}</p>
+    )}
+
+    {jaHeadlineSignal && (
+      <p class="ja-headline-signal">{jaHeadlineSignal}</p>
     )}
 
     <div class="book-meta">
