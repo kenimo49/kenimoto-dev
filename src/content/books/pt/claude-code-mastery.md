@@ -141,9 +141,22 @@ parts:
     - title: "Prefácio"
       free: true
       summary: "Por que escrevi este livro, meu primeiro encontro com o Claude Code, e como ler este livro"
+      sub_chapters:
+        - "Meu Encontro com o Claude Code"
+        - "Por Que Escrevi Este Livro"
+        - "Como Ler Este Livro"
     - title: "O nascimento do Claude Code: Boris Cherny conta o início acidental"
       free: true
       summary: "De 'qual música você está ouvindo?' até um protótipo funcionando, e as quatro decisões de design que moldaram a ferramenta"
+      sub_chapters:
+        - "\"Que Música Estou Ouvindo?\""
+        - "Quem é Boris Cherny?"
+        - "Nascido de um Hackathon Interno: por Acaso"
+        - "\"Ninguém Pediu, mas Todo Mundo Precisava\""
+        - "O Que a Cultura da Anthropic Produziu"
+        - "Vinte Pull Requests por Dia"
+        - "Não Sobra Nenhuma Linha de Código de Seis Meses Atrás"
+        - "Da Coincidência à Inevitabilidade"
     - title: "A escolha terminal-native: além do debate CLI vs IDE"
       summary: "Por que o Claude Code escolheu CLI em vez de integração com IDE, o núcleo da sua filosofia de design"
     - title: "A demanda latente por desenvolvimento AI-native: por que Claude Code, por que agora"
@@ -151,6 +164,14 @@ parts:
     - title: "A essência do CLAUDE.md: 2 linhas para usuários, 100 linhas para praticantes"
       free: true
       summary: "O sentido real do CLAUDE.md de 2 linhas de Boris Cherny, o problema do inchaço, e 7 princípios operacionais"
+      sub_chapters:
+        - "As duas linhas de Boris Cherny"
+        - "Por que Boris consegue se virar com duas linhas"
+        - "Os prós e contras do CLAUDE.md"
+        - "Sete princípios para o CLAUDE.md"
+        - "A pergunta essencial: \"O que é contexto?\""
+        - "A conexão com Spec-Driven Development (SDD)"
+        - "Templates práticos de CLAUDE.md"
     - title: "Desenvolvimento document-first: escreva o contexto antes da especificação"
       summary: "A ideia inversa de escrever CLAUDE.md antes do código, e as armadilhas do desenvolvimento orientado por documentos"
   - name: "Parte 2 — Prática e Equipe"

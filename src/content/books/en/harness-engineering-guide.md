@@ -89,10 +89,30 @@ related_articles:
 chapters:
   - title: "Preface — Why 'Harness' now"
     free: true
+    sub_chapters:
+      - "A Tuesday at 3 a.m."
+      - "Who this book is for"
+      - "How to read this book"
   - title: "The Three Engineerings (Prompt → Context → Harness)"
     free: true
+    sub_chapters:
+      - "Why 40% fail"
+      - "Timeline"
+      - "What makes the three different"
+      - "A nesting structure"
+      - "\"Replaced\" or \"layered\"?"
+      - "Why now?"
   - title: "Harness Engineering: Definition and Big Picture"
     free: true
+    sub_chapters:
+      - "What \"works in the demo, breaks in production\" really means"
+      - "Where the word \"harness\" comes from"
+      - "Distinguishing it from \"test harness\""
+      - "Comparing the definitions"
+      - "What they all agree on"
+      - "This book's working definition of Harness Engineering"
+      - "What goes wrong without a harness"
+      - "The decisive difference from Prompt Engineering"
   - title: "OpenAI's Take — Codex and the million-line experiment"
   - title: "Anthropic's Take — Harness for long-running agents"
   - title: "LangChain's Take — Agent = Model + Harness"

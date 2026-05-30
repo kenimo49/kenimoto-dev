@@ -82,8 +82,20 @@ related_books:
 chapters:
   - title: "Preface — LLMO in 30 Minutes"
     free: true
+    sub_chapters:
+      - "About This Book"
+      - "Book Structure"
+      - "Target Audience"
+      - "For Those Who Want to Learn More Deeply"
   - title: "What LLMO Is — vs Google SEO"
     free: true
+    sub_chapters:
+      - "Why LLMO Now?"
+      - "What is LLMO?"
+      - "SEO Doesn't Die, But SEO Alone Isn't Enough"
+      - "Three Paths for Information to Reach LLMs"
+      - "Optimization Priority for the Three Paths"
+      - "Why Engineers Should Do LLMO"
   - title: "Minimum llms.txt Implementation"
   - title: "Three Essential JSON-LD Patterns"
   - title: "Content Structuring"

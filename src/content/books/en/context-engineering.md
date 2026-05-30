@@ -91,8 +91,23 @@ chapters:
     free: true
   - title: "Introduction"
     free: true
+    sub_chapters:
+      - "To you, the reader who picked up this book"
+      - "What the experiment turned up"
+      - "How this book is organized"
+      - "About \"AI Practice Series for Engineers\""
+      - "Who this book is for"
+      - "How to read this"
   - title: "Five Answers — the same question, five patterns"
     free: true
+    sub_chapters:
+      - "A 2.2× quality gap, from one experiment"
+      - "PropelAuth: asking a fictional internal tool"
+      - "Why a fictional tool"
+      - "What the four-axis evaluation means"
+      - "Why the same LLM produces 2.2× different quality"
+      - "What this means for production"
+      - "How this book is structured, and your learning path"
   - title: "LLMs Lie — the anatomy of hallucination"
   - title: "How Context Engineering Began"
   - title: "First Steps — from zero-shot to strategy"

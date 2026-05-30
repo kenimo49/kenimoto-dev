@@ -88,10 +88,30 @@ related_books:
 chapters:
   - title: "Prefácio — Por que 'harness', e por que agora"
     free: true
+    sub_chapters:
+      - "Uma terça-feira, 3 da manhã"
+      - "Para quem é este livro"
+      - "Como ler este livro"
   - title: "As Três Evoluções da Engenharia — Prompt → Contexto → Harness"
     free: true
+    sub_chapters:
+      - "Por que 40% falham"
+      - "Linha do tempo"
+      - "O que torna as três diferentes"
+      - "Uma estrutura aninhada"
+      - "\"Substituído\" ou \"estratificado\"?"
+      - "Por que agora?"
   - title: "Definindo Harness Engineering"
     free: true
+    sub_chapters:
+      - "O que \"funciona na demo, quebra em produção\" realmente significa"
+      - "De onde vem a palavra \"harness\""
+      - "Distinguindo de \"test harness\""
+      - "Comparando as definições"
+      - "No que todos concordam"
+      - "A definição operacional deste livro de Harness Engineering"
+      - "O que dá errado sem um harness"
+      - "A diferença decisiva em relação à Engenharia de Prompt"
   - title: "A Visão da OpenAI — Codex e o Experimento de Um Milhão de Linhas"
   - title: "A Visão da Anthropic — Design de Harness para Agentes de Execução Prolongada"
   - title: "A Visão da LangChain — Agent = Model + Harness"

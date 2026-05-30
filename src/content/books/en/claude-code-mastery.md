@@ -146,9 +146,22 @@ parts:
     - title: "Preface"
       free: true
       summary: "Why I wrote this book, my first encounter with Claude Code, and how to read this book"
+      sub_chapters:
+        - "My Encounter with Claude Code"
+        - "Why I Wrote This Book"
+        - "How to Read This Book"
     - title: "The Birth of Claude Code: Boris Cherny on its accidental beginnings"
       free: true
       summary: "From 'What music am I listening to?' to a working prototype — and the four design decisions that shaped the tool"
+      sub_chapters:
+        - "\"What Music Am I Listening To?\""
+        - "Who Is Boris Cherny?"
+        - "Born from a Company Hackathon, by Chance"
+        - "\"Nobody Asked for It, but Everyone Needed It\""
+        - "What Anthropic's Culture Produced"
+        - "Twenty Pull Requests a Day"
+        - "Not a Single Line of Code from Six Months Ago Remains"
+        - "From Coincidence to Inevitability"
     - title: "The Terminal-Native Choice: beyond the CLI vs IDE debate"
       summary: "Why Claude Code chose CLI over IDE integration — the core of its design philosophy"
     - title: "The Latent Demand for AI-Native Development: why Claude Code, why now"
@@ -156,6 +169,14 @@ parts:
     - title: "The Essence of CLAUDE.md: 2 lines for users, 100 lines for practitioners"
       free: true
       summary: "The real meaning of Boris Cherny's 2-line CLAUDE.md, the bloat problem, and 7 operational principles"
+      sub_chapters:
+        - "Boris Cherny's Two Lines"
+        - "Why Boris Can Get Away with Two Lines"
+        - "The Pros and Cons of CLAUDE.md"
+        - "Seven Principles for CLAUDE.md"
+        - "The Essential Question: \"What Is Context?\""
+        - "The Connection to Spec-Driven Development (SDD)"
+        - "Practical CLAUDE.md templates"
     - title: "Documentation-First Development: write context before specs"
       summary: "The reverse-flow idea of writing CLAUDE.md before code, and the pitfalls of doc-driven development"
   - name: "Part 2: Practice & Team"
