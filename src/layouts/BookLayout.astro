@@ -966,6 +966,27 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         font-variant-numeric: tabular-nums;
         min-width: 2.5rem;
       }
+      /* 節レベル目次 (JA 慣習で必須、 他言語は任意) */
+      .toc-sub-list {
+        list-style: none;
+        padding: 0.3rem 0 0 1.8rem;
+        margin: 0;
+      }
+      .toc-sub-item {
+        display: flex;
+        gap: 0.5rem;
+        padding: 0.15rem 0;
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+      }
+      .toc-sub-num {
+        color: var(--text-muted);
+        font-variant-numeric: tabular-nums;
+        flex-shrink: 0;
+      }
+      .toc-sub-title {
+        flex: 1;
+      }
       .toc-title {
         flex: 1;
         color: var(--text-primary);
@@ -1446,6 +1467,16 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
                   <span class="toc-num">{String(partChapterStartIndex[pi] + i + 1).padStart(2, '0')}</span>
                   <span class="toc-title">{c.title}</span>
                   {c.free && <span class="toc-free">{t.freeChapter}</span>}
+                  {c.sub_chapters && c.sub_chapters.length > 0 && (
+                    <ul class="toc-sub-list">
+                      {c.sub_chapters.map((sc, si) => (
+                        <li class="toc-sub-item">
+                          <span class="toc-sub-num">{partChapterStartIndex[pi] + i + 1}-{si + 1}</span>
+                          <span class="toc-sub-title">{sc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ol>

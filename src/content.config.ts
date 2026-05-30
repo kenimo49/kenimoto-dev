@@ -52,6 +52,8 @@ const books = defineCollection({
       title: z.string(),
       free: z.boolean().default(false),
       summary: z.string().optional(),
+      // 節レベル目次 (1-1, 1-2 ...) — JA market 慣習で必須、 他言語は任意
+      sub_chapters: z.array(z.string()).optional(),
     })).default([]),
 
     // 任意: TOCを3パート構造で書くとき (案B "TOC圧縮 + part毎mini-CTA")
@@ -63,6 +65,7 @@ const books = defineCollection({
         title: z.string(),
         free: z.boolean().default(false),
         summary: z.string().optional(),
+        sub_chapters: z.array(z.string()).optional(),
       })),
     })).optional(),
 

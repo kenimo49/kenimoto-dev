@@ -90,6 +90,10 @@ related_articles: []
 chapters:
   - title: "はじめに"
     free: true
+    sub_chapters:
+      - "本書の対象読者"
+      - "読み方ガイド"
+      - "サンプルコード環境"
   - title: "なぜ今ナレッジグラフか"
     free: true
   - title: "RDF と Property Graph"
