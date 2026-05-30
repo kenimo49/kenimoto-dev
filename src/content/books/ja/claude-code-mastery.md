@@ -148,9 +148,22 @@ parts:
     - title: "はじめに"
       free: true
       summary: "なぜこの本を書いたか、Claude Codeとの出会い、本書の読み方ガイド"
+      sub_chapters:
+        - "Claude Codeとの出会い"
+        - "なぜこの本を書いたのか"
+        - "本書の読み方ガイド"
     - title: "Claude Codeの誕生：Boris Chernyが語る偶然の始まり"
       free: true
       summary: "「今、何の音楽を聴いてる？」という一言から始まったプロトタイプ。CLI選択・bash採用など4つの設計判断"
+      sub_chapters:
+        - "「今、何の音楽を聴いてる？」"
+        - "Boris Chernyという人物"
+        - "社内ハッカソンから生まれた偶然"
+        - "「誰も求めていなかったが、誰もが必要としていた」"
+        - "Anthropicの企業文化が生んだもの"
+        - "1日20本のプルリクエスト"
+        - "6ヶ月前のコードは1行も残っていない"
+        - "偶然から始まり、必然へ"
     - title: "ターミナルベースという選択：CLI vs IDE論争を超えて"
       summary: "なぜClaude CodeはIDE統合ではなくCLIを選んだのか。設計思想の核心"
     - title: "AIネイティブ開発の潜在需要：なぜ今Claude Codeなのか"
@@ -158,6 +171,14 @@ parts:
     - title: "CLAUDE.mdの本質：開発者は2行、実践者は100行"
       free: true
       summary: "Boris Chernyの2行CLAUDE.mdの真意。肥大化問題と7つの運用原則"
+      sub_chapters:
+        - "Boris Chernyの2行"
+        - "なぜBorisは2行で済むのか"
+        - "CLAUDE.mdの功罪"
+        - "CLAUDE.md 7つの原則"
+        - "「コンテキストとは何か」の本質論"
+        - "スペック駆動開発(SDD)への接続"
+        - "実践的なCLAUDE.mdテンプレート"
     - title: "ドキュメントファースト開発：仕様より先に文脈を書く"
       summary: "コードよりも先にCLAUDE.mdを書く逆転発想。ドキュメント駆動の利点と落とし穴"
   - name: "第2部 実践・チーム篇"
