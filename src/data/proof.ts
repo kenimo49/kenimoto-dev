@@ -87,7 +87,7 @@ export const proof: ProofData = {
   // PT 量的シグナル (Rocketseat 風 hero アンカー、 PT 限定で表示)
   // BR 市場リサーチ反映: 会社ロゴ social proof の代替として量的シグナル 1行
   ptHeadlineSignal:
-    '7 livros já em PT-BR · 4 traduzidos JA → PT-BR · Devs em 6 países leram a coleção',
+    '8 livros já em PT-BR · 5 traduzidos JA → PT-BR · Devs em 6 países leram a coleção',
 
   // JA 量的シグナル (Zenn 風いいね数アンカー、 JA 限定で表示)
   // JA 市場リサーチ反映: Zenn 個人技術書の「いいね数」trust signal を kenimoto.dev版で再現
