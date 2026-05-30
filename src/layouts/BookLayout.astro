@@ -965,6 +965,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         padding: 0.5rem 0;
         border-bottom: 1px solid var(--text-separator);
         display: flex;
+        flex-wrap: wrap;
         align-items: baseline;
         gap: 0.75rem;
       }
@@ -988,11 +989,13 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         font-size: 0.8rem;
         letter-spacing: 0.04em;
       }
-      /* 節レベル目次 (JA 慣習で必須、 他言語は任意) */
+      /* 節レベル目次 (JA 慣習で必須、 他言語は任意) — 親 li の flex-wrap で改行 */
       .toc-sub-list {
         list-style: none;
         padding: 0.3rem 0 0 1.8rem;
         margin: 0;
+        flex-basis: 100%;
+        width: 100%;
       }
       .toc-sub-item {
         display: flex;
