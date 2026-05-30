@@ -87,10 +87,33 @@ related_books:
 chapters:
   - title: "Introducción"
     free: true
+    sub_chapters:
+      - "Para ti, que abriste este libro"
+      - "Lo que reveló el experimento"
+      - "Cómo está organizado este libro"
+      - "Sobre la \"Serie de Prácticas de IA para Ingenieros\""
+      - "Para quién es este libro"
+      - "Cómo leerlo"
   - title: "La misma pregunta, cinco respuestas completamente distintas"
     free: true
+    sub_chapters:
+      - "Una brecha de calidad de 2,2× en un experimento"
+      - "PropelAuth: preguntarle a una herramienta interna ficticia"
+      - "Por qué una herramienta ficticia"
+      - "Lo que significa la evaluación de cuatro ejes"
+      - "Por qué el mismo LLM produce 2,2× de calidad distinta"
+      - "Lo que esto significa para producción"
+      - "Cómo está estructurado este libro y tu ruta de aprendizaje"
   - title: "Tres razones por las que tu IA miente"
     free: true
+    sub_chapters:
+      - "El \"enlace de invitación de 24 horas\" de PropelAuth no existe"
+      - "Razón ①: el mecanismo de \"rellenar lo plausible\" para información desconocida"
+      - "Razón ②: los modelos más grandes mienten con más habilidad"
+      - "Razón ③: \"Siempre responder\" se diseñó por una razón"
+      - "Factual Accuracy vs Specificity: una compensación crítica"
+      - "Por qué la alucinación es una \"feature\", no un \"bug\""
+      - "Cinco señales de que un LLM está mintiendo"
   - title: "Los límites de la Ingeniería de Prompt, el comienzo de la Ingeniería de Contexto"
   - title: "Primer paso — Mejorando el System Prompt"
   - title: "Few-shot Examples — Mostrándole a la IA 'cómo se hace'"

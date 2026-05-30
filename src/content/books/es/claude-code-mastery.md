@@ -141,9 +141,22 @@ parts:
     - title: "Prefacio"
       free: true
       summary: "Por qué escribí este libro, mi primer encuentro con Claude Code, y cómo leer este libro"
+      sub_chapters:
+        - "Mi encuentro con Claude Code"
+        - "Por qué escribí este libro"
+        - "Cómo leer este libro"
     - title: "El nacimiento de Claude Code: Boris Cherny cuenta el inicio accidental"
       free: true
       summary: "Desde '¿qué música estás escuchando?' hasta un prototipo funcionando, y las cuatro decisiones de diseño que moldearon la herramienta"
+      sub_chapters:
+        - "\"¿Qué música estoy escuchando?\""
+        - "¿Quién es Boris Cherny?"
+        - "Nacido de un hackathon interno, por casualidad"
+        - "\"Nadie lo pidió, pero todo el mundo lo necesitaba\""
+        - "Lo que produjo la cultura de Anthropic"
+        - "Veinte pull requests al día"
+        - "No queda ni una línea de código de hace seis meses"
+        - "De la coincidencia a la inevitabilidad"
     - title: "La elección terminal-native: más allá del debate CLI vs IDE"
       summary: "Por qué Claude Code eligió CLI en vez de integración con IDE, el núcleo de su filosofía de diseño"
     - title: "La demanda latente por desarrollo AI-native: por qué Claude Code, por qué ahora"
@@ -151,6 +164,14 @@ parts:
     - title: "La esencia de CLAUDE.md: 2 líneas para usuarios, 100 líneas para practicantes"
       free: true
       summary: "El sentido real del CLAUDE.md de 2 líneas de Boris Cherny, el problema del inflado, y 7 principios operacionales"
+      sub_chapters:
+        - "Las dos líneas de Boris Cherny"
+        - "Por qué Boris se las arregla con dos líneas"
+        - "Los pros y contras de CLAUDE.md"
+        - "Siete principios para CLAUDE.md"
+        - "La pregunta de fondo: \"¿qué es contexto?\""
+        - "La conexión con Spec-Driven Development (SDD)"
+        - "Plantillas prácticas de CLAUDE.md"
     - title: "Desarrollo document-first: escribe el contexto antes de la especificación"
       summary: "La idea inversa de escribir CLAUDE.md antes del código, y las trampas del desarrollo orientado por documentos"
   - name: "Parte 2 — Práctica y Equipo"
