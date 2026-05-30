@@ -90,6 +90,12 @@ related_articles: []
 chapters:
   - title: "はじめに — なぜLLMOなのか"
     free: true
+    sub_chapters:
+      - "本書の背景"
+      - "本書の目的"
+      - "対象読者"
+      - "本書の読み方"
+      - "本書で使用する環境"
   - title: "AI検索エンジンの仕組み"
     free: true
   - title: "Google SEO と LLMO の違い"

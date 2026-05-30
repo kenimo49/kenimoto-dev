@@ -90,8 +90,21 @@ related_articles: []
 chapters:
   - title: "はじめに"
     free: true
+    sub_chapters:
+      - "この本を書いた理由"
+      - "本書の構成"
+      - "対象読者"
+      - "本書で扱わないこと"
+      - "著者について"
   - title: "MCP の仕組みとセキュリティ脅威モデル"
     free: true
+    sub_chapters:
+      - "LLMの「できない」を解消するプロトコル"
+      - "APIを直接叩けばいいのでは？"
+      - "MCPの3つの構成要素"
+      - "MCPが提供する3つの機能"
+      - "MCPと従来のアプローチの違い"
+      - "エコシステムの現状"
   - title: "OWASP MCP Top 10"
     free: true
   - title: "認証・認可の設計"
