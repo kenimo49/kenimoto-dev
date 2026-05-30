@@ -90,9 +90,9 @@ export const proof: ProofData = {
   },
 
   sampleLabel: {
-    ja: 'Amazonで試し読み',
-    en: 'Read a free sample',
-    pt: 'Ler amostra grátis',
+    ja: '無料で試し読み',
+    en: 'Read sample chapters',
+    pt: 'QUERO O TRECHO GRÁTIS',
     es: 'Leer muestra gratis',
   },
 

@@ -117,16 +117,16 @@ const translations = {
     painPointsHeading: 'この本で解決できる悩み',
     relatedBooks: 'シリーズ・関連書籍',
     relatedArticles: '関連記事で深掘りする',
-    cta: 'Kindleで購入する',
-    ctaSub: 'Kindle Unlimitedで読み放題対象',
-    primaryCta: '今すぐKindleで読む →',
+    cta: 'Kindleで読む',
+    ctaSub: 'Kindle Unlimited 対象',
+    primaryCta: 'Kindleで読む',
     ctaZenn: 'Zennで読む',
-    ctaZennSub: 'Zennで全文を読む',
-    primaryCtaZenn: '今すぐZennで読む →',
+    ctaZennSub: 'Zennで全文公開',
+    primaryCtaZenn: 'Zennで読む',
     affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
     publishedAt: '公開',
     updatedAt: '更新',
-    readSampleZenn: 'Zennで試し読み',
+    readSampleZenn: 'Zennで読む',
     topicsLabel: 'トピック',
     compareCol1: '比較対象',
     compareCol2: '本書の違い',
@@ -146,12 +146,12 @@ const translations = {
     painPointsHeading: 'Problems this book solves',
     relatedBooks: 'Related books',
     relatedArticles: 'Dive deeper with related articles',
-    cta: 'Buy on Kindle',
-    ctaSub: 'Available on Kindle Unlimited',
-    primaryCta: 'Read now on Kindle →',
+    cta: 'Read on Kindle',
+    ctaSub: 'Included in Kindle Unlimited',
+    primaryCta: 'Read on Kindle',
     ctaZenn: 'Read on Zenn',
-    ctaZennSub: 'Full text on Zenn',
-    primaryCtaZenn: 'Read now on Zenn →',
+    ctaZennSub: 'Full text on Zenn — free',
+    primaryCtaZenn: 'Read on Zenn — free',
     affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
     publishedAt: 'Published',
     updatedAt: 'Updated',
@@ -175,16 +175,16 @@ const translations = {
     painPointsHeading: 'Problemas que este livro resolve',
     relatedBooks: 'Livros relacionados',
     relatedArticles: 'Aprofunde com artigos relacionados',
-    cta: 'Comprar no Kindle',
-    ctaSub: 'Disponível no Kindle Unlimited',
-    primaryCta: 'Ler agora no Kindle →',
-    ctaZenn: 'Ler no Zenn',
-    ctaZennSub: 'Texto completo no Zenn',
-    primaryCtaZenn: 'Ler agora no Zenn →',
+    cta: 'QUERO LER NO KINDLE',
+    ctaSub: 'Incluso no Kindle Unlimited',
+    primaryCta: 'QUERO LER NO KINDLE',
+    ctaZenn: 'QUERO LER NO ZENN',
+    ctaZennSub: 'Texto completo no Zenn — grátis',
+    primaryCtaZenn: 'QUERO LER NO ZENN',
     affiliateNote: '* Esta página contém links da Amazon Associados. Compras podem gerar uma comissão para o autor.',
     publishedAt: 'Publicado em',
     updatedAt: 'Atualizado em',
-    readSampleZenn: 'Ler amostra no Zenn',
+    readSampleZenn: 'QUERO LER NO ZENN',
     topicsLabel: 'Tópicos',
     compareCol1: 'Comparado com',
     compareCol2: 'Diferença deste livro',
@@ -204,12 +204,12 @@ const translations = {
     painPointsHeading: 'Problemas que resuelve este libro',
     relatedBooks: 'Libros relacionados',
     relatedArticles: 'Profundiza con artículos relacionados',
-    cta: 'Comprar en Kindle',
-    ctaSub: 'Disponible en Kindle Unlimited',
-    primaryCta: 'Leer ahora en Kindle →',
+    cta: 'Leer en Kindle',
+    ctaSub: 'Incluido en Kindle Unlimited',
+    primaryCta: 'Leer en Kindle',
     ctaZenn: 'Leer en Zenn',
-    ctaZennSub: 'Texto completo en Zenn',
-    primaryCtaZenn: 'Leer ahora en Zenn →',
+    ctaZennSub: 'Texto completo en Zenn — gratis',
+    primaryCtaZenn: 'Leer en Zenn — gratis',
     affiliateNote: '* Esta página contiene enlaces de Amazon Afiliados. Las compras pueden generar una comisión para el autor.',
     publishedAt: 'Publicado',
     updatedAt: 'Actualizado',
@@ -281,8 +281,15 @@ const relatedBookEntries = relatedBooks
     return null;
   })
   .filter((x): x is { slug: string; data: typeof allBooks[number]['data']; lang: typeof lang | 'en' } => x !== null);
+// 通貨記号マップ — 各市場の慣習に合わせた表記
+// JA: ¥1,000 / US: $9.99 / BR: R$24.99 / ES: $9.99 / IT: €6.99 / IN: ₹449
+const currencySymbols: Record<string, string> = {
+  JPY: '¥', USD: '$', BRL: 'R$', EUR: '€', INR: '₹', GBP: '£', MXN: '$',
+};
 const formattedPrice = price !== undefined
-  ? (currency === 'JPY' ? `¥${price.toLocaleString()}` : `${currency} ${price}`)
+  ? (currency === 'JPY'
+      ? `¥${price.toLocaleString()}`
+      : `${currencySymbols[currency] ?? `${currency} `}${price}`)
   : null;
 
 // 案B: parts が定義されていればそれを使い、無ければ chapters を 1part として扱う(後方互換)
