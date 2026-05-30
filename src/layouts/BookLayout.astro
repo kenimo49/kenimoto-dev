@@ -123,6 +123,7 @@ const translations = {
     ctaZenn: 'Zennで読む',
     ctaZennSub: 'Zennで全文公開',
     primaryCtaZenn: 'Zennで読む',
+    seeChapterList: '目次を見る',
     affiliateNote: '※ 本ページにはAmazonアソシエイトリンクが含まれます。クリック先での購入により著者に紹介料が入る場合があります。',
     publishedAt: '公開',
     updatedAt: '更新',
@@ -152,6 +153,7 @@ const translations = {
     ctaZenn: 'Read on Zenn',
     ctaZennSub: 'Full text on Zenn — free',
     primaryCtaZenn: 'Read on Zenn — free',
+    seeChapterList: 'See chapter list',
     affiliateNote: '* This page contains Amazon Associates links. Purchases may earn the author a referral fee.',
     publishedAt: 'Published',
     updatedAt: 'Updated',
@@ -181,6 +183,7 @@ const translations = {
     ctaZenn: 'QUERO LER NO ZENN',
     ctaZennSub: 'Texto completo no Zenn — grátis',
     primaryCtaZenn: 'QUERO LER NO ZENN',
+    seeChapterList: 'Ver sumário',
     affiliateNote: '* Esta página contém links da Amazon Associados. Compras podem gerar uma comissão para o autor.',
     publishedAt: 'Publicado em',
     updatedAt: 'Atualizado em',
@@ -210,6 +213,7 @@ const translations = {
     ctaZenn: 'Leer en Zenn',
     ctaZennSub: 'Texto completo en Zenn — gratis',
     primaryCtaZenn: 'Leer en Zenn — gratis',
+    seeChapterList: 'Ver el índice',
     affiliateNote: '* Esta página contiene enlaces de Amazon Afiliados. Las compras pueden generar una comisión para el autor.',
     publishedAt: 'Publicado',
     updatedAt: 'Actualizado',
@@ -1305,6 +1309,9 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         {!isZennOnly && lang === 'ja' && zennUrl && (
           <a href={zennUrl} class="hero-cta-secondary" rel="noopener" data-cta-zenn data-slug={slug} data-position="hero-zenn">{t.readSampleZenn}</a>
         )}
+        {lang === 'en' && effectiveParts.length > 0 && (
+          <a href="#table-of-contents" class="hero-cta-secondary" data-cta-toc data-slug={slug} data-position="hero-toc">{t.seeChapterList}</a>
+        )}
       </div>
     )}
 
@@ -1477,7 +1484,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
     )}
 
     {effectiveParts.length > 0 && (
-      <section class="book-section">
+      <section class="book-section" id="table-of-contents">
         <h2>{t.toc}</h2>
         {effectiveParts.map((p, pi) => (
           <div class="toc-part">
@@ -1613,6 +1620,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         if (link.hasAttribute('data-cta-amazon')) return 'amazon';
         if (link.hasAttribute('data-cta-sample')) return 'sample';
         if (link.hasAttribute('data-cta-zenn')) return 'zenn';
+        if (link.hasAttribute('data-cta-toc')) return 'toc';
         if (link.hasAttribute('data-cta-other')) return 'other';
         return 'unknown';
       }
@@ -1628,7 +1636,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         });
       }
       function bind() {
-        document.querySelectorAll('[data-cta-amazon], [data-cta-sample], [data-cta-zenn], [data-cta-other]').forEach(function (link) {
+        document.querySelectorAll('[data-cta-amazon], [data-cta-sample], [data-cta-zenn], [data-cta-toc], [data-cta-other]').forEach(function (link) {
           if (link.__ctaBound) return;
           link.__ctaBound = true;
           link.addEventListener('pointerdown', function () { emitCta(link); });
