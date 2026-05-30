@@ -353,6 +353,7 @@ const proofKuBadge = proof.kuBadge[lang];
 const proofGuarantee = proof.guarantee[lang];
 const proofPartCta = proof.partCta[lang];
 const proofFreePreviewHeading = proof.freePreviewHeading[lang];
+const ptHeadlineSignal = lang === 'pt' ? proof.ptHeadlineSignal : null;
 const proofFreePreviewLead = proof.freePreviewLead[lang];
 const proofFreePreviewChapterCta = proof.freePreviewChapterCta[lang];
 
@@ -594,6 +595,18 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         border-radius: 4px;
         font-weight: 500;
         font-size: 0.8rem;
+      }
+
+      /* PT 限定: hero CTA 直下の量的シグナル 1行 (Rocketseat 風アンカー) */
+      .pt-headline-signal {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin: 0.5rem 0 1rem;
+        padding: 0.5rem 0.7rem;
+        background: var(--bg-elev);
+        border-radius: 4px;
+        text-align: center;
+        font-weight: 500;
       }
 
       /* Hero下: 著者bio 1行 + 顔写真 + 7日返品 — EN 必須 / JA Zenn流 OK / PT/ES OK */
@@ -1254,6 +1267,10 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
           <a href={zennUrl} class="hero-cta-secondary" rel="noopener" data-cta-zenn data-slug={slug} data-position="hero-zenn">{t.readSampleZenn}</a>
         )}
       </div>
+    )}
+
+    {ptHeadlineSignal && (
+      <p class="pt-headline-signal">{ptHeadlineSignal}</p>
     )}
 
     <div class="book-meta">

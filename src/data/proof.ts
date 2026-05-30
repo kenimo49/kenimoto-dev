@@ -23,6 +23,7 @@ export interface ProofData {
   freePreviewHeading: Record<Lang, string>;
   freePreviewLead: Record<Lang, string>;
   freePreviewChapterCta: Record<Lang, string>;
+  ptHeadlineSignal: string;
 }
 
 export const proof: ProofData = {
@@ -81,6 +82,11 @@ export const proof: ProofData = {
     pt: 'ken imoto — Autor das séries Practical Claude Code e Harness Engineering. Mais de 30 livros técnicos em JA/EN/PT/ES.',
     es: 'ken imoto — Autor de las series Practical Claude Code y Harness Engineering. Más de 30 libros técnicos en JA/EN/PT/ES.',
   },
+
+  // PT 量的シグナル (Rocketseat 風 hero アンカー、 PT 限定で表示)
+  // BR 市場リサーチ反映: 会社ロゴ social proof の代替として量的シグナル 1行
+  ptHeadlineSignal:
+    '7 livros já em PT-BR · 4 traduzidos JA → PT-BR · Devs em 6 países leram a coleção',
 
   sectionHeading: {
     ja: '数字で見る著者',
