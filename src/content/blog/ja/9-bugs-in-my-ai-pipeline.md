@@ -187,6 +187,12 @@ AIエージェントの品質は、AIの外側で決まる。
 
 ---
 
+## この記事の要点を、12枚のスライドに
+
+「品質はAIの外側で決まる」という本記事の話を、ハーネス・エンジニアリングの全体像として12枚にまとめました。スライドだけでも流れがつかめます。
+
+<script async class="docswell-embed" src="https://www.docswell.com/assets/libs/docswell-embed/docswell-embed.min.js" data-src="https://www.docswell.com/slide/Z1QX9G/embed" data-aspect="0.5625"></script><div class="docswell-link"><a href="https://www.docswell.com/s/kenimo49/Z1QX9G-harness-engineering-guide">ハーネス・エンジニアリング入門 ― なぜ同じAIで成果が変わるのか by @kenimo49</a></div>
+
 ## さらに深掘りしたい方へ
 
 本記事はその一面に過ぎません。OpenAI・Anthropic・LangChain・Martin Fowler・学術の5つの解釈を1冊に統合した体系書 **[ハーネス・エンジニアリング — AIを"使う"から"操る"へ](https://kenimoto.dev/ja/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=9-bugs-in-my-ai-pipeline)** で、ハーネスとは何か、どう設計し、どう運用するかを19章で解説しています。
