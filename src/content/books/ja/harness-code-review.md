@@ -4,7 +4,7 @@ subtitle: "hooks・AI・人間の3層モデル"
 description: "AIコードレビューを仕組み化する3層モデル。hooks がフォーマットを強制、CodeRabbit/Copilot/Claude が一次レビュー、人間は設計判断に集中。AGENTS.md とフィードバックループで仕組みが進化する設計を Next.js + TypeScript の実装例で解説。"
 lang: "ja"
 
-kindle_url: "https://amzn.asia/d/0hgvOnOi"
+kindle_url: "https://www.amazon.co.jp/dp/B0GHT7FQ7G"
 zenn_url: "https://zenn.dev/kenimo49/books/harness-code-review"
 
 price: 1000

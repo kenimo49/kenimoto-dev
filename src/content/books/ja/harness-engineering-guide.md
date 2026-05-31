@@ -4,7 +4,7 @@ subtitle: "AIを\"使う\"から\"操る\"へ"
 description: "ハーネスエンジニアリングを、OpenAI・Anthropic・LangChain・Martin Fowler・学術の5つの解釈で横断的に整理した最初の体系書。6つの構成要素、AGENTS.md/CLAUDE.md/hooks の実装パターン、Self-Evolving Agentまで——2026年のキーワード「ハーネス」を実装レベルで掴む。"
 lang: "ja"
 
-kindle_url: "https://amzn.asia/d/0eE7m2BJ"
+kindle_url: "https://www.amazon.co.jp/dp/B0GF8VGSPC"
 zenn_url: "https://zenn.dev/kenimo49/books/harness-engineering-guide"
 
 price: 1500
