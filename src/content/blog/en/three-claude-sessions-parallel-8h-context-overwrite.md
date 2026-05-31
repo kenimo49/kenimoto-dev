@@ -7,7 +7,9 @@ tags: [claudecode, ai, harness, productivity]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/three-claude-sessions-parallel-8h-context-overwrite"
 og_image: "https://kenimoto.dev/images/blog/three-claude-sessions-parallel-8h-context-overwrite/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-ran-3-claude-code-sessions-in-parallel-for-8-hours-they-overwrote-each-others-context-twice-1kac-temp-slug-7211850
 ---
 
 I had three ideas in parallel and three terminal windows. The math seemed obvious: open three Claude Code sessions, one per worktree, let them work on independent branches, and pick up roughly 3x my throughput for the afternoon. The official docs even tell you to do exactly this. The desktop app [auto-creates a worktree](https://code.claude.com/docs/en/worktrees) for every new session. It is presented as the safe pattern.
