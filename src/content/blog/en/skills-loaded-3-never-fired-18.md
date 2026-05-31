@@ -7,7 +7,9 @@ tags: [claude-code, anthropic, skills, tokens, cost-optimization]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/skills-loaded-3-never-fired-18/"
 og_image: "https://kenimoto.dev/images/blog/skills-loaded-3-never-fired-18/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/claude-code-skills-cost-tokens-even-when-they-dont-fire-i-measured-5-skills-across-7-hours-the-5gmk-temp-slug-493509
 ---
 
 I thought Skills were a free upgrade over custom commands. They are not free. They are rent.
