@@ -7,7 +7,9 @@ tags: [llmo, geo, ai-citations, seo, measurement]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/seven-ai-citation-trackers-seven-different-numbers"
 og_image: "https://kenimoto.dev/images/blog/seven-ai-citation-trackers-seven-different-numbers/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-plugged-the-same-site-into-7-ai-citation-trackers-they-reported-7-different-numbers-kb1-temp-slug-3234766
 ---
 
 I expected the seven citation trackers to vary by maybe 20%. The smallest gap was 4x. The widest was 8x. Same site, same fifteen days, same twelve brand queries.
