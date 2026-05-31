@@ -4,7 +4,7 @@ subtitle: "Context Engineering 実践入門"
 description: "「同じ質問なのに、AIの回答が全然違う」原因はプロンプトではなくコンテキストにあります。架空の社内ツール3つで独自ベンチマーク実験を行い、コンテキスト戦略でAIの回答品質が最大4.6倍変わることを定量実証。「大規模モデルほど上手に嘘をつく」「小さいモデル+RAG > 大きいモデル単体」など衝撃の結果と、5段階のコンテキスト戦略・RAG・MCP・CLAUDE.mdまで体系的に解説。"
 lang: "ja"
 
-kindle_url: "https://amzn.asia/d/0dNeVFvn"
+kindle_url: "https://www.amazon.co.jp/dp/B0GHNC29MF"
 zenn_url: "https://zenn.dev/kenimo49/books/context-engineering"
 
 price: 1500
