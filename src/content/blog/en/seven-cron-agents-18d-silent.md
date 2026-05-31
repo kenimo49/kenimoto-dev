@@ -7,7 +7,9 @@ tags: [claudecode, ai, cron, harness, devops]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/seven-cron-agents-18d-silent"
 og_image: "https://kenimoto.dev/images/blog/seven-cron-agents-18d-silent/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-cron-scheduled-7-ai-agents-2-silently-failed-for-18-days-tracing-wouldnt-have-caught-it-2k8o-temp-slug-6398492
 ---
 
 I had seven agents on cron. Two of them stopped running on day one. I noticed on day eighteen.
