@@ -7,7 +7,9 @@ tags: [llmo, multi-language, ga4, build-in-public, tabnews]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/four-languages-thirty-days-portuguese-four-x-traffic/"
 og_image: "https://kenimoto.dev/images/blog/four-languages-thirty-days-portuguese-four-x-traffic/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-translated-my-blog-into-4-languages-portuguese-got-nearly-4x-the-traffic-of-english-3b5h-temp-slug-428306
 ---
 
 When I decided to ship this blog in 4 languages, I had a clear mental ranking. English would win on volume. Spanish would be runner-up because of the sheer speaker count. Japanese would be steady because it's my native language. Portuguese, I figured, was the long tail. I added it mostly out of completism.
