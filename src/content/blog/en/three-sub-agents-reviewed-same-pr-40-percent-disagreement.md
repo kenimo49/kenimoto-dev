@@ -1,5 +1,5 @@
 ---
-title: "I Asked 3 Claude Code Sub-agents to Review the Same PR. They Disagreed on 40% of the Comments."
+title: "3 Claude Code Sub-agents Reviewed One PR — They Disagreed on 40%"
 description: "Three Claude Code sub-agents, one 500-line PR, 41% disagreement, and one hour spent figuring out which findings to keep. Brooks's Law is alive in 2026."
 date: 2026-05-12
 lang: en
