@@ -4,7 +4,7 @@ subtitle: "本番導入で躓かないための完全ガイド"
 description: "MCP (Model Context Protocol) を本番導入する前に読むべきセキュリティガイド。トークンコスト実測、ファイルアップロード問題の7サービス検証、OWASP MCP Top 10、freee確定申告自動化の実体験ベースで、安全に本番運用するための知識を体系化。"
 lang: "ja"
 
-kindle_url: "https://amzn.asia/d/0cQpLy6g"
+kindle_url: "https://www.amazon.co.jp/dp/B0GGYKSLNM"
 zenn_url: "https://zenn.dev/kenimo49/books/mcp-security-practice"
 
 price: 500
