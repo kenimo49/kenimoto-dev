@@ -4,7 +4,7 @@ subtitle: "Context Engineering for Modern Development"
 description: "A practitioner's field guide to Claude Code from a year of production use: CLAUDE.md patterns from 2 to 100+ lines, Plan Mode workflows, team operations, MCP integration, and supply-chain security. 19 chapters for engineers past 'hello world'."
 lang: "en"
 
-kindle_url: "https://amzn.asia/d/0hU3BP1i"
+kindle_url: "https://www.amazon.com/dp/B0GPWPKNB7"
 
 published_date: 2025-09-01
 updated_date: 2026-04-15

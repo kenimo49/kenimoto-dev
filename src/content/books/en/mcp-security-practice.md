@@ -4,7 +4,7 @@ subtitle: "What OWASP Won't Tell You About AI Tool Integrations"
 description: "Before you ship MCP (Model Context Protocol) to production, read this. Token cost measurements, file upload issues verified across 7 services, OWASP MCP Top 10, and lessons from running freee tax automation in production — the security guide for safely operating MCP."
 lang: "en"
 
-kindle_url: "https://amzn.asia/d/03ceMosL"
+kindle_url: "https://www.amazon.com/dp/B0GHZHC3PY"
 
 published_date: 2026-03-25
 updated_date: 2026-04-30

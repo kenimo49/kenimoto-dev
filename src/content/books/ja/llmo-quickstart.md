@@ -4,7 +4,7 @@ subtitle: "エンジニアのためのAI検索最適化入門"
 description: "LLMO (AI検索最適化) を30分で始めるための入門書。llms.txt の書き方、JSON-LD の最低実装、AI引用率の測定まで、8章で核心だけを凝縮。Google SEO の知識を持つエンジニアが、今日から AI検索に拾われるサイトを作るための短時間ガイド。"
 lang: "ja"
 
-kindle_url: "https://amzn.asia/d/04skv9ST"
+kindle_url: "https://www.amazon.co.jp/dp/B0GHMCKQPX"
 
 price: 300
 currency: "JPY"

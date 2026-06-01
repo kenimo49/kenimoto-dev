@@ -4,7 +4,7 @@ subtitle: "Context Engineering in Practice"
 description: "Why does the same question give wildly different answers? Not your prompt — your context. Original benchmarks show up to 4.6x quality gain. The complete Context Engineering system: 5-stage strategy, RAG, MCP, CLAUDE.md, Agentic RAG."
 lang: "en"
 
-kindle_url: "https://amzn.asia/d/04OYOGkH"
+kindle_url: "https://www.amazon.com/dp/B0GHRJX36Z"
 
 published_date: 2026-02-15
 updated_date: 2026-04-10

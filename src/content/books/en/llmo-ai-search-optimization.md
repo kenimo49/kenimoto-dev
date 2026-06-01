@@ -4,7 +4,7 @@ subtitle: "The LLMO Practical Guide"
 description: "Google SEO won't get you cited by ChatGPT or Perplexity. This book maps LLMO (LLM Optimization) — the patterns and implementations for AI search era. From llms.txt and JSON-LD to citation-rate KPIs, this is the field guide for being seen by AI search engines."
 lang: "en"
 
-kindle_url: "https://amzn.asia/d/04rulUoN"
+kindle_url: "https://www.amazon.com/dp/B0GQ2L5HQY"
 
 published_date: 2026-02-20
 updated_date: 2026-04-15

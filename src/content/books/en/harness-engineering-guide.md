@@ -4,7 +4,7 @@ subtitle: "From Using AI to Controlling AI"
 description: "Harness Engineering, mapped across the 5 interpretations from OpenAI, Anthropic, LangChain, Martin Fowler, and academia. The first systematic guide that distills the 6 building blocks, the AGENTS.md/CLAUDE.md/hooks implementation patterns, and Self-Evolving Agents — the practical reference for the 2026 keyword."
 lang: "en"
 
-kindle_url: "https://a.co/d/0hD6MvVu"
+kindle_url: "https://www.amazon.com/dp/B0FZNL8D1V"
 
 published_date: 2026-03-15
 updated_date: 2026-04-20

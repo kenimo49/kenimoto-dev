@@ -4,7 +4,7 @@ subtitle: "LLMO実践ガイド"
 description: "Google SEO だけでは ChatGPT / Perplexity に届かない。LLMO (LLM Optimization = AI検索最適化) の考え方と実装パターンを、構造化データ・llms.txt・JSON-LD・引用率最適化まで体系的に解説。AI検索時代に「拾われるサイト」を作るための実践書。"
 lang: "ja"
 
-kindle_url: "https://amzn.asia/d/02zAl1VB"
+kindle_url: "https://www.amazon.co.jp/dp/B0GQ4XPBMJ"
 zenn_url: "https://zenn.dev/kenimo49/books/llmo-ai-search-optimization"
 
 price: 1000

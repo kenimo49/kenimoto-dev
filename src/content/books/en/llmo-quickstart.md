@@ -4,7 +4,7 @@ subtitle: "AI Search Optimization for Engineers"
 description: "Get LLMO (AI Search Optimization) running in 30 minutes. 8 chapters distill the essentials: writing llms.txt, the minimal JSON-LD patterns, and measuring AI citation rate. The fastest path for engineers who already know SEO to start getting cited by AI."
 lang: "en"
 
-kindle_url: "https://amzn.asia/d/04XYlHKe"
+kindle_url: "https://www.amazon.com/dp/B0GHJLJ611"
 
 published_date: 2026-04-10
 
