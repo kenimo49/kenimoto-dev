@@ -344,6 +344,24 @@ const articleJsonLd = [blogPostingJsonLd, breadcrumbJsonLd];
         thanks.style.display = '';
       });
     });
+
+    // 読了計測: 記事末尾(feedback-section)が表示されたら article_read_complete を1回発火。
+    // GA4 標準の scroll(90%) より強い「本文を読み切った」シグナルで、CTA露出と相関する。
+    if (section && 'IntersectionObserver' in window) {
+      let fired = false;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !fired) {
+            fired = true;
+            if (typeof gtag === 'function') {
+              gtag('event', 'article_read_complete', { article_slug: slug });
+            }
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.5 });
+      io.observe(section);
+    }
   </script>
 
   <script is:inline>

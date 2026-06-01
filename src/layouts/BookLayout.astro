@@ -1642,7 +1642,8 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         document.querySelectorAll('[data-cta-amazon], [data-cta-sample], [data-cta-zenn], [data-cta-toc], [data-cta-other]').forEach(function (link) {
           if (link.__ctaBound) return;
           link.__ctaBound = true;
-          link.addEventListener('pointerdown', function () { emitCta(link); });
+          // 左クリックは pointerdown(primary のみ)、中クリックは auxclick 専任で二重計測を防ぐ
+          link.addEventListener('pointerdown', function (e) { if (e.button === 0) emitCta(link); });
           link.addEventListener('auxclick', function (e) { if (e.button === 1) emitCta(link); });
           link.addEventListener('keydown', function (e) { if (e.key === 'Enter') emitCta(link); });
         });

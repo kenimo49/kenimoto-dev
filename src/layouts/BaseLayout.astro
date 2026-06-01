@@ -363,26 +363,30 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
           return 'other';
         }
         function emit(a) {
-          if (typeof gtag !== 'function') return;
           var host = destHost(a.href);
           if (!host || host === SELF) return;            // 内部リンクは無視
           if (a.hasAttribute('data-cta-amazon') || a.hasAttribute('data-cta-sample') ||
               a.hasAttribute('data-cta-zenn') || a.hasAttribute('data-cta-toc') ||
               a.hasAttribute('data-cta-other')) return;  // LP 専用計測に委譲(二重発火回避)
-          gtag('event', 'cta_click', {
+          var params = {
             event_category: 'outbound',
             event_label: location.pathname,
             cta_position: 'in-article',
             cta_type: ctaType(host),
             destination: a.href,
             transport_type: 'beacon',
-          });
+          };
+          // gtag.js ロード前でも dataLayer に積んで取りこぼしを防ぐ
+          if (typeof gtag === 'function') gtag('event', 'cta_click', params);
+          else (window.dataLayer = window.dataLayer || []).push(['event', 'cta_click', params]);
         }
         function handler(e) {
           var a = e.target && e.target.closest && e.target.closest('a[href]');
           if (a) emit(a);
         }
-        document.addEventListener('pointerdown', handler, true);
+        // 左クリックは pointerdown(primary のみ)、中クリックは auxclick 専任。
+        // pointerdown を全ボタンで拾うと中クリックが auxclick と二重計測になるため button===0 に限定。
+        document.addEventListener('pointerdown', function (e) { if (e.button === 0) handler(e); }, true);
         document.addEventListener('auxclick', function (e) { if (e.button === 1) handler(e); }, true);
       })();
     </script>

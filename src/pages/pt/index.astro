@@ -8,6 +8,10 @@ import { buildScholarlyArticleJsonLd } from '../../lib/research-papers';
 const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
 
+const ptPosts = (await getCollection('blog', ({ data }) => data.lang === 'pt'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 6);
+
 const SITE_URL = 'https://kenimoto.dev';
 const personJsonLd = {
   '@context': 'https://schema.org',
@@ -79,6 +83,20 @@ const orgJsonLd = {
           </a>
         );
       })}
+    </section>
+
+    <section class="article-list">
+      <h2 class="article-list-label">Artigos recentes</h2>
+      {ptPosts.map((post) => {
+        const slug = post.id.replace(/^pt\//, '');
+        return (
+          <a href={`/pt/blog/${slug}/`} class="article-row">
+            <p class="article-row-title">{post.data.title}</p>
+            <p class="article-row-desc">{post.data.description}</p>
+          </a>
+        );
+      })}
+      <a href="/pt/blog/" class="article-list-more">Ver todos os artigos →</a>
     </section>
 
     <section class="other-langs-cta">
@@ -158,6 +176,59 @@ const orgJsonLd = {
     color: var(--text-secondary);
     margin: 0;
     line-height: 1.5;
+  }
+  .article-list {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--text-separator);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .article-list-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin: 0 0 0.5rem;
+  }
+  .article-row {
+    display: block;
+    padding: 0.85rem 1rem;
+    background: var(--bg-card);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: outline 0.15s;
+  }
+  .article-row:hover {
+    outline: 1px solid var(--accent-blue);
+    text-decoration: none;
+  }
+  .article-row-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 0.3rem;
+    line-height: 1.4;
+  }
+  .article-row-desc {
+    font-size: 0.82rem;
+    color: var(--text-label);
+    margin: 0;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .article-list-more {
+    font-size: 0.875rem;
+    color: var(--accent-blue);
+    text-decoration: none;
+    margin-top: 0.25rem;
+  }
+  .article-list-more:hover {
+    text-decoration: underline;
   }
   .other-langs-cta {
     margin-top: 3rem;
