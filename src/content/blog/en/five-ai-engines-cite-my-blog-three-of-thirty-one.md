@@ -7,7 +7,9 @@ tags: [llmo, ai-search, geo, measurement, blog-analytics]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/five-ai-engines-cite-my-blog-three-of-thirty-one/"
 og_image: "https://kenimoto.dev/images/blog/five-ai-engines-cite-my-blog-three-of-thirty-one/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-asked-5-ai-search-engines-to-cite-my-own-blog-only-3-of-31-articles-showed-up-5e6j
 ---
 
 I write about LLMO almost every week. KPIs, llms.txt, JSON-LD, the whole liturgy. So a couple of weeks ago I decided to do the one thing I had somehow never done: ask the AI search engines to cite my own blog.
