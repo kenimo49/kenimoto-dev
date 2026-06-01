@@ -300,4 +300,4 @@ LLMO測定のフレームワーク全体は [llmoframework.com](https://llmofram
 
 ## さらに深掘りしたい方へ
 
-LLMO実装の最短ルートは、核心を8章で凝縮した **[LLMOクイックスタート - エンジニアのためのAI検索最適化入門](https://kenimoto.dev/ja/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llmo-measurement-3-methods)** にまとめました。llms.txt、JSON-LD、計測KPI、改善サイクルまで、コピペで動くテンプレ集です。
+LLMO実装の最短ルートは、核心を8章で凝縮した **[LLMOクイックスタート - エンジニアのためのAI検索最適化入門](https://kenimoto.dev/ja/books/llmo-quickstart)** にまとめました。llms.txt、JSON-LD、計測KPI、改善サイクルまで、コピペで動くテンプレ集です。

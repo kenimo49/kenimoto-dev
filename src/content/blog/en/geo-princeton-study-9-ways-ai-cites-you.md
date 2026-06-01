@@ -166,4 +166,4 @@ I started this piece by admitting I was guessing about LLMO. Now I have a benchm
 
 ## Want to go deeper?
 
-For the full LLMO playbook — llms.txt patterns, JSON-LD examples, citation-rate KPIs, and ChatGPT/Perplexity/Brave comparison — see **[LLMO Practical Guide: Why ChatGPT Ignores Your Website](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=geo-princeton-study-9-ways-ai-cites-you)**.
+For the full LLMO playbook — llms.txt patterns, JSON-LD examples, citation-rate KPIs, and ChatGPT/Perplexity/Brave comparison — see **[LLMO Practical Guide: Why ChatGPT Ignores Your Website](https://kenimoto.dev/books/llmo-ai-search-optimization)**.

@@ -128,4 +128,4 @@ That, I am told, is how engineering works.
 
 ## Want to go deeper?
 
-If you want the full LLMO playbook — beyond llms.txt and into JSON-LD, robots.txt strategy, content design, and measurement — **[LLMO: AI Search Optimization for Engineers](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=30-llms-txt-5-anti-patterns)** is the 12-chapter book that the 8-chapter Quickstart is excerpted from. Same author, deeper depth, more case studies.
+If you want the full LLMO playbook — beyond llms.txt and into JSON-LD, robots.txt strategy, content design, and measurement — **[LLMO: AI Search Optimization for Engineers](https://kenimoto.dev/books/llmo-ai-search-optimization)** is the 12-chapter book that the 8-chapter Quickstart is excerpted from. Same author, deeper depth, more case studies.

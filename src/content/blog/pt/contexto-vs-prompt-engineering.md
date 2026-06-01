@@ -104,7 +104,7 @@ Abre o seu projeto agora, cria um CLAUDE.md com cinco linhas sobre como rodar os
 
 ## Quer ir mais fundo?
 
-Este artigo introduz a ideia de trocar prompt por contexto. O sistema completo — RAG, MCP, CLAUDE.md, Agentic RAG, validado em benchmark próprio com ganho de 4,6× — está em **[Transformando LLMs de Mentirosos em Especialistas: Engenharia de Contexto na Prática](https://kenimoto.dev/pt/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=contexto-vs-prompt-engineering)**.
+Este artigo introduz a ideia de trocar prompt por contexto. O sistema completo — RAG, MCP, CLAUDE.md, Agentic RAG, validado em benchmark próprio com ganho de 4,6× — está em **[Transformando LLMs de Mentirosos em Especialistas: Engenharia de Contexto na Prática](https://kenimoto.dev/pt/books/context-engineering)**.
 
 ---
 

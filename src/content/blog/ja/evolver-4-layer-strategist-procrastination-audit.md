@@ -133,4 +133,4 @@ Observer/Strategist/Marketer の3層分離は[別の記事](https://kenimoto.dev
 
 ハーネスエンジニアリングの全体像 (6つの構成要素、AGENTS.md/CLAUDE.md/hooks 実装パターン、本記事の前提になっている Self-Evolving Agent の章) は書籍にまとめています。
 
-**[ハーネス・エンジニアリング — AIを「使う」から「操る」へ](https://kenimoto.dev/ja/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=evolver-4-layer-audit)**
+**[ハーネス・エンジニアリング — AIを「使う」から「操る」へ](https://kenimoto.dev/ja/books/harness-engineering-guide)**

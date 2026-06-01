@@ -83,7 +83,7 @@ H2を1ページあたり3-5個から6-8個に増やし、H3を新設して階層
 
 AI Overview対策と従来SEOは、効くレバーが違います。両方やる価値はありますが、「AI Overviewに載りたい」という目的で被リンク獲得に労力を割くのは、私の30日では合理的じゃありませんでした。被リンク獲得は別の目的(普通のSEO)のためにやる施策と整理し直したのが、30日後の私の運用です。
 
-「AI検索最適化を今日から始めるための短時間ガイド」は [LLMOクイックスタート](https://kenimoto.dev/ja/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=ai-overviews-4-30d) にまとめてあります。今回の30日の数字を含めて、AI Overview と llms.txt と JSON-LD を「最小実装で土台を作って、効くレバーから順に伸ばす」という構成です。30日測ってから書く本は、30日測る前に書く本と比べて、書く側の自信が違うとつくづく思います。
+「AI検索最適化を今日から始めるための短時間ガイド」は [LLMOクイックスタート](https://kenimoto.dev/ja/books/llmo-quickstart) にまとめてあります。今回の30日の数字を含めて、AI Overview と llms.txt と JSON-LD を「最小実装で土台を作って、効くレバーから順に伸ばす」という構成です。30日測ってから書く本は、30日測る前に書く本と比べて、書く側の自信が違うとつくづく思います。
 
 ## 参考にしたソース
 

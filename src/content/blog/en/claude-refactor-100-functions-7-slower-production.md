@@ -78,6 +78,6 @@ The lesson, if there is one, is small: the boring stuff CI doesn't measure is ex
 
 ---
 
-This article touches a slice. The full Claude Code playbook (CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, the patterns I use to keep AI inside a safe lane on a real codebase) is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-refactor-100-7-slower)**.
+This article touches a slice. The full Claude Code playbook (CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, the patterns I use to keep AI inside a safe lane on a real codebase) is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery)**.
 
 If you liked this post, you might also like [TDD With Claude Code: The Test Was Written After the Code Six Times Out of Ten](https://kenimoto.dev/blog/claude-code-tdd-test-after-code-six-of-ten/) and [Claude Hid My Bug Three Times: Ten Debugging Prompts That Actually Help](https://kenimoto.dev/blog/claude-hid-my-bug-three-times-ten-debugging-prompts/). Same "Claude is confident, the diff is clean, the system disagrees" theme, different failure mode.

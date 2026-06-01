@@ -134,7 +134,7 @@ Olhava o dashboard. O dashboard estava olhando pra pergunta errada.
 - A solução foi contrato de exit code (`0/64/65/78`), wrapper de cron que reporta no lugar do agente, e heartbeat de sucesso com dead man's switch
 - O mais barato de tudo é `MAILTO=` no cron. Sozinho já teria pego a maior parte das falhas silenciosas
 
-Se quiser ir mais fundo no ciclo de vida de hooks e nos workflows diários de Claude Code, escrevi mais sobre isso em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cron-7-agentes-silent-18-dias)** (capítulo de hooks/feedback-loops) e em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cron-7-agentes-silent-18-dias)** (capítulo de workflow diário) — os dois capítulos mais próximos do que descrevi aqui.
+Se quiser ir mais fundo no ciclo de vida de hooks e nos workflows diários de Claude Code, escrevi mais sobre isso em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide)** (capítulo de hooks/feedback-loops) e em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery)** (capítulo de workflow diário) — os dois capítulos mais próximos do que descrevi aqui.
 
 ---
 

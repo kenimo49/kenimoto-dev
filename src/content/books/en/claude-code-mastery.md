@@ -1,7 +1,7 @@
 ---
 title: "Practical Claude Code"
 subtitle: "Context Engineering for Modern Development"
-description: "Practical Claude Code teaches how to use Claude Code and write CLAUDE.md based on a year of real production use. From design philosophy to CLAUDE.md patterns, Plan Mode workflows, team operations, and security — the field guide for engineers who want to seriously master Claude Code."
+description: "A practitioner's field guide to Claude Code from a year of production use: CLAUDE.md patterns from 2 to 100+ lines, Plan Mode workflows, team operations, MCP integration, and supply-chain security. 19 chapters for engineers past 'hello world'."
 lang: "en"
 
 kindle_url: "https://amzn.asia/d/0hU3BP1i"

@@ -85,7 +85,7 @@ Mas se você lê esse post e acha que cinco minutos é pouco demais para o time 
 
 A intervenção é uma só, custa cinco minutos, funciona em quase todo time onde existe um mínimo de segurança psicológica. Tente uma vez. Mede a duração. Conta os post-its diferentes do que o tech lead escreveu. Aí você decide se vale.
 
-Esse capítulo é parte de um livro maior em PT-BR sobre psicologia aplicada à engenharia: **[Manual completo dos truques psicológicos para engenheiros](https://kenimoto.dev/pt/books/engineer-psychology-tricks?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=reunioes-tech-selection-brainstorm-silencioso)**. O capítulo 11 é sobre reuniões e consenso. Aqui eu peguei só o ponto da ancoragem com o brainstorm silencioso, do meu jeito, com os números do meu time.
+Esse capítulo é parte de um livro maior em PT-BR sobre psicologia aplicada à engenharia: **[Manual completo dos truques psicológicos para engenheiros](https://kenimoto.dev/pt/books/engineer-psychology-tricks)**. O capítulo 11 é sobre reuniões e consenso. Aqui eu peguei só o ponto da ancoragem com o brainstorm silencioso, do meu jeito, com os números do meu time.
 
 ---
 

@@ -112,4 +112,4 @@ Yes なら Skill 化に意味があります。No なら、たぶん対話で都
 
 ---
 
-Claude Code Skills の設計、フォルダ構成、運用フローの詳細は『[Claude Code Mastery](https://kenimoto.dev/ja/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=skills-10-to-4)』にまとめています。
+Claude Code Skills の設計、フォルダ構成、運用フローの詳細は『[Claude Code Mastery](https://kenimoto.dev/ja/books/claude-code-mastery)』にまとめています。

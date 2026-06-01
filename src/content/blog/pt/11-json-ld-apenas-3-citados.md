@@ -158,7 +158,7 @@ Onze schemas era um aterro. Três schemas é um site.
 - [Estudo de schema da Ahrefs de maio 2026 (resumo Medium)](https://medium.com/@vicki-larson/how-structured-data-schema-transforms-your-ai-search-visibility-in-2026-9e968313b2d7)
 - [Por que o ChatGPT ignora o seu site (LLMO intro)](https://kenimoto.dev/pt/blog/chatgpt-ignora-seu-site-llmo/)
 
-A versão de 8 capítulos de "como SEO quebrou, o que LLMO substitui, e como medir tudo isso" — incluindo o capítulo de JSON-LD que aprofunda esse post — está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=11-json-ld-apenas-3-citados)**. 3 meses de medição condensados em leitura de fim de semana.
+A versão de 8 capítulos de "como SEO quebrou, o que LLMO substitui, e como medir tudo isso" — incluindo o capítulo de JSON-LD que aprofunda esse post — está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart)**. 3 meses de medição condensados em leitura de fim de semana.
 
 ---
 

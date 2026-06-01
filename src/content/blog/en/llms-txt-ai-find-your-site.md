@@ -179,4 +179,4 @@ Correlation isn't causation, and a sample size of one is a terrible experiment. 
 
 ## Want to go deeper?
 
-Want to ship LLMO in 30 minutes? **[LLMO Quickstart](https://kenimoto.dev/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llms-txt-ai-find-your-site)** distills the core into 8 chapters with copy-pasteable templates.
+Want to ship LLMO in 30 minutes? **[LLMO Quickstart](https://kenimoto.dev/books/llmo-quickstart)** distills the core into 8 chapters with copy-pasteable templates.

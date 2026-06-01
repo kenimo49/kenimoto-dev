@@ -113,7 +113,7 @@ grep -E "GPTBot|ClaudeBot|PerplexityBot|OAI-SearchBot|Google-Extended" \
 
 ログを開く前、私はサーバーログが既に信じていたLLMO像を裏付けてくれると思っていました。だいたい裏付けてくれませんでした。引用は見るべきシグナルの1つにすぎず、誰があなたのページを取りに来ているかは別の問いです。その答えは、たぶんもう手元にあるログファイルに、平文で書いてあります。
 
-引用計測、GA4リファラル、サーバーログによるクローラー分析を1つの体系として整理した本があります。[LLMO:AI検索最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=five-ai-crawlers-30days) の第10章が計測パートで、この記事は紙幅の都合で書ききれなかった「6つ目のKPI」の補遺のようなものです。
+引用計測、GA4リファラル、サーバーログによるクローラー分析を1つの体系として整理した本があります。[LLMO:AI検索最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization) の第10章が計測パートで、この記事は紙幅の都合で書ききれなかった「6つ目のKPI」の補遺のようなものです。
 
 ---
 

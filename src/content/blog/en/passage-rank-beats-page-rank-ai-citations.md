@@ -88,4 +88,4 @@ I still care about traditional rankings — they haven't vanished. But I stopped
 
 For a fuller breakdown of AI-extractable content structure, the [llmoframework.com](https://llmoframework.com) content-design notes cover the passage and structured-data layers in more depth — I keep the canonical version of this thinking there and here.
 
-If you want the full system — the four layers, the structured-data patterns, and the measurement loop behind all of this — I wrote it up in [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=passage-rank-vs-page-rank).
+If you want the full system — the four layers, the structured-data patterns, and the measurement loop behind all of this — I wrote it up in [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization).

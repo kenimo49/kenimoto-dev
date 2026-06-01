@@ -145,7 +145,7 @@ Eu entrei nas 24 horas esperando aprender sobre a capacidade do agente. Saí com
 
 ## Quer ir mais fundo?
 
-Este artigo cobre a fatia "como impedir que o agente quebre coisa irreversível". O playbook completo de harness engineering — AGENTS.md de 2 linhas até 100, hooks de pre-commit/pre-tool-use, padrões de auto mode, definição de harness em 5 frameworks — está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=agente-ia-24-horas-incidentes-seguranca)**.
+Este artigo cobre a fatia "como impedir que o agente quebre coisa irreversível". O playbook completo de harness engineering — AGENTS.md de 2 linhas até 100, hooks de pre-commit/pre-tool-use, padrões de auto mode, definição de harness em 5 frameworks — está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide)**.
 
 ---
 

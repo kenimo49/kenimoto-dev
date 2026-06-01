@@ -114,4 +114,4 @@ Now go check your `usage.input_tokens` line. The number is right there in the JS
 
 ---
 
-For the full mental model of how Skills fit alongside Hooks, MCP servers, and sub-agents, plus the per-mechanism cost table I wish someone had handed me a year ago, I wrote about it in [Claude Code Mastery](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=skills-loaded-3-never-fired-18). The context-window economics that makes the description-rent trick visible in the first place is in [Context Engineering](https://kenimoto.dev/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=skills-loaded-3-never-fired-18).
+For the full mental model of how Skills fit alongside Hooks, MCP servers, and sub-agents, plus the per-mechanism cost table I wish someone had handed me a year ago, I wrote about it in [Claude Code Mastery](https://kenimoto.dev/books/claude-code-mastery). The context-window economics that makes the description-rent trick visible in the first place is in [Context Engineering](https://kenimoto.dev/books/context-engineering).

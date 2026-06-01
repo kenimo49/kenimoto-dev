@@ -167,7 +167,7 @@ O tempo de debug é o que pesa no dia a dia. Com um agente só, "o job falhou à
 
 "Adicionar agentes deixou mais rápido" soa errado na cara. Só ficou mais rápido porque tirei o WebSearch do loop de decisão. A divisão foi o que permitiu remover na prática: no momento em que o Observer e o Strategist deixaram de alcançar a internet, a tentação de "só mais uma busca" sumiu.
 
-A separação em papéis é uma das peças da "harness" que mantém o agente dentro de um trilho previsível. O livro com 19 capítulos sobre como desenhar essa harness — allow-list por papel, AGENTS.md de 2 a 100 linhas, hooks pre-commit / pre-tool-use, e os 5 frameworks que falam sobre isso de forma diferente — está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=tres-papeis-observer-strategist-marketer)**.
+A separação em papéis é uma das peças da "harness" que mantém o agente dentro de um trilho previsível. O livro com 19 capítulos sobre como desenhar essa harness — allow-list por papel, AGENTS.md de 2 a 100 linhas, hooks pre-commit / pre-tool-use, e os 5 frameworks que falam sobre isso de forma diferente — está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide)**.
 
 ---
 

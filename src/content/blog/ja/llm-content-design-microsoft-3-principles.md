@@ -196,4 +196,4 @@ Microsoftの3原則をもう一度:
 
 ## さらに深掘りしたい方へ
 
-LLMO の全体像 — llms.txt 設計、JSON-LD 実装、AI引用率 KPI、ChatGPT / Perplexity / Brave の引用ロジック比較 — を1冊で扱う **[なぜあなたのサイトはChatGPTに無視されるのか — LLMO実践ガイド](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llm-content-design-microsoft-3-principles)** を参考にしてください。
+LLMO の全体像 — llms.txt 設計、JSON-LD 実装、AI引用率 KPI、ChatGPT / Perplexity / Brave の引用ロジック比較 — を1冊で扱う **[なぜあなたのサイトはChatGPTに無視されるのか — LLMO実践ガイド](https://kenimoto.dev/ja/books/llmo-ai-search-optimization)** を参考にしてください。

@@ -80,4 +80,4 @@ I am going to run the full 40-query protocol properly next month, in fresh sessi
 
 ## Want to go deeper?
 
-If you want the full system for getting cited by AI search, not just shipped to it, **[LLMO: AI Search Optimization for Engineers](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=crosspost-canonical-copy)** is the 12-chapter book that covers canonical strategy, citation-source measurement, content design, and the slow work of earning domain authority. Same author, more depth, fewer flattering numbers.
+If you want the full system for getting cited by AI search, not just shipped to it, **[LLMO: AI Search Optimization for Engineers](https://kenimoto.dev/books/llmo-ai-search-optimization)** is the 12-chapter book that covers canonical strategy, citation-source measurement, content design, and the slow work of earning domain authority. Same author, more depth, fewer flattering numbers.

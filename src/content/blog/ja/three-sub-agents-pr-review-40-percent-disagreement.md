@@ -143,7 +143,7 @@ Anthropicの1%未満という数字は本物です。ただしそれは、数ヶ
 
 ---
 
-**この記事を本1冊分に拡張したいなら。** Sub-agent設計、カスタムエージェントのパターン、Claude Codeのワークフロー全体は、[Practical Claude Code(実践Claude Code)](https://kenimoto.dev/ja/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=three-subagents-40pct-disagree) にまとめています。Claude Codeを本気で運用したいエンジニアのためのフィールドガイドです。
+**この記事を本1冊分に拡張したいなら。** Sub-agent設計、カスタムエージェントのパターン、Claude Codeのワークフロー全体は、[Practical Claude Code(実践Claude Code)](https://kenimoto.dev/ja/books/claude-code-mastery) にまとめています。Claude Codeを本気で運用したいエンジニアのためのフィールドガイドです。
 
 関連記事:
 

@@ -98,7 +98,7 @@ Vou rodar de novo daqui a 60 dias com as mesmas 30 prompts e ver se os três cit
 
 Veremos. O lado bom de transformar o próprio blog em alvo de medição é que o próximo post vira o próximo experimento.
 
-A engenharia por trás do "ser citado por IA" (llms.txt, JSON-LD, estratégia de robots.txt, design de conteúdo, KPIs de citação) está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=cinco-ias-citaram-blog-3-31)**. É o que tornaria 3 de 31 em 10 de 31, ou mais.
+A engenharia por trás do "ser citado por IA" (llms.txt, JSON-LD, estratégia de robots.txt, design de conteúdo, KPIs de citação) está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart)**. É o que tornaria 3 de 31 em 10 de 31, ou mais.
 
 ---
 

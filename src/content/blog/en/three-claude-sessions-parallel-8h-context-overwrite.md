@@ -133,7 +133,7 @@ I am still running parallel sessions. I just stopped pretending the worktree bou
 
 ---
 
-**Want the deeper version of this?** I cover the harness layer, the 6 modules of a Claude Code setup, and the failure modes of shared state in [Harness Engineering](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=3-sessions-8h-2-overwrites) — the field guide for engineers who want to run Claude Code seriously, not just open three terminals.
+**Want the deeper version of this?** I cover the harness layer, the 6 modules of a Claude Code setup, and the failure modes of shared state in [Harness Engineering](https://kenimoto.dev/books/harness-engineering-guide) — the field guide for engineers who want to run Claude Code seriously, not just open three terminals.
 
 Related on this blog:
 

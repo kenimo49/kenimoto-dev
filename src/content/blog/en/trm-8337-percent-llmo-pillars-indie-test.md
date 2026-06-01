@@ -1,5 +1,5 @@
 ---
-title: "TRM Grew ChatGPT Referrals 8,337% in 90 Days. I Tried Their 4 LLMO Pillars on Indie Sites — Only One Moved the Needle."
+title: "TRM's 8,337% LLMO Playbook on Indie Sites: Only 1 of 4 Pillars Worked"
 description: "The Rank Masters published a 90-day case study with an 8,337% ChatGPT-referral lift and four LLMO pillars. I copied the playbook onto three indie sites for 90 days. Three of the four pillars produced flat lines. The one that moved was not the one I expected."
 date: 2026-05-20
 lang: en
@@ -128,4 +128,4 @@ It also took me six hours.
 
 ---
 
-If you want the implementation details, the [llmoframework.com pillars guide](https://llmoframework.com/framework/overview/) has the JSON-LD templates I used, and my deeper write-up on which schemas actually get parsed by LLM crawlers is in [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=trm-8337-indie-test).
+If you want the implementation details, the [llmoframework.com pillars guide](https://llmoframework.com/framework/overview/) has the JSON-LD templates I used, and my deeper write-up on which schemas actually get parsed by LLM crawlers is in [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization).

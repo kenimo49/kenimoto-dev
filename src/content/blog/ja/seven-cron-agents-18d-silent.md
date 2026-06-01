@@ -130,4 +130,4 @@ tracingとobservabilityは、生きているプロセスを見るための道具
 - [Claude Codeを3セッション並列で8時間動かしたら、2回コンテキストを上書きしていた話](/ja/blog/three-claude-sessions-parallel-8h-context-overwrite/) — 同時並列セッション側の事故。「衝突」と「沈黙」で対の関係。
 - [他のエージェントを監査する4層目を足したら、Strategistが3週間サボっていた](/ja/blog/evolver-4-layer-strategist-procrastination-audit/) — 動いてはいるが procrastinate しているエージェントを上位層で監査する話。本記事のexit-code契約とレイヤが違う。
 
-ハーネス全体のhooks / ライフサイクル / フィードバックループの章を含めて、本格的に読みたい方はこちらにまとめてあります: [Harness Engineering Guide: ツールから複利的生産性へ](https://kenimoto.dev/ja/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=seven-cron-agents-18d-silent)。
+ハーネス全体のhooks / ライフサイクル / フィードバックループの章を含めて、本格的に読みたい方はこちらにまとめてあります: [Harness Engineering Guide: ツールから複利的生産性へ](https://kenimoto.dev/ja/books/harness-engineering-guide)。

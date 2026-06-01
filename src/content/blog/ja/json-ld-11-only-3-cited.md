@@ -160,4 +160,4 @@ LLMOのアドバイスでよく目にするパターンが、私が3ヶ月前に
 
 ## 本でまとめて読む
 
-「SEOがどう壊れたか」「LLMOで何を置き換えるか」「どう測るか」を8章に凝縮した [**LLMOクイックスタート: エンジニアのためのAI検索最適化入門**](https://kenimoto.dev/ja/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=json-ld-11-only-3-cited) が、3ヶ月の測定作業を週末で読める形にまとめてあります。JSON-LDの章はこの記事よりも深く踏み込んでいます。
+「SEOがどう壊れたか」「LLMOで何を置き換えるか」「どう測るか」を8章に凝縮した [**LLMOクイックスタート: エンジニアのためのAI検索最適化入門**](https://kenimoto.dev/ja/books/llmo-quickstart) が、3ヶ月の測定作業を週末で読める形にまとめてあります。JSON-LDの章はこの記事よりも深く踏み込んでいます。

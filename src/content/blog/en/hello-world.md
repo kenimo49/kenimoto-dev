@@ -50,4 +50,4 @@ AI agent quality is determined outside the AI. The model is the chef — but if 
 
 ## Want to go deeper?
 
-This article shows one piece. The full system — five vendor interpretations, six building blocks, and the implementation patterns from AGENTS.md to Self-Evolving Agents — is in **[Harness Engineering — From Using AI to Controlling AI](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=hello-world)**.
+This article shows one piece. The full system — five vendor interpretations, six building blocks, and the implementation patterns from AGENTS.md to Self-Evolving Agents — is in **[Harness Engineering — From Using AI to Controlling AI](https://kenimoto.dev/books/harness-engineering-guide)**.

@@ -221,4 +221,4 @@ Anthropicの公式ドキュメントにある判断基準が的確です。
 
 ## さらに深掘りしたい方へ
 
-本記事で触れたのは一部です。CLAUDE.md の書き方を「2行から100行まで」、Plan Mode 起点の開発フロー、チーム運用、非コーディング業務への応用まで、19章で体系化した **[実践Claude Code — コンテキストエンジニアリングで開発が変わる](https://kenimoto.dev/ja/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-code-sub-agent-design)** を参考にしてください。
+本記事で触れたのは一部です。CLAUDE.md の書き方を「2行から100行まで」、Plan Mode 起点の開発フロー、チーム運用、非コーディング業務への応用まで、19章で体系化した **[実践Claude Code — コンテキストエンジニアリングで開発が変わる](https://kenimoto.dev/ja/books/claude-code-mastery)** を参考にしてください。

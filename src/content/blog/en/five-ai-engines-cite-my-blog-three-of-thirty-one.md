@@ -102,4 +102,4 @@ We'll see. The nice thing about turning your own blog into a measurement target 
 
 ---
 
-If you want a structured way to set up the measurement loop I described (five prompts, three retries, monthly cadence), chapter 3 of [LLMO Quickstart](https://kenimoto.dev/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=five-ai-cite-my-blog-3-of-31) walks through it with the GA4 segment regex, the Python visibility script, and the rubric I scored my 450 turns against. This post is what happened when I pointed that loop at myself.
+If you want a structured way to set up the measurement loop I described (five prompts, three retries, monthly cadence), chapter 3 of [LLMO Quickstart](https://kenimoto.dev/books/llmo-quickstart) walks through it with the GA4 segment regex, the Python visibility script, and the rubric I scored my 450 turns against. This post is what happened when I pointed that loop at myself.

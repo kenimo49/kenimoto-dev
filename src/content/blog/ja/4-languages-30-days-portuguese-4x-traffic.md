@@ -95,4 +95,4 @@ ESは10本、翻訳もきれいなLatAm-neutralです。問題は配信の口で
 
 ---
 
-多言語でのAI search可視性をどう計測してどう改善するかについて、より深い playbook を本にまとめています: [LLMO: AI Search最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=multilang-pt-4x)。多言語の章は、上の数字が出てから3回書き直した章です。
+多言語でのAI search可視性をどう計測してどう改善するかについて、より深い playbook を本にまとめています: [LLMO: AI Search最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization)。多言語の章は、上の数字が出てから3回書き直した章です。

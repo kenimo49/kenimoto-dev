@@ -80,4 +80,4 @@ Claude Codeチームの[Thariq Shihipar氏は、容量の50〜60%で能動的に
 
 ---
 
-5戦略、RAG実装、動的コンテキスト選択、Memory設計までを通しで扱った [LLM を「嘘つき」から「専門家」へ変える Context Engineering 実践ガイド](https://kenimoto.dev/ja/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-code-context-rot) を Zenn と Kindle で公開しています。本記事で触れた4つの障害モードとメモリアーキテクチャは、同書の第9章にあたります。
+5戦略、RAG実装、動的コンテキスト選択、Memory設計までを通しで扱った [LLM を「嘘つき」から「専門家」へ変える Context Engineering 実践ガイド](https://kenimoto.dev/ja/books/context-engineering) を Zenn と Kindle で公開しています。本記事で触れた4つの障害モードとメモリアーキテクチャは、同書の第9章にあたります。

@@ -159,7 +159,7 @@ AI designs chaos faster than any SRE I've worked with. Without the three guardra
 
 The 14-chapter book this post draws from covers the full Krkn-AI / Harness / Steadybit / Dynatrace landscape, Chaos Engineering 2.0, and the operational practices around running chaos in production without making the news.
 
-[Chaos Engineering: A Practical Guide for Modern Distributed Systems](https://kenimoto.dev/books/chaos-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-chaos-mcp-4-times)
+[Chaos Engineering: A Practical Guide for Modern Distributed Systems](https://kenimoto.dev/books/chaos-engineering-guide)
 
 Related reading from the same harness series:
 

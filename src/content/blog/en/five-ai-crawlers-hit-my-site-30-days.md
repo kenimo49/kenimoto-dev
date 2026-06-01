@@ -115,7 +115,7 @@ Three concrete changes after the 30-day window:
 
 I expected the logs to confirm what I already believed about LLMO. They mostly didn't. Citation isn't the only signal worth watching. Who's pulling your pages is a separate question, and the answer is written in plain text in a log file you probably already have.
 
-If you want the full measurement frame (citation tracking, GA4 referrals, and server-log crawler analysis as parts of one system) I wrote a book on exactly this: [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=five-ai-crawlers-30-days). Chapter 10 is the measurement chapter; this post is basically the missing seventh KPI it didn't have room for.
+If you want the full measurement frame (citation tracking, GA4 referrals, and server-log crawler analysis as parts of one system) I wrote a book on exactly this: [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization). Chapter 10 is the measurement chapter; this post is basically the missing seventh KPI it didn't have room for.
 
 ---
 

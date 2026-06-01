@@ -129,7 +129,7 @@ Se você levar uma coisa só desse post: ao abrir a segunda sessão do Claude Co
 
 Continuo rodando sessões em paralelo. Só parei de fingir que o limite da worktree era o limite todo.
 
-Os 3 padrões (e o capítulo de Skills/memória/settings que explica por que eles colidem) estão em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=tres-sessoes-claude-paralelo)**. O capítulo de Plan Mode é o que mais releio antes de abrir a segunda sessão.
+Os 3 padrões (e o capítulo de Skills/memória/settings que explica por que eles colidem) estão em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery)**. O capítulo de Plan Mode é o que mais releio antes de abrir a segunda sessão.
 
 ---
 

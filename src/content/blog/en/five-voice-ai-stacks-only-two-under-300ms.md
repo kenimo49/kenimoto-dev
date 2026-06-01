@@ -113,4 +113,4 @@ The deepest mistake I made was assuming "300ms" was a property of the *model* I 
 
 For the full latency anatomy, perception model, and the edge AI chapter that informed Stack 3 — I packaged the research into a Book.
 
-[Voice AI 300ms UX: Design and Engineer the Conversation Cliff](https://kenimoto.dev/books/voice-ai-300ms-ux?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=five-voice-ai-stacks-300ms)
+[Voice AI 300ms UX: Design and Engineer the Conversation Cliff](https://kenimoto.dev/books/voice-ai-300ms-ux)

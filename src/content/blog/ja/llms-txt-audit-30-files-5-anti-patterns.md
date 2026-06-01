@@ -136,4 +136,4 @@ sitemap.xml は自動生成。robots.txt はめったに変わらない。llms.t
 
 ## さらに深掘りしたい方へ
 
-llms.txt 単発ではなく、JSON-LD・robots.txt 戦略・コンテンツ設計・効果測定まで含めた LLMO の全体像が欲しい方は、 **[LLMO: エンジニアのための AI 検索最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llms-txt-audit-30-files)** が一番網羅的です。12章構成、Quickstart より深掘り、ケーススタディも多めです。
+llms.txt 単発ではなく、JSON-LD・robots.txt 戦略・コンテンツ設計・効果測定まで含めた LLMO の全体像が欲しい方は、 **[LLMO: エンジニアのための AI 検索最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization)** が一番網羅的です。12章構成、Quickstart より深掘り、ケーススタディも多めです。

@@ -157,7 +157,7 @@ The right tool is the one whose assumptions match yours. Pick on assumptions, no
 
 If you want to go deeper on Claude Code itself, including the parts I did not change in my SOUL.md but kept in my CLAUDE.md, the practitioner reference I keep going back to is here:
 
-[Claude Code Mastery: A Practitioner's Reference](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=openclaw-vs-claude-code-24h)
+[Claude Code Mastery: A Practitioner's Reference](https://kenimoto.dev/books/claude-code-mastery)
 
 It covers Skills, hooks, sub-agents, and the CLAUDE.md three-tier pattern that I still use as my default contract regardless of which terminal agent I am running today.
 

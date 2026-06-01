@@ -112,7 +112,7 @@ A frase que vou colar no monitor: **carregada ≠ ativa ≠ paga só quando usa.
 
 Roda o `claude -p` com `--output-format json` uma vez e olha o `usage.input_tokens`. O número está ali há um tempão, contando essa história. Eu é que não estava prestando atenção.
 
-A camada de design de Skills, allow-list por papel, e os padrões de operação do Claude Code que mantém o overhead de token sob controle estão em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=skills-3-dormentes-18-tokens)** — o capítulo de Skills é o que mais releio antes de adicionar uma nova.
+A camada de design de Skills, allow-list por papel, e os padrões de operação do Claude Code que mantém o overhead de token sob controle estão em **[Practical Claude Code](https://kenimoto.dev/pt/books/claude-code-mastery)** — o capítulo de Skills é o que mais releio antes de adicionar uma nova.
 
 ---
 

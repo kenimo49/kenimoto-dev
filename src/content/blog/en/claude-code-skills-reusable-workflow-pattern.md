@@ -153,4 +153,4 @@ Related read: I broke down [Claude Code vs ChatGPT Codex](https://kenimoto.dev/b
 
 ## Want to go deeper?
 
-This article touches a slice. The full Claude Code playbook — CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, non-coding applications — is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-code-skills-reusable-workflow-pattern)**.
+This article touches a slice. The full Claude Code playbook — CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, non-coding applications — is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery)**.

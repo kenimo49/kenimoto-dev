@@ -124,4 +124,4 @@ For now: three agents that follow rules, one agent that audits the rules, and on
 
 If you want the full Harness Engineering picture — the 6 building blocks, the AGENTS.md/CLAUDE.md/hooks patterns, and the Self-Evolving Agent chapter that grounds this article — that is in the book.
 
-**[Harness Engineering: From Using AI to Controlling AI](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=evolver-caught-strategist)**
+**[Harness Engineering: From Using AI to Controlling AI](https://kenimoto.dev/books/harness-engineering-guide)**

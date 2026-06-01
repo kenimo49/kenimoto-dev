@@ -145,7 +145,7 @@ Anthropic's <1% number is real. It is also measured on a pipeline that someone s
 
 ---
 
-**Want the deeper version of this?** I cover sub-agent design, custom agent patterns, and the full Claude Code workflow in [Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=three-subagents-40pct-disagree) — the field guide for engineers who want to run Claude Code seriously.
+**Want the deeper version of this?** I cover sub-agent design, custom agent patterns, and the full Claude Code workflow in [Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery) — the field guide for engineers who want to run Claude Code seriously.
 
 Related on this blog:
 

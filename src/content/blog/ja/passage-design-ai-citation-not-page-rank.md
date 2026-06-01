@@ -88,4 +88,4 @@ AI検索はそのモデルを静かに捨てました。ChatGPT SearchやPerplex
 
 AI抽出可能なコンテンツ構造のより詳しい分解は、[llmoframework.com](https://llmoframework.com) のコンテンツ設計ノートがパッセージと構造化データの階層を深掘りしています。この考え方の正典は、あちらと、ここに置いています。
 
-4階層・構造化データのパターン・その背後にある計測ループまで含めた全体像は、[LLMO: AI検索最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=passage-design-ai-citation) にまとめました。
+4階層・構造化データのパターン・その背後にある計測ループまで含めた全体像は、[LLMO: AI検索最適化](https://kenimoto.dev/ja/books/llmo-ai-search-optimization) にまとめました。

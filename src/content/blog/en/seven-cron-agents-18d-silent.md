@@ -124,4 +124,4 @@ I checked the dashboards. The dashboards were just looking at the wrong question
 - [I Added a 4th Agent That Audits My Other Agents (Evolver).](/blog/i-added-a-4th-agent-that-audits-my-other-agents-evolver/) — supervising agents that *are* running but procrastinating; complementary to the contract-level checks above.
 - [9 Bugs in My AI Pipeline: None Were the AI's Fault.](/blog/9-bugs-in-my-ai-pipeline/) — full bug catalogue from the surrounding scripts; silent-cron was #7 on the list.
 
-If you'd rather go deeper than a single blog post, I expanded the lifecycle-and-hooks layer of this story into a chapter of my book on AI agent harnessing: [Harness Engineering Guide: From Tools to Compounding Productivity](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=seven-cron-agents-18d-silent).
+If you'd rather go deeper than a single blog post, I expanded the lifecycle-and-hooks layer of this story into a chapter of my book on AI agent harnessing: [Harness Engineering Guide: From Tools to Compounding Productivity](https://kenimoto.dev/books/harness-engineering-guide).

@@ -98,4 +98,4 @@ For my blog, that was Portuguese. For yours, it might be Indonesian, or Korean, 
 
 ---
 
-If you want the deeper playbook on measuring and improving your AI-search visibility across languages, I wrote a book on it: [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=multilang-pt-4x). The multi-language chapter is the one I rewrote three times after the numbers above came in.
+If you want the deeper playbook on measuring and improving your AI-search visibility across languages, I wrote a book on it: [LLMO: AI Search Optimization](https://kenimoto.dev/books/llmo-ai-search-optimization). The multi-language chapter is the one I rewrote three times after the numbers above came in.

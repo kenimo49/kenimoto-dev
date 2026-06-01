@@ -345,5 +345,46 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
         });
       });
     </script>
+
+    <!-- サイト全体のアウトバウンドCTA計測。ブログ記事内の book CTA リンク(data-cta無し)を
+         cta_click として拾う。BookLayout の data-cta-* ボタンは既に専用計測されるため二重発火を避けてスキップする。 -->
+    <script is:inline>
+      (function () {
+        var SELF = location.hostname.replace(/^www\./, '');
+        function destHost(href) {
+          try { return new URL(href, location.href).hostname.replace(/^www\./, ''); }
+          catch (e) { return ''; }
+        }
+        function ctaType(host) {
+          if (/(^|\.)(amazon\.|amzn\.)/.test(host) || /amazon|amzn/.test(host)) return 'amazon';
+          if (/zenn\.dev$/.test(host)) return 'zenn';
+          if (/docswell\.com$/.test(host)) return 'docswell';
+          if (/github\.com$/.test(host)) return 'github';
+          return 'other';
+        }
+        function emit(a) {
+          if (typeof gtag !== 'function') return;
+          var host = destHost(a.href);
+          if (!host || host === SELF) return;            // 内部リンクは無視
+          if (a.hasAttribute('data-cta-amazon') || a.hasAttribute('data-cta-sample') ||
+              a.hasAttribute('data-cta-zenn') || a.hasAttribute('data-cta-toc') ||
+              a.hasAttribute('data-cta-other')) return;  // LP 専用計測に委譲(二重発火回避)
+          gtag('event', 'cta_click', {
+            event_category: 'outbound',
+            event_label: location.pathname,
+            cta_position: 'in-article',
+            cta_type: ctaType(host),
+            destination: a.href,
+            transport_type: 'beacon',
+          });
+        }
+        function handler(e) {
+          var a = e.target && e.target.closest && e.target.closest('a[href]');
+          if (a) emit(a);
+        }
+        document.addEventListener('pointerdown', handler, true);
+        document.addEventListener('auxclick', function (e) { if (e.button === 1) handler(e); }, true);
+      })();
+    </script>
   </body>
 </html>

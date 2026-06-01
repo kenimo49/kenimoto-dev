@@ -128,7 +128,7 @@ Cancelei o resto. Não porque são ruins. Porque pagar USD 499 por mês para rec
 
 Se você está prestes a gastar dinheiro num rastreador de citação por IA, faça isso primeiro: escreva numa frase só o que "citação" significa para você. Depois pergunte para cada fornecedor se a definição deles bate com a sua. A maioria não responde direito. Essa é a resposta.
 
-O frame completo de medição (KPIs de citação, GA4 referrals, análise de log de crawler como peças de um sistema) está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=7-rastreadores-citacoes-ia)**. O capítulo de medição é o que define "citação" antes de comprar qualquer rastreador.
+O frame completo de medição (KPIs de citação, GA4 referrals, análise de log de crawler como peças de um sistema) está em **[LLMO Quickstart: Otimização para Busca por IA para Engenheiros](https://kenimoto.dev/pt/books/llmo-quickstart)**. O capítulo de medição é o que define "citação" antes de comprar qualquer rastreador.
 
 ---
 

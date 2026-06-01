@@ -96,7 +96,7 @@ This is the part I should have figured out before instrumenting any of this. The
 
 The escape hatch exists for these. The week-end review of the escape-hatch log is where I notice if I am abusing it. "I bypassed TDD because the test was hard to write" is a smell. "I bypassed TDD because the code was a snapshot test of CSS class names" is fine. The audit, not the rule, is what keeps the workflow honest.
 
-My CLAUDE.md still says `## TDD First`. I left it there for vibes. It was never going to be the part that did the work. The hook is the part that does the work, and the audit is the part that decides whether the hook is still tuned right. The full chapter on Claude Code's prompt-vs-hook-vs-MCP layering — when to use which layer for which kind of rule — is in [Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-tdd-6-of-10). The hooks chapter is the one I keep going back to.
+My CLAUDE.md still says `## TDD First`. I left it there for vibes. It was never going to be the part that did the work. The hook is the part that does the work, and the audit is the part that decides whether the hook is still tuned right. The full chapter on Claude Code's prompt-vs-hook-vs-MCP layering — when to use which layer for which kind of rule — is in [Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery). The hooks chapter is the one I keep going back to.
 
 Sources:
 - [TDD with Claude Code (FlorianBruniaux/claude-code-ultimate-guide)](https://github.com/FlorianBruniaux/claude-code-ultimate-guide/blob/main/guide/workflows/tdd-with-claude.md)

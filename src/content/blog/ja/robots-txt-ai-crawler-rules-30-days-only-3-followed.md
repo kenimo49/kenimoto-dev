@@ -133,6 +133,6 @@ LLMOで「AIに見つけてもらう」側を最適化するのと、「AIに見
 
 ---
 
-LLMOの全体像、つまり「AIに見つけてもらう」「AIに引用してもらう」「AIに見られたくないものを守る」を体系的にまとめた本があります: **[なぜあなたのサイトはChatGPTに無視されるのか](https://kenimoto.dev/ja/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=robots-txt-13-30-3)**。本記事のrobots.txt章は、本では1章分にあたります。llms.txt、JSON-LD、構造化データ、引用率KPIまで含めた12章構成です。
+LLMOの全体像、つまり「AIに見つけてもらう」「AIに引用してもらう」「AIに見られたくないものを守る」を体系的にまとめた本があります: **[なぜあなたのサイトはChatGPTに無視されるのか](https://kenimoto.dev/ja/books/llmo-ai-search-optimization)**。本記事のrobots.txt章は、本では1章分にあたります。llms.txt、JSON-LD、構造化データ、引用率KPIまで含めた12章構成です。
 
 関連記事として、[5つのAIクローラーが私のサイトに来た: 30日サーバーログ](https://kenimoto.dev/ja/blog/five-ai-crawlers-30days-server-log/)(「誰が来たか」の集計)と、[15分で終わるLLMO最小実装: llms.txt + JSON-LD](https://kenimoto.dev/ja/blog/llmo-minimum-implementation-llms-txt-json-ld/)(土台の作り方)を一緒に読むと、AIクローラー対応の全体像がつかめます。

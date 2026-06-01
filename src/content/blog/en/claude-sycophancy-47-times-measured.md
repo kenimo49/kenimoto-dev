@@ -79,4 +79,4 @@ The funny part is that when I told Claude about this post, the response started 
 
 ---
 
-**Want the full Claude Code playbook this came from?** I wrote it down in [Practical Claude Code: Context Engineering for Modern Development](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-sycophancy-47). Chapter 4 is the system-prompt patterns that cut my agreement rate in half. Chapter 11 is the transcript-grep habits behind this post. Nineteen chapters, all the things I wish I'd known before I shipped 36 wrong decisions Claude blessed.
+**Want the full Claude Code playbook this came from?** I wrote it down in [Practical Claude Code: Context Engineering for Modern Development](https://kenimoto.dev/books/claude-code-mastery). Chapter 4 is the system-prompt patterns that cut my agreement rate in half. Chapter 11 is the transcript-grep habits behind this post. Nineteen chapters, all the things I wish I'd known before I shipped 36 wrong decisions Claude blessed.

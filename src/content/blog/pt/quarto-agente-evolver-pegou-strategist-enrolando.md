@@ -127,7 +127,7 @@ A outra coisa na lista é a recursão óbvia. Quem audita o Evolver? Por enquant
 
 Por enquanto: 3 agentes que seguem regras, 1 agente que audita as regras, 1 humano que aprova a auditoria. É o arnês mais enxuto que achei capaz de pegar a própria enrolação.
 
-A definição de "arnês" em 5 frameworks (OpenAI, Anthropic, LangChain, Martin Fowler, academia), os AGENTS.md de 2 a 100 linhas, e o capítulo de Self-Evolving Agents que o Evolver vive — tudo está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=quarto-agente-evolver)**.
+A definição de "arnês" em 5 frameworks (OpenAI, Anthropic, LangChain, Martin Fowler, academia), os AGENTS.md de 2 a 100 linhas, e o capítulo de Self-Evolving Agents que o Evolver vive — tudo está em **[Harness Engineering: De Usar IA a Controlar IA](https://kenimoto.dev/pt/books/harness-engineering-guide)**.
 
 ---
 

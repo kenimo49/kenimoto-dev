@@ -183,7 +183,7 @@ Context Engineering は、AI に「何を渡すか」を設計する技術です
 
 LLMO の実装側、特に「今日から書ける llms.txt と JSON-LD 11スキーマ」を体系的に押さえたい方は、本書がおすすめです。
 
-[LLMO クイックスタート: AI 検索時代のWeb最適化入門](https://kenimoto.dev/ja/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=llmo-three-paths-intro)
+[LLMO クイックスタート: AI 検索時代のWeb最適化入門](https://kenimoto.dev/ja/books/llmo-quickstart)
 
 本書は本記事の元になった第1章を含む、3経路の最適化を実装側まで落とし込んだ入門書です。第2章で今日から書ける実装、第3章で計測の仕組みを扱います。
 

@@ -111,4 +111,4 @@ The choice you don't have to make is the binary one. Pick the workflow per task.
 
 ## Want to go deeper?
 
-This article touches a slice. The full Claude Code playbook — CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, non-coding applications — is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-code-vs-chatgpt-codex-official-agents)**.
+This article touches a slice. The full Claude Code playbook — CLAUDE.md patterns from 2 lines to 100, Plan Mode workflow, team operations, non-coding applications — is in **[Practical Claude Code](https://kenimoto.dev/books/claude-code-mastery)**.

@@ -152,4 +152,4 @@ Eleven schemas was a landfill. Three schemas is a site.
 
 ## Want the full LLMO playbook?
 
-If you want the eight-chapter compressed version of how SEO breaks, what LLMO replaces it with, and how to measure all of it, the book that compresses three months of measurement work into a weekend read is [**LLMO Quickstart: An Engineer's Intro to AI Search Optimization**](https://kenimoto.dev/books/llmo-quickstart?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=11-json-ld-3-cited-by-ai). Same author, longer form, the JSON-LD chapter goes deeper than this post.
+If you want the eight-chapter compressed version of how SEO breaks, what LLMO replaces it with, and how to measure all of it, the book that compresses three months of measurement work into a weekend read is [**LLMO Quickstart: An Engineer's Intro to AI Search Optimization**](https://kenimoto.dev/books/llmo-quickstart). Same author, longer form, the JSON-LD chapter goes deeper than this post.

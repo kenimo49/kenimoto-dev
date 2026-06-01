@@ -120,7 +120,7 @@ The three agents do not share a conversation. They share files.
 22:00  Observer    → records today's early traction → tomorrow's input
 ```
 
-I run this as plain `cron` on a small VPS. The full crontab is in [chapter 11 of the harness book](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=three-role-separation); the short version is one line per job with `set -euo pipefail`, `trap ... ERR`, a Telegram failure ping, and a lock file. About 30 lines of shell per role.
+I run this as plain `cron` on a small VPS. The full crontab is in [chapter 11 of the harness book](https://kenimoto.dev/books/harness-engineering-guide); the short version is one line per job with `set -euo pipefail`, `trap ... ERR`, a Telegram failure ping, and a lock file. About 30 lines of shell per role.
 
 If you want managed durability instead of cron, [Temporal's Schedules](https://temporal.io/blog/orchestrating-ambient-agents-with-temporal), [Inngest's cron triggers](https://www.inngest.com/), and [GitHub Actions cron](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) all hit the same shape. The architecture doesn't care which one carries it. I use cron because the failure mode is "the server is off," and I notice that quickly.
 
@@ -165,4 +165,4 @@ The debug time is the one that matters daily. With one agent, "the job failed at
 
 ---
 
-**Related**: I've been writing about agent harnesses for a while — [Natural-language agent harnesses (arxiv)](https://kenimoto.dev/blog/natural-language-agent-harnesses-arxiv) covers the concept; this post is the implementation. The deep version, with full crontab, prompt files, and role allow-lists, is in [Harness Engineering: From Using AI to Controlling AI](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=three-role-separation).
+**Related**: I've been writing about agent harnesses for a while — [Natural-language agent harnesses (arxiv)](https://kenimoto.dev/blog/natural-language-agent-harnesses-arxiv) covers the concept; this post is the implementation. The deep version, with full crontab, prompt files, and role allow-lists, is in [Harness Engineering: From Using AI to Controlling AI](https://kenimoto.dev/books/harness-engineering-guide).

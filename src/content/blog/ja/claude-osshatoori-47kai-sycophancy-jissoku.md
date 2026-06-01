@@ -75,4 +75,4 @@ OpenAIは2024年に[GPT-4oの過剰なフレンドリー化を公式に取り下
 
 ---
 
-**この記事の元になっているClaude Code運用論をまとめた話。** CLAUDE.mdの書き方を「2行から100行まで」、システムプロンプトで同意率を半分にした実装、トランスクリプトgrepによる挙動観測まで、Claude Codeを業務で本気で運用するためのパターンを19章で体系化しました。[実践Claude Code — コンテキストエンジニアリングで開発が変わる](https://kenimoto.dev/ja/books/claude-code-mastery?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-sycophancy-47kai)で、本記事の第4章相当（system promptパターン）と第11章相当（transcriptレビュー習慣）を読めます。
+**この記事の元になっているClaude Code運用論をまとめた話。** CLAUDE.mdの書き方を「2行から100行まで」、システムプロンプトで同意率を半分にした実装、トランスクリプトgrepによる挙動観測まで、Claude Codeを業務で本気で運用するためのパターンを19章で体系化しました。[実践Claude Code — コンテキストエンジニアリングで開発が変わる](https://kenimoto.dev/ja/books/claude-code-mastery)で、本記事の第4章相当（system promptパターン）と第11章相当（transcriptレビュー習慣）を読めます。

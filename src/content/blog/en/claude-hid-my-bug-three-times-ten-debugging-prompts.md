@@ -72,7 +72,7 @@ Each of these maps to a classic debugging habit. Each one is a sentence I now pa
 
 **10. Break things on purpose.** "To verify a hypothesis, propose an intentional change that should make the bug worse or better. Predict the outcome before running it." This is the one that flips debugging from observation to experiment. It also catches lies your monitoring is telling you.
 
-The whole set, including the rationale and the original-language formulations, comes from the [Debugging Engineering](https://kenimoto.dev/books/debugging-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-hid-bug-3x-debug-10) book. That's where the 10 habits started, and where the chapter on translating them into prompts lives.
+The whole set, including the rationale and the original-language formulations, comes from the [Debugging Engineering](https://kenimoto.dev/books/debugging-engineering) book. That's where the 10 habits started, and where the chapter on translating them into prompts lives.
 
 ## Persist the rules in CLAUDE.md
 
@@ -135,7 +135,7 @@ Three is not magic. It is the point where the cost of one more guess exceeds the
 
 "Let Claude debug it" is half true. It is fast. It just defaults to fast at *hiding* the problem unless you arm it differently. The 10 prompts arm it. The CLAUDE.md remembers them for you. The hooks catch what slips through. None of these is expensive. The on-call page at 11pm is.
 
-The full chapter on translating the 10 habits into prompts, plus the Claude Code weapons chapter on CLAUDE.md, hooks, and MCP layering, is in [Debugging Engineering](https://kenimoto.dev/books/debugging-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=claude-hid-bug-3x-debug-10).
+The full chapter on translating the 10 habits into prompts, plus the Claude Code weapons chapter on CLAUDE.md, hooks, and MCP layering, is in [Debugging Engineering](https://kenimoto.dev/books/debugging-engineering).
 
 Sources:
 - [2025 Stack Overflow Developer Survey, AI section](https://survey.stackoverflow.co/2025/ai)

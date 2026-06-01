@@ -24,7 +24,7 @@ This post is about what those numbers actually mean for the way you spend your c
 
 ## What I was measuring
 
-I was running a benchmark against my own [Context Engineering book](https://kenimoto.dev/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=full-ce-rag-80) for a previous experiment ([the cheap-model post](https://kenimoto.dev/blog/cheap-model-won-context-beats-parameters)). The same scoring rubric: factual accuracy, hallucination rate, specificity, and honesty on a 0 to 15 scale.
+I was running a benchmark against my own [Context Engineering book](https://kenimoto.dev/books/context-engineering) for a previous experiment ([the cheap-model post](https://kenimoto.dev/blog/cheap-model-won-context-beats-parameters)). The same scoring rubric: factual accuracy, hallucination rate, specificity, and honesty on a 0 to 15 scale.
 
 The configurations were a ladder. Each rung adds one more thing on top of the previous one.
 
@@ -120,4 +120,4 @@ The next time someone says "Context Engineering," what I want to say back is: pl
 
 ## Want to go deeper?
 
-The full Context Engineering system (five strategies, the RAG benchmarks behind these numbers, MCP server design, and the Agentic RAG implementation) is in **[Turning LLMs from Liars into Experts: Context Engineering in Practice](https://kenimoto.dev/books/context-engineering?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=full-ce-rag-80)**.
+The full Context Engineering system (five strategies, the RAG benchmarks behind these numbers, MCP server design, and the Agentic RAG implementation) is in **[Turning LLMs from Liars into Experts: Context Engineering in Practice](https://kenimoto.dev/books/context-engineering)**.

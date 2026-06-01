@@ -1,6 +1,6 @@
 ---
-title: "I Was Calling It 'Setup' for Six Months. arXiv Has a Better Word: Harness"
-description: "An arXiv paper renamed something I'd been building all year. Here's what 'Natural-Language Agent Harnesses' (2603.25723) gave me — and why the vocabulary upgrade made my team meetings 30% shorter."
+title: "arXiv's 'Natural-Language Agent Harnesses' (2603.25723): The Word I'd Been Missing"
+description: "A plain-English read of the arXiv paper 'Natural-Language Agent Harnesses' (2603.25723): what the term means, how it reframed the 'setup' I'd built all year, and why the vocabulary upgrade made my team meetings 30% shorter."
 date: 2026-05-06
 lang: en
 tags: [ai, claudecode, harness, agents]
@@ -112,4 +112,4 @@ I'll keep calling it the harness. If a better word shows up next year, I'll swit
 
 ## Want to go deeper?
 
-For a complete walk-through of harness engineering — the six structural elements, formal patterns, AGENTS.md design, and how to wire CLAUDE.md, skills, and hooks into a coherent runtime — see **[Harness Engineering Guide: Designing the Layer Around the Model](https://kenimoto.dev/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=harness-arxiv-paper)**.
+For a complete walk-through of harness engineering — the six structural elements, formal patterns, AGENTS.md design, and how to wire CLAUDE.md, skills, and hooks into a coherent runtime — see **[Harness Engineering Guide: Designing the Layer Around the Model](https://kenimoto.dev/books/harness-engineering-guide)**.

@@ -132,7 +132,7 @@ cat > "$target"
 
 ---
 
-**この話をもっと詳しく:** ハーネスレイヤー、Claude Codeセットアップを構成する6つのモジュール、共有状態の失敗モードについては、[ハーネス・エンジニアリング](https://kenimoto.dev/ja/books/harness-engineering-guide?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=3-sessions-8h-2-overwrites-ja) で詳しく扱っています。ターミナルを3つ開くだけで終わらせず、Claude Codeを本気で運用したいエンジニア向けのフィールドガイドです。
+**この話をもっと詳しく:** ハーネスレイヤー、Claude Codeセットアップを構成する6つのモジュール、共有状態の失敗モードについては、[ハーネス・エンジニアリング](https://kenimoto.dev/ja/books/harness-engineering-guide) で詳しく扱っています。ターミナルを3つ開くだけで終わらせず、Claude Codeを本気で運用したいエンジニア向けのフィールドガイドです。
 
 このブログの関連記事:
 

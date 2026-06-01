@@ -132,4 +132,4 @@ If you are about to spend money on an AI citation tracker, do this first: write 
 
 I wrote a book about exactly this measurement problem, including the Python script I use and the GA4 setup that pairs with it.
 
-[Why ChatGPT Ignores Your Website: The LLMO Practical Guide](https://kenimoto.dev/books/llmo-ai-search-optimization?utm_source=kenimoto-dev-blog&utm_medium=article&utm_campaign=seven-ai-citation-trackers)
+[Why ChatGPT Ignores Your Website: The LLMO Practical Guide](https://kenimoto.dev/books/llmo-ai-search-optimization)
