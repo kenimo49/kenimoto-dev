@@ -64,7 +64,7 @@ Esto es lo práctico, que es para lo que viniste. Nada de esto requiere creer en
 
 **Los descansos no son flojera, son mantenimiento.** Lo único que la curva de los jueces muestra con claridad, réplicas aparte, es que después de comer la tasa volvía a subir. No sé si fue la comida, la pausa o el cambio de orden de los casos. Me da igual el mecanismo. Si una pausa de 15 minutos me devuelve algo de mi criterio de la mañana, esa pausa es la mejor revisión de código que voy a hacer en todo el día.
 
-Y si quieres ver qué pasa cuando varios revisores cansados miran lo mismo, te dejo este otro experimento mío: [pedí a 3 sub-agentes que revisaran el mismo PR y no se pusieron de acuerdo en el 41% de los comentarios](/es/blog/tres-sub-agentes-revisaron-mismo-pr-40-desacuerdo).
+Y si quieres ver qué pasa cuando varios revisores cansados miran lo mismo, te dejo este otro experimento mío: [pedí a 3 sub-agentes que revisaran el mismo PR y no se pusieron de acuerdo en el 41% de los comentarios](/es/blog/tres-sub-agentes-revisaron-mismo-pr-40-desacuerdo/).
 
 ## El cierre
 
