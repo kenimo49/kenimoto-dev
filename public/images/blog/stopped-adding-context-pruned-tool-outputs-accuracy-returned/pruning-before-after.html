@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root{
+  --navy:#1E3A5F; --navy-mid:#3D6B99; --navy-light:#7BA3CC;
+  --navy-bg:#E8EEF4; --navy-bg-light:#F0F4F8;
+  --dark:#1A1A2E; --secondary:#6B7B8D; --muted:#9AA7B4; --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1920px;height:1080px;overflow:hidden;
+  font-family:'Noto Sans CJK JP','Noto Sans JP',sans-serif;
+  padding:72px 96px;background:var(--white);color:var(--dark);}
+.eyebrow{font-size:38px;font-weight:700;color:var(--navy);margin-bottom:14px;letter-spacing:-0.01em;}
+.title{font-size:72px;font-weight:900;color:var(--dark);margin-bottom:52px;line-height:1.05;letter-spacing:-0.02em;}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-bottom:48px;}
+.card{border-radius:16px;padding:40px 46px;min-height:470px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.06);}
+.card.before{background:#EEF1F4;border-top:10px solid var(--muted);}
+.card.after{background:var(--navy-bg-light);border-top:10px solid var(--navy);}
+.tag{font-family:'JetBrains Mono','Courier New',monospace;font-size:30px;font-weight:700;margin-bottom:6px;}
+.before .tag{color:var(--secondary);}
+.after .tag{color:var(--navy);}
+.headline{font-size:46px;font-weight:900;margin-bottom:30px;}
+.before .headline{color:var(--secondary);}
+.after .headline{color:var(--dark);}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-bottom:1px solid #D8E0EC;}
+.row:last-child{border-bottom:none;}
+.label{font-size:30px;font-weight:400;color:var(--secondary);}
+.value{font-size:34px;font-weight:700;text-align:right;}
+.before .value{color:var(--secondary);}
+.after .value{color:var(--navy);}
+.footer{display:flex;justify-content:space-between;align-items:center;padding-top:30px;border-top:2px solid var(--navy-bg);}
+.stat{font-size:42px;font-weight:700;color:var(--secondary);}
+.stat strong{font-size:84px;font-weight:900;color:var(--navy);}
+.brand{font-size:28px;color:var(--secondary);}
+</style>
+</head>
+<body>
+  <div class="eyebrow">One 3-hour migration task, two runs</div>
+  <div class="title">I pruned the context. The plan held.</div>
+  <div class="grid">
+    <div class="card before">
+      <div class="tag">// fat context</div>
+      <div class="headline">Before pruning</div>
+      <div class="row"><span class="label">Tokens used</span><span class="value">~140K</span></div>
+      <div class="row"><span class="label">Re-instructions</span><span class="value">6</span></div>
+      <div class="row"><span class="label">Wrong files touched</span><span class="value">2</span></div>
+      <div class="row"><span class="label">Design rule held?</span><span class="value">Drifted</span></div>
+    </div>
+    <div class="card after">
+      <div class="tag">// pruned context</div>
+      <div class="headline">After pruning</div>
+      <div class="row"><span class="label">Tokens used</span><span class="value">~84K</span></div>
+      <div class="row"><span class="label">Re-instructions</span><span class="value">1</span></div>
+      <div class="row"><span class="label">Wrong files touched</span><span class="value">0</span></div>
+      <div class="row"><span class="label">Design rule held?</span><span class="value">To the end</span></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="stat"><strong>~40%</strong> fewer tokens</div>
+    <div class="stat">re-instructions <strong>6&rarr;1</strong></div>
+    <div class="brand">kenimoto.dev</div>
+  </div>
+</body>
+</html>

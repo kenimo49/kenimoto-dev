@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<style>
+:root{
+  --navy:#1E3A5F; --navy-mid:#3D6B99; --navy-light:#7BA3CC;
+  --navy-bg:#E8EEF4; --navy-bg-light:#F0F4F8;
+  --dark:#1A1A2E; --secondary:#6B7B8D; --muted:#9AA7B4; --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1920px;height:1080px;overflow:hidden;
+  font-family:'Noto Sans CJK JP','Noto Sans JP',sans-serif;
+  padding:72px 96px;background:var(--white);color:var(--dark);}
+.eyebrow{font-size:38px;font-weight:700;color:var(--navy);margin-bottom:14px;}
+.title{font-size:66px;font-weight:900;color:var(--dark);margin-bottom:48px;line-height:1.06;letter-spacing:-0.02em;}
+.wrap{display:grid;grid-template-columns:1fr 200px 1fr;align-items:center;gap:24px;margin-bottom:50px;}
+.card{border-radius:16px;padding:44px 48px;min-height:420px;box-shadow:0 4px 14px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:center;}
+.card.weak{background:#EEF1F4;border-top:10px solid var(--muted);}
+.card.strong{background:var(--navy-bg-light);border-top:10px solid var(--navy);}
+.tag{font-family:'JetBrains Mono','Courier New',monospace;font-size:30px;font-weight:700;margin-bottom:20px;}
+.weak .tag{color:var(--secondary);}
+.strong .tag{color:var(--navy);}
+.big{font-size:118px;font-weight:900;line-height:1;letter-spacing:-0.03em;margin-bottom:8px;}
+.weak .big{color:var(--secondary);}
+.strong .big{color:var(--navy);}
+.unit{font-size:34px;font-weight:700;color:var(--secondary);margin-bottom:24px;}
+.sub{font-size:32px;font-weight:400;color:var(--secondary);line-height:1.35;}
+.strong .sub{color:var(--dark);}
+.arrow{text-align:center;}
+.arrow .x{font-size:96px;font-weight:900;color:var(--navy);line-height:1;letter-spacing:-0.02em;}
+.arrow .x small{font-size:48px;}
+.arrow .cap{font-size:26px;color:var(--secondary);margin-top:10px;font-weight:700;}
+.footer{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:2px solid var(--navy-bg);}
+.note{font-size:34px;font-weight:700;color:var(--secondary);}
+.note strong{color:var(--navy);}
+.brand{font-size:28px;color:var(--secondary);}
+</style>
+</head>
+<body>
+  <div class="eyebrow">O passo que mais melhora a revisão não usa IA</div>
+  <div class="title">Tree-sitter + blast radius:<br>o contexto despenca</div>
+  <div class="wrap">
+    <div class="card weak">
+      <div class="tag">// "por garantia"</div>
+      <div class="big">150k</div>
+      <div class="unit">tokens / revisão</div>
+      <div class="sub">arquivo + 50 do entorno<br>jogados no modelo</div>
+    </div>
+    <div class="arrow">
+      <div class="x">8,3<small>x</small></div>
+      <div class="cap">menos contexto</div>
+    </div>
+    <div class="card strong">
+      <div class="tag">// blast radius (AST local)</div>
+      <div class="big">18k</div>
+      <div class="unit">tokens / revisão</div>
+      <div class="sub">arquivo + 7 do blast radius<br>que a mudança realmente toca</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="note">Pass 1 determinístico: <strong>0</strong> chamadas de LLM, offline</div>
+    <div class="brand">kenimoto.dev</div>
+  </div>
+</body>
+</html>

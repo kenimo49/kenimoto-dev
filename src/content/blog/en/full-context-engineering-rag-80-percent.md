@@ -116,6 +116,8 @@ The answer is almost always: do RAG well first. Everything else is decoration. D
 
 The next time someone says "Context Engineering," what I want to say back is: please define which 20 percent of context you mean. The other 80 has a good chance of making things worse.
 
+That second half has a mirror image worth reading: instead of stacking layers on, I later [pruned raw tool outputs off](https://kenimoto.dev/blog/stopped-adding-context-pruned-tool-outputs-accuracy-returned/) and watched a 3-hour task stop forgetting its own plan. Same window, opposite direction. Adding the right layer and removing the wrong noise are the two ends of the same lever.
+
 ---
 
 ## Want to go deeper?
