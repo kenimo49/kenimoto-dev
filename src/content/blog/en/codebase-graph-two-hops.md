@@ -7,7 +7,9 @@ tags: [tree-sitter, code-graph, static-analysis, developer-tools, refactoring]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/codebase-graph-two-hops/"
 og_image: "https://kenimoto.dev/images/blog/codebase-graph-two-hops/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-mapped-my-codebase-as-a-graph-the-file-that-broke-was-two-hops-away-39aa-temp-slug-4121082
 ---
 
 The change was one line. I renamed a function's return type, fixed the two callers the compiler yelled about, ran the local suite, watched it go green, and shipped before lunch. Classic.

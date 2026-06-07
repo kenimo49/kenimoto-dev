@@ -7,7 +7,9 @@ tags: [context-engineering, claude-code, llm, ai-agents]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/stopped-adding-context-pruned-tool-outputs-accuracy-returned/"
 og_image: "https://kenimoto.dev/images/blog/stopped-adding-context-pruned-tool-outputs-accuracy-returned/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/i-stopped-adding-context-to-my-agent-and-pruned-tool-outputs-instead-my-3-hour-task-stopped-5124-temp-slug-7232813
 ---
 
 For a long time I treated context like savings: the more I put in, the richer I'd be. Thick CLAUDE.md, every file that might be relevant, the full output of every tool left sitting in the window. More information, smarter agent. That was the theory.

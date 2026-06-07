@@ -7,7 +7,9 @@ tags: ["LLMO", "GEO", "AEO", "AI search"]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/passage-rank-beats-page-rank-ai-citations"
 og_image: "https://kenimoto.dev/images/blog/passage-rank-beats-page-rank-ai-citations/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/your-page-rank-is-invisible-to-ai-only-your-passages-get-cited-511d-temp-slug-7568915
 ---
 
 I spent two years chasing page-one rankings. Then I watched an AI assistant cite a post of mine that was sitting on page three of Google, and ignore the post that was ranking number one for the exact same query. That stung. It also told me everything I'd been optimizing for was aimed at the wrong unit.

@@ -7,7 +7,9 @@ tags: [llmo, geo, ai-search, content-design]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/query-fanout-ai-citations/"
 og_image: "https://kenimoto.dev/images/blog/query-fanout-ai-citations/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/ai-search-splits-your-one-question-into-six-my-pages-answered-none-of-them-p56-temp-slug-4772810
 ---
 
 I spent a year writing pages that answered exactly the question in the title, and then wondered why the AI never quoted me.

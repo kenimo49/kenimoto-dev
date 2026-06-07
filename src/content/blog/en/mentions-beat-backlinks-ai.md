@@ -7,7 +7,9 @@ tags: ["LLMO", "GEO", "AEO", "AI search"]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/mentions-beat-backlinks-ai"
 og_image: "https://kenimoto.dev/images/blog/mentions-beat-backlinks-ai/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/link-less-brand-mentions-beat-backlinks-for-ai-visibility-i-read-the-ahrefs-75000-brand-study-so-ai6-temp-slug-2219532
 ---
 
 Here's the number that ruined my week: **0.664.** That's the correlation Ahrefs found between unlinked web mentions and a brand showing up in AI Overviews, across **75,000 brands**. Backlinks, the thing I and roughly the entire SEO industry spent a decade hoarding, scored **0.218**. Mentions beat links by roughly 3x, and the link didn't even need to exist.
