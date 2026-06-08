@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --border: #D8E0EC;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+}
+body {
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  padding: 56px 80px;
+  position: relative;
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.title {
+  font-size: 70px;
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+.subtitle {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  letter-spacing: 0.02em;
+}
+.message {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--navy-mid);
+  margin-bottom: 30px;
+}
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 110px 1.25fr;
+  gap: 26px;
+  align-items: stretch;
+  margin-bottom: 30px;
+}
+.col {
+  background: var(--navy-bg-light);
+  border-radius: 16px;
+  padding: 34px 40px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 640px;
+  position: relative;
+}
+.col.left  { border-top: 10px solid var(--navy-light); }
+.col.right { border-top: 10px solid var(--navy); }
+.col-label {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 4px;
+  line-height: 1.1;
+}
+.col-stat {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+  margin-bottom: 18px;
+}
+/* ---- LEFT: one big number ---- */
+.point-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.point-num {
+  font-size: 168px;
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+.point-cap {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--navy-mid);
+  margin-top: 8px;
+}
+.point-warn {
+  margin-top: 40px;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--navy-mid);
+  border-radius: 14px;
+  padding: 16px 30px;
+  text-align: center;
+  line-height: 1.3;
+}
+.point-real {
+  margin-top: 22px;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+/* ---- DIVIDER ---- */
+.vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--navy-light);
+}
+/* ---- RIGHT: distribution ---- */
+.dist-area {
+  flex: 1;
+  position: relative;
+}
+.dist-svg {
+  width: 100%;
+  height: 100%;
+}
+.legend {
+  display: flex;
+  gap: 36px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.lg {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--dark);
+}
+.sw {
+  width: 34px;
+  height: 18px;
+  border-radius: 5px;
+  flex-shrink: 0;
+}
+/* ---- FOOTER ---- */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 2px solid var(--navy-bg);
+}
+.big-stat {
+  font-size: 46px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+.brand {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="title">点推定 vs 確率分布</div>
+    <div class="subtitle">Simulator が返すべきは、幅</div>
+  </div>
+  <div class="message">1つの数字は最悪ケースを隠す。分布は尾部リスクを見せる。</div>
+
+  <div class="compare">
+    <!-- LEFT: one number -->
+    <div class="col left">
+      <div class="col-label">点推定</div>
+      <div class="col-stat">1つの数字を確定として渡す</div>
+      <div class="point-area">
+        <div class="point-num">2,000</div>
+        <div class="point-cap">CAC = 2,000円</div>
+        <div class="point-warn">幅がゼロに潰れている<br>後続エージェントが過信する</div>
+        <div class="point-real">実測: 3,400円 &rarr; 損益分岐が崩壊</div>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="vs">vs</div>
+
+    <!-- RIGHT: distribution -->
+    <div class="col right">
+      <div class="col-label">確率分布</div>
+      <div class="col-stat">中央値 + 信頼区間 + 尾部リスク</div>
+      <div class="dist-area">
+        <svg class="dist-svg" viewBox="0 0 820 470" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <clipPath id="curveClip">
+              <path d="M 40 400
+                       C 180 400, 230 360, 300 230
+                       C 350 130, 400 95, 440 95
+                       C 480 95, 520 150, 560 250
+                       C 610 360, 680 392, 780 400 Z"/>
+            </clipPath>
+          </defs>
+
+          <!-- baseline -->
+          <line x1="40" y1="400" x2="790" y2="400" stroke="#D8E0EC" stroke-width="3"/>
+
+          <!-- 95% CI band (clipped to curve): x 300..560 -->
+          <g clip-path="url(#curveClip)">
+            <rect x="300" y="60" width="260" height="345" fill="#7BA3CC" opacity="0.45"/>
+            <!-- tail risk band p95+: x 560..680 -->
+            <rect x="560" y="60" width="135" height="345" fill="#1E3A5F" opacity="0.30"/>
+          </g>
+
+          <!-- curve outline -->
+          <path d="M 40 400
+                   C 180 400, 230 360, 300 230
+                   C 350 130, 400 95, 440 95
+                   C 480 95, 520 150, 560 250
+                   C 610 360, 680 392, 780 400"
+                fill="none" stroke="#1E3A5F" stroke-width="4"/>
+
+          <!-- median line -->
+          <line x1="440" y1="95" x2="440" y2="400" stroke="#1E3A5F" stroke-width="4" stroke-dasharray="2 0"/>
+          <circle cx="440" cy="95" r="9" fill="#1E3A5F"/>
+          <text x="440" y="70" text-anchor="middle" font-size="30" font-weight="700" fill="#1E3A5F">中央値 2,100</text>
+
+          <!-- CI labels -->
+          <text x="300" y="438" text-anchor="middle" font-size="27" font-weight="700" fill="#3D6B99">1,600</text>
+          <text x="560" y="438" text-anchor="middle" font-size="27" font-weight="700" fill="#3D6B99">2,800</text>
+
+          <!-- p95 tail -->
+          <line x1="680" y1="392" x2="680" y2="400" stroke="#1E3A5F" stroke-width="3"/>
+          <text x="690" y="360" text-anchor="middle" font-size="27" font-weight="700" fill="#1E3A5F">p95</text>
+          <text x="690" y="333" text-anchor="middle" font-size="27" font-weight="900" fill="#1E3A5F">3,400</text>
+        </svg>
+      </div>
+      <div class="legend">
+        <div class="lg"><span class="sw" style="background:#7BA3CC"></span>95% 信頼区間 1,600&ndash;2,800</div>
+        <div class="lg"><span class="sw" style="background:#1E3A5F;opacity:0.55"></span>尾部リスク p95 = 3,400</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="big-stat">知りたいのは「だいたい」より「最悪いくらまで」</div>
+    <div class="brand">kenimoto.dev &middot; モンテカルロ 1,000 samples</div>
+  </div>
+</body>
+</html>
