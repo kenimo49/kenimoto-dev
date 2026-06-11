@@ -9,7 +9,7 @@ kindle_url: "https://www.amazon.com/Systematizing-AI-Code-Review-Propel-Lab-eboo
 published_date: 2026-04-21
 updated_date: 2026-04-21
 
-cover_image: "/images/books/harness-code-review.png"  # TODO: replace with -en variant when generated
+cover_image: "/images/books/harness-code-review-en.png"
 
 topics:
   - "Code Review Automation"
