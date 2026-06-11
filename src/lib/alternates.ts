@@ -16,27 +16,50 @@ function urlFor(lang: Lang, kind: 'blog' | 'books', slug: string): string {
 }
 
 /**
- * 指定slugについて、実際に翻訳が存在する言語のhreflangリストを返す。
+ * 指定エントリについて、実際に翻訳が存在する言語のhreflangリストを返す。
  * x-default は en にフォールバック、なければ存在する任意の翻訳。
+ *
+ * 対応付けの優先順位:
+ *   1. translationKey が渡され、同じ translation_key を持つエントリ群があればそれで対応付ける
+ *      (言語ごとに slug が違っても接続できる)。
+ *   2. translationKey が無い場合は従来どおり「同一 slug が他言語にも存在するか」で対応付ける
+ *      (後方互換: slug を共有している翻訳ペアはこれで動く)。
  */
 export function alternatesFor(
   allEntries: CollectionEntry<'blog'>[] | CollectionEntry<'books'>[],
   kind: 'blog' | 'books',
   slug: string,
+  translationKey?: string,
 ): Alternate[] {
-  const available: Lang[] = SUPPORTED_LANGS.filter((lang) =>
-    allEntries.some((p) => p.id === `${lang}/${slug}`),
-  );
+  // (lang, slug) のペアを集める
+  let pairs: { lang: Lang; slug: string }[];
 
-  if (available.length === 0) return [];
+  if (translationKey) {
+    pairs = allEntries
+      .filter((p) => (p.data as { translation_key?: string }).translation_key === translationKey)
+      .map((p) => {
+        const idx = p.id.indexOf('/');
+        return { lang: p.id.slice(0, idx) as Lang, slug: p.id.slice(idx + 1) };
+      })
+      .filter((e) => (SUPPORTED_LANGS as readonly string[]).includes(e.lang));
+  } else {
+    pairs = SUPPORTED_LANGS.filter((lang) =>
+      allEntries.some((p) => p.id === `${lang}/${slug}`),
+    ).map((lang) => ({ lang, slug }));
+  }
 
-  const list: Alternate[] = available.map((lang) => ({
+  if (pairs.length === 0) return [];
+
+  // SUPPORTED_LANGS 順に整列して出力を決定的にする
+  pairs.sort((a, b) => SUPPORTED_LANGS.indexOf(a.lang) - SUPPORTED_LANGS.indexOf(b.lang));
+
+  const list: Alternate[] = pairs.map(({ lang, slug: s }) => ({
     hreflang: lang,
-    href: urlFor(lang, kind, slug),
+    href: urlFor(lang, kind, s),
   }));
 
-  const defaultLang: Lang = available.includes('en') ? 'en' : available[0];
-  list.push({ hreflang: 'x-default', href: urlFor(defaultLang, kind, slug) });
+  const def = pairs.find((p) => p.lang === 'en') ?? pairs[0];
+  list.push({ hreflang: 'x-default', href: urlFor(def.lang, kind, def.slug) });
 
   return list;
 }

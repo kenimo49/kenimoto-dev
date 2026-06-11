@@ -3,6 +3,7 @@ title: "他のエージェントを監査する4層目を足したら、Strategi
 description: "Observer / Strategist / Marketer は strategy.md に従っていました。私のStrategistは「来週要観測」と3週連続で書き続けていて、3層のどこからもそれを掴めませんでした。4層目を足した初回の運用で、その正体が出てきました。"
 date: 2026-05-22
 lang: ja
+translation_key: evolver-4th-agent-audit
 tags: [ハーネスエンジニアリング, AIエージェント, claude-code, self-evolving, multi-agent]
 featured: false
 canonical_url: "https://kenimoto.dev/ja/blog/evolver-4-layer-strategist-procrastination-audit"

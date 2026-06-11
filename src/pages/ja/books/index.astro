@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Nav from '../../../components/Nav.astro';
 import { getCollection } from 'astro:content';
+import { coverThumb } from '../../../lib/thumb';
 
 const all = await getCollection('books');
 const books = all.filter((b) => b.data.lang === 'ja');
@@ -70,7 +71,7 @@ const alternates = [
           <li>
             <a href={href} class="book-card" aria-label={b.data.title}>
               {b.data.cover_image ? (
-                <img src={b.data.cover_image} alt={`${b.data.title} 表紙`} class="book-card-cover" loading="lazy" />
+                <img src={coverThumb(b.data.cover_image)} alt={`${b.data.title} 表紙`} class="book-card-cover" loading="lazy" />
               ) : (
                 <div class="book-card-cover book-card-fallback">No cover</div>
               )}

@@ -3,6 +3,7 @@ title: "3 Claude Code Sub-agents Reviewed One PR — They Disagreed on 40%"
 description: "Three Claude Code sub-agents, one 500-line PR, 41% disagreement, and one hour spent figuring out which findings to keep. Brooks's Law is alive in 2026."
 date: 2026-05-12
 lang: en
+translation_key: three-sub-agents-pr-40pct
 tags: [claude-code, sub-agents, code-review, agents]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/three-sub-agents-reviewed-same-pr-40-percent-disagreement"

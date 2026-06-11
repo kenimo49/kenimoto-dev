@@ -3,6 +3,7 @@ title: "I Plugged the Same Site Into 7 AI-Citation Trackers. They Reported 7 Dif
 description: "I gave kenimoto.dev to seven AI citation tracking platforms over 15 days. The smallest number was 38. The biggest was 312. Same site, same window, same brand. Here is why the spread happens, and which tracker I would actually pay for."
 date: 2026-05-18
 lang: en
+translation_key: seven-citation-trackers-diff-numbers
 tags: [llmo, geo, ai-citations, seo, measurement]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/seven-ai-citation-trackers-seven-different-numbers"

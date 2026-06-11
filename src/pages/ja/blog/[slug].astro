@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     const slug = post.id.replace(/^ja\//, '');
     return {
       params: { slug },
-      props: { post, alternates: alternatesFor(all, 'blog', slug) },
+      props: { post, alternates: alternatesFor(all, 'blog', slug, post.data.translation_key) },
     };
   });
 }

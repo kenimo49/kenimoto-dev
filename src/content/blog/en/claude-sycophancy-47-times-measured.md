@@ -3,6 +3,7 @@ title: "Claude Said 'You're Absolutely Right!' 47 Times Last Week. I Was Only Ri
 description: "I grepped seven days of Claude Code sessions for every 'you're absolutely right'. Got 47 hits. Reviewed each one. I was actually right in 11 of them. Claude was wrong in 36 of them. Sycophancy, measured."
 date: 2026-05-19
 lang: en
+translation_key: claude-sycophancy-47-times
 tags: [claude, sycophancy, claude-code, llm-behavior, ai]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-sycophancy-47-times-measured"

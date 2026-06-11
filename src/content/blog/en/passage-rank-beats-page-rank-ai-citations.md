@@ -3,6 +3,7 @@ title: "Your Page Rank Is Invisible to AI — Only Your Passages Get Cited"
 description: "AI search doesn't cite pages, it cites passages. Here's how I rewrote my own posts as snappable, citation-ready passages — and the four-layer structure I now use for every article."
 date: 2026-06-01
 lang: en
+translation_key: passage-not-page-rank
 tags: ["LLMO", "GEO", "AEO", "AI search"]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/passage-rank-beats-page-rank-ai-citations"

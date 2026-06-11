@@ -3,6 +3,7 @@ title: "The 5 AI Crawlers That Hit My Sites Most in 30 Days — What Their Logs 
 description: "I thought robots.txt was the boundary. Then I started reading my server logs. Thirty days, three sites, 14,300 AI crawler hits. Here's what the User-Agent column actually told me about LLMO visibility."
 date: 2026-05-17
 lang: en
+translation_key: five-ai-crawlers-30days
 tags: [llmo, ai-search, server-logs, crawlers, cloudflare]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/five-ai-crawlers-hit-my-site-30-days/"

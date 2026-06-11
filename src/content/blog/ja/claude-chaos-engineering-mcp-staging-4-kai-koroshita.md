@@ -3,6 +3,7 @@ title: "ClaudeをカオスエンジニアリングのMCPサーバーに繋いだ
 description: "Steadybitが2025年6月に業界初のカオスエンジニアリングMCPサーバーをリリースしました。Claude Codeに繋いで、payment-serviceのコネクションプール耐障害性実験を一文で頼みました。Claudeは4本の実験を提案し、3本はSLO違反なく完了、4本目でstagingが完全に落ちました。原因は半年前から本番のログにチラついていた『プール枯渇 → リトライ嵐 → レートリミッタ自己DoS』のバグでした。実験ログと、AIにカオスを任せる前に必須だった3つのガードレールを書きます。"
 date: 2026-05-16
 lang: ja
+translation_key: chaos-mcp-killed-staging
 tags: [chaos-engineering, claude-code, mcp, sre, ai-coding]
 featured: false
 canonical_url: "https://kenimoto.dev/ja/blog/claude-chaos-engineering-mcp-staging-4-kai-koroshita"

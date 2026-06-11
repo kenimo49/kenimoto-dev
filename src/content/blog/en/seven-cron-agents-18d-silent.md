@@ -121,7 +121,7 @@ I checked the dashboards. The dashboards were just looking at the wrong question
 ## Related
 
 - [I Ran 3 Claude Code Sessions in Parallel for 8 Hours. They Overwrote Each Other's Context Twice.](/blog/three-claude-sessions-parallel-8h-context-overwrite/) — sibling failure on the *synchronous* side: agents that collided rather than disappeared.
-- [I Added a 4th Agent That Audits My Other Agents (Evolver).](/blog/i-added-a-4th-agent-that-audits-my-other-agents-evolver/) — supervising agents that *are* running but procrastinating; complementary to the contract-level checks above.
+- [I Added a 4th Agent That Audits My Other Agents (Evolver).](/blog/evolver-fourth-agent-caught-strategist-procrastinating/) — supervising agents that *are* running but procrastinating; complementary to the contract-level checks above.
 - [9 Bugs in My AI Pipeline: None Were the AI's Fault.](/blog/9-bugs-in-my-ai-pipeline/) — full bug catalogue from the surrounding scripts; silent-cron was #7 on the list.
 
 If you'd rather go deeper than a single blog post, I expanded the lifecycle-and-hooks layer of this story into a chapter of my book on AI agent harnessing: [Harness Engineering Guide: From Tools to Compounding Productivity](https://kenimoto.dev/books/harness-engineering-guide).

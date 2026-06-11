@@ -3,6 +3,7 @@ title: "I Audited 30 llms.txt Files in the Wild. 5 Anti-Patterns Are Already For
 description: "I shipped my third llms.txt this month and felt productive. Then I opened 30 production llms.txt files from companies like Stripe, Vercel, and Anthropic. Most of them are already broken in the same five ways."
 date: 2026-05-11
 lang: en
+translation_key: llms-txt-audit-30-5patterns
 tags: [llmo, llms-txt, ai-search, anti-patterns, audit]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/30-llms-txt-files-5-anti-patterns-already-forming/"

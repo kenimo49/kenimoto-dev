@@ -3,6 +3,7 @@ title: "I Gave My Strategist Agent WebSearch. 5 Topics Took 20 Minutes. Splittin
 description: "I had one agent doing observation, strategy, and execution. Picking 5 topics took 20 minutes and burned 120k tokens. Splitting it into Observer / Strategist / Marketer dropped it to 3 minutes and cut tokens by 60%. The architecture, the allow-list per role, and why WebSearch in the judgment loop is a trap."
 date: 2026-05-14
 lang: en
+translation_key: observer-strategist-marketer-3role
 tags: [claude-code, agents, cron, harness-engineering, multi-agent]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/three-role-separation-observer-strategist-marketer"

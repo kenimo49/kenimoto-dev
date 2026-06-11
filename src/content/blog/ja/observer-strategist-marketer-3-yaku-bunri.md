@@ -3,6 +3,7 @@ title: "Strategist に WebSearch を持たせたら 5テーマ選びに 20分か
 description: "1つのエージェントに観測+戦略+実行を全部やらせていたら、5テーマ選定に20分・12万トークン消費していました。Observer / Strategist / Marketer の3役に分離したら3分・トークン60%減。許可ツール設定、cronチェーン、Sub-agentとの違いまで実運用ベースで書きます。"
 date: 2026-05-14
 lang: ja
+translation_key: observer-strategist-marketer-3role
 tags: [claude-code, ai-agent, cron, harness-engineering, multi-agent]
 featured: false
 canonical_url: "https://kenimoto.dev/ja/blog/observer-strategist-marketer-3-yaku-bunri"

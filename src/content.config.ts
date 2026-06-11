@@ -13,6 +13,8 @@ const blog = defineCollection({
     canonical_url: z.string().url().optional(),
     og_image: z.string().optional(),
     updated: z.coerce.date().optional(),
+    // 言語をまたいだ翻訳ペアの対応付けキー。slug が言語ごとに違っても hreflang を張れる。
+    translation_key: z.string().optional(),
   }),
 });
 

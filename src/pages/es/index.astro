@@ -4,6 +4,7 @@ import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { staticAlternates } from '../../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../../lib/research-papers';
+import { coverThumb } from '../../lib/thumb';
 
 const esBooks = (await getCollection('books', ({ data }) => data.lang === 'es'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
@@ -14,7 +15,7 @@ const personJsonLd = {
   '@type': 'Person',
   '@id': `${SITE_URL}/#person`,
   name: 'Ken Imoto',
-  jobTitle: 'WebRTC & Voice AI Engineer',
+  jobTitle: 'AI Systems Engineer',
   url: `${SITE_URL}/`,
   sameAs: [
     'https://github.com/kenimo49',
@@ -78,7 +79,7 @@ const orgJsonLd = {
           return (
             <a href={`/es/books/${slug}/`} class="book-row">
               {book.data.cover_image && (
-                <img src={book.data.cover_image} alt={`${book.data.title} portada`} class="book-row-cover" loading="lazy" />
+                <img src={coverThumb(book.data.cover_image)} alt={`${book.data.title} portada`} class="book-row-cover" loading="lazy" />
               )}
               <div class="book-row-body">
                 <h2>{book.data.title}</h2>

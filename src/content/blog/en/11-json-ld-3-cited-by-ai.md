@@ -3,6 +3,7 @@ title: "I Added 11 JSON-LD Schemas. Three Months Later, Only 3 Showed Up in AI C
 description: "Three months ago I bundled 11 JSON-LD schemas into my site's head. I measured every AI citation since. Eight of those schemas were dead weight. Here's which three actually carried the freight, and why the other eight didn't."
 date: 2026-05-25
 lang: en
+translation_key: json-ld-11-only-3-cited
 tags: [llmo, json-ld, schema-org, ai-search, geo]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/11-json-ld-3-cited-by-ai/"

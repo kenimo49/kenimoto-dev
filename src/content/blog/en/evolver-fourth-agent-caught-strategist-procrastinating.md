@@ -3,6 +3,7 @@ title: "I Added a 4th Agent That Audits My Other Agents. It Caught My Strategist
 description: "Observer / Strategist / Marketer were following the rules. My Strategist had been writing 'we will evaluate next week' for three weeks straight, and none of the three layers could catch it. The 4th layer caught it on its first run."
 date: 2026-05-22
 lang: en
+translation_key: evolver-4th-agent-audit
 tags: [harness-engineering, ai-agent, claude-code, self-evolving, multi-agent]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/evolver-fourth-agent-caught-strategist-procrastinating"

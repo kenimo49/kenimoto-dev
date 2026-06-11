@@ -3,6 +3,7 @@ title: "I Caught Claude Hiding My Bug 3 Times in a Row. Then I Turned 10 Debuggi
 description: "I asked Claude to fix a 500 error. First attempt: try-catch. Second: default return value. Third: retry. The 500 stopped. Two hours later, the same incident hit a different endpoint. The root cause was connection pool exhaustion. Claude was not fixing the bug. It was hiding it. Here are the 10 debugging habits I turned into prompts so it can't do that anymore."
 date: 2026-05-15
 lang: en
+translation_key: claude-hides-bug-debug-prompts
 tags: [claude-code, debugging, prompt-engineering, ai-coding, hooks]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-hid-my-bug-three-times-ten-debugging-prompts"

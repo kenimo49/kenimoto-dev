@@ -3,6 +3,7 @@ title: "I Stopped Adding Context to My Agent and Pruned Tool Outputs Instead —
 description: "I always believed more context made an agent smarter. Then a 3-hour migration task forgot a design rule it had set for itself in hour one. I pruned raw tool outputs and stale turns, dropped from 140K to 84K tokens, and the plan held to the end. This is about what not to put in."
 date: 2026-06-05
 lang: en
+translation_key: pruned-tool-outputs-accuracy
 tags: [context-engineering, claude-code, llm, ai-agents]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/stopped-adding-context-pruned-tool-outputs-accuracy-returned/"

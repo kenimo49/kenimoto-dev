@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/generate-llms.mjs",
+    "build": "node scripts/generate-book-thumbs.mjs && astro build && node scripts/generate-llms.mjs",
+    "thumbs": "node scripts/generate-book-thumbs.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

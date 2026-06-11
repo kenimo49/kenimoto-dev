@@ -3,6 +3,7 @@ title: "I Translated My Blog Into 4 Languages. Portuguese Got Nearly 4× the Tra
 description: "Over 22 days, PT got 748 pageviews. EN got 195. JA got 27. ES got 7. I shipped 4 languages thinking ES would dominate. Here's what actually happened, and what it taught me about multi-language LLMO."
 date: 2026-05-21
 lang: en
+translation_key: 4-languages-portuguese-4x
 tags: [llmo, multi-language, ga4, build-in-public, tabnews]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/four-languages-thirty-days-portuguese-four-x-traffic/"

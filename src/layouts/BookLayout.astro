@@ -10,6 +10,8 @@ interface Chapter {
   title: string;
   free?: boolean;
   summary?: string;
+  // 節レベル目次 (JA market 慣習)。schema 側は任意なので型でも optional。
+  sub_chapters?: string[];
 }
 
 interface Part {
@@ -244,6 +246,9 @@ const amazonTag = import.meta.env.PUBLIC_AMAZON_TAG ?? '';
 const taggedKindleUrl = withAffiliateTag(kindleUrl, amazonTag);
 const isZennOnly = !kindleUrl && !!zennUrl;
 const destinationUrl = taggedKindleUrl || zennUrl;
+// coming-soon 本 (kindle も zenn も無い) では footer CTA セクションをまるごと隠す。
+// 行き先ボタンが無いのに「Read on Kindle」見出しだけ出るのを防ぐ。
+const hasFooterCta = !!destinationUrl || otherUrls.length > 0;
 const heroPrimaryLabel = isZennOnly ? t.primaryCtaZenn : t.primaryCta;
 const footerCtaLabel = isZennOnly ? t.ctaZenn : t.cta;
 const footerCtaSubLabel = isZennOnly ? t.ctaZennSub : t.ctaSub;
@@ -1338,7 +1343,7 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
     {/* 著者bio 1行 + 顔写真 + 7日返品 — heroの信用構築 (EN 必須、 JA/PT/ES OK) */}
     <div class="author-bio-line">
       <img
-        src="https://github.com/kenimo49.png"
+        src="/avatar.jpg"
         alt="ken imoto"
         class="author-avatar"
         width="40"
@@ -1578,32 +1583,34 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
       </section>
     )}
 
-    <section class="cta-section">
-      <h2>{ctaLabel || footerCtaLabel}</h2>
-      <p class="cta-sub">{footerCtaSubLabel}</p>
-      {destinationUrl && (
-        <a
-          href={destinationUrl}
-          class="cta-button"
-          data-cta-amazon
-          data-slug={slug}
-          data-position="footer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {footerCtaLabel}
-          {formattedPrice && ` (${formattedPrice})`}
-        </a>
-      )}
-      <div class="secondary-links">
-        {!isZennOnly && lang === 'ja' && zennUrl && (
-          <a href={zennUrl} rel="noopener" data-cta-zenn data-slug={slug} data-position="footer-zenn">{t.readSampleZenn}</a>
+    {hasFooterCta && (
+      <section class="cta-section">
+        <h2>{ctaLabel || footerCtaLabel}</h2>
+        <p class="cta-sub">{footerCtaSubLabel}</p>
+        {destinationUrl && (
+          <a
+            href={destinationUrl}
+            class="cta-button"
+            data-cta-amazon
+            data-slug={slug}
+            data-position="footer"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {footerCtaLabel}
+            {formattedPrice && ` (${formattedPrice})`}
+          </a>
         )}
-        {otherUrls.map((u) => (
-          <a href={u.url} rel="noopener" data-cta-other data-slug={slug} data-position={`footer-other-${u.label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{u.label}</a>
-        ))}
-      </div>
-    </section>
+        <div class="secondary-links">
+          {!isZennOnly && lang === 'ja' && zennUrl && (
+            <a href={zennUrl} rel="noopener" data-cta-zenn data-slug={slug} data-position="footer-zenn">{t.readSampleZenn}</a>
+          )}
+          {otherUrls.map((u) => (
+            <a href={u.url} rel="noopener" data-cta-other data-slug={slug} data-position={`footer-other-${u.label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>{u.label}</a>
+          ))}
+        </div>
+      </section>
+    )}
 
     {topics.length > 0 && (
       <div class="topics-row">

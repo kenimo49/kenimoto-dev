@@ -3,6 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import { staticAlternates } from '../lib/alternates';
 
+// "Now" セクションの更新月はビルド日から自動生成する (毎日ビルドされるので陳腐化しない)
+const updatedLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
 // Connect セクション: EN ページなので EN プラットフォームのみ表示
 // 他言語版は Nav の言語スイッチャーで遷移可。JSON-LD sameAs には全部記載 (SEO/LLMO)
 const links = [
@@ -23,7 +26,7 @@ const websiteJsonLd = {
   name: 'Ken Imoto',
   alternateName: 'kenimoto.dev',
   url: `${SITE_URL}/`,
-  description: 'Ken Imoto — WebRTC & Voice AI Engineer. Building AI-native organizations powered by LLMs, real-time AI, and context engineering.',
+  description: 'Ken Imoto — AI Systems Engineer. Building AI-native organizations powered by LLMs, real-time AI, and context engineering.',
   inLanguage: 'en-US',
   publisher: { '@id': `${SITE_URL}/#organization` },
 };
@@ -39,8 +42,8 @@ const orgJsonLd = {
 ---
 
 <BaseLayout
-  title="Ken Imoto — WebRTC & Voice AI Engineer"
-  description="Ken Imoto — WebRTC & Voice AI Engineer. Building AI-native organizations powered by LLMs, automation, and distributed agents."
+  title="Ken Imoto — AI Systems Engineer"
+  description="Ken Imoto — AI Systems Engineer. Building AI-native organizations powered by LLMs, automation, and distributed agents."
   lang="en"
   ogUrl="https://kenimoto.dev/"
   ogDescription="LLMO Framework Author. Building AI-native organizations powered by LLMs, real-time AI, and context engineering."
@@ -54,7 +57,7 @@ const orgJsonLd = {
       "@type": "Person",
       "@id": "https://kenimoto.dev/#person",
       "name": "Ken Imoto",
-      "jobTitle": "WebRTC & Voice AI Engineer",
+      "jobTitle": "AI Systems Engineer",
       "affiliation": { "@type": "Organization", "name": "Propel-Lab", "url": "https://propel-lab.co.jp" },
       "description": "Building AI-native organizations powered by LLMs, automation, and distributed agents.",
       "url": "https://kenimoto.dev",
@@ -123,7 +126,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/engineer-it-quotes",
+        "url": "https://kenimoto.dev/books/engineer-it-quotes/",
         "sameAs": ["https://www.amazon.co.jp/dp/B0GX3CS95M", "https://www.amazon.co.jp/dp/B0GXR5Q6NW"],
         "about": ["Engineering Quotes", "Software Philosophy", "Career", "Leadership"]
       },
@@ -134,7 +137,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/knowledge-graph-practical-guide",
+        "url": "https://kenimoto.dev/books/knowledge-graph-practical-guide/",
         "sameAs": ["https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide", "https://www.amazon.co.jp/dp/B0GX2Z73JV", "https://www.amazon.co.jp/dp/B0GX465PG7"],
         "about": ["Knowledge Graph", "GraphRAG", "Neo4j", "Property Graph"]
       },
@@ -145,7 +148,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/voice-ai-300ms-ux",
+        "url": "https://kenimoto.dev/books/voice-ai-300ms-ux/",
         "sameAs": ["https://zenn.dev/kenimo49/books/voice-ai-300ms-ux", "https://www.amazon.co.jp/dp/B0GYQ4L2KP", "https://www.amazon.co.jp/dp/B0GX2R5HP4"],
         "about": ["Voice AI", "Latency UX", "Turn-taking", "TTFB", "Edge AI"]
       },
@@ -156,7 +159,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/harness-engineering-guide",
+        "url": "https://kenimoto.dev/books/harness-engineering-guide/",
         "sameAs": ["https://zenn.dev/kenimo49/books/harness-engineering-guide", "https://www.amazon.com/dp/B0FZNL8D1V", "https://www.amazon.co.jp/dp/B0GF8VGSPC"],
         "about": ["Harness Engineering", "AI Agent", "CLAUDE.md", "AGENTS.md"]
       },
@@ -167,7 +170,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en", "pt", "es"],
-        "url": "https://kenimoto.dev/books/claude-code-mastery",
+        "url": "https://kenimoto.dev/books/claude-code-mastery/",
         "sameAs": ["https://zenn.dev/kenimo49/books/claude-code-mastery", "https://www.amazon.com/dp/B0GPWPKNB7", "https://www.amazon.com.br/dp/B0GZHB7J3T", "https://www.amazon.com.br/dp/B0GX3S7VGK"],
         "about": ["Claude Code", "Context Engineering", "CLAUDE.md", "AI Development"]
       },
@@ -178,7 +181,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/llmo-ai-search-optimization",
+        "url": "https://kenimoto.dev/books/llmo-ai-search-optimization/",
         "sameAs": ["https://zenn.dev/kenimo49/books/llmo-ai-search-optimization", "https://www.amazon.com/dp/B0GQ2L5HQY", "https://www.amazon.co.jp/dp/B0GQ4XPBMJ"],
         "about": ["LLMO", "LLM Optimization", "SEO", "JSON-LD", "llms.txt", "AI Search"]
       },
@@ -189,7 +192,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/mcp-security-practice",
+        "url": "https://kenimoto.dev/books/mcp-security-practice/",
         "sameAs": ["https://zenn.dev/kenimo49/books/mcp-security-practice", "https://www.amazon.com/dp/B0GHZHC3PY", "https://www.amazon.co.jp/dp/B0GGYKSLNM"],
         "about": ["MCP", "Model Context Protocol", "Security", "OWASP"]
       },
@@ -200,7 +203,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/context-engineering",
+        "url": "https://kenimoto.dev/books/context-engineering/",
         "sameAs": ["https://zenn.dev/kenimo49/books/context-engineering", "https://www.amazon.com/dp/B0GHRJX36Z", "https://www.amazon.co.jp/dp/B0GHNC29MF"],
         "about": ["Context Engineering", "RAG", "MCP", "LLM", "Hallucination", "Benchmark"]
       },
@@ -211,7 +214,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/harness-code-review",
+        "url": "https://kenimoto.dev/books/harness-code-review/",
         "sameAs": ["https://zenn.dev/kenimo49/books/harness-code-review", "https://www.amazon.co.jp/dp/B0GHT7FQ7G", "https://www.amazon.com/Systematizing-AI-Code-Review-Propel-Lab-ebook/dp/B0GX71K2BV"],
         "about": ["AI Code Review", "CodeRabbit", "GitHub Actions", "AGENTS.md", "Code Review Automation"]
       },
@@ -222,7 +225,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/llmo-quickstart",
+        "url": "https://kenimoto.dev/books/llmo-quickstart/",
         "sameAs": ["https://www.amazon.com/dp/B0GHJLJ611", "https://www.amazon.co.jp/dp/B0GHMCKQPX"],
         "about": ["LLMO", "AI Search Optimization", "SEO", "LLM"]
       },
@@ -243,7 +246,7 @@ const orgJsonLd = {
         "author": { "@type": "Person", "name": "Ken Imoto" },
         "bookFormat": "EBook",
         "inLanguage": ["ja", "pt"],
-        "url": "https://kenimoto.dev/pt/books/engineer-psychology-tricks",
+        "url": "https://kenimoto.dev/pt/books/engineer-psychology-tricks/",
         "sameAs": ["https://zenn.dev/kenimo49/books/engineer-psychology-tricks", "https://www.amazon.com.br/dp/B0GZFBC7SP"],
         "about": ["Cognitive Bias", "Engineering Psychology", "Code Review", "Estimation", "Team Communication", "Psychological Safety"]
       },
@@ -278,7 +281,7 @@ const orgJsonLd = {
       <div style="max-width: 600px; margin: 0 auto;">
         <img src="/avatar.jpg" alt="Ken Imoto" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--border-avatar);" />
         <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">Ken Imoto</h1>
-        <p style="font-size: 1.125rem; color: var(--text-label); margin-bottom: 0.75rem;">WebRTC & Voice AI Engineer</p>
+        <p style="font-size: 1.125rem; color: var(--text-label); margin-bottom: 0.75rem;">AI Systems Engineer</p>
         <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; letter-spacing: 0.05em;">LLMO · WebRTC · Real-time AI · Context Engineering</p>
 
         <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 3rem;">
@@ -315,7 +318,7 @@ const orgJsonLd = {
             <li>Publishing books & articles from hands-on practice</li>
           </ul>
           <p style="font-size: 0.7rem; color: var(--text-muted); margin: 1rem 0 0; border-top: 1px solid var(--text-separator); padding-top: 0.75rem;">
-            Updated April 2026
+            Updated {updatedLabel}
           </p>
         </div>
       </section>
@@ -324,80 +327,80 @@ const orgJsonLd = {
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Publications</h2>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI DEVELOPMENT</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI DEVELOPMENT</h3>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-          <div class="book-card" data-lp-url="/books/voice-ai-300ms-ux" style="position: relative; border: 1px solid var(--accent-blue);">
+          <div class="book-card" data-lp-url="/books/voice-ai-300ms-ux/" style="position: relative; border: 1px solid var(--accent-blue);">
             <span style="position: absolute; top: 0.4rem; right: 0.4rem; font-size: 0.6rem; background: var(--accent-blue); color: #fff; padding: 0.1rem 0.4rem; border-radius: 3px; font-weight: 600;">NEW</span>
-            <img src="/images/books/voice-ai-300ms-ux-en.jpg" alt="The 300ms Threshold" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+            <img src="/images/books/thumbs/voice-ai-300ms-ux-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="The 300ms Threshold" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">The 300ms Threshold</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">Why Talking to AI Feels Wrong</p>
             <div style="font-size: 0.7rem; display: flex; gap: 0.5rem; justify-content: center;"><a href="https://www.amazon.co.jp/dp/B0GYQ4L2KP">Kindle</a><a href="https://zenn.dev/kenimo49/books/voice-ai-300ms-ux">Zenn</a></div>
           </div>
-          <div class="book-card" data-lp-url="/books/harness-engineering-guide">
-            <img src="/images/books/harness-engineering-guide-en.jpg" alt="Harness Engineering" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card" data-lp-url="/books/harness-engineering-guide/">
+            <img src="/images/books/thumbs/harness-engineering-guide-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="Harness Engineering" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Harness Engineering</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">From Using AI to Controlling AI</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.com/dp/B0FZNL8D1V">Kindle</a></div>
           </div>
-          <div class="book-card" data-lp-url="/books/claude-code-mastery">
-            <img src="/images/books/claude-code-mastery-en.png" alt="Practical Claude Code" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card" data-lp-url="/books/claude-code-mastery/">
+            <img src="/images/books/thumbs/claude-code-mastery-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="Practical Claude Code" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Practical Claude Code</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">Context Engineering for Modern Development</p>
             <div style="font-size: 0.7rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;"><a href="https://www.amazon.com/dp/B0GPWPKNB7">Kindle</a><a href="/pt/books/claude-code-mastery/" style="font-size: 0.65rem; padding: 0.05rem 0.35rem; border: 1px solid var(--text-separator); border-radius: 3px; color: var(--text-label);">PT-BR</a><a href="/es/books/claude-code-mastery/" style="font-size: 0.65rem; padding: 0.05rem 0.35rem; border: 1px solid var(--text-separator); border-radius: 3px; color: var(--text-label);">ES</a></div>
           </div>
-          <div class="book-card" data-lp-url="/books/context-engineering">
-            <img src="/images/books/context-engineering-en.png" alt="Context Engineering" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card" data-lp-url="/books/context-engineering/">
+            <img src="/images/books/thumbs/context-engineering-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="Context Engineering" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Context Engineering in Practice</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">Turning LLMs from Liars into Experts</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.com/dp/B0GHRJX36Z">Kindle</a></div>
           </div>
         </div>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI SEARCH OPTIMIZATION</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI SEARCH OPTIMIZATION</h3>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-          <div class="book-card accent-amber" data-lp-url="/books/llmo-ai-search-optimization">
-            <img src="/images/books/llmo-en.png" alt="LLMO" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card accent-amber" data-lp-url="/books/llmo-ai-search-optimization/">
+            <img src="/images/books/thumbs/llmo-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="LLMO" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">LLMO Practical Guide</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">Why ChatGPT Ignores Your Website</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.com/dp/B0GQ2L5HQY">Kindle</a></div>
           </div>
-          <div class="book-card accent-amber" data-lp-url="/books/llmo-quickstart">
-            <img src="/images/books/llmo-quickstart-en.jpg" alt="LLMO Quickstart" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card accent-amber" data-lp-url="/books/llmo-quickstart/">
+            <img src="/images/books/thumbs/llmo-quickstart-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="LLMO Quickstart" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">LLMO Quickstart</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">AI Search Optimization for Engineers</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.com/dp/B0GHJLJ611">Kindle</a></div>
           </div>
         </div>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-green); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛡️ SECURITY & QUALITY</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-green); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛡️ SECURITY & QUALITY</h3>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div class="book-card accent-green" data-lp-url="/books/mcp-security-practice">
-            <img src="/images/books/mcp-security-en.jpg" alt="MCP Security" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card accent-green" data-lp-url="/books/mcp-security-practice/">
+            <img src="/images/books/thumbs/mcp-security-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="MCP Security" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">MCP Security in Practice</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">What OWASP Won't Tell You</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.com/dp/B0GHZHC3PY">Kindle</a></div>
           </div>
-          <div class="book-card accent-green" data-lp-url="/books/harness-code-review">
-            <img src="/images/books/harness-code-review.png" alt="Systematizing AI Code Review" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card accent-green" data-lp-url="/books/harness-code-review/">
+            <img src="/images/books/thumbs/harness-code-review.webp" loading="lazy" decoding="async" width="140" height="196" alt="Systematizing AI Code Review" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Systematizing AI Code Review</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">The 3-Layer Model for 60% Faster Reviews</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.com/Systematizing-AI-Code-Review-Propel-Lab-ebook/dp/B0GX71K2BV">Kindle</a></div>
           </div>
         </div>
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-purple, #7c3aed); margin-bottom: 0.5rem; margin-top: 1.5rem; letter-spacing: 0.05em;">📊 KNOWLEDGE & DATA</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-purple, #7c3aed); margin-bottom: 0.5rem; margin-top: 1.5rem; letter-spacing: 0.05em;">📊 KNOWLEDGE & DATA</h3>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-          <div class="book-card accent-purple" data-lp-url="/books/knowledge-graph-practical-guide">
-            <img src="/images/books/knowledge-graph-en.jpg" alt="Knowledge Graph Guide" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card accent-purple" data-lp-url="/books/knowledge-graph-practical-guide/">
+            <img src="/images/books/thumbs/knowledge-graph-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="Knowledge Graph Guide" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">Knowledge Graph Guide</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">Structure Your Data, Sharpen Your AI</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.co.jp/dp/B0GX2Z73JV">Kindle</a></div>
           </div>
         </div>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-rose, #e11d48); margin-bottom: 0.5rem; letter-spacing: 0.05em;">💡 ENGINEERING CULTURE</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-rose, #e11d48); margin-bottom: 0.5rem; letter-spacing: 0.05em;">💡 ENGINEERING CULTURE</h3>
         <div class="book-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">
-          <div class="book-card accent-rose" data-lp-url="/books/engineer-it-quotes">
-            <img src="/images/books/engineer-it-quotes-en.jpg" alt="100 Engineering Quotes" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
+          <div class="book-card accent-rose" data-lp-url="/books/engineer-it-quotes/">
+            <img src="/images/books/thumbs/engineer-it-quotes-en.webp" loading="lazy" decoding="async" width="140" height="196" alt="100 Engineering Quotes" style="width: 100%; max-width: 140px; height: auto; border-radius: 4px; margin-bottom: 0.5rem;" />
             <p style="font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.3;">100 Engineering Quotes</p>
             <p style="font-size: 0.7rem; color: var(--text-label); margin-bottom: 0.4rem; line-height: 1.3;">Why Do Some Words Stay With You?</p>
             <div style="font-size: 0.7rem;"><a href="https://www.amazon.co.jp/dp/B0GX3CS95M">Kindle</a></div>
@@ -512,7 +515,7 @@ const orgJsonLd = {
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Open Source</h2>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI SEARCH</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI SEARCH</h3>
         <div style="display: grid; gap: 0.75rem; margin-bottom: 1.5rem;">
           <a href="https://github.com/open-llmo" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
             <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">open-llmo <span style="font-weight: 400; color: var(--text-muted);">— GitHub organization · MIT</span></p>
@@ -524,7 +527,7 @@ const orgJsonLd = {
           </a>
         </div>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🎙️ VOICE & SPEECH</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🎙️ VOICE & SPEECH</h3>
         <div style="display: grid; gap: 0.75rem; margin-bottom: 1.5rem;">
           <a href="https://github.com/kenimo49/voice-clone" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
             <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">voice-clone <span style="font-weight: 400; color: var(--text-muted);">— Python · MIT</span></p>
@@ -536,7 +539,7 @@ const orgJsonLd = {
           </a>
         </div>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-green); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛠️ DEV UTILITIES</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-green); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🛠️ DEV UTILITIES</h3>
         <div style="display: grid; gap: 0.75rem; margin-bottom: 1.5rem;">
           <a href="https://github.com/kenimo49/domain-pre-flight" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
             <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">domain-pre-flight <span style="font-weight: 400; color: var(--text-muted);">— Python CLI · MIT</span></p>
@@ -544,7 +547,7 @@ const orgJsonLd = {
           </a>
         </div>
 
-        <p style="font-size: 0.75rem; font-weight: 600; color: var(--accent-purple, #7c3aed); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🧬 PERSONA & IDENTITY</p>
+        <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-purple, #7c3aed); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🧬 PERSONA & IDENTITY</h3>
         <div style="display: grid; gap: 0.75rem;">
           <a href="https://github.com/kenimo49/persona-hub" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
             <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem;">persona-hub <span style="font-weight: 400; color: var(--text-muted);">— TypeScript + Python · Apache-2.0</span></p>

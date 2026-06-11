@@ -3,6 +3,7 @@ title: "I Benchmarked 5 Voice AI Stacks. Only 2 Stayed Under 300ms."
 description: "I kept reading that voice agents respond under 300ms. I measured 5 stacks against the same 1-minute conversation. Three of them missed the cliff entirely. Here is the P95 latency table for May 2026."
 date: 2026-05-13
 lang: en
+translation_key: voice-ai-5-stacks-300ms
 tags: [voice-ai, latency, realtime-api, webrtc, benchmarks]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/five-voice-ai-stacks-only-two-under-300ms"

@@ -3,6 +3,7 @@ title: "I Plugged Claude into a Chaos Engineering MCP Server. It Killed Staging 
 description: "Steadybit shipped the industry's first chaos engineering MCP server in mid-2025. I plugged Claude Code into it and asked for resilience experiments on payment-service. Claude proposed 4 of them. Three came back green. The fourth took staging down completely, and surfaced a real production bug we'd been missing for half a year. Here's the run, the bug, and the 3 guardrails I now require before letting any AI design chaos experiments."
 date: 2026-05-16
 lang: en
+translation_key: chaos-mcp-killed-staging
 tags: [chaos-engineering, claude-code, mcp, sre, ai-coding]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-chaos-engineering-mcp-killed-staging-4-times"

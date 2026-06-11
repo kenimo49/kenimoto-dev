@@ -7,7 +7,7 @@ import Nav from '../components/Nav.astro';
   title="Page Not Found — kenimoto.dev"
   description="The page you're looking for doesn't exist."
   lang="en"
-  ogUrl="https://kenimoto.dev/404"
+  ogUrl="https://kenimoto.dev/404/"
   ogDescription="Page not found."
   noindex={true}
 >
@@ -15,25 +15,57 @@ import Nav from '../components/Nav.astro';
 
   <main style="max-width: 720px; margin: 0 auto; padding: 8rem 2rem; text-align: center;">
     <p style="font-size: 4rem; margin-bottom: 0.5rem; opacity: 0.2; font-weight: 700;">404</p>
-    <h1 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">
+    <h1 id="nf-title" style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">
       Page not found
     </h1>
-    <p style="color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7;">
+    <p id="nf-desc" style="color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.7;">
       The page you're looking for doesn't exist or has been moved.
     </p>
-    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+    <div id="nf-links" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="/" data-nf="home" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
         Home
       </a>
-      <a href="/blog/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+      <a href="/blog/" data-nf="blog" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
         Blog
       </a>
-      <a href="/books/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+      <a href="/books/" data-nf="books" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
         Books
       </a>
-      <a href="/ja/" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
+      <a href="/ja/" data-nf="alt" style="color: var(--link-color); text-decoration: none; padding: 0.5rem 1.25rem; border: 1px solid var(--text-separator); border-radius: 8px; font-size: 0.9rem;">
         Japanese
       </a>
     </div>
   </main>
+
+  <script is:inline>
+    // GitHub Pages はルートの 404.html しか返さないため、JA/PT/ES の URL で 404 になっても
+    // この英語 404 が出る。pathname の言語 prefix を見て文言とリンクを現地語に差し替える。
+    (function () {
+      var L = {
+        ja: { title: 'ページが見つかりません', desc: 'お探しのページは存在しないか、移動した可能性があります。', home: 'ホーム', blog: 'ブログ', books: '書籍', alt: 'English', altHref: '/' },
+        pt: { title: 'Página não encontrada', desc: 'A página que você procura não existe ou foi movida.', home: 'Início', blog: 'Blog', books: 'Livros', alt: 'English', altHref: '/' },
+        es: { title: 'Página no encontrada', desc: 'La página que buscas no existe o ha sido movida.', home: 'Inicio', blog: 'Blog', books: 'Libros', alt: 'English', altHref: '/' },
+      };
+      var m = location.pathname.match(/^\/(ja|pt|es)(\/|$)/);
+      if (!m) return;
+      var lang = m[1];
+      var t = L[lang];
+      document.documentElement.lang = lang;
+      document.title = t.title + ' — kenimoto.dev';
+      var title = document.getElementById('nf-title');
+      var desc = document.getElementById('nf-desc');
+      if (title) title.textContent = t.title;
+      if (desc) desc.textContent = t.desc;
+      var map = {
+        home: { href: '/' + lang + '/', text: t.home },
+        blog: { href: '/' + lang + '/blog/', text: t.blog },
+        books: { href: '/' + lang + '/books/', text: t.books },
+        alt: { href: t.altHref, text: t.alt },
+      };
+      document.querySelectorAll('#nf-links a[data-nf]').forEach(function (a) {
+        var k = a.getAttribute('data-nf');
+        if (map[k]) { a.setAttribute('href', map[k].href); a.textContent = map[k].text; }
+      });
+    })();
+  </script>
 </BaseLayout>

@@ -75,7 +75,7 @@ function urlForLang(target: string): string {
     <a href={aboutUrl} class:list={[{ active: current === 'about' }]}>
       About
     </a>
-    <div class="nav-langs">
+    <div class="nav-langs" role="group" aria-label="Language">
       {ALL_LANGS.map((l) => (
         l === lang
           ? <span class="nav-lang current" aria-current="true">{LANG_LABEL[l]}</span>

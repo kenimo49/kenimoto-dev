@@ -3,6 +3,7 @@ title: "JSON-LDを11スキーマ入れた。3ヶ月測ったら、AIが拾って
 description: "3ヶ月前にJSON-LDを11スキーマ束ねて<head>に入れました。AI引用を3ヶ月追跡したら、効いていたのは3つだけ。残り8つはHTMLコメントと同等の存在感でした。どれが効いてどれが死んでいたか、実測の話です。"
 date: 2026-05-25
 lang: ja
+translation_key: json-ld-11-only-3-cited
 tags: [LLMO, JSON-LD, SchemaOrg, AI]
 featured: false
 canonical_url: "https://kenimoto.dev/ja/blog/json-ld-11-only-3-cited/"
