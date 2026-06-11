@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import remarkDirective from 'remark-directive';
 import { visit } from 'unist-util-visit';
@@ -52,5 +51,4 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkDirective, remarkZennDirectives],
   },
-  vite: { plugins: [tailwindcss()] },
 });

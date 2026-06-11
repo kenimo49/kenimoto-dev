@@ -12,10 +12,8 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.0",
-    "@tailwindcss/vite": "^4.2.1",
     "astro": "^5.17.1",
     "remark-directive": "^4.0.0",
-    "tailwindcss": "^4.2.1",
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {

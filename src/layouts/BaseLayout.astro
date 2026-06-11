@@ -123,7 +123,22 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
     </script>
     <slot name="head" />
     <style is:global>
-      @import "tailwindcss";
+      /* Minimal reset — Tailwind を外したので preflight 相当を最小限で供給する。
+         src 全体で Tailwind ユーティリティクラスは未使用のため、必要なのは
+         preflight のリセット部分だけ。preflight の `a { color: inherit }` は
+         過去にリンク色バグの原因になったため意図的に含めない (下の a 規則が正)。 */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+      }
+      h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+      ul, ol, menu { list-style: none; }
+      img, svg, video, canvas { display: block; vertical-align: middle; }
+      img, video { max-width: 100%; height: auto; }
+      table { border-collapse: collapse; }
+      button, input, select, textarea { font: inherit; }
 
       :root,
       [data-theme="dark"] {
