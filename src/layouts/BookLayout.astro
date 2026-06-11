@@ -1628,15 +1628,17 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
         return 'unknown';
       }
       function emitCta(link) {
-        if (typeof gtag !== 'function') return;
-        gtag('event', 'cta_click', {
+        var params = {
           event_category: 'book_lp',
           event_label: link.getAttribute('data-slug') || '',
           cta_position: link.getAttribute('data-position') || 'unknown',
           cta_type: ctaType(link),
           destination: link.href,
           transport_type: 'beacon',
-        });
+        };
+        // gtag.js ロード前でも dataLayer に積んで取りこぼしを防ぐ (BaseLayout の outbound 計測と同じ堅牢化)
+        if (typeof gtag === 'function') gtag('event', 'cta_click', params);
+        else (window.dataLayer = window.dataLayer || []).push(['event', 'cta_click', params]);
       }
       function bind() {
         document.querySelectorAll('[data-cta-amazon], [data-cta-sample], [data-cta-zenn], [data-cta-toc], [data-cta-other]').forEach(function (link) {
