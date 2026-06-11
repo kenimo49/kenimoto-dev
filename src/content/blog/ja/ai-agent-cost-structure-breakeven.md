@@ -3,6 +3,7 @@ title: "AIエージェントは月いくらかかるのか -- API・サブスク
 description: "AIエージェントのコストを3類型（API従量課金・サブスクリプション・ローカルLLM）で整理し、2026年5月時点の料金で損益分岐点を計算した。"
 date: 2026-05-03
 lang: ja
+og_image: "https://kenimoto.dev/images/blog/ai-agent-cost-structure-breakeven/og-ja.png"
 tags: [ai-agent, cost, claude-code, local-llm, api]
 featured: false
 canonical_url: "https://kenimoto.dev/ja/blog/ai-agent-cost-structure-breakeven/"

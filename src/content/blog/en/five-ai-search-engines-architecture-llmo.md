@@ -3,6 +3,7 @@ title: "One Question, Five AI Search Engines, Five Different Answers"
 description: "I asked five AI search engines the same question. The answers were all different. Here's how each platform decides what gets cited, and what you can do about it."
 date: 2026-05-03
 lang: en
+og_image: "https://kenimoto.dev/images/blog/five-ai-search-engines-architecture-llmo/og.png"
 tags: [llmo, ai-search, seo, architecture, content-strategy]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/five-ai-search-engines-architecture-llmo/"

@@ -3,6 +3,7 @@ title: "Is AI Actually Citing Your Site? How to Measure What Google Rankings Can
 description: "Nothing tracks whether AI is citing your site. Here's how to measure LLMO visibility with GA4, Python scripts, and a 30-minute monthly protocol."
 date: 2026-05-02
 lang: en
+og_image: "https://kenimoto.dev/images/blog/measure-ai-citations-llmo-kpi/og.png"
 tags: [llmo, ai-search, seo, measurement, analytics]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/measure-ai-citations-llmo-kpi/"
