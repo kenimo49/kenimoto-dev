@@ -3,6 +3,7 @@ title: "arXiv's 'Natural-Language Agent Harnesses' (2603.25723): The Word I'd Be
 description: "A plain-English read of the arXiv paper 'Natural-Language Agent Harnesses' (2603.25723): what the term means, how it reframed the 'setup' I'd built all year, and why the vocabulary upgrade made my team meetings 30% shorter."
 date: 2026-05-06
 lang: en
+og_image: "https://kenimoto.dev/images/blog/natural-language-agent-harnesses-arxiv/og.png"
 tags: [ai, claudecode, harness, agents]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/natural-language-agent-harnesses-arxiv/"

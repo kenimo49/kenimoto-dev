@@ -3,6 +3,7 @@ title: "Your New Domain's First Week of GA4 Is a Lie: 4 Days of Raw Data from ka
 description: "Four days after registering a new domain, GA4 showed 65 PV / 34 users across 9 countries. Before celebrating, I beat the data with 5 signals. What survived: a handful of humans, and a tireless army of crawlers."
 date: 2026-05-05
 lang: en
+og_image: "https://kenimoto.dev/images/blog/new-domain-first-week-ga4-is-a-lie/og.png"
 tags: [ga4, analytics, llmo, build-in-public, bot-traffic]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/new-domain-first-week-ga4-is-a-lie/"

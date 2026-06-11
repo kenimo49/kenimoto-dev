@@ -3,6 +3,7 @@ title: "The og:type Bug Three of My Astro Sites Quietly Shipped"
 description: "I run four Astro sites. Three of them shipped the same SEO bug for months — every blog post told Twitter, Facebook, and LinkedIn it was a website, not an article. Here is what happened, why I did not catch it sooner, and the build-time check that would have caught it on day one."
 date: 2026-05-08
 lang: en
+og_image: "https://kenimoto.dev/images/blog/og-type-double-emit-three-astro-sites/og.png"
 tags: [astro, seo, webdev, ai]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/og-type-double-emit-three-astro-sites/"
