@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import { getCollection } from 'astro:content';
 import { staticAlternates } from '../lib/alternates';
+import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
 
 // "Now" セクションの更新月はビルド日から自動生成する (毎日ビルドされるので陳腐化しない)
 const updatedLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -19,6 +21,74 @@ const links = [
 ];
 
 const SITE_URL = 'https://kenimoto.dev';
+
+// --- Latest Articles: EN ブログコレクションの最新6件から自動生成 ---
+// 以前はインラインの外部リンク手書きで ja ページと二重管理になり、ドリフトの温床だった。
+// 記事リンク・日付をコレクション駆動にして自動化する。
+const enPosts = (await getCollection('blog', ({ data }) => data.lang === 'en'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 6);
+
+// --- Book JSON-LD: books コレクションから自動生成 ---
+// en エディションのうち実際に出版済み (Kindle/Zenn URL を持つ) の書籍のみ。
+// inLanguage と sameAs は同一 slug の全言語エディションを束ねて単一ソース化する。
+const allBooks = await getCollection('books');
+const editionsBySlug = new Map<string, typeof allBooks>();
+for (const b of allBooks) {
+  const slug = b.id.replace(/^(en|ja|pt|es)\//, '');
+  const list = editionsBySlug.get(slug) ?? [];
+  list.push(b);
+  editionsBySlug.set(slug, list);
+}
+const bookJsonLd = allBooks
+  .filter((b) => b.data.lang === 'en' && (b.data.kindle_url || b.data.zenn_url))
+  .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf())
+  .map((b) => {
+    const slug = b.id.replace(/^en\//, '');
+    const editions = editionsBySlug.get(slug) ?? [b];
+    const langs = [...new Set(editions.map((e) => e.data.lang))].sort();
+    const sameAs = [...new Set(
+      editions
+        .flatMap((e) => [e.data.zenn_url, e.data.kindle_url, ...e.data.other_urls.map((u) => u.url)])
+        .filter(Boolean),
+    )];
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Book',
+      name: b.data.title,
+      author: { '@id': `${SITE_URL}/#person` },
+      bookFormat: 'EBook',
+      inLanguage: langs.length > 1 ? langs : langs[0],
+      url: `${SITE_URL}/books/${slug}/`,
+      ...(sameAs.length ? { sameAs } : {}),
+      ...(b.data.topics.length ? { about: b.data.topics } : {}),
+    };
+  });
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${SITE_URL}/#person`,
+  name: 'Ken Imoto',
+  jobTitle: 'AI Systems Engineer',
+  affiliation: { '@type': 'Organization', name: 'Propel-Lab', url: 'https://propel-lab.co.jp' },
+  description: 'Building AI-native organizations powered by LLMs, automation, and distributed agents.',
+  url: SITE_URL,
+  sameAs: [
+    'https://github.com/kenimo49',
+    'https://linkedin.com/in/kenimo49',
+    'https://x.com/kenimo49',
+    'https://qiita.com/kenimo49',
+    'https://zenn.dev/kenimo49',
+    'https://speakerdeck.com/kenimo49',
+    'https://dev.to/kenimo49',
+    'https://kenimo49.hashnode.dev',
+    'https://medium.com/@kenimo49',
+    'https://www.tabnews.com.br/kenimo49',
+  ],
+  worksFor: { '@type': 'Organization', name: 'Propel-Lab', url: 'https://propel-lab.co.jp' },
+  knowsAbout: ['LLMO', 'LLM Optimization', 'AI-Native MEO', 'WebRTC', 'Real-time AI', 'Context Engineering', 'AI Agent Design', 'MCP', 'Claude Code', 'Android Development', 'Vision-Language Models', 'Color Perception'],
+};
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -48,232 +118,8 @@ const orgJsonLd = {
   ogUrl="https://kenimoto.dev/"
   ogDescription="LLMO Framework Author. Building AI-native organizations powered by LLMs, real-time AI, and context engineering."
   alternates={staticAlternates('/')}
-  jsonLd={[websiteJsonLd, orgJsonLd]}
+  jsonLd={[personJsonLd, websiteJsonLd, orgJsonLd, ...buildScholarlyArticleJsonLd(`${SITE_URL}/#person`), ...bookJsonLd]}
 >
-  <Fragment slot="head">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://kenimoto.dev/#person",
-      "name": "Ken Imoto",
-      "jobTitle": "AI Systems Engineer",
-      "affiliation": { "@type": "Organization", "name": "Propel-Lab", "url": "https://propel-lab.co.jp" },
-      "description": "Building AI-native organizations powered by LLMs, automation, and distributed agents.",
-      "url": "https://kenimoto.dev",
-      "sameAs": [
-        "https://github.com/kenimo49",
-        "https://linkedin.com/in/kenimo49",
-        "https://x.com/kenimo49",
-        "https://qiita.com/kenimo49",
-        "https://zenn.dev/kenimo49",
-        "https://speakerdeck.com/kenimo49",
-        "https://dev.to/kenimo49",
-        "https://kenimo49.hashnode.dev",
-        "https://medium.com/@kenimo49",
-        "https://www.tabnews.com.br/kenimo49"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Propel-Lab",
-        "url": "https://propel-lab.co.jp"
-      },
-      "knowsAbout": ["LLMO", "LLM Optimization", "AI-Native MEO", "WebRTC", "Real-time AI", "Context Engineering", "AI Agent Design", "MCP", "Claude Code", "Android Development", "Vision-Language Models", "Color Perception"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ScholarlyArticle",
-      "name": "AI Blue: Systematic Color Recognition Bias in Vision-Language Models and Its Implications for AI-Generated UI Design",
-      "author": { "@type": "Person", "name": "Ken Imoto" },
-      "datePublished": "2026-03-22",
-      "url": "https://doi.org/10.5281/zenodo.19159702",
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.19159702" },
-      "about": ["Vision-Language Models", "Color Perception", "CIEDE2000", "AI Slop", "Computer Vision"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ScholarlyArticle",
-      "name": "AI Text Slop: A Quantitative Study of Stylistic Convergence Across Six Language Models in Japanese Technical Writing",
-      "author": { "@type": "Person", "name": "Ken Imoto" },
-      "datePublished": "2026-03-23",
-      "url": "https://doi.org/10.5281/zenodo.19173035",
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.19173035" },
-      "about": ["LLM", "AI Text Detection", "Japanese NLP", "Stylistic Convergence", "RLHF", "AI Slop"]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ScholarlyArticle",
-      "name": "Excess Vocabulary in Japanese AI-Generated Text: A Cross-Model Quantitative Analysis",
-      "author": { "@type": "Person", "name": "Ken Imoto" },
-      "datePublished": "2026-03-26",
-      "url": "https://doi.org/10.5281/zenodo.19233934",
-      "identifier": { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.19233934" },
-      "about": ["Excess Vocabulary", "Japanese NLP", "LLM Detection", "MeCab", "Cross-Model Comparison", "Vocabulary Coevolution"]
-    }
-    </script>
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Why Do Some Words Stay With You Forever?: 100 Engineering Quotes Decoded",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/engineer-it-quotes/",
-        "sameAs": ["https://www.amazon.co.jp/dp/B0GX3CS95M", "https://www.amazon.co.jp/dp/B0GXR5Q6NW"],
-        "about": ["Engineering Quotes", "Software Philosophy", "Career", "Leadership"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "The Practical Knowledge Graph Guide: Structure Your Data, Sharpen Your AI",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/knowledge-graph-practical-guide/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide", "https://www.amazon.co.jp/dp/B0GX2Z73JV", "https://www.amazon.co.jp/dp/B0GX465PG7"],
-        "about": ["Knowledge Graph", "GraphRAG", "Neo4j", "Property Graph"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "The 300ms Threshold — Why Talking to AI Feels Wrong",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/voice-ai-300ms-ux/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/voice-ai-300ms-ux", "https://www.amazon.co.jp/dp/B0GYQ4L2KP", "https://www.amazon.co.jp/dp/B0GX2R5HP4"],
-        "about": ["Voice AI", "Latency UX", "Turn-taking", "TTFB", "Edge AI"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Harness Engineering — From Using AI to Controlling AI",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/harness-engineering-guide/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/harness-engineering-guide", "https://www.amazon.com/dp/B0FZNL8D1V", "https://www.amazon.co.jp/dp/B0GF8VGSPC"],
-        "about": ["Harness Engineering", "AI Agent", "CLAUDE.md", "AGENTS.md"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Practical Claude Code — Context Engineering for Modern Development",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en", "pt", "es"],
-        "url": "https://kenimoto.dev/books/claude-code-mastery/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/claude-code-mastery", "https://www.amazon.com/dp/B0GPWPKNB7", "https://www.amazon.com.br/dp/B0GZHB7J3T", "https://www.amazon.com.br/dp/B0GX3S7VGK"],
-        "about": ["Claude Code", "Context Engineering", "CLAUDE.md", "AI Development"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Why ChatGPT Ignores Your Website: The LLMO Practical Guide",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/llmo-ai-search-optimization/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/llmo-ai-search-optimization", "https://www.amazon.com/dp/B0GQ2L5HQY", "https://www.amazon.co.jp/dp/B0GQ4XPBMJ"],
-        "about": ["LLMO", "LLM Optimization", "SEO", "JSON-LD", "llms.txt", "AI Search"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "MCP Security in Practice",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/mcp-security-practice/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/mcp-security-practice", "https://www.amazon.com/dp/B0GHZHC3PY", "https://www.amazon.co.jp/dp/B0GGYKSLNM"],
-        "about": ["MCP", "Model Context Protocol", "Security", "OWASP"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Turning LLMs from Liars into Experts: Context Engineering in Practice",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/context-engineering/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/context-engineering", "https://www.amazon.com/dp/B0GHRJX36Z", "https://www.amazon.co.jp/dp/B0GHNC29MF"],
-        "about": ["Context Engineering", "RAG", "MCP", "LLM", "Hallucination", "Benchmark"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Systematizing AI Code Review: The 3-Layer Model for 60% Faster Reviews",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/harness-code-review/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/harness-code-review", "https://www.amazon.co.jp/dp/B0GHT7FQ7G", "https://www.amazon.com/Systematizing-AI-Code-Review-Propel-Lab-ebook/dp/B0GX71K2BV"],
-        "about": ["AI Code Review", "CodeRabbit", "GitHub Actions", "AGENTS.md", "Code Review Automation"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "LLMO Quickstart: AI Search Optimization for Engineers",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "en"],
-        "url": "https://kenimoto.dev/books/llmo-quickstart/",
-        "sameAs": ["https://www.amazon.com/dp/B0GHJLJ611", "https://www.amazon.co.jp/dp/B0GHMCKQPX"],
-        "about": ["LLMO", "AI Search Optimization", "SEO", "LLM"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "AI Slop Escape Guide",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": "ja",
-        "url": "https://zenn.dev/kenimo49/books/ai-slop-escape-guide",
-        "about": ["AI Slop", "UI Design", "Color Bias", "AI Blue"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Manual completo dos truques psicológicos para engenheiros / エンジニアの心理トリック大全",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": ["ja", "pt"],
-        "url": "https://kenimoto.dev/pt/books/engineer-psychology-tricks/",
-        "sameAs": ["https://zenn.dev/kenimo49/books/engineer-psychology-tricks", "https://www.amazon.com.br/dp/B0GZFBC7SP"],
-        "about": ["Cognitive Bias", "Engineering Psychology", "Code Review", "Estimation", "Team Communication", "Psychological Safety"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "LLMO Website Builder",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": "ja",
-        "url": "https://zenn.dev/kenimo49/books/llmo-website-builder",
-        "about": ["LLMO", "Website Development", "AI Search Optimization"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Book",
-        "name": "Claude Code QuickStart",
-        "author": { "@type": "Person", "name": "Ken Imoto" },
-        "bookFormat": "EBook",
-        "inLanguage": "ja",
-        "url": "https://zenn.dev/kenimo49/books/claude-code-quickstart",
-        "about": ["Claude Code", "AI Development", "Getting Started"]
-      }
-    ]
-    </script>
-  </Fragment>
-
     <Nav lang="en" current="home" />
 
     <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem; text-align: center;">
@@ -412,17 +258,21 @@ const orgJsonLd = {
         </p>
       </section>
 
-      <!-- Latest Articles -->
+      <!-- Latest Articles (collection-driven: blog コレクションの最新6件) -->
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Latest Articles</h2>
         <ul style="list-style: none; padding: 0; line-height: 2.2;">
-          <li>📝 <a href="https://zenn.dev/kenimo49/articles/harness-engineering-interpretations-2026">Harness Engineering — Everyone Says Something Different: 5 Interpretations Compared</a> <span style="color: var(--text-muted); font-size: 0.75rem;">Zenn 12,000PV</span></li>
-          <li>📝 <a href="https://dev.to/kenimo49/why-chatgpt-doesnt-know-your-product-even-if-you-rank-1-on-google-1g9m">Why ChatGPT Doesn't Know Your Product</a> <span style="color: var(--text-muted); font-size: 0.75rem;">DEV.to</span></li>
-          <li>📝 <a href="https://dev.to/kenimo49/the-swiss-cheese-model-of-ai-security-why-single-layer-defense-always-fails-258l">Swiss Cheese Model × AI Security</a> <span style="color: var(--text-muted); font-size: 0.75rem;">DEV.to</span></li>
-          <li>📝 <a href="https://dev.to/kenimo49/why-just-squash-merge-no-longer-works-in-the-age-of-ai-1kfc">Squash Merge in the Age of AI</a> <span style="color: var(--text-muted); font-size: 0.75rem;">DEV.to</span></li>
-          <li>📝 <a href="https://zenn.dev/kenimo49/articles/voice-ai-three-cliffs-latency">Voice AI: 3 Cliffs at 300ms, 500ms, 800ms</a> <span style="color: var(--text-muted); font-size: 0.75rem;">Zenn</span></li>
-          <li>📝 <a href="https://qiita.com/kenimo49/items/27e2a11e80fe3b835f96">Stop Using HTTPS Connections Right Now</a> <span style="color: var(--text-muted); font-size: 0.75rem;">Qiita 42,000PV</span></li>
+          {enPosts.map((post) => {
+            const slug = post.id.replace(/^en\//, '');
+            const dateLabel = post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+            return (
+              <li>📝 <a href={`/blog/${slug}/`}>{post.data.title}</a> <span style="color: var(--text-muted); font-size: 0.75rem;">{dateLabel}</span></li>
+            );
+          })}
         </ul>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.75rem;">
+          <a href="/blog/">→ All articles</a>
+        </p>
       </section>
 
       <!-- Papers -->
