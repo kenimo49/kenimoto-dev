@@ -3,7 +3,7 @@ title: "I Priced AI Agents Three Ways: API, Subscription, and Local. Here's Wher
 description: "Every AI agent comparison post ranks accuracy and ecosystem. None of them answer the first question your manager asks: how much per month? I ran the numbers for June 2026 across API metering, subscriptions, and a local GPU -- including the June 15 Claude Code billing change."
 date: 2026-06-13
 lang: en
-tags: [ai-agent, cost, claudecode, local-llm, pricing]
+tags: [ai-agent, cost, claude-code, local-llm, pricing]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/ai-agent-monthly-cost-api-subscription-local-breakeven/"
 og_image: "https://kenimoto.dev/images/blog/ai-agent-monthly-cost-api-subscription-local-breakeven/og.png"
@@ -56,7 +56,7 @@ Flat monthly fee, no per-token anxiety:
 
 The 2026 plot twist: **starting June 15, 2026, programmatic Claude Code usage moves to a dedicated credit pool billed at API rates.** Pro includes $20 of monthly credits, Max 5x includes $100, Max 20x includes $200. Interactive terminal sessions stay inside your subscription limits; your `claude -p` cron jobs and CI pipelines now draw from the pool.
 
-I have seven cron agents that write content drafts overnight. For a year they were, in accounting terms, free riders on my Max plan. As of this week they have a budget line. I measured their first projected month against API rates: about $38 of the $100 pool. Survivable. But if you've built a heavy automation harness on a $100 subscription, run this measurement *before* the pool runs dry mid-month, not after.
+I have seven cron agents that write content drafts overnight. For a year they were, in accounting terms, free riders on my Max plan. As of this week they have a budget line. I measured their first projected month against API rates: about $38 of the $100 pool. Survivable. But if you've built a heavy automation harness on a $100 subscription, run this measurement *before* the pool runs dry mid-month.
 
 **Best for:** daily interactive use. If you're burning 1M+ tokens a month in actual coding sessions, $100 flat beats the metered equivalent comfortably.
 
@@ -90,16 +90,16 @@ Compare against: $100 (Max 5x) or ~$130 (local GPU amortized)
 With Sonnet 4.6 rates and a typical agent's 70/30 input/output split, cache hits at 60%:
 
 - **Under ~1.5M tokens/month:** API metering wins. You're paying single-digit dollars.
-- **~1.5M to ~20M tokens/month:** Max 5x at $100 wins. The same volume metered would run $10-130, and the subscription removes the variance.
+- **~1.5M to ~20M tokens/month:** Max 5x at $100 wins. The same volume metered would run $10-130 before cache savings, and the subscription removes the variance.
 - **Above ~20M tokens/month, quality-tolerant workloads:** local starts to pay, *if* a 32B model is good enough for the task. For frontier-quality work there is no local option at any volume; that's a capability boundary, not a price point.
 
 ![Break-even chart: monthly token volume versus cost for API, subscription, and local GPU in June 2026](/images/blog/ai-agent-monthly-cost-api-subscription-local-breakeven/breakeven-chart.png)
 
-The honest version of that third bullet: "cheap but worse" is a real trade, not a footnote. My test for whether a local model is below the line: when code review starts catching things the model should have caught, the model is costing you more in review time than it saves in API fees.
+The honest version of that third bullet: "cheap but worse" is a real trade, and it belongs in the budget math. My test for whether a local model is below the line: when code review starts catching things the model should have caught, the model is costing you more in review time than it saves in API fees.
 
 ## My hybrid setup, with receipts
 
-Locking into one structure is like furnishing a house with only a hammer. Here's my June 2026 split:
+Locking into one structure is like building a house with only a hammer. Here's my June 2026 split:
 
 - **Daily interactive coding:** Claude Code on Max 5x ($100 flat)
 - **Cron/automation fleet:** the new credit pool, projected ~$38/month at API rates

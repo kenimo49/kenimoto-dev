@@ -32,7 +32,7 @@ A mecânica tem quatro etapas, e a terceira é a que justifica o nome de worm:
 
 1. **Infectar.** O código malicioso roda no `preinstall`, antes de qualquer coisa aparecer na sua tela.
 2. **Roubar.** Ele varre o ambiente atrás de chaves de API, tokens do GitHub, credenciais de nuvem e tokens npm.
-3. **Auto-propagar.** Com os tokens npm roubados, ele injeta o malware nos pacotes que **a vítima** mantém e republica. O desenvolvedor infectado vira o próximo atacante, sem saber.
+3. **Auto-propagar.** Com os tokens npm roubados, ele injeta o malware nos pacotes que **a vítima** mantém e os republica. O desenvolvedor infectado vira o próximo atacante, sem saber.
 4. **Destruir.** Na versão 2.0, se o malware não consegue roubar nada nem abrir canal de exfiltração, ele tenta sobrescrever e apagar todos os arquivos graváveis do seu diretório home. Nem dá para chamar de chantagem: o ransomware pelo menos manda um boleto antes de destruir alguma coisa.
 
 ## Por que o "Sim automático" é exatamente a porta de entrada
@@ -96,7 +96,7 @@ Nunca:
 
 Reagan usava a expressão "confie, mas verifique" nas negociações de desarmamento. Serve perfeitamente para a relação com agentes de IA.
 
-Eu continuo usando Claude Code todos os dias. Continuo instalando pacote npm sugerido por ele. A diferença é o um segundo entre a sugestão e o "Sim": ler o nome, imaginar o que o comando faz, decidir de verdade. 796 pacotes comprometidos, 25 mil repositórios expostos e um worm que ainda está gerando sequência em 2026 dizem que esse segundo é a linha de defesa mais barata que existe.
+Eu continuo usando Claude Code todos os dias. Continuo instalando pacote npm sugerido por ele. A diferença é aquele um segundo entre a sugestão e o "Sim": ler o nome, imaginar o que o comando faz, decidir de verdade. 796 pacotes comprometidos, 25 mil repositórios expostos e um worm que ainda está gerando sequência em 2026 dizem que esse segundo é a linha de defesa mais barata que existe.
 
 A piada pronta é que a IA ia roubar o nosso emprego. Por enquanto, o que ela fez foi me devolver um hábito que eu tinha perdido: ler antes de assinar.
 

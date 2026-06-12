@@ -12,7 +12,7 @@ cross_posted_to: []
 
 La primera vez que leí sobre LLMO me senté frente a la computadora con toda la motivación del mundo y pasé 90 minutos sin escribir una sola línea. No porque fuera difícil: porque cada artículo me mandaba a leer otros tres. La implementación real, cuando por fin la hice, tomó 15 minutos. Este artículo es la versión que me hubiera ahorrado los otros 75.
 
-La premisa es simple: tu sitio puede rankear bien en Google y aun así ser invisible cuando alguien le pregunta a ChatGPT, Claude o Perplexity. Son canales distintos con reglas distintas. La base mínima para el canal de IA son dos archivos y un ajuste, y los tres caben en una tarde corta.
+La premisa es simple: tu sitio puede posicionarse bien en Google y aun así ser invisible cuando alguien le pregunta a ChatGPT, Claude o Perplexity. Son canales distintos con reglas distintas. La base mínima para el canal de IA son dos archivos y un ajuste, y los tres caben en una tarde corta.
 
 No quiero venderte humo: de las dos técnicas de hoy, una tiene evidencia sólida y la otra es un seguro barato. Te digo cuál es cuál en cada sección.
 
@@ -39,7 +39,7 @@ La estructura mínima tiene dos elementos obligatorios y el resto es opcional:
 
 Requisitos técnicos: UTF-8, servido como `text/plain`, HTTPS, idealmente menos de 10 KB. Eso es todo.
 
-Ahora los datos incómodos, porque existen. Un análisis de SE Ranking sobre 300,000 dominios encontró que cerca del 10% ya tiene un llms.txt. Pero John Mueller, de Google, señaló que ningún crawler de IA ha confirmado públicamente que extrae información de este archivo, y Google declaró que no planea soportarlo. En una medición de 500 millones de visitas de bots de IA, apenas 408 pidieron el llms.txt directamente.
+Ahora los datos incómodos, porque existen. Un análisis de SE Ranking sobre 300,000 dominios encontró que cerca del 10% ya tiene un llms.txt. Pero John Mueller, de Google, señaló que ningún crawler de IA ha confirmado públicamente que extrae información de este archivo, y Google declaró que no planea adoptarlo. En una medición de 500 millones de visitas de bots de IA, apenas 408 pidieron el llms.txt directamente.
 
 Aun así, yo lo implemento por la misma razón que se contrata un seguro antes del incendio y no después: cuesta 5 minutos, no tiene ninguna desventaja para tu SEO actual, y si los motores de IA lo adoptan mañana, tú ya estás en la fila. Solo que no le cuento a nadie que eso "me posicionó en ChatGPT", porque sería mentira.
 
@@ -47,7 +47,7 @@ Si después quieres ver cómo NO escribirlo, [audité 30 archivos llms.txt en pr
 
 ## Paso 2: JSON-LD (10 minutos, aquí sí hay evidencia)
 
-El JSON-LD es metadata estructurada que insertas en el `<head>` de tus páginas usando el vocabulario de schema.org. A diferencia del llms.txt, aquí hay un mecanismo confirmado: la Brave LLM Context API, que alimenta de contexto a varios asistentes de IA, extrae datos estructurados con **prioridad máxima**, por encima de tablas, snippets y bloques de código. Si tu página tiene JSON-LD, esa es la versión de tu contenido que el motor lee primero.
+El JSON-LD es un formato de metadatos estructurados que insertas en el `<head>` de tus páginas usando el vocabulario de schema.org. A diferencia del llms.txt, aquí hay un mecanismo confirmado: la Brave LLM Context API, que alimenta de contexto a varios asistentes de IA, extrae datos estructurados con **prioridad máxima**, por encima de tablas, snippets y bloques de código. Si tu página tiene JSON-LD, esa es la versión de tu contenido que el motor lee primero.
 
 ![Los tres pasos de la implementación LLMO mínima: llms.txt en la raíz, JSON-LD en el head, robots.txt permitiendo crawlers de IA](/images/blog/llmo-15-minutos-llms-txt-json-ld/tres-pasos-15-minutos.png)
 
