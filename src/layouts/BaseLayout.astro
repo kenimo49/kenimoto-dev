@@ -403,9 +403,10 @@ const jsonLdArray = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
             destination: a.href,
             transport_type: 'beacon',
           };
-          // gtag.js ロード前でも dataLayer に積んで取りこぼしを防ぐ
-          if (typeof gtag === 'function') gtag('event', 'cta_click', params);
-          else (window.dataLayer = window.dataLayer || []).push(['event', 'cta_click', params]);
+          // gtag.js ロード前でも dataLayer に積んで取りこぼしを防ぐ。
+          // フォールバックは gtag と同じ Arguments push 形式にする (配列 push だと gtag.js が処理しない)。
+          var g = (typeof gtag === 'function') ? gtag : function () { (window.dataLayer = window.dataLayer || []).push(arguments); };
+          g('event', 'cta_click', params);
         }
         function handler(e) {
           var a = e.target && e.target.closest && e.target.closest('a[href]');

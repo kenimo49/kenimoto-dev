@@ -25,6 +25,7 @@ export interface ProofData {
   freePreviewChapterCta: Record<Lang, string>;
   ptHeadlineSignal: string;
   jaHeadlineSignal: string;
+  enHeadlineSignal: string;
 }
 
 export const proof: ProofData = {
@@ -93,6 +94,11 @@ export const proof: ProofData = {
   // JA 市場リサーチ反映: Zenn 個人技術書の「いいね数」trust signal を kenimoto.dev版で再現
   jaHeadlineSignal:
     'Zenn累計32,000+ views · 4言語で30冊以上出版 · Kindle 6カ国で販売中',
+
+  // EN 量的シグナル (Leanpub/Manning 風 hero アンカー、 EN 限定で表示)
+  // authorBio.en と整合: company-logo social proof の代替として量的シグナル 1行
+  enHeadlineSignal:
+    '30+ technical books across 4 languages · Sold on Kindle in 6 countries · From a year of real production use',
 
   sectionHeading: {
     ja: '数字で見る著者',

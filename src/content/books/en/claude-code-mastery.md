@@ -6,6 +6,8 @@ lang: "en"
 
 kindle_url: "https://www.amazon.com/dp/B0GPWPKNB7"
 
+price: 9.99
+currency: "USD"
 published_date: 2025-09-01
 updated_date: 2026-04-15
 

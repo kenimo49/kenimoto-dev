@@ -364,6 +364,7 @@ const proofPartCta = proof.partCta[lang];
 const proofFreePreviewHeading = proof.freePreviewHeading[lang];
 const ptHeadlineSignal = lang === 'pt' ? proof.ptHeadlineSignal : null;
 const jaHeadlineSignal = lang === 'ja' ? proof.jaHeadlineSignal : null;
+const enHeadlineSignal = lang === 'en' ? proof.enHeadlineSignal : null;
 const proofFreePreviewLead = proof.freePreviewLead[lang];
 const proofFreePreviewChapterCta = proof.freePreviewChapterCta[lang];
 
@@ -609,7 +610,8 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
 
       /* PT 限定: hero CTA 直下の量的シグナル 1行 (Rocketseat 風アンカー) */
       .pt-headline-signal,
-      .ja-headline-signal {
+      .ja-headline-signal,
+      .en-headline-signal {
         font-size: 0.85rem;
         color: var(--text-secondary);
         margin: 0.5rem 0 1rem;
@@ -1331,6 +1333,10 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
       <p class="ja-headline-signal">{jaHeadlineSignal}</p>
     )}
 
+    {enHeadlineSignal && (
+      <p class="en-headline-signal">{enHeadlineSignal}</p>
+    )}
+
     <div class="book-meta">
       {formattedPrice && <span class="price">{formattedPrice}</span>}
       {!isZennOnly && kindleUrl && <span class="ku-badge">{proofKuBadge}</span>}
@@ -1643,9 +1649,10 @@ const bookJsonLd = [bookSchema, breadcrumbJsonLd];
           destination: link.href,
           transport_type: 'beacon',
         };
-        // gtag.js ロード前でも dataLayer に積んで取りこぼしを防ぐ (BaseLayout の outbound 計測と同じ堅牢化)
-        if (typeof gtag === 'function') gtag('event', 'cta_click', params);
-        else (window.dataLayer = window.dataLayer || []).push(['event', 'cta_click', params]);
+        // gtag.js ロード前でも dataLayer に積んで取りこぼしを防ぐ (BaseLayout の outbound 計測と同じ堅牢化)。
+        // フォールバックは gtag と同じ Arguments push 形式にする (配列 push だと gtag.js が処理しない)。
+        var g = (typeof gtag === 'function') ? gtag : function () { (window.dataLayer = window.dataLayer || []).push(arguments); };
+        g('event', 'cta_click', params);
       }
       function bind() {
         document.querySelectorAll('[data-cta-amazon], [data-cta-sample], [data-cta-zenn], [data-cta-toc], [data-cta-other]').forEach(function (link) {
