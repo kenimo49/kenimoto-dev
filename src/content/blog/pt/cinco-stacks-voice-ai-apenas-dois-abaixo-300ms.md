@@ -99,7 +99,7 @@ Edge é a resposta certa para o formato certo de problema: privacidade local-onl
 
 O outro caminho é híbrido: STT no edge, LLM e TTS na cloud. Você pula o round-trip de rede no passo síncrono mais longo (capturar áudio) e mantém qualidade de cloud no cérebro. O livro organiza isso em uma matriz de decisão e bate com o que eu medi: 350-500ms é realista; cascata cloud abaixo de 300ms não é.
 
-Pra quem quer aprofundar no lado da percepção — como fazer um agente de 500ms **parecer** de 300ms — escrevi um companheiro sobre [perception hacks de voice AI](https://dev.to/kenimo49/voice-perception-hacks-i-kept-the-pipeline-at-540ms-and-users-still-said-instant-3oki) lá no Dev.to. Filler, micro-confirmações e playback progressivo de token compram um paredão inteiro de velocidade percebida. Não movem o paredão de verdade.
+Pra quem quer aprofundar no lado da percepção — como fazer um agente de 500ms **parecer** de 300ms — escrevi um companheiro sobre [perception hacks de voice AI](https://dev.to/kenimo49/your-voice-agent-is-slow-here-are-5-tricks-to-hide-it-3pcb) lá no Dev.to. Filler, micro-confirmações e playback progressivo de token compram um paredão inteiro de velocidade percebida. Não movem o paredão de verdade.
 
 ## O que eu construiria hoje
 

@@ -111,7 +111,7 @@ Edge es la respuesta correcta para la forma correcta de problema: privacidad loc
 
 El otro camino es híbrido: STT en el edge, LLM y TTS en cloud. Te salteás el round-trip de red en el paso síncrono más largo (capturar audio) y mantenés calidad de cloud en el cerebro. El libro lo organiza como una matriz de decisión y coincide con lo que medí: 350-500ms es realista; cascada cloud bajo 300ms no lo es.
 
-Para profundizar en el lado de la percepción — cómo hacer que un agente de 500ms **se sienta** como uno de 300ms — escribí un complemento sobre [perception hacks de voice AI](https://dev.to/kenimo49/voice-perception-hacks-i-kept-the-pipeline-at-540ms-and-users-still-said-instant-3oki) en Dev.to. Filler, micro-confirmaciones y playback progresivo de tokens te compran todo un acantilado de velocidad percibida. No mueven el acantilado real.
+Para profundizar en el lado de la percepción — cómo hacer que un agente de 500ms **se sienta** como uno de 300ms — escribí un complemento sobre [perception hacks de voice AI](https://dev.to/kenimo49/your-voice-agent-is-slow-here-are-5-tricks-to-hide-it-3pcb) en Dev.to. Filler, micro-confirmaciones y playback progresivo de tokens te compran todo un acantilado de velocidad percibida. No mueven el acantilado real.
 
 ## Qué construiría hoy
 
