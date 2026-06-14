@@ -7,7 +7,9 @@ tags: [ai-agent, cost, claude-code, local-llm, pricing]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/ai-agent-monthly-cost-api-subscription-local-breakeven/"
 og_image: "https://kenimoto.dev/images/blog/ai-agent-monthly-cost-api-subscription-local-breakeven/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/api-subscription-or-local-i-priced-ai-agents-three-ways-and-found-where-the-break-even-sits-1pdm
 ---
 
 I read ten AI agent comparison posts last month. I now know everything about "accuracy," "extensibility," and "ecosystem maturity." What none of them told me is the only thing my manager asked when I pitched one: **how much per month?**
