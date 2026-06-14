@@ -7,7 +7,9 @@ tags: [llmo, perplexity, ai-search, geo, measurement]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/perplexity-3-changes-1-schema/"
 og_image: "https://kenimoto.dev/images/blog/perplexity-3-changes-1-schema/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/perplexity-citations-exploded-after-i-changed-3-things-only-1-was-schema-3n8f
 ---
 
 For about a year I have been the guy who tells people structured data is the secret to getting cited by AI. I have written JSON-LD into more `<head>` tags than I have written thank-you notes, which is its own small tragedy. So when I decided to actually run an experiment on a single engine instead of waving my hands at "AI search" in general, I assumed the verdict would confirm the sermon I had been preaching. Schema wins. Roll credits.
