@@ -7,7 +7,7 @@ series_role: "Trilogía Harness [Implementación]: el libro donde Claude Code se
 description: "Practical Claude Code enseña cómo usar Claude Code y escribir CLAUDE.md a partir de más de un año de uso real en producción. De la filosofía de diseño a los patrones de CLAUDE.md, de los flujos de Plan Mode a la operación en equipo y la seguridad: la guía de campo para ingenieros que quieren dominar Claude Code de verdad."
 lang: "es"
 
-kindle_url: "https://www.amazon.com.br/dp/B0GX3S7VGK"
+kindle_url: "https://www.amazon.com.mx/dp/B0GX3S7VGK"
 
 price: 4.99
 currency: "USD"
