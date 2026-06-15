@@ -7,7 +7,9 @@ tags: [llmo, brave-search, ai-agents, seo, geo]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/brave-invisible-to-ai-agents/"
 og_image: "https://kenimoto.dev/images/blog/brave-invisible-to-ai-agents/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/brave-search-buries-pages-google-ranks-1-and-your-ai-agents-cant-find-them-2id2
 ---
 
 I have an article that ranks #1 on Google for its target query. Position one, above the fold, the SEO equivalent of a parking spot right by the door. I was proud of it. I had earned it the boring way: clean headings, internal links, a year of patience.

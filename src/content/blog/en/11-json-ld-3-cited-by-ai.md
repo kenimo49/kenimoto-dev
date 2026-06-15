@@ -8,7 +8,9 @@ tags: [llmo, json-ld, schema-org, ai-search, geo]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/11-json-ld-3-cited-by-ai/"
 og_image: "https://kenimoto.dev/images/blog/11-json-ld-3-cited-by-ai/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/json-ld-schema-vs-ai-citations-i-shipped-11-only-3-got-cited-after-3-months-23ij
 ---
 
 Three months ago I spent an afternoon adding eleven JSON-LD schemas to my site's `<head>`. Organization, WebSite, Person, four Service blocks, two Books, MusicGroup, FAQPage. I felt very pleased with myself.

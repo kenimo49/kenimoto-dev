@@ -7,7 +7,9 @@ tags: [llmo, aeo, ai-search, answer-first, measurement]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/answer-first-7-of-12-cited/"
 og_image: "https://kenimoto.dev/images/blog/answer-first-7-of-12-cited/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/answer-first-writing-i-rewrote-12-pages-to-lead-with-the-answer-and-ai-quoted-7-3n66
 ---
 
 I have spent more of my life optimizing for machines that can't laugh than I'd like to admit, and last month I added a new entry to that ledger: I rewrote the opening sentence of 12 of my own pages so that the very first line answered the question in the heading, instead of warming up to it like a man clearing his throat before a toast.
