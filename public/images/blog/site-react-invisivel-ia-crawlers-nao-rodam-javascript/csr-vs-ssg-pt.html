@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><style>
+:root{--navy:#1E3A5F;--navy-mid:#3D6B99;--navy-light:#7BA3CC;--navy-bg:#E8EEF4;--navy-bg-light:#F0F4F8;--dark:#1A1A2E;--secondary:#6B7B8D;--white:#FFFFFF;--alert:#C0392B;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:1920px;height:1080px;overflow:hidden;font-family:'Noto Sans CJK JP','Noto Sans JP',sans-serif;padding:56px 80px;background:var(--white);color:var(--dark);}
+.eyebrow{font-size:34px;font-weight:700;color:var(--navy);margin-bottom:10px;letter-spacing:-0.01em;}
+.title{font-size:60px;font-weight:900;color:var(--dark);margin-bottom:44px;line-height:1.06;letter-spacing:-0.02em;max-width:1700px;}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:40px;}
+.col{background:var(--navy-bg-light);border-radius:16px;padding:36px 40px;min-height:560px;border-top:10px solid var(--navy);}
+.col.bad{border-top-color:var(--alert);background:#FBF1EF;}
+.col h2{font-size:40px;font-weight:900;color:var(--dark);margin-bottom:6px;letter-spacing:-0.02em;}
+.col .sub{font-family:'JetBrains Mono','Noto Sans Mono',monospace;font-size:26px;color:var(--navy);font-weight:700;margin-bottom:26px;}
+.col.bad .sub{color:var(--alert);}
+.code{background:#0F1B2A;border-radius:12px;padding:28px 30px;font-family:'JetBrains Mono','Noto Sans Mono',monospace;font-size:33px;line-height:1.5;color:#C9D6E5;min-height:300px;}
+.code .tag{color:#7BA3CC;}
+.code .empty{color:#E07A6B;font-weight:700;}
+.code .ok{color:#8FD19E;}
+.code .muted{color:#5A6B7D;}
+.verdict{margin-top:26px;font-size:36px;font-weight:900;letter-spacing:-0.01em;}
+.verdict.bad{color:var(--alert);}
+.verdict.good{color:var(--navy);}
+.footer{font-size:36px;font-weight:700;color:var(--dark);text-align:center;padding-top:6px;letter-spacing:-0.01em;}
+.footer strong{color:var(--alert);}
+</style></head><body>
+<div class="eyebrow">Vercel + MERJ: 1,3 bi de fetches de crawlers de IA &middot; 0 rodaram JavaScript</div>
+<div class="title">O que o GPTBot busca numa SPA React vs. numa página SSR</div>
+<div class="cols">
+  <div class="col bad">
+    <h2>CSR / SPA React</h2>
+    <div class="sub">HTML cru que o bot recebe</div>
+    <div class="code"><span class="muted">&lt;body&gt;</span><br>&nbsp;&nbsp;<span class="tag">&lt;div id="root"&gt;</span><span class="empty">&lt;/div&gt;</span><br>&nbsp;&nbsp;<span class="tag">&lt;script src="/app.js"&gt;&lt;/script&gt;</span><br><span class="muted">&lt;/body&gt;</span></div>
+    <div class="verdict bad">A IA vê: uma página vazia</div>
+  </div>
+  <div class="col">
+    <h2>SSR / SSG</h2>
+    <div class="sub">HTML cru que o bot recebe</div>
+    <div class="code"><span class="muted">&lt;body&gt;</span><br>&nbsp;&nbsp;<span class="ok">&lt;h1&gt;</span>RealtimeKit<span class="ok">&lt;/h1&gt;</span><br>&nbsp;&nbsp;<span class="ok">&lt;p&gt;</span>$49/mo<span class="ok">&lt;/p&gt;</span><br>&nbsp;&nbsp;<span class="ok">&lt;script type="ld+json"&gt;</span><br><span class="muted">&lt;/body&gt;</span></div>
+    <div class="verdict good">A IA vê: a página inteira</div>
+  </div>
+</div>
+<div class="footer">O Googlebot roda o seu JavaScript. <strong>GPTBot, ClaudeBot e PerplexityBot não.</strong></div>
+</body></html>
