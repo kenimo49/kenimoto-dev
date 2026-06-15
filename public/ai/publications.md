@@ -92,7 +92,7 @@
 ### The 300ms Threshold — Why Talking to AI Feels Wrong
 - Topics: Voice AI, Latency UX, Turn-taking, TTFB, Streaming Architecture, Edge AI, Nielsen's Response Time Thresholds
 - Kindle JP: https://www.amazon.co.jp/dp/B0GX2R5HP4 (¥1,200)
-- Kindle EN: https://www.amazon.co.jp/dp/B0GYQ4L2KP ($9.99)
+- Kindle EN: https://www.amazon.com/dp/B0GYQ4L2KP ($9.99)
 - Zenn: https://zenn.dev/kenimo49/books/voice-ai-300ms-ux (¥1,200)
 
 ## Books — Security & Quality Series
@@ -112,7 +112,7 @@
 ### ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる
 - Topics: Knowledge Graph, GraphRAG, Neo4j, RDF, Property Graph, Tree-sitter, MCP, Emotion AI
 - Kindle JP: https://www.amazon.co.jp/dp/B0GX465PG7 (¥1,250)
-- Kindle EN: https://www.amazon.co.jp/dp/B0GX2Z73JV ($9.99)
+- Kindle EN: https://www.amazon.com/dp/B0GX2Z73JV ($9.99)
 - Zenn: https://zenn.dev/kenimo49/books/knowledge-graph-practical-guide (¥1,000)
 
 ## Books — Engineering Culture Series
@@ -120,7 +120,7 @@
 ### エンジニアリング100の言葉 — なぜその一文は記憶に残るのか
 - Topics: Engineering Quotes, Software Philosophy, Career, Leadership, Debugging, Architecture
 - Kindle JP: https://www.amazon.co.jp/dp/B0GXR5Q6NW (¥500)
-- Kindle EN: https://www.amazon.co.jp/dp/B0GX3CS95M ($4.99)
+- Kindle EN: https://www.amazon.com/dp/B0GX3CS95M ($4.99)
 
 ### エンジニアの心理トリック大全 — コードは正しいのに、なぜ提案が通らないのか
 - Topics: Cognitive Bias, Engineering Psychology, System 1/2, Code Review, Estimation, 1on1, Psychological Safety, Hiring

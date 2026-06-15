@@ -4,7 +4,7 @@ subtitle: "Structure Your Data, Sharpen Your AI"
 description: "RAG alone won't make your AI smart. Relationships only emerge through structure — Knowledge Graph, GraphRAG, Neo4j, RDF, Property Graph, Tree-sitter, MCP, and Emotion AI. The practical guide to giving AI true reasoning through structured data."
 lang: "en"
 
-kindle_url: "https://www.amazon.co.jp/dp/B0GX2Z73JV"
+kindle_url: "https://www.amazon.com/dp/B0GX2Z73JV"
 
 published_date: 2026-04-28
 updated_date: 2026-05-01

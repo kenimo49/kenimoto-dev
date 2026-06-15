@@ -4,7 +4,7 @@ subtitle: "Why Talking to AI Feels Wrong"
 description: "Voice AI experience is 90% latency. Human turn-taking happens at 200ms. Past 300ms, UX feels off. Past 800ms, conversation collapses. This book breaks the 525ms cascade pipeline barrier using Pipecat, LiveKit, and Deepgram — through streaming design, perceptual hacks, and edge AI."
 lang: "en"
 
-kindle_url: "https://www.amazon.co.jp/dp/B0GYQ4L2KP"
+kindle_url: "https://www.amazon.com/dp/B0GYQ4L2KP"
 
 published_date: 2026-04-25
 

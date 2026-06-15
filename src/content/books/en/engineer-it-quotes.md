@@ -4,7 +4,7 @@ subtitle: "100 Engineering Quotes Decoded"
 description: "From Linux trenches to software philosophy, debugging, leadership, and architecture. 100 quotes from the engineering world, each unpacked through original context and modern application — a philosophy book for engineers, decoded one line at a time."
 lang: "en"
 
-kindle_url: "https://www.amazon.co.jp/dp/B0GX3CS95M"
+kindle_url: "https://www.amazon.com/dp/B0GX3CS95M"
 
 published_date: 2026-05-01
 
