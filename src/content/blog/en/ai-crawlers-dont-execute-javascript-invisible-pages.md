@@ -7,7 +7,9 @@ tags: [llmo, ai-search, ssr, javascript, rendering]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/ai-crawlers-dont-execute-javascript-invisible-pages/"
 og_image: "https://kenimoto.dev/images/blog/ai-crawlers-dont-execute-javascript-invisible-pages/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/gptbot-sees-an-empty-on-your-js-rendered-pages-heres-what-it-actually-fetches-5b04
 ---
 
 I've written a few posts about why AI doesn't cite your page. The `.md` twin one was about serving AI a clean alternate copy. The JSON-LD one was about how many schemas actually get used. The Brave one was about indexes. All of those assume the crawler at least *read your content* and then decided what to do with it.
