@@ -2,7 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import type { Alternate } from '../lib/alternates';
-import { buildPersonEntity, buildOrganizationEntity } from '../lib/person-entity';
+import { buildPersonEntity, buildOrganizationEntity, buildWebSiteEntity, websiteId } from '../lib/person-entity';
 
 interface Props {
   title: string;
@@ -48,6 +48,7 @@ const blogPostingJsonLd = {
   publisher: { '@id': `${SITE_URL}/#organization` },
   url: canonicalUrl,
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  isPartOf: { '@id': websiteId(lang) },
   ...(tags.length > 0 ? { keywords: tags.join(', ') } : {}),
   inLanguage: lang === 'ja' ? 'ja-JP' : (lang === 'pt' ? 'pt-BR' : (lang === 'es' ? 'es-ES' : 'en-US')),
 };
@@ -71,6 +72,7 @@ const articleJsonLd = {
     breadcrumbJsonLd,
     buildPersonEntity(lang),
     buildOrganizationEntity(),
+    buildWebSiteEntity(lang),
   ],
 };
 ---

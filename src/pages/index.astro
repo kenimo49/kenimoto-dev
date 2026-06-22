@@ -4,7 +4,7 @@ import Nav from '../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { staticAlternates } from '../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
-import { PERSON_SAMEAS } from '../lib/person-entity';
+import { PERSON_SAMEAS, buildWebSiteEntity } from '../lib/person-entity';
 
 // "Now" セクションの更新月はビルド日から自動生成する (毎日ビルドされるので陳腐化しない)
 const updatedLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -79,17 +79,7 @@ const personJsonLd = {
   worksFor: { '@type': 'Organization', name: 'Propel-Lab', url: 'https://propel-lab.co.jp' },
   knowsAbout: ['LLMO', 'LLM Optimization', 'AI-Native MEO', 'WebRTC', 'Real-time AI', 'Context Engineering', 'AI Agent Design', 'MCP', 'Claude Code', 'Android Development', 'Vision-Language Models', 'Color Perception'],
 };
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': `${SITE_URL}/#website`,
-  name: 'Ken Imoto',
-  alternateName: 'kenimoto.dev',
-  url: `${SITE_URL}/`,
-  description: 'Ken Imoto — AI Systems Engineer. Building AI-native organizations powered by LLMs, real-time AI, and context engineering.',
-  inLanguage: 'en-US',
-  publisher: { '@id': `${SITE_URL}/#organization` },
-};
+const websiteJsonLd = { '@context': 'https://schema.org', ...buildWebSiteEntity('en') };
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',

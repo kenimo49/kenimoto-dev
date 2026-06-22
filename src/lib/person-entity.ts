@@ -95,3 +95,68 @@ export function buildOrganizationEntity() {
     founder: { '@id': `${SITE_URL}/#person` },
   };
 }
+
+// WebSite ノードは言語ごとに別 @id（en は #website、他は #website-<lang>）。
+// 記事/書籍ページの isPartOf 参照先と、各トップページの WebSite 定義を
+// ここで単一ソース化する。
+interface WebSiteCopy {
+  idFragment: string;
+  name: string;
+  alternateName?: string;
+  path: string;
+  description: string;
+  inLanguage: string;
+}
+
+const WEBSITE_BY_LANG: Record<Lang, WebSiteCopy> = {
+  en: {
+    idFragment: '#website',
+    name: 'Ken Imoto',
+    alternateName: 'kenimoto.dev',
+    path: '/',
+    description: 'Ken Imoto — AI Systems Engineer. Building AI-native organizations powered by LLMs, real-time AI, and context engineering.',
+    inLanguage: 'en-US',
+  },
+  ja: {
+    idFragment: '#website-ja',
+    name: '井本 賢',
+    alternateName: 'kenimoto.dev',
+    path: '/ja/',
+    description: '井本 賢 — AIシステムエンジニア。LLM・自動化・分散エージェントでAIネイティブな組織を構築。',
+    inLanguage: 'ja-JP',
+  },
+  pt: {
+    idFragment: '#website-pt',
+    name: 'Ken Imoto — Edições em Português',
+    path: '/pt/',
+    description: 'Livros sobre Claude Code, Engenharia de Contexto e desenvolvimento com IA, em português.',
+    inLanguage: 'pt-BR',
+  },
+  es: {
+    idFragment: '#website-es',
+    name: 'Ken Imoto — Ediciones en Español',
+    path: '/es/',
+    description: 'Libros sobre Claude Code, Ingeniería de Contexto y desarrollo con IA, en español.',
+    inLanguage: 'es-ES',
+  },
+};
+
+// isPartOf などから参照する、言語別 WebSite の @id。
+export function websiteId(lang: Lang) {
+  return `${SITE_URL}/${WEBSITE_BY_LANG[lang].idFragment}`;
+}
+
+// @graph 内に同梱する WebSite ノード（@context は graph 側が持つ）。
+export function buildWebSiteEntity(lang: Lang) {
+  const w = WEBSITE_BY_LANG[lang];
+  return {
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/${w.idFragment}`,
+    name: w.name,
+    ...(w.alternateName ? { alternateName: w.alternateName } : {}),
+    url: `${SITE_URL}${w.path}`,
+    description: w.description,
+    inLanguage: w.inLanguage,
+    publisher: { '@id': `${SITE_URL}/#organization` },
+  };
+}

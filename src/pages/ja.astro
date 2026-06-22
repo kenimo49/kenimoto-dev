@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import { staticAlternates } from '../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
-import { PERSON_SAMEAS } from '../lib/person-entity';
+import { PERSON_SAMEAS, buildWebSiteEntity } from '../lib/person-entity';
 
 // "Now" の更新月はビルド日から自動生成 (毎日ビルドで陳腐化しない)
 const updatedLabelJa = new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long' });
@@ -34,17 +34,7 @@ const personJsonLd = {
   worksFor: { '@id': `${SITE_URL}/#organization` },
   knowsAbout: ['LLMO', 'LLM最適化', 'AI-Native MEO', 'WebRTC', 'リアルタイムAI', 'コンテキストエンジニアリング', 'AIエージェント設計', 'MCP', 'Claude Code', 'Android開発'],
 };
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': `${SITE_URL}/#website-ja`,
-  name: '井本 賢',
-  alternateName: 'kenimoto.dev',
-  url: `${SITE_URL}/ja/`,
-  description: '井本 賢 — AIシステムエンジニア。LLM・自動化・分散エージェントでAIネイティブな組織を構築。',
-  inLanguage: 'ja-JP',
-  publisher: { '@id': `${SITE_URL}/#organization` },
-};
+const websiteJsonLd = { '@context': 'https://schema.org', ...buildWebSiteEntity('ja') };
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',

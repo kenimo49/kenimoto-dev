@@ -5,7 +5,7 @@ import { getCollection } from 'astro:content';
 import { staticAlternates } from '../../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../../lib/research-papers';
 import { coverThumb } from '../../lib/thumb';
-import { PERSON_SAMEAS } from '../../lib/person-entity';
+import { PERSON_SAMEAS, buildWebSiteEntity } from '../../lib/person-entity';
 
 const esBooks = (await getCollection('books', ({ data }) => data.lang === 'es'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
@@ -21,16 +21,7 @@ const personJsonLd = {
   sameAs: PERSON_SAMEAS,
   worksFor: { '@id': `${SITE_URL}/#organization` },
 };
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': `${SITE_URL}/#website-es`,
-  name: 'Ken Imoto — Ediciones en Español',
-  url: `${SITE_URL}/es/`,
-  description: 'Libros sobre Claude Code, Ingeniería de Contexto y desarrollo con IA, en español.',
-  inLanguage: 'es-ES',
-  publisher: { '@id': `${SITE_URL}/#organization` },
-};
+const websiteJsonLd = { '@context': 'https://schema.org', ...buildWebSiteEntity('es') };
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',

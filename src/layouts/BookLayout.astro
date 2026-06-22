@@ -4,7 +4,7 @@ import Nav from '../components/Nav.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import type { Alternate } from '../lib/alternates';
 import { withAffiliateTag } from '../lib/affiliate';
-import { buildPersonEntity, buildOrganizationEntity } from '../lib/person-entity';
+import { buildPersonEntity, buildOrganizationEntity, buildWebSiteEntity, websiteId } from '../lib/person-entity';
 import { proof } from '../data/proof';
 
 interface Chapter {
@@ -394,7 +394,7 @@ const bookSchema = {
   url: canonicalUrl,
   ...(coverImage ? { image: coverImage } : {}),
   ...(sameAsList.length > 0 ? { sameAs: sameAsList } : {}),
-  isPartOf: { '@id': `${SITE_URL}/#website` },
+  isPartOf: { '@id': websiteId(lang) },
   ...(price ? {
     offers: {
       '@type': 'Offer',
@@ -437,6 +437,7 @@ const bookJsonLd = {
     breadcrumbJsonLd,
     buildPersonEntity(lang),
     buildOrganizationEntity(),
+    buildWebSiteEntity(lang),
   ],
 };
 ---
