@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import type { Alternate } from '../lib/alternates';
 import { withAffiliateTag } from '../lib/affiliate';
+import { buildPersonEntity, buildOrganizationEntity } from '../lib/person-entity';
 import { proof } from '../data/proof';
 
 interface Chapter {
@@ -381,19 +382,14 @@ const sameAsList = [kindleUrl, zennUrl].filter(Boolean);
 // EN 版は USD 価格未設定なので Book 単独にして Product 必須項目から外す。
 const useProductType = !!price;
 const bookSchema = {
-  '@context': 'https://schema.org',
   '@type': useProductType ? ['Book', 'Product'] : 'Book',
   '@id': `${canonicalUrl}#book`,
   name: title + (subtitle ? ` — ${subtitle}` : ''),
   description,
   inLanguage: inLanguageTag,
   bookFormat: 'EBook',
-  author: {
-    '@type': 'Person',
-    '@id': `${SITE_URL}/#person`,
-    name: siteName,
-    url: `${SITE_URL}/`,
-  },
+  // author/publisher は同じ @graph 内の Person/Organization 実体を参照する。
+  author: { '@id': `${SITE_URL}/#person` },
   publisher: { '@id': `${SITE_URL}/#organization` },
   url: canonicalUrl,
   ...(coverImage ? { image: coverImage } : {}),
@@ -424,7 +420,6 @@ const T_NAV = {
 }[lang];
 
 const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: T_NAV.home, item: homeAbsUrl },
@@ -433,7 +428,17 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const bookJsonLd = [bookSchema, breadcrumbJsonLd];
+// 単一ページで自己完結する @graph。著者の sameAs ネットワーク(Person)と
+// 発行者(Organization)の実体を書籍ページ自身に同梱する。
+const bookJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    bookSchema,
+    breadcrumbJsonLd,
+    buildPersonEntity(lang),
+    buildOrganizationEntity(),
+  ],
+};
 ---
 
 <BaseLayout

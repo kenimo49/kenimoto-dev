@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { staticAlternates } from '../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
+import { PERSON_SAMEAS } from '../lib/person-entity';
 
 // "Now" セクションの更新月はビルド日から自動生成する (毎日ビルドされるので陳腐化しない)
 const updatedLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -74,18 +75,7 @@ const personJsonLd = {
   affiliation: { '@type': 'Organization', name: 'Propel-Lab', url: 'https://propel-lab.co.jp' },
   description: 'Building AI-native organizations powered by LLMs, automation, and distributed agents.',
   url: SITE_URL,
-  sameAs: [
-    'https://github.com/kenimo49',
-    'https://linkedin.com/in/kenimo49',
-    'https://x.com/kenimo49',
-    'https://qiita.com/kenimo49',
-    'https://zenn.dev/kenimo49',
-    'https://speakerdeck.com/kenimo49',
-    'https://dev.to/kenimo49',
-    'https://kenimo49.hashnode.dev',
-    'https://medium.com/@kenimo49',
-    'https://www.tabnews.com.br/kenimo49',
-  ],
+  sameAs: PERSON_SAMEAS,
   worksFor: { '@type': 'Organization', name: 'Propel-Lab', url: 'https://propel-lab.co.jp' },
   knowsAbout: ['LLMO', 'LLM Optimization', 'AI-Native MEO', 'WebRTC', 'Real-time AI', 'Context Engineering', 'AI Agent Design', 'MCP', 'Claude Code', 'Android Development', 'Vision-Language Models', 'Color Perception'],
 };

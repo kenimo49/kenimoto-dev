@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import { staticAlternates } from '../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
+import { PERSON_SAMEAS } from '../lib/person-entity';
 
 // "Now" の更新月はビルド日から自動生成 (毎日ビルドで陳腐化しない)
 const updatedLabelJa = new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long' });
@@ -29,19 +30,7 @@ const personJsonLd = {
   jobTitle: 'AIシステムエンジニア',
   description: 'LLM・自動化・分散エージェントでAIネイティブな組織を構築しています。',
   url: `${SITE_URL}/ja`,
-  sameAs: [
-    'https://qiita.com/kenimo49',
-    'https://zenn.dev/kenimo49',
-    'https://www.docswell.com/user/kenimo49',
-    'https://speakerdeck.com/kenimo49',
-    'https://github.com/kenimo49',
-    'https://x.com/kenimo49',
-    'https://linkedin.com/in/kenimo49',
-    'https://dev.to/kenimo49',
-    'https://kenimo49.hashnode.dev',
-    'https://medium.com/@kenimo49',
-    'https://www.tabnews.com.br/kenimo49',
-  ],
+  sameAs: PERSON_SAMEAS,
   worksFor: { '@id': `${SITE_URL}/#organization` },
   knowsAbout: ['LLMO', 'LLM最適化', 'AI-Native MEO', 'WebRTC', 'リアルタイムAI', 'コンテキストエンジニアリング', 'AIエージェント設計', 'MCP', 'Claude Code', 'Android開発'],
 };

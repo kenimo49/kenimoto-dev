@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import { staticAlternates } from '../../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../../lib/research-papers';
 import { coverThumb } from '../../lib/thumb';
+import { PERSON_SAMEAS } from '../../lib/person-entity';
 
 const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
@@ -21,13 +22,7 @@ const personJsonLd = {
   name: 'Ken Imoto',
   jobTitle: 'AI Systems Engineer',
   url: `${SITE_URL}/`,
-  sameAs: [
-    'https://github.com/kenimo49',
-    'https://linkedin.com/in/kenimo49',
-    'https://x.com/kenimo49',
-    'https://www.tabnews.com.br/kenimo49',
-    'https://medium.com/@kenimo49',
-  ],
+  sameAs: PERSON_SAMEAS,
   worksFor: { '@id': `${SITE_URL}/#organization` },
 };
 const websiteJsonLd = {

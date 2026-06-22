@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Nav from '../components/Nav.astro';
 import type { Alternate } from '../lib/alternates';
+import { buildPersonEntity, buildOrganizationEntity } from '../lib/person-entity';
 
 interface Props {
   title: string;
@@ -36,19 +37,14 @@ const ogImageAbs = ogImage
   : `${SITE_URL}/og-image.png`;
 
 const blogPostingJsonLd = {
-  '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: title,
   description,
   image: ogImageAbs,
   datePublished: date.toISOString(),
   dateModified: (updated ?? date).toISOString(),
-  author: {
-    '@type': 'Person',
-    '@id': `${SITE_URL}/#person`,
-    name: siteName,
-    url: `${SITE_URL}/`,
-  },
+  // author/publisher は同じ @graph 内の Person/Organization 実体を参照する。
+  author: { '@id': `${SITE_URL}/#person` },
   publisher: { '@id': `${SITE_URL}/#organization` },
   url: canonicalUrl,
   mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
@@ -57,7 +53,6 @@ const blogPostingJsonLd = {
 };
 
 const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: T.home, item: `${SITE_URL}${homeUrl}` },
@@ -66,7 +61,18 @@ const breadcrumbJsonLd = {
   ],
 };
 
-const articleJsonLd = [blogPostingJsonLd, breadcrumbJsonLd];
+// 単一ページで自己完結する @graph。著者の sameAs ネットワーク(Person)と
+// 発行者(Organization)の実体を記事ページ自身に同梱し、AI が単一 URL を
+// 取得しても著者の同一性を解決できるようにする。
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    blogPostingJsonLd,
+    breadcrumbJsonLd,
+    buildPersonEntity(lang),
+    buildOrganizationEntity(),
+  ],
+};
 ---
 
 <BaseLayout
