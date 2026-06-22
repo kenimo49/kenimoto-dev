@@ -7,7 +7,9 @@ tags: [claude-code, mcp, embedded, hardware, anthropic]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/claude-code-real-hardware-usb"
 og_image: "https://kenimoto.dev/images/blog/claude-code-real-hardware-usb/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/claude-code-over-usb-serial-driving-real-hardware-through-one-mcp-tool-i1n
 ---
 
 The first time I let Claude Code run a temperature control loop on real hardware, I built an oscillator. Not on purpose. I had a BME280 sensor and a PWM fan on an ESP32-S3, and I asked Claude to read the temperature and decide the fan speed. Room hits 28C, Claude thinks for three seconds, spins the fan to max, the room cools to 27, Claude thinks for another three seconds, cuts the fan, the room warms back up, and around we go. The fan spent the afternoon revving and dying like a teenager learning to drive a manual. My desk sounded like a small airport.
