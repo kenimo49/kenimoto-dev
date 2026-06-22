@@ -7,7 +7,9 @@ tags: [testing, mutation-testing, claude-code, ai-coding, tdd]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/ai-100-tests-mutation-score/"
 og_image: "https://kenimoto.dev/images/blog/ai-100-tests-mutation-score/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/ai-wrote-100-passing-tests-mutation-testing-says-they-caught-58-of-real-bugs-201f
 ---
 
 For a few weeks I walked around telling people my test suite was "basically bulletproof." One hundred tests, all green, 92% line coverage on the module I cared about. I said this out loud, to actual humans, with a straight face. Then I ran mutation testing against the same suite and watched 42% of the bugs I deliberately injected stroll right past it. The suite caught 58%. Bulletproof was generous. It was more like a screen door.
