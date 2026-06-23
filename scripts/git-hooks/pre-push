@@ -1,0 +1,67 @@
+#!/bin/bash
+# pre-push hook for kenimoto-dev
+#
+# Refuses any push when HEAD is not on the main branch.
+#
+# Why: harness-ops marketers and Claude-driven crosspost commands all use
+# `git push origin main` against this repo. If the working tree happens to
+# be checked out on a feature branch, the commits land on that feature
+# branch and `push origin main` no-ops against the stale local main —
+# the deploy never fires (silent fail). 2026-06-23: 3 days of blog
+# updates piled up on a leftover feat branch before anyone noticed.
+#
+# Design note: the hook checks two conditions because git only streams ref
+# info on stdin when there is actually something to push. In the exact
+# silent-fail scenario (feature branch + `push origin main` against a
+# stale local main = "Everything up-to-date"), stdin is empty — so a
+# stdin-only loop would miss the very case we built the hook for. We
+# therefore reject *any* push from a non-main HEAD, then additionally
+# reject any explicit push that targets refs/heads/main from elsewhere.
+#
+# Override (use sparingly): git push --no-verify
+
+set -u
+
+protected_branch='main'
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+print_block_message() {
+  local reason="$1"
+  echo "" >&2
+  echo "🚨 pre-push: refusing to push — $reason" >&2
+  echo "" >&2
+  echo "  kenimoto-dev is auto-published by harness-ops via" >&2
+  echo "  \`git push origin main\`. When that command runs from a non-main" >&2
+  echo "  HEAD it silently no-ops and the deploy never fires" >&2
+  echo "  (see 2026-06-23 incident: 3 days of blog updates piled up on a" >&2
+  echo "  leftover feat branch before anyone noticed)." >&2
+  echo "" >&2
+  echo "  Fix:" >&2
+  echo "    git checkout $protected_branch" >&2
+  echo "    git merge --ff-only $current_branch" >&2
+  echo "    git push origin $protected_branch" >&2
+  echo "" >&2
+  echo "  Bypass (only if you really mean it): git push --no-verify" >&2
+  echo "" >&2
+}
+
+# Condition 1: any push from non-main HEAD is blocked.
+# This covers the empty-stdin silent-fail case where we cannot otherwise
+# tell which remote ref is being pushed.
+if [ "$current_branch" != "$protected_branch" ]; then
+  print_block_message "HEAD is on '$current_branch', expected '$protected_branch'"
+  exit 1
+fi
+
+# Condition 2: even from main, refuse if any stdin line targets a non-main
+# remote ref while HEAD is on main — should never happen but cheap to check.
+# This block also serves as a sanity scan of the streamed refs.
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_ref" = "refs/heads/$protected_branch" ] && [ "$current_branch" != "$protected_branch" ]; then
+    # Unreachable given the early exit above, but kept for defense-in-depth.
+    print_block_message "explicit push to $remote_ref from '$current_branch'"
+    exit 1
+  fi
+done
+
+exit 0
