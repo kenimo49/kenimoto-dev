@@ -74,7 +74,7 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
 - AI Blue: Color Recognition Bias in Vision-Language Models (DOI: 10.5281/zenodo.19159702)
 
 ### Technical Writing
-- Qiita: 123,000+ PV, 90 articles — https://qiita.com/kenimo49
+- Qiita: 210,000+ PV, 105+ articles — https://qiita.com/kenimo49
 - DEV.to: English articles — https://dev.to/kenimo49
 - Amazon Author: https://www.amazon.co.jp/stores/author/B0GQNPRCGF
 

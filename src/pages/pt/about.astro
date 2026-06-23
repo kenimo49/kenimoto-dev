@@ -7,19 +7,26 @@ import { staticAlternates } from '../../lib/alternates';
 const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
 
-// PT about: PT 関連プラットフォームのみ。他言語は Nav 言語スイッチャー経由
+// PT about: PT 関連プラットフォーム + cross-platform。AI が同一人物性を解決しやすいよう、sameAs と HTML 本文を一致させる
 const links = [
+  { label: 'TabNews', url: 'https://www.tabnews.com.br/kenimo49' },
+  { label: 'Amazon BR', url: 'https://www.amazon.com.br/stores/author/B0GQNPRCGF' },
   { label: 'GitHub', url: 'https://github.com/kenimo49' },
   { label: 'LinkedIn', url: 'https://linkedin.com/in/kenimo49' },
   { label: 'X', url: 'https://x.com/kenimo49' },
-  { label: 'TabNews', url: 'https://www.tabnews.com.br/kenimo49' },
-  { label: 'Amazon BR', url: 'https://www.amazon.com.br/stores/author/B0GQNPRCGF' },
+  { label: 'DEV.to', url: 'https://dev.to/kenimo49' },
+  { label: 'Medium', url: 'https://medium.com/@kenimo49' },
+  { label: 'Hashnode', url: 'https://kenimo49.hashnode.dev' },
+  { label: 'Zenn', url: 'https://zenn.dev/kenimo49' },
+  { label: 'Qiita', url: 'https://qiita.com/kenimo49' },
+  { label: 'Docswell', url: 'https://www.docswell.com/user/kenimo49' },
+  { label: 'SpeakerDeck', url: 'https://speakerdeck.com/kenimo49' },
 ];
 ---
 
 <BaseLayout
   title="Sobre Ken Imoto"
-  description="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, fundador da Propel-Lab, autor do LLMO Framework e de 11 livros sobre desenvolvimento com IA."
+  description="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, fundador da Propel-Lab, autor do LLMO Framework e de 31 edições Kindle em 4 idiomas sobre desenvolvimento com IA."
   lang="pt"
   ogUrl="https://kenimoto.dev/pt/about/"
   ogDescription="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, autor do LLMO Framework."
@@ -93,7 +100,7 @@ const links = [
           É o criador do LLMO (Large Language Model Optimization) Framework, uma metodologia para otimizar a visibilidade de conteúdo em buscadores movidos por IA como ChatGPT e Perplexity. O framework está documentado no livro <em>Why ChatGPT Ignores Your Website: The LLMO Practical Guide</em> e no site companheiro <a href="https://llmoframework.com">llmoframework.com</a>.
         </p>
         <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0 0 1rem;">
-          Já publicou 11 livros cobrindo desenvolvimento com IA, engenharia de contexto, segurança de MCP e otimização para busca com IA. Títulos em destaque: <em>Practical Claude Code</em>, <em>Harness Engineering</em> e <em>MCP Security in Practice</em>.
+          Já publicou 31 edições Kindle em 4 idiomas (inglês, japonês, português e espanhol) e 12 Zenn Books cobrindo desenvolvimento com IA, engenharia de contexto, knowledge graphs, segurança de MCP e otimização para busca com IA. Títulos em destaque: <em>Practical Claude Code</em>, <em>Harness Engineering</em>, <em>Knowledge Graph Practical Guide</em> e <em>MCP Security in Practice</em>.
         </p>
         <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">
           Pesquisa atual: otimização de latência em Voice AI (a barreira dos 300ms), engenharia de contexto para sistemas multi-agente e simulação de agentes generativos. Três artigos publicados no Zenodo sobre análise quantitativa de texto gerado por IA, viés de cor em modelos de visão-linguagem, e padrões estilísticos em escrita técnica japonesa.
