@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --muted: #AFC0D2;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px; height: 1080px; overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  padding: 60px 88px; background: var(--white); color: var(--dark);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.eyebrow { font-size: 32px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+.title { font-size: 54px; font-weight: 900; color: var(--dark); margin-bottom: 50px; line-height: 1.1; letter-spacing: -0.02em; }
+.row { display: flex; align-items: center; margin-bottom: 40px; }
+.rowlabel { width: 270px; flex-shrink: 0; font-size: 29px; font-weight: 900; letter-spacing: -0.01em; }
+.row.before .rowlabel { color: var(--secondary); }
+.row.after .rowlabel { color: var(--navy); }
+.flow { display: flex; align-items: center; gap: 20px; flex: 1; }
+.box {
+  border-radius: 16px; padding: 24px 28px; font-size: 26px; font-weight: 700;
+  background: var(--navy-bg-light); color: var(--dark); line-height: 1.3;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.row.after .box.plan { background: var(--navy); color: var(--white); box-shadow: 0 4px 14px rgba(30,58,95,0.3); }
+.arrow { font-size: 38px; color: var(--navy-light); font-weight: 900; }
+.cost { border-radius: 16px; color: var(--white); font-weight: 900; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1; }
+.cost.big { background: var(--muted); color: var(--navy); padding: 22px 30px; min-width: 360px; border: 4px solid var(--secondary); }
+.cost.small { background: var(--navy-mid); padding: 22px 30px; min-width: 240px; }
+.cost .num { font-size: 52px; letter-spacing: -0.02em; }
+.cost .cap { font-size: 22px; font-weight: 700; margin-top: 8px; }
+.divider { height: 2px; background: var(--navy-bg-light); margin: 2px 0 40px; }
+.footer { font-size: 33px; font-weight: 700; color: var(--dark); text-align: center; margin-top: 12px; letter-spacing: -0.01em; }
+.footer strong { color: var(--navy); }
+</style>
+</head>
+<body>
+<div class="eyebrow">retrabalho evitável, em horas e em reais</div>
+<div class="title">Codar direto ou desenhar o dia no Plan Mode</div>
+
+<div class="row before">
+  <div class="rowlabel">codar direto</div>
+  <div class="flow">
+    <div class="box">implementar<br>na hora</div>
+    <div class="arrow">→</div>
+    <div class="box">design sai na<br>direção errada</div>
+    <div class="arrow">→</div>
+    <div class="cost big"><div class="num">~10h</div><div class="cap">retrabalho/semana · ~R$ 1.500</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="row after">
+  <div class="rowlabel">Plan Mode de manhã</div>
+  <div class="flow">
+    <div class="box plan">projetar o dia<br>em Plan Mode</div>
+    <div class="arrow">→</div>
+    <div class="box">alinhar e<br>implementar</div>
+    <div class="arrow">→</div>
+    <div class="cost small"><div class="num">~1h</div><div class="cap">retrabalho/semana</div></div>
+  </div>
+</div>
+
+<div class="footer">A ferramenta é a mesma. Mudei a ordem: <strong>projetar primeiro, codar depois</strong></div>
+</body>
+</html>
