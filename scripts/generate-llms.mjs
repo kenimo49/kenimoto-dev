@@ -146,8 +146,13 @@ function formatIndex(blogPosts, books) {
   lines.push('- AI Agent Design (MCP, multi-agent architectures)');
   lines.push('- Android & Web Development (8+ years)');
   lines.push('');
-  // Books grouped by lang
-  lines.push(`## Books (${books.length} editions, auto-generated)`);
+  // Books grouped by lang。"editions" の数え方を /about/ 4言語と一致させる:
+  //   Kindle = kindle_url を持つエントリ数 (実 ASIN 発行済み)
+  //   Zenn   = zenn_url を持つエントリ数 (Zenn Book published)
+  // 単純な books.length は LP-only / 未刊行も含むため矛盾源になる。
+  const kindleCount = books.filter((b) => b.meta.kindle_url).length;
+  const zennCount = books.filter((b) => b.meta.zenn_url).length;
+  lines.push(`## Books (${kindleCount} Kindle editions, ${zennCount} Zenn Books, auto-generated)`);
   lines.push('');
   for (const lang of ['en', 'ja', 'pt', 'es']) {
     const subset = books.filter((b) => b.lang === lang).sort((a, b) =>

@@ -130,8 +130,8 @@
 
 ## Technical Writing
 
-- **Qiita**: 123,000+ PV, 90 articles — https://qiita.com/kenimo49
-- **Zenn**: 13+ articles + 8 Books — https://zenn.dev/kenimo49
+- **Qiita**: 210,000+ PV, 105+ articles — https://qiita.com/kenimo49
+- **Zenn**: 100+ articles + 12 Zenn Books — https://zenn.dev/kenimo49
 - **DEV.to**: English technical articles — https://dev.to/kenimo49
 - **LinkedIn**: English AI/LLM articles — https://linkedin.com/in/kenimo49
 - **Amazon Author**: https://www.amazon.co.jp/stores/author/B0GQNPRCGF

@@ -3,9 +3,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { staticAlternates } from '../../lib/alternates';
+import { buildPersonEntity, buildOrganizationEntity, buildWebSiteEntity } from '../../lib/person-entity';
 
 const ptBooks = (await getCollection('books', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.published_date.valueOf() - a.data.published_date.valueOf());
+
+// AI が引用する時の一次プロフィール正典。/about/ こそ Person/Organization/WebSite を載せる場所。
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    buildPersonEntity('pt'),
+    buildOrganizationEntity(),
+    buildWebSiteEntity('pt'),
+  ],
+};
 
 // PT about: PT 関連プラットフォーム + cross-platform。AI が同一人物性を解決しやすいよう、sameAs と HTML 本文を一致させる
 const links = [
@@ -26,11 +37,12 @@ const links = [
 
 <BaseLayout
   title="Sobre Ken Imoto"
-  description="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, fundador da Propel-Lab, autor do LLMO Framework e de 31 edições Kindle em 4 idiomas sobre desenvolvimento com IA."
+  description="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, fundador da Propel-Lab, autor do LLMO Framework e de 30+ edições Kindle em 4 idiomas sobre desenvolvimento com IA."
   lang="pt"
   ogUrl="https://kenimoto.dev/pt/about/"
   ogDescription="Sobre Ken Imoto: engenheiro de WebRTC e Voice AI, autor do LLMO Framework."
   alternates={staticAlternates('/about/')}
+  jsonLd={jsonLd}
 >
   <Fragment slot="head">
     <style>
@@ -100,7 +112,7 @@ const links = [
           É o criador do LLMO (Large Language Model Optimization) Framework, uma metodologia para otimizar a visibilidade de conteúdo em buscadores movidos por IA como ChatGPT e Perplexity. O framework está documentado no livro <em>Why ChatGPT Ignores Your Website: The LLMO Practical Guide</em> e no site companheiro <a href="https://llmoframework.com">llmoframework.com</a>.
         </p>
         <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0 0 1rem;">
-          Já publicou 31 edições Kindle em 4 idiomas (inglês, japonês, português e espanhol) e 12 Zenn Books cobrindo desenvolvimento com IA, engenharia de contexto, knowledge graphs, segurança de MCP e otimização para busca com IA. Títulos em destaque: <em>Practical Claude Code</em>, <em>Harness Engineering</em>, <em>Knowledge Graph Practical Guide</em> e <em>MCP Security in Practice</em>.
+          Já publicou 30+ edições Kindle em 4 idiomas (inglês, japonês, português e espanhol) e 12 Zenn Books cobrindo desenvolvimento com IA, engenharia de contexto, knowledge graphs, segurança de MCP e otimização para busca com IA. Títulos em destaque: <em>Practical Claude Code</em>, <em>Harness Engineering</em>, <em>Knowledge Graph Practical Guide</em> e <em>MCP Security in Practice</em>.
         </p>
         <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.75; margin: 0;">
           Pesquisa atual: otimização de latência em Voice AI (a barreira dos 300ms), engenharia de contexto para sistemas multi-agente e simulação de agentes generativos. Três artigos publicados no Zenodo sobre análise quantitativa de texto gerado por IA, viés de cor em modelos de visão-linguagem, e padrões estilísticos em escrita técnica japonesa.
@@ -112,11 +124,11 @@ const links = [
       <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">Trabalhos em destaque</h2>
       <div class="bio-block">
         <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.95; font-size: 0.95rem; color: var(--text-secondary);">
-          <li>"Rodando Qwen 35B em 12GB de VRAM" — <strong>60.000+ PV</strong> no Qiita <span style="color: var(--text-label); font-size: 0.85rem;">(2026-06)</span></li>
-          <li>"Gerenciando tudo no GitHub na era da IA" — <strong>45.000+ PV / 241 LGTM</strong> no Qiita <span style="color: var(--text-label); font-size: 0.85rem;">(2026-03)</span></li>
-          <li>"Revisão de código em 6 estágios revela a nova divisão de trabalho humano-IA" — <strong>284 Likes</strong> no Zenn <span style="color: var(--text-label); font-size: 0.85rem;">(2026-05)</span></li>
-          <li>"Harness Engineering: 5 empresas, 5 definições" — <strong>130 Likes</strong> no Zenn <span style="color: var(--text-label); font-size: 0.85rem;">(2026-04)</span></li>
-          <li>Posts em destaque no TabNews (Brasil) — <strong>10–12 tabcoins por post</strong> <span style="color: var(--text-label); font-size: 0.85rem;">(2026-05–06)</span></li>
+          <li><a href="https://qiita.com/kenimo49/items/dff3c8a2a0ee563ca16f">"Rodando Qwen 35B em 12GB de VRAM"</a> — <strong>60.000+ PV</strong> no Qiita <span style="color: var(--text-label); font-size: 0.85rem;">(2026-06)</span></li>
+          <li><a href="https://qiita.com/kenimo49/items/27e2a11e80fe3b835f96">"Gerenciando tudo no GitHub na era da IA"</a> — <strong>45.000+ PV / 241 LGTM</strong> no Qiita <span style="color: var(--text-label); font-size: 0.85rem;">(2026-03)</span></li>
+          <li><a href="https://zenn.dev/kenimo49/articles/code-review-6-stages-ai-human-boundary">"Revisão de código em 6 estágios revela a nova divisão de trabalho humano-IA"</a> — <strong>284 Likes</strong> no Zenn <span style="color: var(--text-label); font-size: 0.85rem;">(2026-05)</span></li>
+          <li><a href="https://zenn.dev/kenimo49/articles/harness-engineering-interpretations-2026">"Harness Engineering: 5 empresas, 5 definições"</a> — <strong>130 Likes</strong> no Zenn <span style="color: var(--text-label); font-size: 0.85rem;">(2026-04)</span></li>
+          <li><a href="https://www.tabnews.com.br/kenimo49">Posts em destaque no TabNews (Brasil)</a> — <strong>10–12 tabcoins por post</strong> <span style="color: var(--text-label); font-size: 0.85rem;">(2026-05–06)</span></li>
         </ul>
       </div>
     </section>
@@ -125,13 +137,13 @@ const links = [
       <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">Frases-chave</h2>
       <div class="bio-block">
         <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.95; font-size: 0.95rem; color: var(--text-secondary);">
-          <li>"Engenheiros não precisam de um modelo mais rápido. Precisam de um harness." <span style="color: var(--text-label); font-size: 0.85rem;">— <em>Harness Engineering</em></span></li>
-          <li>"A citação em busca por IA é decidida por passagens, não por páginas." <span style="color: var(--text-label); font-size: 0.85rem;">— <em>LLMO Practical Guide</em></span></li>
-          <li>"Um LLM não fica mais inteligente — sua estrutura fica." <span style="color: var(--text-label); font-size: 0.85rem;">— <em>Knowledge Graph Practical Guide</em></span></li>
-          <li>"O que muda a saída do Claude Code não é o modelo — é o contexto em que você o coloca." <span style="color: var(--text-label); font-size: 0.85rem;">— <em>Practical Claude Code</em></span></li>
-          <li>"A barreira de 300ms de latência é onde 'conversa com IA' vira 'assistente de IA'." <span style="color: var(--text-label); font-size: 0.85rem;">— <em>Voice AI 300ms</em></span></li>
-          <li>"Engenharia de Contexto transforma LLMs de mentirosos em especialistas." <span style="color: var(--text-label); font-size: 0.85rem;">— <em>Context Engineering in Practice</em></span></li>
-          <li>"LLMO é a disciplina de tornar conteúdo citável por máquinas, não apenas localizável." <span style="color: var(--text-label); font-size: 0.85rem;">— <em>LLMO Website Builder</em></span></li>
+          <li>"Engenheiros não precisam de um modelo mais rápido. Precisam de um harness." <span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/pt/books/harness-engineering-guide/"><em>Harness Engineering</em></a></span></li>
+          <li>"A citação em busca por IA é decidida por passagens, não por páginas." <span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/books/llmo-ai-search-optimization/"><em>LLMO Practical Guide</em></a></span></li>
+          <li>"Um LLM não fica mais inteligente — sua estrutura fica." <span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/pt/books/knowledge-graph-practical-guide/"><em>Knowledge Graph Practical Guide</em></a></span></li>
+          <li>"O que muda a saída do Claude Code não é o modelo — é o contexto em que você o coloca." <span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/pt/books/claude-code-mastery/"><em>Practical Claude Code</em></a></span></li>
+          <li>"A barreira de 300ms de latência é onde 'conversa com IA' vira 'assistente de IA'." <span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/books/voice-ai-300ms-ux/"><em>Voice AI 300ms</em></a></span></li>
+          <li>"Engenharia de Contexto transforma LLMs de mentirosos em especialistas." <span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/pt/books/context-engineering/"><em>Context Engineering in Practice</em></a></span></li>
+          <li>"LLMO é a disciplina de tornar conteúdo citável por máquinas, não apenas localizável." <span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/pt/books/llmo-quickstart/"><em>LLMO Quickstart</em></a></span></li>
         </ul>
       </div>
     </section>

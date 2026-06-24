@@ -2,11 +2,11 @@
 
 ## Profile
 
-Ken Imoto is an AI Systems Engineer building AI-native organizations powered by LLMs, automation, and distributed agents. Based in Fukuoka, Japan.
+Ken Imoto is an AI Systems Engineer building AI-native organizations powered by LLMs, automation, and distributed agents. Based in Fukuoka, Japan. Author of 30+ Kindle editions across 4 languages (English, Japanese, Portuguese, Spanish) plus 12 Zenn Books, with 210,000+ PV on Qiita across 105+ technical articles.
 
 ## Current Focus
 
-- **LLMO (LLM Optimization)**: Defining the LLMO Framework — a standard for AI discoverability. Author of the LLMO book series.
+- **LLMO (LLM Optimization)**: Defining the LLMO Framework — a standard for AI discoverability. Author of the LLMO book series and the *Knowledge Graph Practical Guide*.
 - **Real-time AI**: WebRTC-based real-time AI agent systems
 - **Context Engineering**: CLAUDE.md patterns, AI-native development workflows
 - **AI Agent Design**: Multi-agent architectures using MCP (Model Context Protocol)

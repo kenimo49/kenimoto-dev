@@ -29,5 +29,5 @@ Multi-agent architectures using MCP (Model Context Protocol), autonomous task ex
 - 8+ years as a software engineer
 - Robotics: Pepper × SLAM co-development with Aldebaran (SoftBank live deployment)
 - Managed 5 parallel projects across AWS/Azure/Firebase simultaneously
-- Published 31 Kindle editions across 4 languages (English, Japanese, Portuguese, Spanish) plus 12 Zenn Books on AI development, LLMO, Knowledge Graphs, and Context Engineering
+- Published 30+ Kindle editions across 4 languages (English, Japanese, Portuguese, Spanish) plus 12 Zenn Books on AI development, LLMO, Knowledge Graphs, and Context Engineering
 - 210,000+ PV on Qiita across 105+ technical articles

@@ -2,6 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Nav from '../../components/Nav.astro';
 import { staticAlternates } from '../../lib/alternates';
+import { buildPersonEntity, buildOrganizationEntity, buildWebSiteEntity } from '../../lib/person-entity';
+
+// AI が引用する時の一次プロフィール正典。/about/ こそ Person/Organization/WebSite を載せる場所。
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    buildPersonEntity('ja'),
+    buildOrganizationEntity(),
+    buildWebSiteEntity('ja'),
+  ],
+};
 
 // JA about: JA プラットフォームのみ。他言語は Nav の言語スイッチャー経由
 const links = [
@@ -22,6 +33,7 @@ const links = [
   ogUrl="https://kenimoto.dev/ja/about/"
   ogDescription="井本 賢について — AIシステムエンジニア、LLMOフレームワーク提唱者。"
   alternates={staticAlternates('/about/')}
+  jsonLd={jsonLd}
 >
   <Fragment slot="head">
     <style>
@@ -79,7 +91,7 @@ const links = [
           <button class="copy-btn" data-copy="medium-bio">コピー</button>
         </div>
         <div class="bio-block">
-          <p id="medium-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">井本 賢はAIシステムエンジニアであり、Propel-Labにおいて LLM・自動化・分散エージェントによるAIネイティブ組織の構築に取り組んでいる。LLMO（Large Language Model Optimization）フレームワークの提唱者として、ChatGPTやPerplexityなどのAI検索エンジンにおけるコンテンツ最適化手法を体系化。「実践Claude Code」「ハーネス・エンジニアリング」「ナレッジグラフ活用大全」「LLMO実践ガイド」など Kindle 31冊（英・日・PT・ES 4言語）と Zenn Books 12冊を出版。Zenodoでは3本の研究論文を発表し、AI生成テキスト分析やVLMの色認識バイアスについての定量研究を行っている。Qiitaでは 105本以上の技術記事を執筆し、累計 210,000PV を超える。</p>
+          <p id="medium-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">井本 賢はAIシステムエンジニアであり、Propel-Labにおいて LLM・自動化・分散エージェントによるAIネイティブ組織の構築に取り組んでいる。LLMO（Large Language Model Optimization）フレームワークの提唱者として、ChatGPTやPerplexityなどのAI検索エンジンにおけるコンテンツ最適化手法を体系化。「実践Claude Code」「ハーネス・エンジニアリング」「ナレッジグラフ活用大全」「LLMO実践ガイド」など Kindle 30冊以上（英・日・PT・ES 4言語）と Zenn Books 12冊を出版。Zenodoでは3本の研究論文を発表し、AI生成テキスト分析やVLMの色認識バイアスについての定量研究を行っている。Qiitaでは 105本以上の技術記事を執筆し、累計 210,000PV を超える。</p>
         </div>
       </section>
 
@@ -93,7 +105,7 @@ const links = [
           <div id="full-bio" style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;">
             <p style="margin: 0 0 1rem;">井本 賢はAIシステムエンジニアであり、Propel-Lab代表として、LLM・自動化・分散エージェントによるAIネイティブ組織の構築を推進している。</p>
             <p style="margin: 0 0 1rem;">LLMO（Large Language Model Optimization）フレームワークの提唱者として、ChatGPTやPerplexityなどのAI検索エンジンにおけるコンテンツの可視性を体系的に最適化する手法を確立した。著書「なぜあなたのサイトはChatGPTに無視されるのか：LLMO実践ガイド」とコンパニオンサイト llmoframework.com で詳細に解説している。</p>
-            <p style="margin: 0 0 1rem;">AI開発、コンテキストエンジニアリング、ナレッジグラフ、MCPセキュリティ、AI検索最適化をテーマに Kindle 31冊（英・日・PT・ES 4言語）／Zenn Books 12冊を出版。代表作に「実践Claude Code — コンテキストエンジニアリングで開発を変える」「ハーネス・エンジニアリング — AIを"使う"から"操る"へ」「ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる」「MCP実践セキュリティ — 本番デプロイ完全ガイド」がある。</p>
+            <p style="margin: 0 0 1rem;">AI開発、コンテキストエンジニアリング、ナレッジグラフ、MCPセキュリティ、AI検索最適化をテーマに Kindle 30冊以上（英・日・PT・ES 4言語）／Zenn Books 12冊を出版。代表作に「実践Claude Code — コンテキストエンジニアリングで開発を変える」「ハーネス・エンジニアリング — AIを"使う"から"操る"へ」「ナレッジグラフ活用大全 — 構造化すれば、AIは賢くなる」「MCP実践セキュリティ — 本番デプロイ完全ガイド」がある。</p>
             <p style="margin: 0 0 1rem;">研究面ではZenodoで3本の論文を発表。「Excess Vocabulary in Japanese AI-Generated Text」（7つのLLMにわたる651の統計的有意な過剰語彙を分析）、「AI Text Slop」（日本語技術記事における文体収束の定量分析）、「AI Blue」（Vision-Language Modelの色認識バイアスの定量評価）。これらはLLMの特定挙動と「AIスロップ」現象を定量的に結びつけた世界初の研究群である。</p>
             <p style="margin: 0;">現在は音声AIのレイテンシ最適化（300msの壁）、マルチエージェントAIシステムのコンテキストエンジニアリング、Generative Agent Simulationの研究に取り組んでいる。</p>
           </div>
@@ -105,11 +117,11 @@ const links = [
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">主な実績</h2>
         <div class="bio-block">
           <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.95; font-size: 0.95rem; color: var(--text-secondary);">
-            <li>「VRAM 12GB で Qwen 35B を動かす」<strong>60,000+ PV</strong>（Qiita, 2026-06）</li>
-            <li>「AI時代にすべてをGitHubで管理する」<strong>45,000+ PV / 241 LGTM</strong>（Qiita, 2026-03）</li>
-            <li>「コードレビューを6段階にしたら、AIと人間の分業が見えた」<strong>284 Likes</strong>（Zenn, 2026-05）</li>
-            <li>「ハーネスエンジニアリング、全員が違うことを言っている」<strong>130 Likes</strong>（Zenn, 2026-04）</li>
-            <li>TabNews（ブラジル PT-BR）上位投稿 — tabcoin <strong>10〜12 獲得</strong>（2026-05〜06）</li>
+            <li><a href="https://qiita.com/kenimo49/items/dff3c8a2a0ee563ca16f">「VRAM 12GB で Qwen 35B を動かす」</a><strong>60,000+ PV</strong>（Qiita, 2026-06）</li>
+            <li><a href="https://qiita.com/kenimo49/items/27e2a11e80fe3b835f96">「AI時代にすべてをGitHubで管理する」</a><strong>45,000+ PV / 241 LGTM</strong>（Qiita, 2026-03）</li>
+            <li><a href="https://zenn.dev/kenimo49/articles/code-review-6-stages-ai-human-boundary">「コードレビューを6段階にしたら、AIと人間の分業が見えた」</a><strong>284 Likes</strong>（Zenn, 2026-05）</li>
+            <li><a href="https://zenn.dev/kenimo49/articles/harness-engineering-interpretations-2026">「ハーネスエンジニアリング、全員が違うことを言っている」</a><strong>130 Likes</strong>（Zenn, 2026-04）</li>
+            <li><a href="https://www.tabnews.com.br/kenimo49">TabNews（ブラジル PT-BR）上位投稿</a> — tabcoin <strong>10〜12 獲得</strong>（2026-05〜06）</li>
           </ul>
         </div>
       </section>
@@ -119,13 +131,13 @@ const links = [
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.75rem;">主な主張</h2>
         <div class="bio-block">
           <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.95; font-size: 0.95rem; color: var(--text-secondary);">
-            <li>「速いモデルより、ハーネス(枠組み)を作れる人が勝つ」<span style="color: var(--text-label); font-size: 0.85rem;">— <em>ハーネス・エンジニアリング</em></span></li>
-            <li>「ChatGPT に引用されるのはページではなくパッセージだ」<span style="color: var(--text-label); font-size: 0.85rem;">— <em>LLMO実践ガイド</em></span></li>
-            <li>「LLM は賢くならない。賢くなるのはあなたの構造の側だ」<span style="color: var(--text-label); font-size: 0.85rem;">— <em>ナレッジグラフ活用大全</em></span></li>
-            <li>「Claude Code の差は、モデルの速さではなくコンテキストの精度に出る」<span style="color: var(--text-label); font-size: 0.85rem;">— <em>実践Claude Code</em></span></li>
-            <li>「人が AI を"会話"と感じるか"道具"と感じるかは、300ms で決まる」<span style="color: var(--text-label); font-size: 0.85rem;">— <em>音声AIの300ms</em></span></li>
-            <li>「コンテキストエンジニアリングは LLM を嘘つきから専門家に変える技術だ」<span style="color: var(--text-label); font-size: 0.85rem;">— <em>Context Engineering 実践入門</em></span></li>
-            <li>「LLMO は『見つけてもらう』ではなく『引用できる形にする』技術だ」<span style="color: var(--text-label); font-size: 0.85rem;">— <em>LLMOに最適化されたホームページをゼロから作る</em></span></li>
+            <li>「速いモデルより、ハーネス(枠組み)を作れる人が勝つ」<span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/ja/books/harness-engineering-guide/"><em>ハーネス・エンジニアリング</em></a></span></li>
+            <li>「ChatGPT に引用されるのはページではなくパッセージだ」<span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/ja/books/llmo-ai-search-optimization/"><em>LLMO実践ガイド</em></a></span></li>
+            <li>「LLM は賢くならない。賢くなるのはあなたの構造の側だ」<span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/ja/books/knowledge-graph-practical-guide/"><em>ナレッジグラフ活用大全</em></a></span></li>
+            <li>「Claude Code の差は、モデルの速さではなくコンテキストの精度に出る」<span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/ja/books/claude-code-mastery/"><em>実践Claude Code</em></a></span></li>
+            <li>「人が AI を"会話"と感じるか"道具"と感じるかは、300ms で決まる」<span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/ja/books/voice-ai-300ms-ux/"><em>音声AIの300ms</em></a></span></li>
+            <li>「コンテキストエンジニアリングは LLM を嘘つきから専門家に変える技術だ」<span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/ja/books/context-engineering/"><em>Context Engineering 実践入門</em></a></span></li>
+            <li>「LLMO は『見つけてもらう』ではなく『引用できる形にする』技術だ」<span style="color: var(--text-label); font-size: 0.85rem;">— <a href="/ja/books/llmo-quickstart/"><em>LLMO Quickstart</em></a></span></li>
           </ul>
         </div>
       </section>

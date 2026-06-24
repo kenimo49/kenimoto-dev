@@ -15,6 +15,7 @@ export const SITE_URL = 'https://kenimoto.dev';
 export type Lang = 'en' | 'ja' | 'pt' | 'es';
 
 // 著者の cross-profile 同一性グラフ（全言語共通の正典）。
+// Amazon Author Central は author code B0GQNPRCGF が全 region で同一なので 4 store を sameAs に含める。
 export const PERSON_SAMEAS = [
   'https://github.com/kenimo49',
   'https://x.com/kenimo49',
@@ -27,6 +28,10 @@ export const PERSON_SAMEAS = [
   'https://kenimo49.hashnode.dev',
   'https://medium.com/@kenimo49',
   'https://www.tabnews.com.br/kenimo49',
+  'https://www.amazon.co.jp/stores/author/B0GQNPRCGF',
+  'https://www.amazon.com/stores/author/B0GQNPRCGF',
+  'https://www.amazon.com.br/stores/author/B0GQNPRCGF',
+  'https://www.amazon.es/stores/author/B0GQNPRCGF',
 ];
 
 interface PersonCopy {
