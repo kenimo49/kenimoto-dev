@@ -148,25 +148,52 @@ const articleJsonLd = {
         font-size: 0.875em;
         font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
       }
-      .prose pre,
-      .prose :global(pre) {
-        background: #0a0a0a !important;
-        color: #e2e8f0;
+      /* Shiki dual-theme: 背景・文字色は inline で var(--shiki-*) が刺さるので
+         こちらは枠・余白・タイポグラフィだけ整える。!important で背景を潰さない。 */
+      .prose :global(pre.astro-code) {
+        border: 1px solid var(--text-separator);
         border-radius: 8px;
-        padding: 1.25rem !important;
+        padding: 1.25rem 1.5rem;
         overflow-x: auto;
-        margin: 1.5rem 0;
+        margin: 2rem 0;
         font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 0.9rem;
-        line-height: 1.65;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        position: relative;
       }
-      .prose pre code,
-      .prose :global(pre) code {
+      .prose :global(pre.astro-code code) {
         background: none !important;
         border: none;
         color: inherit;
         padding: 0;
         font-family: inherit;
+      }
+      /* light/dark で Shiki が出力する 2 色を切り替える。
+         defaultColor: false にすると inline style では色が当たらず CSS 変数だけ
+         置かれるため、ここでマッピングする必要がある。 */
+      :global([data-theme='light']) .prose :global(pre.astro-code),
+      :global([data-theme='light']) .prose :global(pre.astro-code span) {
+        color: var(--shiki-light) !important;
+        background-color: var(--shiki-light-bg) !important;
+      }
+      :global([data-theme='dark']) .prose :global(pre.astro-code),
+      :global([data-theme='dark']) .prose :global(pre.astro-code span) {
+        color: var(--shiki-dark) !important;
+        background-color: var(--shiki-dark-bg) !important;
+      }
+      /* 言語ラベル — data-language が text/未指定でないときだけ右上に薄く出す */
+      .prose :global(pre.astro-code[data-language]:not([data-language='text'])::before) {
+        content: attr(data-language);
+        position: absolute;
+        top: 0.55rem;
+        right: 0.75rem;
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        letter-spacing: 0.05em;
+        text-transform: lowercase;
+        pointer-events: none;
+        opacity: 0.7;
       }
       .prose :global(blockquote) {
         border-left: 3px solid var(--accent-blue);
@@ -437,24 +464,53 @@ const articleJsonLd = {
     document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('.prose pre').forEach(function(pre) {
         var wrapper = document.createElement('div');
-        wrapper.style.position = 'relative';
+        wrapper.style.cssText = 'position:relative;';
         pre.parentNode.insertBefore(wrapper, pre);
         wrapper.appendChild(pre);
 
+        // 言語ラベルが ::before で右上に出るので、Copy ボタンは下にずらす。
+        // 言語が text/なしの記事もあるので位置は固定オフセットで OK。
+        var lang = pre.getAttribute('data-language');
+        var hasLangLabel = lang && lang !== 'text';
+        var topOffset = hasLangLabel ? '2rem' : '0.55rem';
+
         var btn = document.createElement('button');
-        btn.textContent = 'Copy';
-        btn.style.cssText = 'position:absolute;top:0.5rem;right:0.5rem;background:var(--bg-primary);color:var(--text-label);border:1px solid var(--text-separator);border-radius:4px;padding:0.2rem 0.5rem;font-size:0.75rem;cursor:pointer;opacity:0;transition:opacity 0.15s;';
+        btn.textContent = 'copy';
+        btn.style.cssText = [
+          'position:absolute',
+          'top:' + topOffset,
+          'right:0.55rem',
+          'background:transparent',
+          'color:var(--text-muted)',
+          'border:1px solid var(--text-separator)',
+          'border-radius:4px',
+          'padding:0.15rem 0.55rem',
+          'font-family:IBM Plex Mono, ui-monospace, monospace',
+          'font-size:0.72rem',
+          'letter-spacing:0.04em',
+          'cursor:pointer',
+          'opacity:0.45',
+          'transition:opacity 0.15s, color 0.15s, border-color 0.15s',
+        ].join(';');
         wrapper.appendChild(btn);
 
         wrapper.addEventListener('mouseenter', function() { btn.style.opacity = '1'; });
-        wrapper.addEventListener('mouseleave', function() { btn.style.opacity = '0'; });
+        wrapper.addEventListener('mouseleave', function() { btn.style.opacity = '0.45'; });
+        btn.addEventListener('mouseenter', function() {
+          btn.style.color = 'var(--text-primary)';
+          btn.style.borderColor = 'var(--text-label)';
+        });
+        btn.addEventListener('mouseleave', function() {
+          btn.style.color = 'var(--text-muted)';
+          btn.style.borderColor = 'var(--text-separator)';
+        });
 
         btn.addEventListener('click', function() {
           var code = pre.querySelector('code');
           var text = (code || pre).textContent;
           navigator.clipboard.writeText(text).then(function() {
-            btn.textContent = 'Copied!';
-            setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+            btn.textContent = 'copied';
+            setTimeout(function() { btn.textContent = 'copy'; }, 1500);
           });
         });
       });

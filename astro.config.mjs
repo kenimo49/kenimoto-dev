@@ -50,5 +50,16 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [remarkDirective, remarkZennDirectives],
+    shikiConfig: {
+      // dual-theme で light/dark を CSS 変数経由で切替。
+      // Shiki が出力する var(--shiki-light) / var(--shiki-dark) と
+      // var(--shiki-light-bg) / var(--shiki-dark-bg) を
+      // BlogLayout 側で [data-theme] 属性に応じてマッピングする。
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark-default',
+      },
+      defaultColor: false,
+    },
   },
 });
