@@ -4,6 +4,17 @@ import Nav from '../components/Nav.astro';
 import type { Alternate } from '../lib/alternates';
 import { buildPersonEntity, buildOrganizationEntity, buildWebSiteEntity, websiteId } from '../lib/person-entity';
 
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface ReadingTime {
+  minutes: number;
+  label: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -14,9 +25,13 @@ interface Props {
   canonicalUrl: string;
   ogImage?: string;
   alternates?: Alternate[];
+  headings?: Heading[];
+  readingTime?: ReadingTime;
 }
 
-const { title, description, lang, date, updated, tags, canonicalUrl, ogImage, alternates = [] } = Astro.props;
+const { title, description, lang, date, updated, tags, canonicalUrl, ogImage, alternates = [], headings = [], readingTime } = Astro.props;
+const tocHeadings = headings.filter(h => h.depth === 2);
+const showToc = tocHeadings.length >= 3;
 const formattedDate = date.toISOString().split('T')[0];
 const siteName = lang === 'ja' ? '井本 賢' : 'Ken Imoto';
 const SITE_URL = 'https://kenimoto.dev';
@@ -294,7 +309,19 @@ const articleJsonLd = {
 
   <Nav lang={lang} current="blog" alternates={alternates} />
 
-  <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem;">
+  <main class="article-shell">
+    {showToc && (
+      <aside class="article-toc" aria-label="Table of contents">
+        <div class="article-toc-inner">
+          <div class="toc-label">{lang === 'ja' ? '目次' : (lang === 'pt' ? 'Sumário' : (lang === 'es' ? 'Índice' : 'Contents'))}</div>
+          <ol class="toc-list">
+            {tocHeadings.map(h => (
+              <li><a href={`#${h.slug}`}>{h.text}</a></li>
+            ))}
+          </ol>
+        </div>
+      </aside>
+    )}
     <article class="article-root">
       <!-- Article header -->
       <header style="margin-bottom: 3rem;">
@@ -302,6 +329,12 @@ const articleJsonLd = {
         <h1 class="article-title">{title}</h1>
         <div class="article-meta">
           <time datetime={date.toISOString()}>{formattedDate}</time>
+          {readingTime && (
+            <>
+              <span class="meta-sep">/</span>
+              <span class="meta-reading-time">{readingTime.label}</span>
+            </>
+          )}
           {tags.length > 0 && (
             <>
               <span class="meta-sep">/</span>
@@ -335,6 +368,68 @@ const articleJsonLd = {
   </main>
 
   <style>
+    .article-shell {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+    /* TOC: 右レール、sticky 配置。記事位置はずらさず、空いている右側スペースに置く。
+       閾値 1240px は (vp-760)/2 + 760 + 40 + 200 ≤ vp の解。
+       下回るとビューポート右端を超えるので非表示。 */
+    .article-toc {
+      display: none;
+    }
+    @media (min-width: 1240px) {
+      .article-toc {
+        display: block;
+        position: absolute;
+        top: 4rem;
+        left: 100%;
+        margin-left: 2.5rem;
+        width: 200px;
+      }
+      .article-toc-inner {
+        position: sticky;
+        top: 2rem;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+      }
+    }
+    .toc-label {
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--text-separator);
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.8125rem;
+      line-height: 1.55;
+    }
+    .toc-list li {
+      margin: 0.5rem 0;
+    }
+    .toc-list a {
+      color: var(--text-label);
+      text-decoration: none;
+      transition: color 0.15s;
+      display: block;
+    }
+    .toc-list a:hover {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .toc-list a.toc-active {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
     .back-link {
       font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 0.8rem;
@@ -458,6 +553,39 @@ const articleJsonLd = {
       }, { threshold: 0.5 });
       io.observe(section);
     }
+  </script>
+
+  <script is:inline>
+    // TOC 追従: スクロール位置に最も近い h2 を toc-active としてハイライト。
+    // IntersectionObserver で各 h2 の表示状態を追い、画面上半分にある最後の h2 をアクティブに。
+    document.addEventListener('DOMContentLoaded', function() {
+      var tocLinks = document.querySelectorAll('.toc-list a');
+      if (tocLinks.length === 0) return;
+      var slugToLink = {};
+      tocLinks.forEach(function(a) {
+        var id = a.getAttribute('href').replace(/^#/, '');
+        slugToLink[id] = a;
+      });
+      var headings = Array.prototype.slice.call(document.querySelectorAll('.prose h2[id]'));
+      if (headings.length === 0) return;
+      var setActive = function(id) {
+        tocLinks.forEach(function(a) { a.classList.remove('toc-active'); });
+        if (id && slugToLink[id]) slugToLink[id].classList.add('toc-active');
+      };
+      var current = null;
+      var update = function() {
+        var threshold = window.innerHeight * 0.3;
+        var found = null;
+        for (var i = 0; i < headings.length; i++) {
+          var r = headings[i].getBoundingClientRect();
+          if (r.top <= threshold) found = headings[i].id;
+          else break;
+        }
+        if (found !== current) { current = found; setActive(found); }
+      };
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    });
   </script>
 
   <script is:inline>

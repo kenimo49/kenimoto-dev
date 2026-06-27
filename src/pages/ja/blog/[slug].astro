@@ -2,6 +2,7 @@
 import BlogLayout from '../../../layouts/BlogLayout.astro';
 import { getCollection, render } from 'astro:content';
 import { alternatesFor, normalizeCanonical } from '../../../lib/alternates';
+import { estimateReadingTime } from '../../../lib/reading-time';
 
 export async function getStaticPaths() {
   const all = await getCollection('blog');
@@ -16,9 +17,10 @@ export async function getStaticPaths() {
 }
 
 const { post, alternates } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 const slug = post.id.replace(/^ja\//, '');
 const canonicalUrl = normalizeCanonical(post.data.canonical_url, `https://kenimoto.dev/ja/blog/${slug}/`);
+const readingTime = estimateReadingTime(post.body ?? '', 'ja');
 ---
 
 <BlogLayout
@@ -31,6 +33,8 @@ const canonicalUrl = normalizeCanonical(post.data.canonical_url, `https://kenimo
   canonicalUrl={canonicalUrl}
   ogImage={post.data.og_image}
   alternates={alternates}
+  headings={headings}
+  readingTime={readingTime}
 >
   <Content />
 </BlogLayout>
