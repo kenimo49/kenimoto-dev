@@ -25,6 +25,13 @@ export const RESEARCH_PAPERS = [
     doi: '10.5281/zenodo.19233934',
     about: ['Excess Vocabulary', 'Japanese NLP', 'LLM Detection', 'MeCab', 'Cross-Model Comparison', 'Vocabulary Coevolution'],
   },
+  {
+    name: 'When Free Executors Cost More: The Free-Executor Paradox in Iterative LLM Code-Repair Loops',
+    datePublished: '2026-06-28',
+    url: 'https://doi.org/10.5281/zenodo.20978074',
+    doi: '10.5281/zenodo.20978074',
+    about: ['LLM', 'Agentic Coding', 'Model Orchestration', 'Cost-Quality Tradeoff', 'Deterministic Harness', 'Claude', 'Qwen', 'Prompt Caching'],
+  },
 ] as const;
 
 export function buildScholarlyArticleJsonLd(personId: string) {

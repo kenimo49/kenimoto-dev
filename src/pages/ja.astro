@@ -418,6 +418,15 @@ const orgJsonLd = {
       <!-- Papers -->
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">論文</h2>
+        <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem; border-left: 3px solid var(--accent-amber); margin-bottom: 1rem;">
+          <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">⚡ Free-Executor Paradox: 反復LLMコード修復ループで「タダのエグゼキュータ」が一番高くつく</p>
+          <p style="font-size: 0.8rem; color: var(--text-label); margin-bottom: 0.75rem;">4構成のLLM (Opus solo / Haiku solo / Opus+Qwen / Opus+Haiku) を3つのPythonコード修復タスクで決定的判定器 (mypy + ruff + pytest) のもとで比較。「強いオーケストレータ + 安い (or ローカル無料) エグゼキュータ」という定石構造が全タスクで最も高くつく現象を発見 — オーケストレータがエグゼキュータの返したサマリを prompt cache 経由で読み直すコストが、実行委譲の節約を食い潰す。最大タスクではHaiku soloがドル建てで5.5倍安い (失敗率25%引き換え)。</p>
+          <div style="font-size: 0.75rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://doi.org/10.5281/zenodo.20978074">📄 論文 (DOI)</a>
+            <a href="https://github.com/kenimo49/free-executor-paradox">💻 コード & データ</a>
+            <span style="color: var(--text-muted);">2026年6月 · Zenodo</span>
+          </div>
+        </div>
         <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem; border-left: 3px solid var(--accent-green); margin-bottom: 1rem;">
           <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">📊 Excess Vocabulary: 日本語AI生成テキストの過剰語彙クロスモデル定量分析</p>
           <p style="font-size: 0.8rem; color: var(--text-label); margin-bottom: 0.75rem;">7モデル×350サンプル vs 人間977記事で651の統計的に有意なexcess wordsを特定。Claude世代間で語彙偏りが増加（TTR: 0.52→0.29）。ドメイン内分類器AUC=0.946、ドメイン間では完全に崩壊。日本語excess vocabulary研究として世界初、共進化の証拠も確認。</p>

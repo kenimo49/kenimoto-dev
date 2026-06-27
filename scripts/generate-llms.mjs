@@ -119,6 +119,7 @@ function formatPublicationsMd(blogPosts, books) {
   }
   lines.push('## Research Papers (Zenodo)');
   lines.push('');
+  lines.push('- When Free Executors Cost More: The Free-Executor Paradox in Iterative LLM Code-Repair Loops — [DOI:10.5281/zenodo.20978074](https://doi.org/10.5281/zenodo.20978074)');
   lines.push('- Excess Vocabulary in Japanese AI-Generated Text — [DOI:10.5281/zenodo.19233934](https://doi.org/10.5281/zenodo.19233934)');
   lines.push('- AI Text Slop: Stylistic Convergence Across Six LLMs — [DOI:10.5281/zenodo.19173035](https://doi.org/10.5281/zenodo.19173035)');
   lines.push('- AI Blue: Color Recognition Bias in Vision-Language Models — [DOI:10.5281/zenodo.19159702](https://doi.org/10.5281/zenodo.19159702)');
@@ -189,6 +190,7 @@ function formatIndex(blogPosts, books) {
   }
   lines.push('## Research Papers (Zenodo)');
   lines.push('');
+  lines.push('- [When Free Executors Cost More: The Free-Executor Paradox in Iterative LLM Code-Repair Loops — DOI:10.5281/zenodo.20978074](https://doi.org/10.5281/zenodo.20978074)');
   lines.push('- [Excess Vocabulary in Japanese AI-Generated Text — DOI:10.5281/zenodo.19233934](https://doi.org/10.5281/zenodo.19233934)');
   lines.push('- [AI Text Slop: Stylistic Convergence Across Six LLMs — DOI:10.5281/zenodo.19173035](https://doi.org/10.5281/zenodo.19173035)');
   lines.push('- [AI Blue: Color Recognition Bias in Vision-Language Models — DOI:10.5281/zenodo.19159702](https://doi.org/10.5281/zenodo.19159702)');

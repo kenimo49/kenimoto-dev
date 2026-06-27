@@ -69,6 +69,7 @@ LLMO includes approaches such as AEO (Answer Engine Optimization) and GEO (Gener
    - Kindle JP: https://www.amazon.co.jp/dp/B0GXR5Q6NW | Kindle EN: https://www.amazon.com/dp/B0GX3CS95M
 
 ### Research Papers (Zenodo)
+- When Free Executors Cost More: The Free-Executor Paradox in Iterative LLM Code-Repair Loops (DOI: 10.5281/zenodo.20978074)
 - Excess Vocabulary in Japanese AI-Generated Text (DOI: 10.5281/zenodo.19233934)
 - AI Text Slop: Stylistic Convergence Across Six LLMs (DOI: 10.5281/zenodo.19173035)
 - AI Blue: Color Recognition Bias in Vision-Language Models (DOI: 10.5281/zenodo.19159702)

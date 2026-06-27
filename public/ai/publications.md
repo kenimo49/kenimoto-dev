@@ -10,6 +10,13 @@
 
 ## Research Papers (Zenodo)
 
+### When Free Executors Cost More: The Free-Executor Paradox in Iterative LLM Code-Repair Loops
+- DOI: 10.5281/zenodo.20978074
+- Date: June 2026
+- Dataset: 40 trials across 3 Python code-repair tasks (breakage / refactor / feature-add), 4 LLM configurations (Opus solo / Haiku solo / Opus+Qwen / Opus+Haiku), deterministic judge (mypy + ruff + pytest)
+- Key finding: the canonical "strong orchestrator + cheap (or free local) executor" structure is the most expensive cloud arm on every task because prompt-cached re-reads of executor summaries dominate any savings from delegating execution; Haiku-solo wins on dollar cost on the largest task (5.5× cheaper) at a 25% failure rate
+- Code & Data: https://github.com/kenimo49/free-executor-paradox
+
 ### Excess Vocabulary in Japanese AI-Generated Text: A Cross-Model Quantitative Analysis
 - DOI: 10.5281/zenodo.19233934
 - Date: March 2026

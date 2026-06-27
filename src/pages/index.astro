@@ -258,6 +258,15 @@ const orgJsonLd = {
       <!-- Papers -->
       <section style="margin-bottom: 3rem; text-align: left;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Papers</h2>
+        <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem; border-left: 3px solid var(--accent-amber); margin-bottom: 1rem;">
+          <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">⚡ When Free Executors Cost More: The Free-Executor Paradox in Iterative LLM Code-Repair Loops</p>
+          <p style="font-size: 0.8rem; color: var(--text-label); margin-bottom: 0.75rem;">Four LLM configurations on three Python code-repair tasks (breakage / refactor / feature-add) under a single deterministic correctness judge (mypy + ruff + pytest). The canonical "strong orchestrator + cheap executor" structure (Opus + local Qwen) turns out to be the most expensive cloud arm on every task because prompt-cached re-reads of executor summaries dominate any savings from delegating execution. Haiku-solo wins on dollar cost on the largest task (5.5× cheaper) at a 25% failure rate.</p>
+          <div style="font-size: 0.75rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://doi.org/10.5281/zenodo.20978074">📄 Paper (DOI)</a>
+            <a href="https://github.com/kenimo49/free-executor-paradox">💻 Code & Data</a>
+            <span style="color: var(--text-muted);">June 2026 · Zenodo</span>
+          </div>
+        </div>
         <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem; border-left: 3px solid var(--accent-green); margin-bottom: 1rem;">
           <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">📊 Excess Vocabulary in Japanese AI-Generated Text: A Cross-Model Quantitative Analysis</p>
           <p style="font-size: 0.8rem; color: var(--text-label); margin-bottom: 0.75rem;">350 samples from 7 LLMs vs. 977 human articles. 651 statistically significant excess words identified. Newer Claude generations show increasing vocabulary bias (TTR: 0.52→0.29). Cross-domain classifier achieves AUC=0.946 in-domain but fails completely across genres. First Japanese excess vocabulary study with coevolution evidence.</p>
