@@ -30,12 +30,20 @@ for (const post of posts) {
   <Fragment slot="head">
     <link rel="alternate" type="application/rss+xml" title="ken imoto — Blog (ES)" href="/es/blog.xml" />
     <style>
+      .filter-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; padding: 0.4rem 0.75rem; border: 1px solid var(--text-separator); border-radius: 6px; background: var(--bg-card); transition: border-color 0.15s; }
+      .filter-bar:focus-within { border-color: var(--text-label); }
+      .filter-prompt { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.02em; user-select: none; }
+      .filter-input { flex: 1; background: transparent; border: none; outline: none; color: var(--text-primary); font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85rem; letter-spacing: 0.01em; }
+      .filter-input::placeholder { color: var(--text-muted); }
+      .filter-count { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.01em; }
       .tag-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
       .tag-btn { background: none; border: 1px solid var(--text-separator); color: var(--text-label); padding: 0.25rem 0.65rem; border-radius: 4px; font-size: 0.8rem; cursor: pointer; transition: all 0.15s; }
       .tag-btn:hover { color: var(--text-primary); border-color: var(--text-label); }
       .tag-btn.active { background: var(--accent-blue); color: #fff; border-color: var(--accent-blue); }
       .post-list { list-style: none; padding: 0; margin: 0; }
-      .post-item { display: flex; align-items: baseline; gap: 1rem; padding: 0.5rem 0; }
+      .post-item { display: flex; align-items: baseline; gap: 1rem; padding: 0.5rem 0; position: relative; }
+      .post-item[data-description]:hover::after { content: attr(data-description); position: absolute; top: 100%; left: 5rem; right: 0; margin-top: -0.15rem; background: var(--bg-elev); border: 1px solid var(--text-separator); border-radius: 4px; padding: 0.55rem 0.75rem; font-size: 0.8rem; line-height: 1.55; color: var(--text-secondary); z-index: 5; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); pointer-events: none; font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif; }
+      @media (max-width: 600px) { .post-item[data-description]:hover::after { display: none; } }
       .post-item time { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; min-width: 5.5rem; }
       .post-item a { font-size: 1rem; color: var(--text-primary); text-decoration: none; flex: 1; }
       .post-item a:hover { color: var(--link-color); }
@@ -56,6 +64,14 @@ for (const post of posts) {
     <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">
       Desarrollo con IA, LLMO, ingeniería de contexto y harness engineering.
     </p>
+
+    <div class="filter-bar">
+      <span class="filter-prompt">&gt;</span>
+      <input type="text" class="filter-input" id="search-input"
+        placeholder="buscar (título / descripción / etiquetas)"
+        autocomplete="off" aria-label="Buscar artículos" />
+      <span class="filter-count" id="filter-count">{posts.length} artículos</span>
+    </div>
 
     {sortedTags.length > 0 && (
       <div class="tag-filter">
@@ -82,8 +98,18 @@ for (const post of posts) {
             const d = post.data.date;
             const monthDay = d.toLocaleDateString('es', { day: '2-digit', month: 'short' });
             const rt = estimateReadingTime(post.body ?? '', 'es');
+            const searchHaystack = [
+              post.data.title,
+              post.data.description,
+              normalizeTags(post.data.tags).join(' '),
+            ].join(' ').toLowerCase();
             return (
-              <li class="post-item" data-tags={normalizeTags(post.data.tags).join(',')}>
+              <li
+                class="post-item"
+                data-tags={normalizeTags(post.data.tags).join(',')}
+                data-description={post.data.description}
+                data-search={searchHaystack}
+              >
                 <time datetime={d.toISOString().split('T')[0]}>{monthDay}</time>
                 <a href={`/es/blog/${slug}/`}>{post.data.title}</a>
                 <span class="read-time">{rt.shortLabel}</span>
@@ -102,25 +128,57 @@ for (const post of posts) {
   <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
       var buttons = document.querySelectorAll('.tag-btn');
+      var input = document.getElementById('search-input');
+      var countEl = document.getElementById('filter-count');
+      var items = document.querySelectorAll('.post-item');
+      var total = items.length;
+      var activeTag = 'all';
+      var query = '';
+      var totalLabel = total + ' artículos';
+      function applyFilter() {
+        var visible = 0;
+        items.forEach(function(item) {
+          var tagOk = activeTag === 'all' ||
+            (item.getAttribute('data-tags') || '').split(',').indexOf(activeTag) !== -1;
+          var searchOk = !query ||
+            (item.getAttribute('data-search') || '').indexOf(query) !== -1;
+          var show = tagOk && searchOk;
+          item.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        document.querySelectorAll('.year-group').forEach(function(group) {
+          var v = group.querySelectorAll('.post-item:not(.hidden)');
+          group.classList.toggle('hidden', v.length === 0);
+        });
+        if (countEl) {
+          countEl.textContent = (activeTag === 'all' && !query)
+            ? totalLabel
+            : (visible + ' / ' + total);
+        }
+      }
       buttons.forEach(function(btn) {
         btn.addEventListener('click', function() {
-          var tag = btn.getAttribute('data-tag');
+          activeTag = btn.getAttribute('data-tag');
           buttons.forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
-          var items = document.querySelectorAll('.post-item');
-          items.forEach(function(item) {
-            if (tag === 'all') item.classList.remove('hidden');
-            else {
-              var tags = (item.getAttribute('data-tags') || '').split(',');
-              item.classList.toggle('hidden', tags.indexOf(tag) === -1);
-            }
-          });
-          document.querySelectorAll('.year-group').forEach(function(group) {
-            var visible = group.querySelectorAll('.post-item:not(.hidden)');
-            group.classList.toggle('hidden', visible.length === 0);
-          });
+          applyFilter();
         });
       });
+      if (input) {
+        input.addEventListener('input', function() {
+          query = input.value.trim().toLowerCase();
+          applyFilter();
+        });
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') { input.value = ''; query = ''; applyFilter(); }
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === '/' && document.activeElement !== input) {
+            var tag = (document.activeElement || {}).tagName;
+            if (tag !== 'INPUT' && tag !== 'TEXTAREA') { e.preventDefault(); input.focus(); }
+          }
+        });
+      }
     });
   </script>
 </BaseLayout>
