@@ -244,12 +244,30 @@ const articleJsonLd = {
       .prose :global(.book-callout a) {
         color: var(--accent-blue);
       }
+      /* BaseLayout の preflight reset で list-style:none が当たっているので、
+         記事本文ではマーカーを明示的に復活させる。日本語記事でも視覚的に
+         「箇条書きの塊」と認識しやすくする。 */
       .prose :global(ul), .prose :global(ol) {
         padding-left: 1.5rem;
         margin: 1rem 0;
       }
+      .prose :global(ul) {
+        list-style: disc;
+      }
+      .prose :global(ol) {
+        list-style: decimal;
+      }
+      .prose :global(ul ul) {
+        list-style: circle;
+      }
+      .prose :global(ul ul ul) {
+        list-style: square;
+      }
       .prose :global(li) {
         margin: 0.4rem 0;
+      }
+      .prose :global(li::marker) {
+        color: var(--text-muted);
       }
       .prose img,
       .prose :global(img) {

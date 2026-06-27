@@ -987,9 +987,32 @@ const bookJsonLd = {
         padding-left: 1.5rem;
         line-height: 1.85;
         color: var(--text-secondary);
+        list-style: disc;
+      }
+      .book-section ol {
+        padding-left: 1.5rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        list-style: decimal;
+      }
+      .book-section ul ul {
+        list-style: circle;
       }
       .book-section li {
         margin: 0.4rem 0;
+      }
+      .book-section li::marker {
+        color: var(--text-muted);
+      }
+      /* list-style: none を明示する custom リストはマーカー復活の対象外 */
+      .book-section .position-list,
+      .book-section .outcomes-list,
+      .book-section .toc-list,
+      .book-section .toc-sub-list,
+      .book-section .related-cards,
+      .book-section .related-articles {
+        list-style: none;
+        padding-left: 0;
       }
       .toc-list {
         list-style: none;
