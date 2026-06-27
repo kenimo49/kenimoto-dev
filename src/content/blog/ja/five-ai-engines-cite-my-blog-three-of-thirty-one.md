@@ -1,6 +1,6 @@
 ---
 title: "5つのAI検索に『kenimoto.devを引用して』と頼んだ。記事31本のうち出てきたのは3本だった"
-description: "31本のブログ記事を5つのAIエンジンに引用させる実験をした結果、引用されたのは3本だけだった。LLMOは本数ではなく密度の問題かもしれない、と気づいた話。"
+description: "LLMO 効果は記事の本数ではなく citation density で決まる。31本のブログ記事を 5つの AI 検索エンジン (ChatGPT/Perplexity/Claude/Gemini/Grok) に引用させたところ、出てきたのは 3本だけで、ロングテール記事は AI に届かなかった。"
 date: 2026-05-26
 lang: ja
 tags: [llmo, ai検索, geo, 実測, ブログ運営]
