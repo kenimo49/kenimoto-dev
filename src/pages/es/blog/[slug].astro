@@ -6,17 +6,30 @@ import { estimateReadingTime } from '../../../lib/reading-time';
 
 export async function getStaticPaths() {
   const all = await getCollection('blog');
-  const posts = all.filter(p => p.data.lang === 'es');
-  return posts.map(post => {
+  const posts = all
+    .filter(p => p.data.lang === 'es')
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return posts.map((post, i) => {
     const slug = post.id.replace(/^es\//, '');
+    const newer = i > 0 ? posts[i - 1] : null;
+    const older = i < posts.length - 1 ? posts[i + 1] : null;
+    const toNav = (p: typeof post | null) => p ? ({
+      href: `/es/blog/${p.id.replace(/^es\//, '')}/`,
+      title: p.data.title,
+    }) : null;
     return {
       params: { slug },
-      props: { post, alternates: alternatesFor(all, 'blog', slug, post.data.translation_key) },
+      props: {
+        post,
+        alternates: alternatesFor(all, 'blog', slug, post.data.translation_key),
+        prevPost: toNav(older),
+        nextPost: toNav(newer),
+      },
     };
   });
 }
 
-const { post, alternates } = Astro.props;
+const { post, alternates, prevPost, nextPost } = Astro.props;
 const { Content, headings } = await render(post);
 const slug = post.id.replace(/^es\//, '');
 const canonicalUrl = normalizeCanonical(post.data.canonical_url, `https://kenimoto.dev/es/blog/${slug}/`);
@@ -36,6 +49,8 @@ const readingTime = estimateReadingTime(post.body ?? '', 'es');
   alternates={alternates}
   headings={headings}
   readingTime={readingTime}
+  prevPost={prevPost}
+  nextPost={nextPost}
 >
   <Content />
 </BlogLayout>

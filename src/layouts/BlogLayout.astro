@@ -15,6 +15,11 @@ interface ReadingTime {
   label: string;
 }
 
+interface NavPost {
+  href: string;
+  title: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -27,9 +32,11 @@ interface Props {
   alternates?: Alternate[];
   headings?: Heading[];
   readingTime?: ReadingTime;
+  prevPost?: NavPost | null;
+  nextPost?: NavPost | null;
 }
 
-const { title, description, lang, date, updated, tags, canonicalUrl, ogImage, alternates = [], headings = [], readingTime } = Astro.props;
+const { title, description, lang, date, updated, tags, canonicalUrl, ogImage, alternates = [], headings = [], readingTime, prevPost, nextPost } = Astro.props;
 const tocHeadings = headings.filter(h => h.depth === 2);
 const showToc = tocHeadings.length >= 3;
 const formattedDate = date.toISOString().split('T')[0];
@@ -41,10 +48,10 @@ const homeUrl = `${langPrefix}/` || '/';
 
 // 4 言語 UI ラベル
 const T = {
-  en: { back: '← Back to Blog', helpful: 'Was this article helpful?', yes: 'Yes', no: 'No', thanks: 'Thank you for your feedback', home: 'Home', articles: 'Articles' },
-  ja: { back: '← ブログに戻る', helpful: 'この記事は役に立ちましたか？', yes: 'はい', no: 'いいえ', thanks: 'ご回答ありがとうございます', home: 'ホーム', articles: '記事' },
-  pt: { back: '← Voltar ao Blog', helpful: 'Este artigo foi útil?', yes: 'Sim', no: 'Não', thanks: 'Obrigado pelo seu feedback', home: 'Início', articles: 'Artigos' },
-  es: { back: '← Volver al Blog', helpful: '¿Te resultó útil este artículo?', yes: 'Sí', no: 'No', thanks: 'Gracias por tus comentarios', home: 'Inicio', articles: 'Artículos' },
+  en: { back: '← Back to Blog', helpful: 'Was this article helpful?', yes: 'Yes', no: 'No', thanks: 'Thank you for your feedback', home: 'Home', articles: 'Articles', prev: 'Previous post', next: 'Next post' },
+  ja: { back: '← ブログに戻る', helpful: 'この記事は役に立ちましたか？', yes: 'はい', no: 'いいえ', thanks: 'ご回答ありがとうございます', home: 'ホーム', articles: '記事', prev: '前の記事', next: '次の記事' },
+  pt: { back: '← Voltar ao Blog', helpful: 'Este artigo foi útil?', yes: 'Sim', no: 'Não', thanks: 'Obrigado pelo seu feedback', home: 'Início', articles: 'Artigos', prev: 'Post anterior', next: 'Próximo post' },
+  es: { back: '← Volver al Blog', helpful: '¿Te resultó útil este artículo?', yes: 'Sí', no: 'No', thanks: 'Gracias por tus comentarios', home: 'Inicio', articles: 'Artículos', prev: 'Anterior', next: 'Siguiente' },
 }[lang];
 
 const ogImageAbs = ogImage
@@ -250,6 +257,49 @@ const articleJsonLd = {
         height: auto;
         border-radius: 8px;
         margin: 1.5rem 0;
+        cursor: zoom-in;
+      }
+      /* Lightbox: 本文中の img をクリックすると拡大表示 */
+      :global(.lightbox-overlay) {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        cursor: zoom-out;
+        padding: 2rem;
+        animation: lightbox-fade-in 0.15s ease-out;
+      }
+      :global(.lightbox-img) {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        border-radius: 4px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      }
+      :global(.lightbox-close) {
+        position: absolute;
+        top: 1rem;
+        right: 1.25rem;
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 4px;
+        padding: 0.3rem 0.7rem;
+        cursor: pointer;
+        letter-spacing: 0.05em;
+      }
+      :global(.lightbox-close:hover) {
+        color: white;
+        border-color: white;
+      }
+      @keyframes lightbox-fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
       }
       .prose :global(hr) {
         border: none;
@@ -348,6 +398,23 @@ const articleJsonLd = {
       <div class="prose">
         <slot />
       </div>
+
+      {(prevPost || nextPost) && (
+        <nav class="prev-next" aria-label="article navigation">
+          {prevPost ? (
+            <a href={prevPost.href} class="prev-next-card prev-next-prev">
+              <span class="prev-next-label">← {T.prev}</span>
+              <span class="prev-next-title">{prevPost.title}</span>
+            </a>
+          ) : <span />}
+          {nextPost ? (
+            <a href={nextPost.href} class="prev-next-card prev-next-next">
+              <span class="prev-next-label">{T.next} →</span>
+              <span class="prev-next-title">{nextPost.title}</span>
+            </a>
+          ) : <span />}
+        </nav>
+      )}
 
       <div class="feedback" id="feedback-section">
         <p class="feedback-question">{T.helpful}</p>
@@ -466,8 +533,59 @@ const articleJsonLd = {
     .meta-tags {
       color: var(--text-label);
     }
+    .prev-next {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 4rem 0 0;
+    }
+    .prev-next-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--text-separator);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: border-color 0.15s, color 0.15s;
+      min-width: 0;
+    }
+    .prev-next-card:hover {
+      border-color: var(--text-label);
+      text-decoration: none;
+    }
+    .prev-next-next {
+      text-align: right;
+    }
+    .prev-next-label {
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      text-transform: lowercase;
+    }
+    .prev-next-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--text-primary);
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    @media (max-width: 600px) {
+      .prev-next {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+      .prev-next-next {
+        text-align: left;
+      }
+    }
     .feedback {
-      margin-top: 4rem;
+      margin-top: 3rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--text-separator);
       text-align: center;
@@ -585,6 +703,52 @@ const articleJsonLd = {
       };
       window.addEventListener('scroll', update, { passive: true });
       update();
+    });
+  </script>
+
+  <script is:inline>
+    // Lightbox: 本文中の img クリックで全画面表示、ESC/背景クリックで閉じる
+    document.addEventListener('DOMContentLoaded', function() {
+      var imgs = document.querySelectorAll('.prose img');
+      if (imgs.length === 0) return;
+      var current = null;
+      function open(src, alt) {
+        if (current) close();
+        var overlay = document.createElement('div');
+        overlay.className = 'lightbox-overlay';
+        overlay.setAttribute('role', 'dialog');
+        overlay.setAttribute('aria-modal', 'true');
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = alt || '';
+        img.className = 'lightbox-img';
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = 'close [esc]';
+        btn.className = 'lightbox-close';
+        btn.setAttribute('aria-label', 'Close');
+        overlay.appendChild(img);
+        overlay.appendChild(btn);
+        // overlay/btn click は close、img 自身の click は伝播を止めて閉じない
+        overlay.addEventListener('click', close);
+        btn.addEventListener('click', close);
+        img.addEventListener('click', function(e) { e.stopPropagation(); });
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+        current = overlay;
+      }
+      function close() {
+        if (!current) return;
+        current.remove();
+        current = null;
+        document.body.style.overflow = '';
+      }
+      imgs.forEach(function(img) {
+        img.addEventListener('click', function() { open(img.currentSrc || img.src, img.alt); });
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && current) close();
+      });
     });
   </script>
 

@@ -4,6 +4,7 @@ import Nav from '../../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 import { normalizeTags, topTags } from '../../../lib/tags';
 import { staticAlternates } from '../../../lib/alternates';
+import { estimateReadingTime } from '../../../lib/reading-time';
 
 const posts = (await getCollection('blog', ({ data }) => data.lang === 'pt'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -66,7 +67,8 @@ for (const post of posts) {
         padding: 0.5rem 0;
       }
       .post-item time {
-        font-size: 0.85rem;
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.8rem;
         color: var(--text-muted);
         white-space: nowrap;
         min-width: 5.5rem;
@@ -75,9 +77,17 @@ for (const post of posts) {
         font-size: 1rem;
         color: var(--text-primary);
         text-decoration: none;
+        flex: 1;
       }
       .post-item a:hover {
         color: var(--link-color);
+      }
+      .post-item .read-time {
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        white-space: nowrap;
+        flex-shrink: 0;
       }
       .post-item.hidden {
         display: none;
@@ -143,10 +153,12 @@ for (const post of posts) {
             const slug = post.id.replace(/^pt\//, '');
             const d = post.data.date;
             const monthDay = d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' });
+            const rt = estimateReadingTime(post.body ?? '', 'pt');
             return (
               <li class="post-item" data-tags={normalizeTags(post.data.tags).join(',')}>
                 <time datetime={d.toISOString().split('T')[0]}>{monthDay}</time>
                 <a href={`/pt/blog/${slug}/`}>{post.data.title}</a>
+                <span class="read-time">{rt.shortLabel}</span>
               </li>
             );
           })}

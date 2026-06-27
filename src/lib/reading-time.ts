@@ -3,7 +3,7 @@
  * Speeds: JP ~450 chars/min, EN ~230 words/min. We convert English words into
  * "character-equivalents" so a single integer divisor works for blended text.
  */
-export function estimateReadingTime(body: string, lang: string): { minutes: number; label: string } {
+export function estimateReadingTime(body: string, lang: string): { minutes: number; label: string; shortLabel: string } {
   // strip code fences, inline code, markdown links/images, html tags
   const stripped = body
     .replace(/```[\s\S]*?```/g, '')
@@ -29,6 +29,13 @@ export function estimateReadingTime(body: string, lang: string): { minutes: numb
     pt: (m) => `${m} min de leitura`,
     es: (m) => `${m} min de lectura`,
   };
+  const shortLabels: Record<string, (m: number) => string> = {
+    en: (m) => `${m} min`,
+    ja: (m) => `${m}分`,
+    pt: (m) => `${m} min`,
+    es: (m) => `${m} min`,
+  };
   const fn = labels[lang] ?? labels.en;
-  return { minutes, label: fn(minutes) };
+  const shortFn = shortLabels[lang] ?? shortLabels.en;
+  return { minutes, label: fn(minutes), shortLabel: shortFn(minutes) };
 }
