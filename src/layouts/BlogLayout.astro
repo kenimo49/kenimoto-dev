@@ -95,38 +95,58 @@ const articleJsonLd = {
   }}
 >
   <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
     <style>
+      /* 記事ページのタイポグラフィ: Plex Sans 本文 × Plex Mono 見出し/メタ/code を
+         signature element として 1 軸に boldness を集中。色とレイアウトは quiet に保つ。 */
+      .article-root {
+        font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      }
       .prose {
-        font-size: 1rem;
-        line-height: 1.85;
-        color: var(--text-secondary);
-      }
-      .prose h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
+        font-size: 1.0625rem;
+        line-height: 1.75;
         color: var(--text-primary);
-        margin: 2.5rem 0 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid var(--text-separator);
+        font-feature-settings: 'kern' 1, 'liga' 1;
       }
-      .prose h3 {
-        font-size: 1.25rem;
+      .prose :global(h2) {
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 1.3125rem;
         font-weight: 600;
         color: var(--text-primary);
-        margin: 2rem 0 0.75rem;
+        margin: 3rem 0 1.25rem;
+        letter-spacing: -0.01em;
+        line-height: 1.45;
       }
-      .prose p {
+      .prose :global(h3) {
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 1.0625rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 2.25rem 0 0.75rem;
+        letter-spacing: -0.01em;
+        line-height: 1.5;
+      }
+      .prose :global(p) {
         margin: 0 0 1.25rem;
       }
-      .prose a {
+      .prose :global(a) {
         color: var(--link-color);
         text-decoration: underline;
+        text-underline-offset: 2px;
+        text-decoration-thickness: 1px;
       }
-      .prose code {
+      .prose :global(a:hover) {
+        text-decoration-thickness: 2px;
+      }
+      .prose :global(code) {
         background: var(--bg-card);
-        padding: 0.15rem 0.4rem;
+        border: 1px solid var(--text-separator);
+        padding: 0.1rem 0.4rem;
         border-radius: 4px;
-        font-size: 0.9em;
+        font-size: 0.875em;
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
       }
       .prose pre,
       .prose :global(pre) {
@@ -136,14 +156,19 @@ const articleJsonLd = {
         padding: 1.25rem !important;
         overflow-x: auto;
         margin: 1.5rem 0;
+        font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.9rem;
+        line-height: 1.65;
       }
       .prose pre code,
       .prose :global(pre) code {
         background: none !important;
+        border: none;
         color: inherit;
         padding: 0;
+        font-family: inherit;
       }
-      .prose blockquote {
+      .prose :global(blockquote) {
         border-left: 3px solid var(--accent-blue);
         padding-left: 1rem;
         color: var(--text-label);
@@ -170,11 +195,11 @@ const articleJsonLd = {
       .prose :global(.book-callout a) {
         color: var(--accent-blue);
       }
-      .prose ul, .prose ol {
+      .prose :global(ul), .prose :global(ol) {
         padding-left: 1.5rem;
         margin: 1rem 0;
       }
-      .prose li {
+      .prose :global(li) {
         margin: 0.4rem 0;
       }
       .prose img,
@@ -184,7 +209,7 @@ const articleJsonLd = {
         border-radius: 8px;
         margin: 1.5rem 0;
       }
-      .prose hr {
+      .prose :global(hr) {
         border: none;
         border-top: 1px solid var(--text-separator);
         margin: 2rem 0;
@@ -195,15 +220,16 @@ const articleJsonLd = {
         border-collapse: collapse;
         margin: 1.75rem 0;
         font-size: 0.95rem;
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
       }
-      @media (min-width: 768px) {
+      /* モバイルでは横スクロールが必要な時だけスクロール、原則は wrap させて読ませる */
+      @media (max-width: 600px) {
         .prose table,
         .prose :global(table) {
-          display: table;
-          white-space: normal;
+          font-size: 0.875rem;
+        }
+        .prose th, .prose td,
+        .prose :global(th), .prose :global(td) {
+          padding: 0.5rem 0.65rem;
         }
       }
       .prose thead,
@@ -232,9 +258,9 @@ const articleJsonLd = {
       .prose :global(tbody tr:hover) {
         background: rgba(96, 165, 250, 0.10);
       }
-      .prose strong {
+      .prose :global(strong) {
         color: var(--text-primary);
-        font-weight: 600;
+        font-weight: 700;
       }
     </style>
   </Fragment>
@@ -242,21 +268,18 @@ const articleJsonLd = {
   <Nav lang={lang} current="blog" alternates={alternates} />
 
   <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem;">
-    <article>
+    <article class="article-root">
       <!-- Article header -->
-      <header style="margin-bottom: 2.5rem;">
-        <a href={blogIndexUrl} style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none;">
-          {T.back}
-        </a>
-        <h1 style="font-size: 2rem; font-weight: 700; margin: 1rem 0 0.75rem; line-height: 1.3;">{title}</h1>
-        <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--text-muted);">
+      <header style="margin-bottom: 3rem;">
+        <a href={blogIndexUrl} class="back-link">{T.back}</a>
+        <h1 class="article-title">{title}</h1>
+        <div class="article-meta">
           <time datetime={date.toISOString()}>{formattedDate}</time>
           {tags.length > 0 && (
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              {tags.map(tag => (
-                <span style="background: var(--bg-card); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.8rem;">{tag}</span>
-              ))}
-            </div>
+            <>
+              <span class="meta-sep">/</span>
+              <span class="meta-tags">{tags.join(' · ')}</span>
+            </>
           )}
         </div>
       </header>
@@ -285,16 +308,54 @@ const articleJsonLd = {
   </main>
 
   <style>
+    .back-link {
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .back-link:hover {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .article-title {
+      font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+      font-size: 2.125rem;
+      font-weight: 700;
+      margin: 1.25rem 0 1rem;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      color: var(--text-primary);
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      letter-spacing: 0.01em;
+    }
+    .meta-sep {
+      color: var(--text-separator);
+    }
+    .meta-tags {
+      color: var(--text-label);
+    }
     .feedback {
-      margin-top: 3rem;
+      margin-top: 4rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--text-separator);
       text-align: center;
     }
     .feedback-question {
-      font-size: 0.9rem;
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.85rem;
       color: var(--text-muted);
       margin-bottom: 0.75rem;
+      letter-spacing: 0.01em;
     }
     .feedback-buttons {
       display: flex;
