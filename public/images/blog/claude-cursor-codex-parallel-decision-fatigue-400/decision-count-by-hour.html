@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+:root {
+  --navy: #1E3A5F;
+  --navy-mid: #3D6B99;
+  --navy-light: #7BA3CC;
+  --navy-bg: #E8EEF4;
+  --navy-bg-light: #F0F4F8;
+  --dark: #1A1A2E;
+  --secondary: #6B7B8D;
+  --white: #FFFFFF;
+  --warn: #C0392B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  font-family: 'Noto Sans CJK JP', 'Noto Sans JP', sans-serif;
+  padding: 64px 96px;
+  background: var(--white);
+  color: var(--dark);
+}
+.eyebrow {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+.title {
+  font-size: 68px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 48px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+  height: 560px;
+  padding: 0 24px;
+  border-bottom: 4px solid var(--dark);
+  margin-bottom: 24px;
+  position: relative;
+}
+.bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+.bar-rect {
+  width: 100%;
+  background: var(--navy-mid);
+  border-radius: 12px 12px 0 0;
+  position: relative;
+}
+.bar.peak .bar-rect { background: var(--warn); }
+.bar.start .bar-rect { background: var(--navy); }
+.bar-num {
+  position: absolute;
+  top: -56px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 44px;
+  font-weight: 900;
+  color: var(--dark);
+}
+.bar-label {
+  margin-top: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  color: var(--secondary);
+  font-weight: 700;
+}
+.callout {
+  position: absolute;
+  bottom: 320px;
+  left: 56%;
+  background: var(--warn);
+  color: var(--white);
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-size: 26px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(192,57,43,0.32);
+}
+.callout::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 32px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 14px solid var(--warn);
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 16px;
+}
+.total {
+  font-size: 28px;
+  color: var(--secondary);
+}
+.total strong {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  display: block;
+  line-height: 1;
+}
+.legend {
+  display: flex;
+  gap: 24px;
+  font-size: 20px;
+  color: var(--secondary);
+}
+.legend span { display: flex; align-items: center; gap: 8px; }
+.dot { width: 18px; height: 18px; border-radius: 4px; }
+.dot.warn { background: var(--warn); }
+.dot.mid { background: var(--navy-mid); }
+.dot.dark { background: var(--navy); }
+</style>
+</head>
+<body>
+  <div class="eyebrow">ONE WORKDAY · 3 AGENTS · MEASURED</div>
+  <div class="title">412 binary decisions, one day at the desk.</div>
+  <div class="chart">
+    <div class="bar start"><div class="bar-num">38</div><div class="bar-rect" style="height: 49%"></div><div class="bar-label">09–10</div></div>
+    <div class="bar"><div class="bar-num">51</div><div class="bar-rect" style="height: 66%"></div><div class="bar-label">10–11</div></div>
+    <div class="bar"><div class="bar-num">64</div><div class="bar-rect" style="height: 83%"></div><div class="bar-label">11–12</div></div>
+    <div class="bar"><div class="bar-num">59</div><div class="bar-rect" style="height: 77%"></div><div class="bar-label">13–14</div></div>
+    <div class="bar peak"><div class="bar-num">71</div><div class="bar-rect" style="height: 92%"></div><div class="bar-label">14–15</div></div>
+    <div class="bar peak"><div class="bar-num">68</div><div class="bar-rect" style="height: 88%"></div><div class="bar-label">15–16</div></div>
+    <div class="bar"><div class="bar-num">47</div><div class="bar-rect" style="height: 61%"></div><div class="bar-label">16–17</div></div>
+    <div class="bar"><div class="bar-num">14</div><div class="bar-rect" style="height: 18%"></div><div class="bar-label">17–17:30</div></div>
+    <div class="callout">9-second 14-line approve → broke a typed event</div>
+  </div>
+  <div class="footer">
+    <div class="total">total <strong>412</strong> y/n events</div>
+    <div class="legend">
+      <span><span class="dot dark"></span>start of day</span>
+      <span><span class="dot mid"></span>steady</span>
+      <span><span class="dot warn"></span>afternoon dip (lower quality)</span>
+    </div>
+  </div>
+</body>
+</html>
