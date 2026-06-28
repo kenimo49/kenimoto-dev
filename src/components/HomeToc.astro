@@ -14,7 +14,7 @@ interface Props {
 }
 
 const { lang, items } = Astro.props;
-const tocLabel = lang === 'ja' ? '目次' : (lang === 'pt' ? 'Sumário' : (lang === 'es' ? 'Índice' : 'Contents'));
+const tocLabel = lang === 'ja' ? 'セクション' : (lang === 'pt' ? 'Seções' : (lang === 'es' ? 'Secciones' : 'Contents'));
 ---
 
 <aside class="home-toc" aria-label={tocLabel}>
