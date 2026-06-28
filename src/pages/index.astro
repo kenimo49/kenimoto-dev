@@ -1,10 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import HomeToc from '../components/HomeToc.astro';
 import { getCollection } from 'astro:content';
 import { staticAlternates } from '../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
 import { PERSON_SAMEAS, buildWebSiteEntity } from '../lib/person-entity';
+
+const tocItems = [
+  { id: 'now', label: 'Now' },
+  { id: 'publications', label: 'Publications' },
+  { id: 'articles', label: 'Latest Articles' },
+  { id: 'papers', label: 'Papers' },
+  { id: 'research', label: 'Research' },
+  { id: 'projects', label: 'Projects & Sites' },
+  { id: 'open-source', label: 'Open Source' },
+  { id: 'connect', label: 'Connect' },
+];
 
 // "Now" セクションの更新月はビルド日から自動生成する (毎日ビルドされるので陳腐化しない)
 const updatedLabel = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -102,7 +114,9 @@ const orgJsonLd = {
 >
     <Nav lang="en" current="home" />
 
-    <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem; text-align: center;">
+    <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem; text-align: center; position: relative;">
+      <HomeToc lang="en" items={tocItems} />
+
       <!-- Hero (600px inner wrapper) -->
       <div style="max-width: 600px; margin: 0 auto;">
         <img src="/avatar.jpg" alt="Ken Imoto" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--border-avatar);" />
@@ -134,7 +148,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Now (Step 4) -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="now" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Now</h2>
         <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent-blue);">
           <ul style="list-style: none; padding: 0; line-height: 2; margin: 0;">
@@ -150,7 +164,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Publications (Step 5: Cover-centric grid) -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="publications" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Publications</h2>
 
         <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI DEVELOPMENT</h3>
@@ -239,7 +253,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Latest Articles (collection-driven: blog コレクションの最新6件) -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="articles" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Latest Articles</h2>
         <ul style="list-style: none; padding: 0; line-height: 2.2;">
           {enPosts.map((post) => {
@@ -256,7 +270,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Papers -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="papers" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Papers</h2>
         <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem; border-left: 3px solid var(--accent-amber); margin-bottom: 1rem;">
           <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">⚡ When Free Executors Cost More: The Free-Executor Paradox in Iterative LLM Code-Repair Loops</p>
@@ -297,7 +311,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Research -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="research" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Research</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div style="background: var(--bg-card); border-radius: 8px; padding: 1rem;">
@@ -324,7 +338,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Side Projects -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="projects" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Projects & Sites</h2>
         <div style="display: grid; gap: 0.75rem;">
           <a href="https://propel-lab.co.jp/?utm_source=kenimoto.dev&utm_medium=referral&utm_campaign=cross-property&utm_content=home-card" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
@@ -351,7 +365,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Open Source -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="open-source" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Open Source</h2>
 
         <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI SEARCH</h3>
@@ -396,7 +410,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Connect -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="connect" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Connect</h2>
         <ul style="list-style: none; padding: 0; line-height: 2;">
           {links.map(link => (

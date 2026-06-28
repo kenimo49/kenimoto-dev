@@ -1,0 +1,121 @@
+---
+// HomeToc — トップページ用の右レール sticky TOC
+// BlogLayout の TOC 流用。≥1240px のみ表示、scroll-based highlight。
+// 親 <main> に position: relative が必要。
+
+export interface TocItem {
+  id: string;
+  label: string;
+}
+
+interface Props {
+  lang: 'ja' | 'en' | 'pt' | 'es';
+  items: TocItem[];
+}
+
+const { lang, items } = Astro.props;
+const tocLabel = lang === 'ja' ? '目次' : (lang === 'pt' ? 'Sumário' : (lang === 'es' ? 'Índice' : 'Contents'));
+---
+
+<aside class="home-toc" aria-label={tocLabel}>
+  <div class="home-toc-inner">
+    <div class="toc-label">{tocLabel}</div>
+    <ol class="toc-list">
+      {items.map(item => (
+        <li><a href={`#${item.id}`}>{item.label}</a></li>
+      ))}
+    </ol>
+  </div>
+</aside>
+
+<style>
+  /* TOC: 右レール、sticky 配置。記事位置はずらさず、空いている右側スペースに置く。
+     閾値 1240px は (vp-720)/2 + 720 + 40 + 200 ≤ vp の解。
+     下回るとビューポート右端を超えるので非表示。 */
+  .home-toc {
+    display: none;
+  }
+  @media (min-width: 1240px) {
+    .home-toc {
+      display: block;
+      position: absolute;
+      top: 4rem;
+      left: 100%;
+      margin-left: 2.5rem;
+      width: 200px;
+      text-align: left;
+    }
+    .home-toc-inner {
+      position: sticky;
+      top: 2rem;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+    }
+  }
+  .toc-label {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--text-separator);
+  }
+  .toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+  .toc-list li {
+    margin: 0.5rem 0;
+  }
+  .toc-list a {
+    color: var(--text-label);
+    text-decoration: none;
+    transition: color 0.15s;
+    display: block;
+  }
+  .toc-list a:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+  }
+  .toc-list a.toc-active {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+</style>
+
+<script is:inline>
+  // TOC 追従: section[id] の bounding rect 上端が viewport 上端 30% を通過した最後の section を toc-active 化。
+  document.addEventListener('DOMContentLoaded', function() {
+    var tocLinks = document.querySelectorAll('.home-toc .toc-list a');
+    if (tocLinks.length === 0) return;
+    var slugToLink = {};
+    tocLinks.forEach(function(a) {
+      var id = a.getAttribute('href').replace(/^#/, '');
+      slugToLink[id] = a;
+    });
+    var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+    if (sections.length === 0) return;
+    var setActive = function(id) {
+      tocLinks.forEach(function(a) { a.classList.remove('toc-active'); });
+      if (id && slugToLink[id]) slugToLink[id].classList.add('toc-active');
+    };
+    var current = null;
+    var update = function() {
+      var threshold = window.innerHeight * 0.3;
+      var found = null;
+      for (var i = 0; i < sections.length; i++) {
+        var r = sections[i].getBoundingClientRect();
+        if (r.top <= threshold) found = sections[i].id;
+        else break;
+      }
+      if (found !== current) { current = found; setActive(found); }
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  });
+</script>

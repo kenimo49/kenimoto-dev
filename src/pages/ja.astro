@@ -1,9 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Nav from '../components/Nav.astro';
+import HomeToc from '../components/HomeToc.astro';
 import { staticAlternates } from '../lib/alternates';
 import { buildScholarlyArticleJsonLd } from '../lib/research-papers';
 import { PERSON_SAMEAS, buildWebSiteEntity } from '../lib/person-entity';
+
+const tocItems = [
+  { id: 'now', label: 'Now' },
+  { id: 'publications', label: '出版物' },
+  { id: 'articles', label: '最新記事' },
+  { id: 'papers', label: '論文' },
+  { id: 'research', label: '研究' },
+  { id: 'side-projects', label: 'Side Projects' },
+  { id: 'open-source', label: 'Open Source' },
+  { id: 'connect', label: 'SNS・コンタクト' },
+];
 
 // "Now" の更新月はビルド日から自動生成 (毎日ビルドで陳腐化しない)
 const updatedLabelJa = new Date().toLocaleDateString('ja-JP', { year: 'numeric', month: 'long' });
@@ -204,7 +216,9 @@ const orgJsonLd = {
 
     <Nav lang="ja" current="home" />
 
-    <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem; text-align: center;">
+    <main style="max-width: 720px; margin: 0 auto; padding: 4rem 2rem; text-align: center; position: relative;">
+      <HomeToc lang="ja" items={tocItems} />
+
       <!-- Hero (600px inner wrapper) -->
       <div style="max-width: 600px; margin: 0 auto;">
         <img src="/avatar.jpg" alt="井本 賢" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1.5rem; border: 3px solid var(--border-avatar);" />
@@ -236,7 +250,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Now (Step 4) -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="now" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Now</h2>
         <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem 1.5rem; border-left: 3px solid var(--accent-blue);">
           <ul style="list-style: none; padding: 0; line-height: 2; margin: 0;">
@@ -252,7 +266,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Publications (Step 5: Cover-centric grid) -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="publications" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">出版物</h2>
 
         <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔧 AI開発シリーズ</h3>
@@ -404,7 +418,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Latest Articles -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="articles" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">最新記事</h2>
         <ul style="list-style: none; padding: 0; line-height: 2.2;">
           <li>📝 <a href="https://zenn.dev/kenimo49/articles/code-review-6-stages-ai-human-boundary">コードレビューを6段階にしたら、AIと人間の分業が見えた</a> <span style="color: var(--text-muted); font-size: 0.75rem;">Zenn</span></li>
@@ -416,7 +430,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Papers -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="papers" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">論文</h2>
         <div style="background: var(--bg-card); border-radius: 8px; padding: 1.25rem; border-left: 3px solid var(--accent-amber); margin-bottom: 1rem;">
           <p style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">⚡ Free-Executor Paradox: 反復LLMコード修復ループで「タダのエグゼキュータ」が一番高くつく</p>
@@ -457,7 +471,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Research -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="research" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">研究</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div style="background: var(--bg-card); border-radius: 8px; padding: 1rem;">
@@ -484,7 +498,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Side Projects -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="side-projects" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Side Projects</h2>
         <div style="display: grid; gap: 0.75rem;">
           <a href="https://legacydram.com/ja/" target="_blank" rel="noopener noreferrer" style="display: block; background: var(--bg-card); border-radius: 8px; padding: 1rem; text-decoration: none; color: inherit;">
@@ -499,7 +513,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Open Source -->
-      <section style="margin-bottom: 3rem; text-align: left;">
+      <section id="open-source" style="margin-bottom: 3rem; text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">Open Source</h2>
 
         <h3 style="font-size: 0.75rem; font-weight: 600; color: var(--accent-amber); margin-bottom: 0.5rem; letter-spacing: 0.05em;">🔍 LLMO / AI SEARCH</h3>
@@ -544,7 +558,7 @@ const orgJsonLd = {
       </section>
 
       <!-- Connect -->
-      <section style="text-align: left;">
+      <section id="connect" style="text-align: left; scroll-margin-top: 2rem;">
         <h2 style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 1rem;">SNS・コンタクト</h2>
         <ul style="list-style: none; padding: 0; line-height: 2;">
           {links.map(link => (
