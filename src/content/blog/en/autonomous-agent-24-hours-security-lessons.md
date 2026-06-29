@@ -10,6 +10,8 @@ og_image: "https://kenimoto.dev/images/blog/autonomous-agent-24-hours-security-l
 cross_posted_to:
   - platform: Dev.to
     url: https://dev.to/kenimo49/i-let-my-claude-code-agent-run-for-24-hours-the-400-bill-was-the-least-scary-part-2ab9
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/claude-code-ran-24-hours-unattended-3-owasp-agentic-security-lessons-and-a-400-bill-54ee-temp-slug-8737215
 ---
 
 I read a stack of posts about "autonomous AI agents," opened Claude Code, passed `--dangerously-skip-permissions`, and let it run for twenty-four hours.
