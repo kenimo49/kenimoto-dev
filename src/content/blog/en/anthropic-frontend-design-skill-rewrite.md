@@ -7,7 +7,9 @@ tags: [anthropic, claude-code, design, frontend, ai-ui]
 featured: false
 canonical_url: "https://kenimoto.dev/blog/anthropic-frontend-design-skill-rewrite/"
 og_image: "https://kenimoto.dev/images/blog/anthropic-frontend-design-skill-rewrite/og.png"
-cross_posted_to: []
+cross_posted_to:
+  - platform: Dev.to
+    url: https://dev.to/kenimo49/anthropic-rewrote-frontend-design-skill-3-ai-design-cliches-named-with-hex-codes-38md-temp-slug-6969460
 ---
 
 Anthropic quietly rewrote their `frontend-design` skill on June 18 in commit [`423563cf`](https://github.com/anthropics/claude-code/commit/423563cf). The new version contradicts the old one on its central thesis, and names three specific AI-generated design clichés in the public plugin documentation. With hex codes.
