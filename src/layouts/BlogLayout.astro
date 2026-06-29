@@ -58,6 +58,20 @@ const ogImageAbs = ogImage
   ? (ogImage.startsWith('http') ? ogImage : new URL(ogImage, SITE_URL).href)
   : `${SITE_URL}/og-image.png`;
 
+// Pillar badge: tag-driven hub-and-spoke. tags に pillar slug を含み、本人(pillar 自身)でなければ表示。
+type PillarKey = 'llmo';
+const PILLARS: Record<PillarKey, { label: Record<'en'|'ja'|'pt'|'es', string> }> = {
+  llmo: { label: { en: 'LLMO Field Guide', ja: 'LLMO 総合ガイド', pt: 'Guia LLMO', es: 'Guía LLMO' } },
+};
+const currentSlug = (canonicalUrl.match(/\/blog\/([^\/]+)\/?$/) ?? [])[1] ?? '';
+const lowerTags = tags.map(t => t.toLowerCase());
+const pillarKey = (Object.keys(PILLARS) as PillarKey[]).find(k => lowerTags.includes(k) && currentSlug !== k);
+const pillarBadge = pillarKey ? {
+  href: `${langPrefix}/blog/${pillarKey}/`,
+  label: PILLARS[pillarKey].label[lang],
+  cta: lang === 'ja' ? 'この記事を含む総合ガイド' : (lang === 'pt' ? 'Guia geral que inclui este artigo' : (lang === 'es' ? 'Guía general que incluye este artículo' : 'Part of')),
+} : null;
+
 const blogPostingJsonLd = {
   '@type': 'BlogPosting',
   headline: title,
@@ -412,6 +426,15 @@ const articleJsonLd = {
         </div>
       </header>
 
+      {pillarBadge && (
+        <a href={pillarBadge.href} class="pillar-badge">
+          <span class="pillar-badge-icon" aria-hidden="true">📚</span>
+          <span class="pillar-badge-cta">{pillarBadge.cta}</span>
+          <span class="pillar-badge-label">{pillarBadge.label}</span>
+          <span class="pillar-badge-arrow" aria-hidden="true">→</span>
+        </a>
+      )}
+
       <!-- Article body -->
       <div class="prose">
         <slot />
@@ -550,6 +573,43 @@ const articleJsonLd = {
     }
     .meta-tags {
       color: var(--text-label);
+    }
+    /* Pillar badge: hub-and-spoke 逆リンク。tags 駆動で BlogLayout が自動挿入する。
+       ピラー自身のページには出さない (currentSlug !== pillar slug の条件)。 */
+    .pillar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0 0 2.5rem;
+      padding: 0.55rem 0.95rem;
+      border: 1px solid var(--text-separator);
+      border-radius: 999px;
+      background: var(--bg-card);
+      text-decoration: none;
+      font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.78rem;
+      color: var(--text-label);
+      transition: border-color 0.15s, color 0.15s;
+      letter-spacing: 0.01em;
+    }
+    .pillar-badge:hover {
+      border-color: var(--accent-blue);
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .pillar-badge-icon {
+      font-size: 0.95rem;
+    }
+    .pillar-badge-cta {
+      color: var(--text-muted);
+    }
+    .pillar-badge-label {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .pillar-badge-arrow {
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
     .prev-next {
       display: grid;
